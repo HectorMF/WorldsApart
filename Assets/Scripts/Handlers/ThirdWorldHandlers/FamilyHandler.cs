@@ -12,6 +12,7 @@ namespace WorldsApart.Handlers
 			{
 				ThirdWorldManager.Instance.IncrementMood();
 				ThirdWorldManager.Instance.DecrementWater(8);
+				ThirdWorldManager.Instance.ProvidedWaterToFamily = true;
 			}
 			ThirdWorldManager.Instance.Report();
 		}

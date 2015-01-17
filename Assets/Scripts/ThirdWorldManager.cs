@@ -29,7 +29,7 @@ public class ThirdWorldManager
 	private Mood currentMood = Mood.Neutral;
 	private Weather currentWeather;
 	private int requiredFood = 12;
-	private bool providedWaterToFamily;
+	public bool ProvidedWaterToFamily;
 
 	public Mood CurrentMood  	{ get { return currentMood; }  set {} }
 	public int CurrentWater 	{ get { return currentWater; }  set {} }
@@ -58,6 +58,7 @@ public class ThirdWorldManager
 	
 	private void Reinitialize()
 	{
+		ProvidedWaterToFamily = false;
 		currentWater = currentFood = 0;
 		float rand = Random.Range(0.0f, 1.0f);
 		if (rand < 0.1f)
@@ -102,8 +103,20 @@ public class ThirdWorldManager
 		else
 		{
 			DecrementMood();
-			Debug.Log("Your family didn't eat enough today");
+			Debug.Log("Your family is hungry");
 		}
+
+		if (ProvidedWaterToFamily)
+		{ 
+			Debug.Log ("Your family drank enough water today!");
+			IncrementMood();
+		}
+		else
+		{
+			DecrementMood();
+			Debug.Log("Your family is thirsty");
+		}
+
 		Report();
 		UnityEngine.Debug.ClearDeveloperConsole();
 		Reinitialize();
