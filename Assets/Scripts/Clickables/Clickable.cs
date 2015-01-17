@@ -27,5 +27,11 @@ namespace WorldsApart.Clickables
                     handler.invoke();
             }
         }
+
+        public void AddHandler(Handler handler)
+        {
+            Handlers.Add(handler);
+            handler.gameObject = gameObject;
+        }
     }
 }
