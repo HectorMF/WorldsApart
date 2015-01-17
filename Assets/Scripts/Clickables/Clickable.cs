@@ -26,6 +26,10 @@ namespace WorldsApart.Clickables
                 foreach (Handler handler in Handlers)
                     handler.Invoke();
             }
+            var moveHandler = new MoveHandler();
+            moveHandler.targetObject = GameObject.Find("Man");
+            moveHandler.target = transform.localPosition;
+            moveHandler.Invoke();
         }
 
         public void AddHandler(Handler handler)
