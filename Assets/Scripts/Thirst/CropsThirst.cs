@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChickenThirst : Thirst {
-	
+public class CropsThirst : Thirst {
+		
 	void Start () {
 		SurvivesFor = 1;
 		WaterRequiredPerMember = 1;
-		MemberCount = 3;
+		MemberCount = 10;
 		DaysWithoutWater = 0;
 	}
 	
