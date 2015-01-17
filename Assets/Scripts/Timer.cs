@@ -7,7 +7,7 @@ using WorldsApart.Handlers;
 
 namespace WorldsApart
 {
-    public class Timer : MonoBehaviour
+    public class ActionTimer : MonoBehaviour
     {
         public int actions = 1;
         public bool looping;

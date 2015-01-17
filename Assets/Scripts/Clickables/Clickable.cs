@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Vexe.Runtime.Types;
 using WorldsApart.Handlers;
 
-namespace WorldsApart
+namespace WorldsApart.Clickables
 {
 
     public class Clickable : BetterBehaviour

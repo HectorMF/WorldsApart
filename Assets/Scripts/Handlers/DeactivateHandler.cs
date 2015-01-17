@@ -3,17 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
-using WorldsApart.Clickables;
 
 namespace WorldsApart.Handlers
 {
-    public class ActivateClickableHandler : Handler
+    public class DeactivateHandler : Handler
     {
-        public Clickable clickable;
-
         public override void invoke()
         {
-            clickable.active = true;
+            gameObject.SetActive(false);
         }
     }
 }
