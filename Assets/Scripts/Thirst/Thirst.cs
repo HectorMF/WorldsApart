@@ -20,7 +20,7 @@ public class Thirst : MonoBehaviour {
 		ThirdWorldManager.OnDayEnd -= DayEnd;
 	}
 	
-	public void DayEnd()
+	public virtual void DayEnd()
 	{
 		DaysWithoutWater += AmountDrank == TotalRequiredWater ? 0 : 1;
 		if(DaysWithoutWater >= SurvivesFor)
@@ -33,6 +33,7 @@ public class Thirst : MonoBehaviour {
 				gameObject.SetActive(false);
 			}
 		}
+		AmountDrank = 0;
 	}
 	
 	public void Drink()
