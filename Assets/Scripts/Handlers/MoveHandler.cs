@@ -7,10 +7,12 @@ using UnityEngine;
 namespace WorldsApart.Handlers
 {
     public class MoveHandler : Handler
-    {
+	{
+		Vector3 target;
+
         public override void innerDelegate()
         {
-            gameObject.transform.position += new UnityEngine.Vector3(1f, 0f, 0f);
+			gameObject.GetComponent<Movement>().Move(target);
         }
     }
 }
