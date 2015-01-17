@@ -76,7 +76,7 @@ MonoBehaviour:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"$type":"WorldsApart.Handlers.DeactivateHandler"},{"counter":null,"$type":"WorldsApart.Handlers.IncrementCounterHandler"}]'
+      - '[{"$type":"WorldsApart.Handlers.DeactivateHandler"},{"counter":null,"amount":1,"$type":"WorldsApart.Handlers.IncrementCounterHandler"}]'
       - true
   id: 4882f9ef-6f9c-43c5-97e9-ca5976329d82
   active: 1

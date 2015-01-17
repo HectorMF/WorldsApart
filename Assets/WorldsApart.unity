@@ -87,7 +87,7 @@ GameObject:
   - 124: {fileID: 1149292371}
   - 81: {fileID: 1149292370}
   - 114: {fileID: 1149292377}
-  - 114: {fileID: 1149292376}
+  - 114: {fileID: 1149292375}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -134,7 +134,7 @@ Camera:
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
-  field of view: 60
+  field of view: 73.5397186
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -160,7 +160,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1149292376
+--- !u!114 &1149292375
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -168,33 +168,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149292369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74ebe5d0c0ad3e84fa78f26567f80e31, type: 3}
+  m_Script: {fileID: 11500000, guid: ca686f8bae03f73488a8c33694543ca8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
     serializedObjects:
-    - {fileID: 100000, guid: b838820851e57b246a1ab9634cba431c, type: 2}
     - {fileID: 1149292377}
+    - {fileID: 100000, guid: b838820851e57b246a1ab9634cba431c, type: 2}
     serializedStrings:
       keys:
+      - 'Field: Counter counter'
       - 'Field: BoundingBox bounds'
       - 'Field: float waitTime'
       - 'Field: Dictionary<GameObject, float> objects'
-      - 'Field: Counter counter'
       values:
+      - '{"$content":0}'
       - '{"top":10,"bottom":-10,"left":-10,"right":10,"z":0}'
-      - 0
-      - '[{"Key":{"$content":0,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}}]'
-      - '{"$content":1}'
-  id: 8fa466a9-2fe4-4d7f-bcad-127741670abc
+      - 1
+      - '[{"Key":{"$content":1,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}}]'
+  id: d8147f12-61cf-4cef-bc9f-8ef049378c47
   bounds:
     top: 10
     bottom: -10
     left: -10
     right: 10
     z: 0
-  waitTime: 0
+  waitTime: 1
   counter: {fileID: 1149292377}
 --- !u!114 &1149292377
 MonoBehaviour:

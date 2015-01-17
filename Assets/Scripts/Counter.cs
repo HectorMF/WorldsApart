@@ -10,12 +10,12 @@ namespace WorldsApart
     {
         public int count;
 
-        public void Increment(int amount = 1)
+        public void Increment(int amount)
         {
             count += amount;
         }
 
-        public void Decrement(int amount = 1)
+        public void Decrement(int amount)
         {
             count -= amount;
         }

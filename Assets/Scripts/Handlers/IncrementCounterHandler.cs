@@ -8,11 +8,12 @@ namespace WorldsApart.Handlers
     public class IncrementCounterHandler : Handler
     {
         public Counter counter;
+        public int amount;
 
         public override void invoke()
         {
             if(counter != null)
-                counter.Increment();
+                counter.Increment(amount);
         }
     }
 }
