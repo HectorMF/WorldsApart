@@ -20,7 +20,7 @@ namespace WorldsApart.Handlers
 
 		void Start()
 		{
-			target = transform.position;
+			target = transform.localPosition;
 			travelDist = 0f;
 			turn = false;
 		}
@@ -36,7 +36,7 @@ namespace WorldsApart.Handlers
 					waitTimer = 0f;
 					turn = !turn;
 					travelDist = 0f;
-					startPos = transform.position;
+					startPos = transform.localPosition;
 					Target();
 				}
 			}
@@ -45,7 +45,7 @@ namespace WorldsApart.Handlers
 				travelDist += Time.deltaTime * speed;
 				fracJourney = travelDist / distance.x;
 				
-				transform.position = Vector3.Lerp(startPos, target, fracJourney);
+				transform.localPosition = Vector3.Lerp(startPos, target, fracJourney);
 			}
 			else // At target pos, start waiting
 				waiting = true;
@@ -53,9 +53,9 @@ namespace WorldsApart.Handlers
 		void Target()
 		{
 			if(turn)
-				target = transform.position + distance;
+				target = transform.localPosition + distance;
 			else
-				target = transform.position - distance;
+				target = transform.localPosition - distance;
 		}
 	}
 }
