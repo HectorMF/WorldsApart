@@ -18,7 +18,7 @@ obj/
 *.user
 *.unityproj
 *.booproj
-
+/BetterEditorPrefs.asset
 # ============ #
 # OS generated #
 # ============ #
