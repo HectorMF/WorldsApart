@@ -4,7 +4,7 @@ using System;
 
 public class Movement : MonoBehaviour
 {
-	bool moving = false;
+	public bool moving = false;
 	Vector3 target;
 	Vector3 dir;
 	float speed = 1f;
