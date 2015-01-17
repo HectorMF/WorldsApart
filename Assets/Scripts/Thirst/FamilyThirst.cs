@@ -20,6 +20,7 @@ public class FamilyThirst : Thirst {
 	
 	public override void DrinkSuccess()
 	{
+		base.DrinkSuccess();
 		ThirdWorldManager.Instance.IncrementMood();
 		ThirdWorldManager.Instance.ProvidedWaterToFamily = true;
 		Debug.Log("Your " + name + " has enough water");

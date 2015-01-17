@@ -12,6 +12,7 @@ public class CropsThirst : Thirst {
 	
 	public override void DrinkSuccess()
 	{
+		base.DrinkSuccess();
 		ThirdWorldManager.Instance.IncrementFood(MemberCount);
 		Debug.Log("Your " + name + " has enough water");
 	}
