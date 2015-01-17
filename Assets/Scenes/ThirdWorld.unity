@@ -179,7 +179,6 @@ GameObject:
   - 33: {fileID: 729649818}
   - 65: {fileID: 729649817}
   - 23: {fileID: 729649816}
-  - 114: {fileID: 729649815}
   m_Layer: 0
   m_Name: House
   m_TagString: Untagged
@@ -187,29 +186,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &729649815
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 729649814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1101c2f669287b947b343c79df8a9be7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dbg: 0
-  _serializationData:
-    serializedObjects: []
-    serializedStrings:
-      keys:
-      - 'Field: List<Handler> Handlers'
-      - 'Field: bool active'
-      values:
-      - '[null]'
-      - true
-  id: 55ff3222-d5c0-453b-983c-e8104df8d2c7
-  active: 1
 --- !u!23 &729649816
 Renderer:
   m_ObjectHideFlags: 0
