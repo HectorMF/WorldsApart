@@ -16,6 +16,29 @@ public class FamilyThirst : Thirst {
 		ThirdWorldManager.Instance.ProvidedWaterToFamily = true;
 		Debug.Log("Your " + name + " has enough water");
 	}
+
+	public override void DayEnd ()
+	{
+		if (AmountDrank >= TotalRequiredWater)
+		{ 
+			Debug.Log ("Your family drank enough water today!");
+		}
+		else
+		{
+			ThirdWorldManager.Instance.DecrementMood();
+			string adj;
+			if (AmountDrank >= 0 && AmountDrank < 3)
+				adj = " extremely ";
+			else if (AmountDrank >= 4 && AmountDrank < 7)
+				adj = " very ";
+			else
+				adj = " somewhat ";
+
+			Debug.Log("Your family is" + adj + "thirsty");
+		}
+
+		base.DayEnd ();
+	}
 }
 
 //public int DaysWithoutWater { get; set; }
