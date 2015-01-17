@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class Thirst : MonoBehaviour {
 	
@@ -22,7 +23,13 @@ public class Thirst : MonoBehaviour {
 	
 	public virtual void DayEnd()
 	{
-		DaysWithoutWater += AmountDrank == TotalRequiredWater ? 0 : 1;
+		if (AmountDrank == TotalRequiredWater)
+			DaysWithoutWater = 0;
+		else
+			DaysWithoutWater += 1;
+
+		Debug.Log("Drank enough: " + (AmountDrank == TotalRequiredWater) + " " + DaysWithoutWater);
+
 		if(DaysWithoutWater >= SurvivesFor)
 		{
 			MemberCount -= 1;
@@ -39,7 +46,7 @@ public class Thirst : MonoBehaviour {
 	public void Drink()
 	{
 		AmountDrank += ThirdWorldManager.Instance.DecrementWater(TotalRequiredWater - AmountDrank);
-		if (AmountDrank == TotalRequiredWater)
+		if (AmountDrank >= TotalRequiredWater)
 		{
 			DrinkSuccess();
 		}
@@ -47,6 +54,7 @@ public class Thirst : MonoBehaviour {
 		{
 			Debug.Log("your " + name + " still needs " + (TotalRequiredWater - AmountDrank) + "L of water");
 		}
+		Debug.Log (string.Format("Name: {2}, Members: {0}, Tot Req H20: {1}, Drank: {3}", MemberCount, TotalRequiredWater, name, AmountDrank));
 	}
 	
 	public virtual void DrinkSuccess()

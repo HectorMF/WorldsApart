@@ -3,11 +3,19 @@ using System.Collections;
 
 public class FamilyThirst : Thirst {
 
+	int foodRequiredPerPerson = 3;
+
 	void Start () {
 		SurvivesFor = 3;
 		WaterRequiredPerMember = 2;
 		MemberCount = 4;
 		DaysWithoutWater = 0;
+		SetFoodRequirements();
+	}
+
+	void SetFoodRequirements()
+	{
+		ThirdWorldManager.Instance.RequiredFood = foodRequiredPerPerson * MemberCount;
 	}
 	
 	public override void DrinkSuccess()
@@ -36,7 +44,7 @@ public class FamilyThirst : Thirst {
 
 			Debug.Log("Your family is" + adj + "thirsty");
 		}
-
+		SetFoodRequirements();
 		base.DayEnd ();
 	}
 }

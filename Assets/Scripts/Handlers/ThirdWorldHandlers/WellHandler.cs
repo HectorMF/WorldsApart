@@ -11,6 +11,7 @@ namespace WorldsApart.Handlers
 			if (ThirdWorldManager.Instance.AvailableWater > 0 && ThirdWorldManager.Instance.TryAction())
 			{
 				ThirdWorldManager.Instance.GetWater();
+				gameObject.GetComponent<PumpAnimator>().Pump();
 			}
 			ThirdWorldManager.Instance.Report();
 		}
