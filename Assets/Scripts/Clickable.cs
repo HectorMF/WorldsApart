@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using Vexe.Runtime.Types;
+using WorldsApart.Handlers;
 
 namespace WorldsApart
 {
@@ -8,6 +9,7 @@ namespace WorldsApart
     public class Clickable : BetterBehaviour
     {
         public List<Handler> Handlers;
+        public bool active = true;
 
         void Start()
         {
@@ -17,8 +19,11 @@ namespace WorldsApart
 
         void OnMouseUpAsButton()
         {
-            foreach(Handler handler in Handlers)
-                handler.invoke();
+            if (active)
+            {
+                foreach (Handler handler in Handlers)
+                    handler.invoke();
+            }
         }
     }
 

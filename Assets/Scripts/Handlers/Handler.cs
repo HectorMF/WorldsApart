@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Vexe.Runtime.Types;
 
-namespace WorldsApart
+namespace WorldsApart.Handlers
 {
     [Serializable]
     public abstract class Handler
