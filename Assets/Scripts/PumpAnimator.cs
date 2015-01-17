@@ -7,6 +7,7 @@ public class PumpAnimator : MonoBehaviour {
 	float time, totalTime;
 	bool IsPumping;
 	// Use this for initialization
+
 	void Start () {
 		idle = transform.Find("PumpIdle");
 		pumping = transform.Find("Pumping");
