@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
-using WorldsApart.Interfaces;
 
 namespace WorldsApart.Handlers
 {
 	public class UseWaterHandler : Handler 
 	{
-		public override void invoke()
+		public override void innerDelegate()
 		{
 			if (ThirdWorldManager.Instance.AnyWater && ThirdWorldManager.Instance.TryAction())
 			{

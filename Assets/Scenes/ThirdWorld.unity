@@ -581,7 +581,7 @@ MonoBehaviour:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.FamilyHandler"}]'
+      - '[]'
       - true
   id: 55ff3222-d5c0-453b-983c-e8104df8d2c7
   active: 1
