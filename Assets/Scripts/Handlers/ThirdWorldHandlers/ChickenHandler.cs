@@ -3,18 +3,17 @@ using System.Collections;
 
 namespace WorldsApart.Handlers
 {
-	public class WaterCropsHandler : Handler 
+	public class ChickenHandler : Handler
 	{
 		public override void invoke()
 		{
-			Debug.Log("water crops");
-			if (ThirdWorldManager.Instance.CurrentWater > 0 && ThirdWorldManager.Instance.TryAction())
+			Debug.Log("water chicken");
+			if (ThirdWorldManager.Instance.CurrentWater >= 3 && ThirdWorldManager.Instance.TryAction())
 			{
 				ThirdWorldManager.Instance.IncrementFood(2);
-				ThirdWorldManager.Instance.DecrementWater(2);
+				ThirdWorldManager.Instance.DecrementWater(3);
 			}
 			ThirdWorldManager.Instance.Report();
-
 		}
 	}
 }

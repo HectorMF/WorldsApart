@@ -6,13 +6,12 @@ public class ThirdWorldManager
 	private static ThirdWorldManager instance;
 
 	const int MoodMax = 4;
-	const int WaterMax = 100;
 	const int DefaultActions = 5;
-	const int WaterCapacity = 5;
+	const int WaterCapacity = 20;
 
 	public enum Mood
 	{
-		Depressed = 3,
+		Depressed = 2,
 		Sad,
 		Neutral,
 		Happy,
@@ -28,7 +27,9 @@ public class ThirdWorldManager
 
 	private int currentWater, currentFood, actions, availableWater;
 	private Mood currentMood = Mood.Neutral;
-	private int requiredFood = 4;
+	private Weather currentWeather;
+	private int requiredFood = 12;
+	private bool providedWaterToFamily;
 
 	public Mood CurrentMood  	{ get { return currentMood; }  set {} }
 	public int CurrentWater 	{ get { return currentWater; }  set {} }
@@ -39,7 +40,6 @@ public class ThirdWorldManager
 
 	public ThirdWorldManager()
 	{
-		UnityEngine.Debug.Log("initializing");
 		Reinitialize();
 		Report();
 	}
@@ -59,29 +59,55 @@ public class ThirdWorldManager
 	private void Reinitialize()
 	{
 		currentWater = currentFood = 0;
-		switch (Random.Range(0, 3))
+		float rand = Random.Range(0.0f, 1.0f);
+		if (rand < 0.1f)
 		{
-		case (int)Weather.Rainy:
-			availableWater = 15;
+			currentWeather = Weather.Rainy;
+			availableWater = 30;
 			IncrementMood();
 			actions = (int)currentMood;
-			break; 
-		case (int)Weather.Nice:
-			availableWater = 10;
+		}
+		else if (rand < 0.5f)
+		{
+			currentWeather = Weather.Nice;
+			availableWater = 25;
 			actions = (int)currentMood;
-			break;
-		case (int)Weather.Dry:
-			availableWater = 7;
+		}
+		else
+		{
+			currentWeather = Weather.Dry;
+			availableWater = 20;
 			DecrementMood();
 			actions = (int)currentMood;
-			break;
 		}
+		UnityEngine.Debug.Log ("A new day! The weather is " + currentWeather);
 	}
 
 	public bool TryAction()
 	{
 		actions -= 1;
-		return actions > 0;
+		if(actions < 0) 
+			return ResolveDay();
+		else
+			return actions >= 0;
+	}
+
+	private bool ResolveDay()
+	{
+		if (currentFood >= requiredFood) 
+		{ 
+			Debug.Log ("You fed your family!");
+			IncrementMood();
+		}
+		else
+		{
+			DecrementMood();
+			Debug.Log("Your family didn't eat enough today");
+		}
+		Report();
+		UnityEngine.Debug.ClearDeveloperConsole();
+		Reinitialize();
+		return false;
 	}
 
 	public void GetWater()
@@ -108,7 +134,7 @@ public class ThirdWorldManager
 
 	public void IncrementWater(int value)
 	{
-		currentWater = (currentWater + value <= WaterMax) ? currentWater + value : WaterMax;
+		currentWater = (currentWater + value <= WaterCapacity) ? currentWater + value : WaterCapacity;
 	}
 
 	public void DecrementWater(int value)
@@ -125,6 +151,9 @@ public class ThirdWorldManager
 			break;
 		case Mood.Sad:
 			currentMood = Mood.Neutral;
+			break;
+		case Mood.Neutral:
+			currentMood = Mood.Happy;
 			break;
 		case Mood.Happy:
 			currentMood = Mood.Ecstatic;
@@ -145,6 +174,9 @@ public class ThirdWorldManager
 		case Mood.Sad:
 			currentMood = Mood.Depressed;
 			break;
+		case Mood.Neutral:
+			currentMood = Mood.Sad;
+			break;
 		case Mood.Happy:
 			currentMood = Mood.Neutral;
 			break;
@@ -157,7 +189,6 @@ public class ThirdWorldManager
 	public void IncrementFood(int value)
 	{
 		currentFood += value;
-		if (currentFood >= requiredFood) IncrementMood();
 	}
 	
 	public void DecrementFood()
@@ -167,11 +198,13 @@ public class ThirdWorldManager
 
 	public void Report()
 	{
-		UnityEngine.Debug.Log("Food: " + currentFood);
-		UnityEngine.Debug.Log("Mood: " + currentMood);
-		UnityEngine.Debug.Log("Water: " + currentWater);
-		UnityEngine.Debug.Log("Actions: " + actions);
-		UnityEngine.Debug.Log("Available Water: " + availableWater);
+		string weather = "The weather is " + currentWeather + ". ";
+		string food = currentFood > requiredFood ? "You have enough food. " : "You don't have enough food. ";
+		string mood = "You're feeling " + currentMood + ".";
+		string water = "You've got " + currentWater + "L of water. ";
+		string well = "The well has " + availableWater + "L left. ";
+		string actions_left = "You can do " + actions + " more things. ";
+		UnityEngine.Debug.Log(weather + food + water + well + actions_left + mood);
 		UnityEngine.Debug.Log("-----------------------------------------");
 	}
 }

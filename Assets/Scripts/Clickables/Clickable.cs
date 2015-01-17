@@ -5,7 +5,6 @@ using WorldsApart.Handlers;
 
 namespace WorldsApart.Clickables
 {
-
     public class Clickable : BetterBehaviour
     {
         public List<Handler> Handlers;
