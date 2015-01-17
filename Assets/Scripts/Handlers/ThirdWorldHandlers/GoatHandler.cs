@@ -5,7 +5,7 @@ namespace WorldsApart.Handlers
 {
 	public class GoatHandler : Handler 
 	{
-		public override void invoke()
+        public override void innerDelegate()
 		{
 			Debug.Log("water goat");
 			if (ThirdWorldManager.Instance.CurrentWater >= 4 && ThirdWorldManager.Instance.TryAction())

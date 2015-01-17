@@ -11,7 +11,7 @@ namespace WorldsApart.Handlers
     {
         public Clickable clickable;
 
-        public override void invoke()
+        public override void innerDelegate()
         {
             clickable.active = true;
         }

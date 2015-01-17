@@ -5,7 +5,7 @@ namespace WorldsApart.Handlers
 {
 	public class WellHandler : Handler
 	{
-		public override void invoke()
+        public override void innerDelegate()
 		{
 			Debug.Log("get water from well");
 			if (ThirdWorldManager.Instance.AvailableWater > 0 && ThirdWorldManager.Instance.TryAction())

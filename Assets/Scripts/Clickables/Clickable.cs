@@ -24,7 +24,7 @@ namespace WorldsApart.Clickables
             if (active)
             {
                 foreach (Handler handler in Handlers)
-                    handler.invoke();
+                    handler.Invoke();
             }
         }
 

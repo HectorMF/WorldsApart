@@ -5,7 +5,7 @@ namespace WorldsApart.Handlers
 {
 	public class FamilyHandler : Handler 
 	{
-		public override void invoke()
+        public override void innerDelegate()
 		{
 			Debug.Log("water family");
 			if (ThirdWorldManager.Instance.CurrentWater >= 8 && ThirdWorldManager.Instance.TryAction())

@@ -12,7 +12,7 @@ namespace WorldsApart.Handlers
         
         private Counter counter;
 
-        public override void invoke()
+        public override void innerDelegate()
         {
             if (counter == null)
                 counter = CounterManager.Instance().GetCounter(counterName);

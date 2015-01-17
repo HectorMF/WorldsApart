@@ -5,7 +5,7 @@ namespace WorldsApart.Handlers
 {
 	public class ChickenHandler : Handler
 	{
-		public override void invoke()
+        public override void innerDelegate()
 		{
 			Debug.Log("water chicken");
 			if (ThirdWorldManager.Instance.CurrentWater >= 3 && ThirdWorldManager.Instance.TryAction())

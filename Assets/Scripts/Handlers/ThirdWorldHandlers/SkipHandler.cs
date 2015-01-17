@@ -6,7 +6,7 @@ namespace WorldsApart.Handlers
 {
 	public class SkipHandler : Handler
 	{
-		public override void invoke()
+        public override void innerDelegate()
 		{
 			ThirdWorldManager.Instance.TryAction();
 		}

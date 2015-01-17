@@ -27,7 +27,7 @@ namespace WorldsApart.Utility
             if (stepsLeft == 0)
             {
                 foreach (var handler in handlers)
-                    handler.invoke();
+                    handler.Invoke();
                 if (looping)
                     stepsLeft = actions;
             }

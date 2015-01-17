@@ -8,7 +8,7 @@ namespace WorldsApart.Handlers
 {
     public class DeactivateHandler : Handler
     {
-        public override void invoke()
+        public override void innerDelegate()
         {
             gameObject.SetActive(false);
         }

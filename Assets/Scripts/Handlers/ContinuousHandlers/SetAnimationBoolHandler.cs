@@ -12,7 +12,7 @@ namespace WorldsApart.Handlers
         public string booleanName;
         public bool value;
 
-        public override void invoke()
+        public override void innerDelegate()
         {
             var animator = gameObject.GetComponent<Animator>();
             if (animator != null) animator.SetBool(booleanName, value);
