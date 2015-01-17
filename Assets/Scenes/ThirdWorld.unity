@@ -88,6 +88,7 @@ GameObject:
   - 114: {fileID: 71100284}
   - 114: {fileID: 71100286}
   - 114: {fileID: 71100285}
+  - 65: {fileID: 71100287}
   m_Layer: 0
   m_Name: Rooster
   m_TagString: Untagged
@@ -206,6 +207,18 @@ MonoBehaviour:
       - true
   id: e4c7fec8-07a5-440a-b002-3297921aac42
   active: 1
+--- !u!65 &71100287
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 71100279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .400000006, y: .400000006, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &188271104
 GameObject:
   m_ObjectHideFlags: 0
