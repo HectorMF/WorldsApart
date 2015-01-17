@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ThirdWorldManager
+public class ThirdWorldManager 
 {
 	private static ThirdWorldManager instance;
 
+	public delegate void DayEnd();
+	public static event DayEnd OnDayEnd;
+	
 	const int MoodMax = 4;
 	const int DefaultActions = 5;
 	const int WaterCapacity = 20;
@@ -37,6 +40,7 @@ public class ThirdWorldManager
 	public int AvailableWater 	{ get { return availableWater; }  set {} }
 	public int RequiredFood 	{ get { return requiredFood; }  set {} }
 	public int Actions 			{ get { return actions; }  set {} }
+	public bool AnyWater		{ get { return currentWater > 0; } set {} }
 
 	public ThirdWorldManager()
 	{
@@ -68,7 +72,7 @@ public class ThirdWorldManager
 			IncrementMood();
 			actions = (int)currentMood;
 		}
-		else if (rand < 0.5f)
+		else if (rand < 0.7f)
 		{
 			currentWeather = Weather.Nice;
 			availableWater = 25;
@@ -118,10 +122,12 @@ public class ThirdWorldManager
 		}
 
 		Report();
-		UnityEngine.Debug.ClearDeveloperConsole();
+		if(OnDayEnd != null) OnDayEnd();
 		Reinitialize();
 		return false;
 	}
+
+
 
 	public void GetWater()
 	{
@@ -150,9 +156,20 @@ public class ThirdWorldManager
 		currentWater = (currentWater + value <= WaterCapacity) ? currentWater + value : WaterCapacity;
 	}
 
-	public void DecrementWater(int value)
+	// Returns amount of water used from 
+	public int DecrementWater(int attemptedValue)
 	{
-		currentWater -= (currentWater - value > 0) ? value : 0;
+		if (currentWater - attemptedValue > 0)
+		{
+			currentWater -= attemptedValue;
+			return attemptedValue;
+		}
+		else
+		{
+			int used = currentWater;
+			currentWater = 0;
+			return used;
+		}
 	}
 
 	public void IncrementMood()
