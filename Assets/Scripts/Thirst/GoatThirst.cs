@@ -13,6 +13,7 @@ public class GoatThirst : Thirst {
 
 	public override void DrinkSuccess ()
 	{
+		base.DrinkSuccess();
 		ThirdWorldManager.Instance.IncrementFood(2 * MemberCount);
 		Debug.Log("Your " + name + " has enough water");
 	}
