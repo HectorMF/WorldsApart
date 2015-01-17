@@ -9,6 +9,7 @@ namespace WorldsApart.Handlers
     public class MoveHandler : Handler
 	{
 		Vector3 target;
+        GameObject gameObject;
 
         public override void innerDelegate()
         {

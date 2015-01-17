@@ -4398,6 +4398,7 @@ GameObject:
   - 212: {fileID: 978653144}
   - 95: {fileID: 978653143}
   - 114: {fileID: 978653147}
+  - 114: {fileID: 978653146}
   m_Layer: 0
   m_Name: Man
   m_TagString: Untagged
@@ -4454,6 +4455,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1316367108}
   m_RootOrder: 1
+--- !u!114 &978653146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 978653142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a70605290eab3c4088cf6a17fc55ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbg: 0
+  _serializationData:
+    serializedObjects:
+    - {fileID: 978653142}
+    - {fileID: 1451884589}
+    serializedStrings:
+      keys:
+      - 'Field: List<Script> scripts'
+      values:
+      - '[{"target":[0,0,0],"gameObject":{"$content":0},"$type":"WorldsApart.Scripting.MoveScript"},{"target":[0,0,0],"gameObject":{"$content":1},"$type":"WorldsApart.Scripting.MoveScript"}]'
+  id: fa165568-a98a-4308-85c5-995a513953a0
 --- !u!114 &978653147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6264,6 +6287,9 @@ GameObject:
   - 95: {fileID: 1922797266}
   - 114: {fileID: 1922797265}
   - 114: {fileID: 1922797268}
+  - 65: {fileID: 1922797271}
+  - 114: {fileID: 1922797270}
+  - 114: {fileID: 1922797269}
   m_Layer: 0
   m_Name: Rooster
   m_TagString: Untagged
@@ -6279,7 +6305,7 @@ Transform:
   m_GameObject: {fileID: 1922797263}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 1316367108}
   m_RootOrder: 2
@@ -6346,6 +6372,55 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1922797269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11424548, guid: c38d0922d988f2f4083eb96c95deb1ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1128372432}
+  m_GameObject: {fileID: 1922797263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e32aa92fb626d46c28947ea55d59c8c3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1922797270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11424546, guid: c38d0922d988f2f4083eb96c95deb1ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1128372432}
+  m_GameObject: {fileID: 1922797263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1101c2f669287b947b343c79df8a9be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbg: 0
+  _serializationData:
+    serializedObjects: []
+    serializedStrings:
+      keys:
+      - 'Field: List<Handler> Handlers'
+      - 'Field: bool active'
+      values:
+      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"}]'
+      - true
+  id: 66683744-6c11-4e27-b30a-43706681bd3f
+  active: 1
+--- !u!65 &1922797271
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 6573266, guid: c38d0922d988f2f4083eb96c95deb1ef,
+    type: 2}
+  m_PrefabInternal: {fileID: 1128372432}
+  m_GameObject: {fileID: 1922797263}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: .400000006, y: .400000006, z: .200000003}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1926959644
 GameObject:
   m_ObjectHideFlags: 0
