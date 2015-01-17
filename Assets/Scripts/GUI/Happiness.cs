@@ -18,7 +18,10 @@ public class Happiness : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         var mood = ThirdWorldManager.Instance.CurrentMood;
-
+        if (mood==null)
+        {
+            //TODO: First World Manager
+        }
 
         switch(mood)
         {
