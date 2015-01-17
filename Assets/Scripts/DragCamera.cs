@@ -12,7 +12,7 @@ public class DragCamera : MonoBehaviour
     public float maxX = 2;
     public float minY = 0;
     public float maxY = 2;
-    private Vector3 lastPosition;
+
   /*  void Update()
     {
         if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
@@ -22,6 +22,38 @@ public class DragCamera : MonoBehaviour
         }
     }*/
 
+    void Update(){
+
+        if (Input.GetMouseButton(0))
+        {
+            float leftMovement = Input.GetAxisRaw("Mouse X");
+            float upMovement = Input.GetAxisRaw("Mouse Y") ;
+
+            
+            if (leftMovement < 0)
+            {
+                if (ParallaxLayer.xOffset + leftMovement >= minX)
+                    ParallaxLayer.xOffset += leftMovement;
+            }
+            else
+            {
+                if (ParallaxLayer.xOffset + leftMovement < maxX)
+                    ParallaxLayer.xOffset += leftMovement;
+            }
+
+            if (upMovement < 0)
+            {
+                if (ParallaxLayer.yOffset + upMovement >= minY)
+                    ParallaxLayer.yOffset += upMovement;
+            }
+            else
+            {
+                if (ParallaxLayer.yOffset + upMovement < maxY)
+                    ParallaxLayer.yOffset += upMovement;
+            }
+        }
+    }
+    /*
     void Update()
     {
         Vector2 mousePosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
@@ -98,5 +130,5 @@ public class DragCamera : MonoBehaviour
         
     }
 
-
+    */
 }

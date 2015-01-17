@@ -12,8 +12,11 @@ namespace WorldsApart.Clickables
 
         void Start()
         {
-            foreach (Handler handler in Handlers)
-                handler.gameObject = gameObject;
+            if (Handlers != null && Handlers.Count > 0)
+            {
+                foreach (Handler handler in Handlers)
+                    handler.gameObject = gameObject;
+            }
         }
 
         void OnMouseUpAsButton()
@@ -23,6 +26,12 @@ namespace WorldsApart.Clickables
                 foreach (Handler handler in Handlers)
                     handler.invoke();
             }
+        }
+
+        public void AddHandler(Handler handler)
+        {
+            Handlers.Add(handler);
+            handler.gameObject = gameObject;
         }
     }
 }
