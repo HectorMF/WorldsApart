@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace WorldsApart
 {
+    [Serializable]
     public class SetAnimationBoolHandler : Handler
     {
         public string booleanName;
