@@ -5,7 +5,7 @@ namespace WorldsApart.Handlers
 {
 	public class CropsHandler : Handler 
 	{
-		public override void invoke()
+        public override void innerDelegate()
 		{
 			Debug.Log("water crops");
 			if (ThirdWorldManager.Instance.CurrentWater >= 10 && ThirdWorldManager.Instance.TryAction())

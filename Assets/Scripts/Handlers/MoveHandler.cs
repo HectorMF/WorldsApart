@@ -6,11 +6,11 @@ using UnityEngine;
 
 namespace WorldsApart.Handlers
 {
-    public class DeactivateHandler : Handler
+    public class MoveHandler : Handler
     {
-        public override void invoke()
+        public override void innerDelegate()
         {
-            gameObject.SetActive(false);
+            gameObject.transform.position += new UnityEngine.Vector3(1f, 0f, 0f);
         }
     }
 }

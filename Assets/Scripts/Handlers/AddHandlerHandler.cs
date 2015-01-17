@@ -6,7 +6,7 @@ using WorldsApart.Clickables;
 
 namespace WorldsApart.Handlers
 {
-    public class AddHandler_SingleActionHandler : SingleActionHandler
+    public class AddHandlerHandler : Handler
     {
         public Handler handler;
         public Clickable target;
