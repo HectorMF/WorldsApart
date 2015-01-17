@@ -13,7 +13,7 @@ namespace WorldsApart
         void Start()
         {
             foreach (var key in counters.Keys)
-                CounterManager.Instance().RegisterCounter(key, counters[key]);
+                CounterManager.Instance.RegisterCounter(key, counters[key]);
         }
     }
 }

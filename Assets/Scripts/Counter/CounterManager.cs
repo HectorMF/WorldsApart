@@ -15,10 +15,13 @@ namespace WorldsApart
             counters = new Dictionary<string, Counter>();
         }
 
-        public static CounterManager Instance()
+        public static CounterManager Instance
         {
-            if(_instance == null) _instance = new CounterManager();
-            return _instance;
+            get
+            {
+                if (_instance == null) _instance = new CounterManager();
+                return _instance;
+            }
         }
 
         public void RegisterCounter(string name, int amount)

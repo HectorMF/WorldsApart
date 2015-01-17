@@ -14,6 +14,7 @@ namespace WorldsApart
         public void Increment(int amount)
         {
             count += amount;
+            UnityEngine.Debug.Log(count);
         }
 
         public void Decrement(int amount)

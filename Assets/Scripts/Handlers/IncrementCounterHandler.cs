@@ -15,8 +15,8 @@ namespace WorldsApart.Handlers
         public override void innerDelegate()
         {
             if (counter == null)
-                counter = CounterManager.Instance().GetCounter(counterName);
-            counter.Increment(amount);
+                counter = CounterManager.Instance.GetCounter(counterName);
+            if(counter != null) counter.Increment(amount);
         }
     }
 }
