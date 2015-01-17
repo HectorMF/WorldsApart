@@ -14,7 +14,7 @@ public class ThirdWorldManager
 
 	public enum Mood
 	{
-		Depressed = 2,
+		Depressed = 3,
 		Sad,
 		Neutral,
 		Happy,
@@ -38,7 +38,7 @@ public class ThirdWorldManager
 	public int CurrentWater 	{ get { return currentWater; }  set {} }
 	public int CurrentFood 		{ get { return currentFood; }  set {} }
 	public int AvailableWater 	{ get { return availableWater; }  set {} }
-	public int RequiredFood 	{ get { return requiredFood; }  set {} }
+	public int RequiredFood 	{ get { return requiredFood; }  set { requiredFood = value; } }
 	public int Actions 			{ get { return actions; }  set {} }
 	public bool AnyWater		{ get { return currentWater > 0; } set {} }
 
