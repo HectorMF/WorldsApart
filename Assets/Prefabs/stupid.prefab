@@ -65,7 +65,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 197491d81224515409207dd6340b2a9c, type: 3}
+  m_Script: {fileID: 11500000, guid: 1101c2f669287b947b343c79df8a9be7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dbg: 0
@@ -76,11 +76,10 @@ MonoBehaviour:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"$type":"WorldsApart.Handlers.DeactivateHandler"},{"counter":null,"amount":1,"$type":"WorldsApart.Handlers.IncrementCounterHandler"}]'
+      - '[{"$type":"WorldsApart.Handlers.DeactivateHandler"},{"counterName":"Test","amount":1,"$type":"WorldsApart.Handlers.IncrementCounterHandler"}]'
       - true
-  id: 4882f9ef-6f9c-43c5-97e9-ca5976329d82
+  id: 5d23f8ff-e6bb-4f9a-b810-7efb131de77a
   active: 1
-  counter: {fileID: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1

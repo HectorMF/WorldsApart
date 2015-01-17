@@ -6,9 +6,10 @@ using UnityEngine;
 
 namespace WorldsApart
 {
-    public class Counter : MonoBehaviour
+    public class Counter
     {
         public int count;
+        public string name;
 
         public void Increment(int amount)
         {

@@ -86,7 +86,7 @@ GameObject:
   - 92: {fileID: 1149292372}
   - 124: {fileID: 1149292371}
   - 81: {fileID: 1149292370}
-  - 114: {fileID: 1149292377}
+  - 114: {fileID: 1149292376}
   - 114: {fileID: 1149292375}
   m_Layer: 0
   m_Name: Main Camera
@@ -168,35 +168,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149292369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca686f8bae03f73488a8c33694543ca8, type: 3}
+  m_Script: {fileID: 11500000, guid: 74ebe5d0c0ad3e84fa78f26567f80e31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
     serializedObjects:
-    - {fileID: 1149292377}
     - {fileID: 100000, guid: b838820851e57b246a1ab9634cba431c, type: 2}
     serializedStrings:
       keys:
-      - 'Field: Counter counter'
       - 'Field: BoundingBox bounds'
       - 'Field: float waitTime'
       - 'Field: Dictionary<GameObject, float> objects'
       values:
-      - '{"$content":0}'
-      - '{"top":10,"bottom":-10,"left":-10,"right":10,"z":0}'
+      - '{"top":0,"bottom":0,"left":0,"right":0,"z":0}'
       - 1
-      - '[{"Key":{"$content":1,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}}]'
-  id: d8147f12-61cf-4cef-bc9f-8ef049378c47
+      - '[{"Key":{"$content":0,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}}]'
+  id: 63711302-9242-49a6-816a-8af5e96b90ba
   bounds:
-    top: 10
-    bottom: -10
-    left: -10
-    right: 10
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
     z: 0
   waitTime: 1
-  counter: {fileID: 1149292377}
---- !u!114 &1149292377
+--- !u!114 &1149292376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -204,7 +200,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1149292369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86e9b0b36d8de214080936d750098bdc, type: 3}
+  m_Script: {fileID: 11500000, guid: de08398136783984789d4fef0a597ea6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  count: 0
+  dbg: 0
+  _serializationData:
+    serializedObjects: []
+    serializedStrings:
+      keys:
+      - 'Field: Dictionary<string, int> counters'
+      values:
+      - '[{"Key":{"$content":"Test","$type":"System.String"},"Value":{"$content":0,"$type":"System.Int32"}}]'
+  id: 2556182f-304f-4f0a-a0b8-43f9721a0c7c
