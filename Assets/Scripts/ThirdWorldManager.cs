@@ -110,25 +110,12 @@ public class ThirdWorldManager
 			Debug.Log("Your family is hungry");
 		}
 
-		if (ProvidedWaterToFamily)
-		{ 
-			Debug.Log ("Your family drank enough water today!");
-			IncrementMood();
-		}
-		else
-		{
-			DecrementMood();
-			Debug.Log("Your family is thirsty");
-		}
-
 		Report();
 		if(OnDayEnd != null) OnDayEnd();
 		Reinitialize();
 		return false;
 	}
-
-
-
+	
 	public void GetWater()
 	{
 		if(availableWater > 0)
