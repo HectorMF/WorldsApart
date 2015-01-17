@@ -33,7 +33,7 @@ namespace WorldsApart.Cameras
                 float leftMovement = Input.GetAxisRaw("Mouse X");
                 float upMovement = Input.GetAxisRaw("Mouse Y");
 
-
+                Debug.Log(leftMovement + ": " + ParallaxLayer.xOffset);
                 if (leftMovement < 0)
                 {
                     if (ParallaxLayer.xOffset + leftMovement >= minX)
