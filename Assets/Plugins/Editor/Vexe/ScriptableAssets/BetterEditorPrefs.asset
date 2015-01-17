@@ -15,8 +15,10 @@ MonoBehaviour:
     serializedObjects: []
     serializedStrings:
       keys:
+      - 'Field: Dictionary<string, int> _Ints'
       - 'Field: Dictionary<string, bool> _Bools'
       values:
-      - '[{"Key":{"$content":"d2adc56f-9e12-4c8c-8ef8-506288d02031script","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"d2adc56f-9e12-4c8c-8ef8-506288d02031List<Handler>Handlers","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}}]'
+      - '[]'
+      - '[{"Key":{"$content":"d2adc56f-9e12-4c8c-8ef8-506288d02031script","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"d2adc56f-9e12-4c8c-8ef8-506288d02031List<Handler>Handlers","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"cd785d40-464f-48bf-bb7b-c45d704006e0script","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"cd785d40-464f-48bf-bb7b-c45d704006e0Fields","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"99cbffe7-292b-432e-a05e-6fa0bb34f90bscript","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"99cbffe7-292b-432e-a05e-6fa0bb34f90bFields","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"d2adc56f-9e12-4c8c-8ef8-506288d02031Fields","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"fe3cc5b1-aeca-4c48-a4c9-9b9416419022script","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"fe3cc5b1-aeca-4c48-a4c9-9b9416419022Fields","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"e4c7fec8-07a5-440a-b002-3297921aac42script","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}},{"Key":{"$content":"e4c7fec8-07a5-440a-b002-3297921aac42Fields","$type":"System.String"},"Value":{"$content":false,"$type":"System.Boolean"}}]'
   id: 
   dbg: 0
