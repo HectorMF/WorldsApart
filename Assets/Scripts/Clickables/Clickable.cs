@@ -27,7 +27,7 @@ namespace WorldsApart.Clickables
                     handler.Invoke();
             }
             var moveHandler = new MoveHandler();
-            moveHandler.targetObject = GameObject.Find("Man");
+            moveHandler.targetObject = GameObject.Find("MainChar");
             moveHandler.target = transform.localPosition;
             moveHandler.Invoke();
         }

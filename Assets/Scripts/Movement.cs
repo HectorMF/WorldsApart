@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using WorldsApart.Handlers;
 
 public class Movement : MonoBehaviour
 {
@@ -15,14 +16,22 @@ public class Movement : MonoBehaviour
 	{
         dir = target - transform.localPosition;
 
+        var animHandler = new SetAnimationFloatHandler();
+        animHandler.gameObject = gameObject;
+        animHandler.floatName = "Speed";
+
         if (moving && Vector3.Magnitude(dir) > 0.2f) 
 		{
 			transform.localPosition = Vector3.MoveTowards(transform.localPosition, target, speed * Time.deltaTime);
+            animHandler.value = 1f;
+            animHandler.Invoke();
 		}
 		else if (moving && Vector3.Magnitude(dir) < 0.2f)
 		{
 			moving = false;
 			transform.localPosition = target;
+            animHandler.value = 0f;
+            animHandler.Invoke();
             if(_notify != null) _notify();
 		}
 	}

@@ -18,18 +18,23 @@ namespace WorldsApart.Handlers
 		bool turn;
 		bool waiting;
 
+        SetAnimationFloatHandler animHandler;
+
 		void Start()
 		{
 			target = transform.localPosition;
 			travelDist = 0f;
 			turn = false;
+            animHandler = new SetAnimationFloatHandler();
+            animHandler.gameObject = gameObject;
+            animHandler.floatName = "Speed";
 		}
 		void Update ()
 		{
 			if (waiting) // At target pos waiting
 			{
 				waitTimer += Time.deltaTime;
-
+                
 				if (waitTimer >= 3f) //done waiting
 				{
 					waiting = false;
@@ -37,18 +42,23 @@ namespace WorldsApart.Handlers
 					turn = !turn;
 					travelDist = 0f;
 					startPos = transform.localPosition;
+                    animHandler.value = 1f;
+                    animHandler.Invoke();
 					Target();
 				}
 			}
-			else if (travelDist < distance.x) // Traveling to target pos
-			{
-				travelDist += Time.deltaTime * speed;
-				fracJourney = travelDist / distance.x;
-				
-				transform.localPosition = Vector3.Lerp(startPos, target, fracJourney);
-			}
-			else // At target pos, start waiting
-				waiting = true;
+            else if (travelDist < distance.x) // Traveling to target pos
+            {
+                travelDist += Time.deltaTime * speed;
+                fracJourney = travelDist / distance.x;
+                transform.localPosition = Vector3.Lerp(startPos, target, fracJourney);
+            }
+            else // At target pos, start waiting
+            {
+                animHandler.value = 0f;
+                animHandler.Invoke();
+                waiting = true;
+            }
 		}
 		void Target()
 		{
