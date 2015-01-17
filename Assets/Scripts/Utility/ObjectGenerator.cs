@@ -6,9 +6,8 @@ using UnityEngine;
 using Vexe.Runtime.Types;
 using WorldsApart.Clickables;
 using WorldsApart.Handlers;
-using WorldsApart.Utility;
 
-namespace WorldsApart
+namespace WorldsApart.Utility
 {
     public class ObjectGenerator : BetterBehaviour
     {

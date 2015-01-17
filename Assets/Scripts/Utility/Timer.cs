@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using WorldsApart.Handlers;
 
-namespace WorldsApart
+namespace WorldsApart.Utility
 {
     public class ActionTimer : MonoBehaviour
     {
