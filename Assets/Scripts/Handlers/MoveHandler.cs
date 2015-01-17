@@ -8,12 +8,12 @@ namespace WorldsApart.Handlers
 {
     public class MoveHandler : Handler
 	{
-		Vector3 target;
-        GameObject gameObject;
+		public Vector3 target;
+        public GameObject targetObject;
 
         public override void innerDelegate()
         {
-			gameObject.GetComponent<Movement>().Move(target);
+			targetObject.GetComponent<Movement>().Move(target);
         }
     }
 }

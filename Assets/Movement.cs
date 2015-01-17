@@ -23,7 +23,7 @@ public class Movement : MonoBehaviour
 		{
 			moving = false;
 			transform.localPosition = target;
-            _notify();
+            if(_notify != null) _notify();
 		}
 	}
 	public void Move(Vector3 targetRef)
