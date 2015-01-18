@@ -88,6 +88,7 @@ GameObject:
   - 114: {fileID: 7920661}
   - 82: {fileID: 7920665}
   - 114: {fileID: 7920666}
+  - 114: {fileID: 7920667}
   m_Layer: 0
   m_Name: MainChar
   m_TagString: Untagged
@@ -240,6 +241,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7920667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 7920659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a70605290eab3c4088cf6a17fc55ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbg: 0
+  _serializationData:
+    serializedObjects: []
+    serializedStrings:
+      keys:
+      - 'Field: bool started'
+      values:
+      - false
+  id: 9ac7b849-5a9a-448c-bb64-12592ce40101
+  started: 0
 --- !u!1 &36662512
 GameObject:
   m_ObjectHideFlags: 0
@@ -1666,6 +1688,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 849068557}
   m_RootOrder: 3
+--- !u!1001 &192782435
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1164234430}
+    m_Modifications:
+    - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 12.8899994
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: .800000012
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+  m_RootGameObject: {fileID: 332742717}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &212788731
 GameObject:
   m_ObjectHideFlags: 0
@@ -1683,6 +1761,7 @@ GameObject:
   - 82: {fileID: 212788734}
   - 61: {fileID: 212788733}
   - 114: {fileID: 212788741}
+  - 114: {fileID: 212788742}
   m_Layer: 0
   m_Name: Rooster
   m_TagString: Untagged
@@ -1801,13 +1880,15 @@ MonoBehaviour:
   dbg: 0
   _serializationData:
     serializedObjects:
+    - {fileID: 212788731}
+    - {fileID: 7920667}
     - {fileID: 212788734}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"},{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       - true
   id: 66683744-6c11-4e27-b30a-43706681bd3f
   active: 1
@@ -1879,6 +1960,19 @@ SpriteRenderer:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400006, guid: de899ede09701be4997dce1cbc5769c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 266479660}
+  m_GameObject: {fileID: 212788731}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e686384a8fd4e41969aed5a42c5c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentTint: .300000012
+--- !u!114 &212788742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: de899ede09701be4997dce1cbc5769c2,
     type: 2}
   m_PrefabInternal: {fileID: 266479660}
   m_GameObject: {fileID: 212788731}
@@ -3118,6 +3212,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1164234430}
     m_Modifications:
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
       propertyPath: m_LocalPosition.x
       value: -31.5400047
@@ -3149,6 +3247,18 @@ Prefab:
     - target: {fileID: 400000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 212788734}
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
@@ -3194,6 +3304,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1164234430}
     m_Modifications:
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 7.20000076
@@ -3225,6 +3339,18 @@ Prefab:
     - target: {fileID: 400000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1821172541}
+    - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
@@ -3289,6 +3415,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1316367108}
     m_Modifications:
+    - target: {fileID: 11496622, guid: 2e90d4bd33fd045d8b963d7195233992, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 496626, guid: 2e90d4bd33fd045d8b963d7195233992, type: 2}
       propertyPath: m_LocalPosition.x
       value: 17.0499992
@@ -3337,6 +3467,18 @@ Prefab:
       propertyPath: cameraGO
       value: 
       objectReference: {fileID: 1149292369}
+    - target: {fileID: 11496622, guid: 2e90d4bd33fd045d8b963d7195233992, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"controller":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteCropsGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11496622, guid: 2e90d4bd33fd045d8b963d7195233992, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 849068559}
+    - target: {fileID: 11496622, guid: 2e90d4bd33fd045d8b963d7195233992, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7920667}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2e90d4bd33fd045d8b963d7195233992, type: 2}
   m_RootGameObject: {fileID: 849068556}
@@ -3346,7 +3488,7 @@ Prefab:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 332742718}
@@ -3368,7 +3510,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12.8899994, y: .800000012, z: 0}
@@ -3382,7 +3524,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400000, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3394,7 +3536,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400002, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3406,7 +3548,7 @@ AudioSource:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 8200000, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   serializedVersion: 3
@@ -3465,7 +3607,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -3476,12 +3618,14 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 332742721}
+    - {fileID: 332742717}
+    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
@@ -3490,7 +3634,7 @@ BoxCollider2D:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6100000, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   m_Material: {fileID: 0}
@@ -3503,7 +3647,7 @@ Animator:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 9500000, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
@@ -3518,7 +3662,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200000, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 332742717}
   m_Enabled: 1
   m_CastShadows: 0
@@ -5490,7 +5634,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 100002, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 677129085}
@@ -5506,7 +5650,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 400002, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 677129084}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0320000015, y: .495999992, z: 0}
@@ -5519,7 +5663,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21200002, guid: 3e05b12b50e1f984c893d5772246884f,
     type: 2}
-  m_PrefabInternal: {fileID: 1196876010}
+  m_PrefabInternal: {fileID: 192782435}
   m_GameObject: {fileID: 677129084}
   m_Enabled: 1
   m_CastShadows: 0
@@ -6249,100 +6393,6 @@ Prefab:
   m_RootGameObject: {fileID: 862167784}
   m_IsPrefabParent: 0
   m_IsExploded: 1
---- !u!1001 &779080982
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1316367108}
-    m_Modifications:
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -20.1499996
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 2.11999989
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 1.35000002
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_Size.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_Center.y
-      value: .289999992
-      objectReference: {fileID: 0}
-    - target: {fileID: 6577358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_Size.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -.0199999996
-      objectReference: {fileID: 0}
-    - target: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 1.36000001
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 3377358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-    - {fileID: 2377358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_RootGameObject: {fileID: 923300788}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &809199146
 GameObject:
   m_ObjectHideFlags: 0
@@ -6519,13 +6569,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects: []
+    serializedObjects:
+    - {fileID: 849068559}
+    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.CropsGameHander"}]'
+      - '[{"scripts":[{"controller":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteCropsGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: b8638abc-ba6a-4b78-bc10-795797f2b775
   active: 1
@@ -7991,7 +8043,7 @@ SpriteRenderer:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 177354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 923300789}
@@ -8011,7 +8063,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 923300788}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -20.1499996, y: 2.11999989, z: 1.35000002}
@@ -8025,7 +8077,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11477356, guid: 7cb02feeadf3242fcb880a8ad623414f,
     type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 923300788}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -8037,7 +8089,7 @@ MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11477358, guid: 7cb02feeadf3242fcb880a8ad623414f,
     type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 923300788}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -8046,21 +8098,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects: []
+    serializedObjects:
+    - {fileID: 923300788}
+    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"}]'
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 55ff3222-d5c0-453b-983c-e8104df8d2c7
   active: 1
 --- !u!114 &923300792
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11400000, guid: 7cb02feeadf3242fcb880a8ad623414f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 923300788}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -8073,7 +8128,7 @@ BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 6577358, guid: 7cb02feeadf3242fcb880a8ad623414f,
     type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 923300788}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -8084,8 +8139,9 @@ BoxCollider:
 --- !u!212 &923300794
 SpriteRenderer:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 21200000, guid: 7cb02feeadf3242fcb880a8ad623414f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 923300788}
   m_Enabled: 1
   m_CastShadows: 0
@@ -8173,6 +8229,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1316367108}
     m_Modifications:
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8203,7 +8263,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalScale.x
@@ -8217,6 +8277,22 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1992402099}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1992402101}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
   m_RootGameObject: {fileID: 1992402099}
@@ -8571,6 +8647,7 @@ GameObject:
   - 81: {fileID: 1149292370}
   - 114: {fileID: 1149292376}
   - 114: {fileID: 1149292375}
+  - 114: {fileID: 1149292377}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8679,6 +8756,17 @@ MonoBehaviour:
   maxX: 400
   minY: 0
   maxY: 0
+--- !u!114 &1149292377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1149292369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a1cf92df08602546a104cdda14c32b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1164234429
 GameObject:
   m_ObjectHideFlags: 0
@@ -8777,7 +8865,7 @@ MonoBehaviour:
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 177356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1192225511}
@@ -8792,7 +8880,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 477356, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 1192225510}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.0199999996, y: 1.36000001, z: 0}
@@ -8801,50 +8889,6 @@ Transform:
   - {fileID: 1823253143}
   m_Father: {fileID: 923300789}
   m_RootOrder: 0
---- !u!1001 &1196876010
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1164234430}
-    m_Modifications:
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 12.8899994
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: .800000012
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
-  m_RootGameObject: {fileID: 332742717}
-  m_IsPrefabParent: 0
-  m_IsExploded: 1
 --- !u!1 &1290477405
 GameObject:
   m_ObjectHideFlags: 0
@@ -9271,6 +9315,7 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Priority: 3
   ignoreReversedGraphics: 1
   blockingObjects: 0
   m_BlockingMask:
@@ -9379,6 +9424,62 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percentTint: .300000012
+--- !u!1001 &1479801202
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1316367108}
+    m_Modifications:
+    - target: {fileID: 11477358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -20.1499996
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 2.11999989
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 1.35000002
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11477358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11477358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+  m_RootGameObject: {fileID: 923300788}
+  m_IsPrefabParent: 0
+  m_IsExploded: 1
 --- !u!1 &1484640045
 GameObject:
   m_ObjectHideFlags: 0
@@ -9825,6 +9926,7 @@ GameObject:
   - 82: {fileID: 1821172541}
   - 61: {fileID: 1821172540}
   - 114: {fileID: 1821172549}
+  - 114: {fileID: 1821172550}
   - 114: {fileID: 1821172548}
   m_Layer: 0
   m_Name: Rooster
@@ -9944,13 +10046,15 @@ MonoBehaviour:
   dbg: 0
   _serializationData:
     serializedObjects:
+    - {fileID: 1821172538}
+    - {fileID: 7920667}
     - {fileID: 1821172541}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"},{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       - true
   id: 66683744-6c11-4e27-b30a-43706681bd3f
   active: 1
@@ -10043,11 +10147,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   percentTint: .300000012
+--- !u!114 &1821172550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11400008, guid: de899ede09701be4997dce1cbc5769c2,
+    type: 2}
+  m_PrefabInternal: {fileID: 288247726}
+  m_GameObject: {fileID: 1821172538}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e686384a8fd4e41969aed5a42c5c81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  percentTint: .300000012
 --- !u!1 &1823253142
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 177358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1823253143}
@@ -10063,7 +10180,7 @@ GameObject:
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 477358, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 1823253142}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -10076,7 +10193,7 @@ SpriteRenderer:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 21277358, guid: 7cb02feeadf3242fcb880a8ad623414f,
     type: 2}
-  m_PrefabInternal: {fileID: 779080982}
+  m_PrefabInternal: {fileID: 1479801202}
   m_GameObject: {fileID: 1823253142}
   m_Enabled: 1
   m_CastShadows: 0
@@ -10625,12 +10742,14 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 1969772740}
+    - {fileID: 1969772736}
+    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
@@ -10692,6 +10811,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1164234430}
     m_Modifications:
+    - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
       propertyPath: m_LocalPosition.x
       value: -10.5099983
@@ -10723,6 +10846,14 @@ Prefab:
     - target: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
@@ -10933,13 +11064,15 @@ MonoBehaviour:
   dbg: 0
   _serializationData:
     serializedObjects:
+    - {fileID: 1992402099}
+    - {fileID: 7920667}
     - {fileID: 1992402101}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.WellHandler"},{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      - '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       - true
   id: fe3cc5b1-aeca-4c48-a4c9-9b9416419022
   active: 1

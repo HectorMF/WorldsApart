@@ -8,13 +8,15 @@ namespace WorldsApart.Scripting
 	{
         public GameObject drinker;
 
-		public override void Start(Action OnFinsh)
+		public override void Start(Action OnFinish)
 		{
 			if (CanAndShouldWater())
 			{
 				drinker.GetComponent<Thirst>().Drink();
 			}
 			ThirdWorldManager.Instance.Report();
+
+            OnFinish();
 		}
 
 		bool CanAndShouldWater()

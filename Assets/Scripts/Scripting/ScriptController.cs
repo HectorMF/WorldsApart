@@ -8,15 +8,20 @@ namespace WorldsApart.Scripting
 {
     public class ScriptController : BetterBehaviour
     {
-        public List<Script> scripts;
+        public List<Script> scripts = new List<Script>();
         public bool started;
 
         private int index = 0;
 
         void Update()
         {
-            if (!started) NextScript();
-            started = true;
+            if (scripts != null && scripts.Count > 0)
+            {
+                if (!started) NextScript();
+                started = true;
+            }
+            else
+                started = false;
         }
 
         public virtual void NextScript()
@@ -27,6 +32,12 @@ namespace WorldsApart.Scripting
                     scripts[index].Start(() => { index++; NextScript(); });
                 else
                     UnityEngine.Debug.LogWarning("A script in the Script Controller was empty");
+            }
+            else
+            {
+                index = 0;
+                started = false;
+                scripts.Clear();
             }
         }
     }

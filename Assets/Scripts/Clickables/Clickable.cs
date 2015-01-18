@@ -23,11 +23,6 @@ namespace WorldsApart.Clickables
 
         void OnMouseUpAsButton()
         {
-            if (active)
-            {
-                foreach (Handler handler in Handlers)
-                    handler.Invoke();
-            }
             var moveScript = new MoveToTransformScript();
             var player = GameObject.Find("MainChar");
 
@@ -46,7 +41,12 @@ namespace WorldsApart.Clickables
             controller.scripts.Add(wanderOffScript);
             controller.scripts.Add(moveScript);
             controller.scripts.Add(wanderScript);
-            
+
+            if (active)
+            {
+                foreach (Handler handler in Handlers)
+                    handler.Invoke();
+            }
         }
 
         public void AddHandler(Handler handler)

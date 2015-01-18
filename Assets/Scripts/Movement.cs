@@ -16,7 +16,7 @@ public class Movement : MonoBehaviour
 	
 	void Update () 
 	{
-        if (movingTarget != null) target = movingTarget.position;
+        if (movingTarget != null) target = movingTarget.localPosition;
         dir = target - transform.localPosition;
 
         if (prevDir != null)
@@ -63,6 +63,8 @@ public class Movement : MonoBehaviour
     public void Move(Transform targetRef)
     {
         movingTarget = targetRef;
+        moving = true;
+        audio.Play();
     }
 
     public void Move(Transform targetRef, Action notify)
