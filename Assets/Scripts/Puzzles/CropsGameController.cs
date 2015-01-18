@@ -5,12 +5,14 @@ using WorldsApart.Utility;
 
 public class CropsGameController : MonoBehaviour {
 
-	public GameObject camera;
+	public GameObject cameraGO;
 	public Transform CameraHook;
+	Camera cameraComponent;
 	Vector3 previousPosition;
 	public GameObject miniGame;
 	public float speed = 20.0f;
 	float lerpTime;
+	float cameraOriginalSize, gameCameraSize = 1.3f;
 
 	int scoreGoal;
 
@@ -28,6 +30,7 @@ public class CropsGameController : MonoBehaviour {
 		CameraHook = transform.Find("CameraHook");
 		miniGame = transform.Find ("MiniGame").gameObject;
 		miniGame.SetActive(false);
+		cameraComponent = cameraGO.GetComponent<Camera>();
 	}
 	
 	void Update () {
@@ -38,8 +41,9 @@ public class CropsGameController : MonoBehaviour {
 			break;
 		case MiniGameState.Starting:
 			miniGame.GetComponent<ObjectGenerator>().enabled = true;
-			camera.transform.position = Vector3.MoveTowards(camera.transform.position, CameraHook.position, lerpTime += Time.deltaTime * speed);
-			if(camera.transform.position == CameraHook.transform.position) CurrentState = MiniGameState.Playing;
+			cameraGO.transform.position = Vector3.MoveTowards(cameraGO.transform.position, CameraHook.position, lerpTime += Time.deltaTime * speed);
+			cameraComponent.orthographicSize = Mathf.Lerp(cameraComponent.orthographicSize, gameCameraSize, lerpTime);
+			if(cameraGO.transform.position == CameraHook.transform.position) CurrentState = MiniGameState.Playing;
 			break;
 		case MiniGameState.Playing:
 			if (CounterManager.Instance.GetCounter("GardenMiniGame").count >= scoreGoal)
@@ -49,8 +53,10 @@ public class CropsGameController : MonoBehaviour {
 			}
 			break;
 		case MiniGameState.Ending:
-			camera.transform.position = Vector3.MoveTowards(camera.transform.position, previousPosition, lerpTime += Time.deltaTime * speed);
-			if(camera.transform.position == previousPosition) {
+			cameraGO.transform.position = Vector3.MoveTowards(cameraGO.transform.position, previousPosition, lerpTime += Time.deltaTime * speed);
+			cameraComponent.orthographicSize = Mathf.Lerp(cameraComponent.orthographicSize, cameraOriginalSize, lerpTime);
+
+			if(cameraGO.transform.position == previousPosition) {
 				ThirdWorldManager.Instance.Report();
 				CurrentState = MiniGameState.Suspended;
 			}
@@ -62,8 +68,9 @@ public class CropsGameController : MonoBehaviour {
 	{
 		if (CanAndShouldWater())
 		{
-			previousPosition = camera.transform.position;
+			previousPosition = cameraGO.transform.position;
 			CurrentState = MiniGameState.Starting;
+			cameraOriginalSize = cameraComponent.orthographicSize;
 			lerpTime = 0;
 			miniGame.SetActive(true);
 			scoreGoal =  gameObject.GetComponent<Thirst>().Drink();
