@@ -2544,6 +2544,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11467988, guid: d90156e1b682a254eb0387ed153aa8eb, type: 2}
+      propertyPath: xScrollSpeed
+      value: .100000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 11467988, guid: d90156e1b682a254eb0387ed153aa8eb, type: 2}
+      propertyPath: yScrollSpeed
+      value: .100000001
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d90156e1b682a254eb0387ed153aa8eb, type: 2}
   m_RootGameObject: {fileID: 302657125}
@@ -4518,8 +4526,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  xScrollSpeed: .300000012
-  yScrollSpeed: .300000012
+  xScrollSpeed: .100000001
+  yScrollSpeed: .100000001
 --- !u!1 &303416794
 GameObject:
   m_ObjectHideFlags: 0
