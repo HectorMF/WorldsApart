@@ -85,13 +85,14 @@ namespace WorldsApart
 
         public void FadeIn(Action onFinished)
         {
-            fadeImage.color = Color.Lerp(fadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
+            fadeImage.color = Color.clear;// Color.Lerp(fadeImage.color, Color.clear, fadeSpeed * Time.deltaTime);
             if (onFinished != null && fadeImage.color == Color.clear) onFinished();
         }
 
         public void FadeOut(Action onFinished)
         {
-            fadeImage.color = Color.Lerp(fadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
+            fadeImage.color = Color.black;// Color.Lerp(fadeImage.color, Color.black, fadeSpeed * Time.deltaTime);
+            
             if (onFinished != null && fadeImage.color == Color.black) onFinished();
         }
 
@@ -100,6 +101,7 @@ namespace WorldsApart
             transitionActive = true;
             if (currentScene == TargetScene.City)
             {
+                phase = TransitionPhase.FadingOut;
                 currentScene = TargetScene.Jungle;
                 ParallaxLayer.xOffset = 400;
                 water.SetActive(true);

@@ -12273,7 +12273,7 @@ MonoBehaviour:
   cityHierarchy: {fileID: 285367069}
   jungleCameraAnchor: {fileID: 130486719}
   cityCameraAnchor: {fileID: 1146239774}
-  currentScene: 1
+  currentScene: 0
   fadeSpeed: 1.5
   fadeImage: {fileID: 548775447}
 --- !u!114 &1149292376
@@ -12287,7 +12287,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926655f0f52a624ebc46c152a91aa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phoneCamera: 0
+  phoneCamera: 1
   dragSpeed: .5
   cameraDragging: 1
   minX: 0

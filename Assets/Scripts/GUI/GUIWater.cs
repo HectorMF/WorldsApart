@@ -46,7 +46,7 @@ namespace WorldsApart.GUI
                     slider.value = ThirdWorldManager.Instance.CurrentWater;
                 }
                 else
-                    slider.value = Mathf.Lerp(oldValue, currentValue, easeTimer);
+                    slider.value = currentValue;//Mathf.Lerp(oldValue, currentValue, easeTimer);
             }
         }
     }
