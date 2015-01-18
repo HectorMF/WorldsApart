@@ -12,7 +12,7 @@ public class GUIFood : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        var foodtext = string.Format("{0}/{1} Food", ThirdWorldManager.Instance.CurrentFood, ThirdWorldManager.Instance.RequiredFood);
+        var foodtext = string.Format("{0}/{1}", ThirdWorldManager.Instance.CurrentFood, ThirdWorldManager.Instance.RequiredFood);
         _food.text = foodtext;
 	}
 }
