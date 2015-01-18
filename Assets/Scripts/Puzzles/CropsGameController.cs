@@ -2,6 +2,7 @@
 using System.Collections;
 using WorldsApart;
 using WorldsApart.Utility;
+using WorldsApart.Cameras;
 
 public class CropsGameController : MonoBehaviour {
 
@@ -59,6 +60,8 @@ public class CropsGameController : MonoBehaviour {
 			if(cameraGO.transform.position == previousPosition) {
 				ThirdWorldManager.Instance.Report();
 				CurrentState = MiniGameState.Suspended;
+				cameraGO.GetComponent<DragCamera>().cameraDragging = true;
+
 			}
 			break;
 		}
@@ -68,6 +71,7 @@ public class CropsGameController : MonoBehaviour {
 	{
 		if (CanAndShouldWater())
 		{
+			cameraGO.GetComponent<DragCamera>().cameraDragging = false;
 			previousPosition = cameraGO.transform.position;
 			CurrentState = MiniGameState.Starting;
 			cameraOriginalSize = cameraComponent.orthographicSize;
