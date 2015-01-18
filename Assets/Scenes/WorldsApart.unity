@@ -6030,8 +6030,9 @@ SpriteRenderer:
 --- !u!114 &695222387
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11446838, guid: a0c06b71e483b4ef5877a273f18edaa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 953746899}
   m_GameObject: {fileID: 695222384}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -8033,6 +8034,57 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ef440ef088c9c364e9cd37d2f2772d55, type: 3}
   m_Color: {r: .492647052, g: .492647052, b: .492647052, a: .486274511}
+--- !u!1 &904985186
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 146838, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 904985187}
+  - 212: {fileID: 904985188}
+  m_Layer: 0
+  m_Name: PumpAvailable
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &904985187
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 446838, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  m_GameObject: {fileID: 904985186}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .666666687, y: .666666687, z: .666666687}
+  m_Children: []
+  m_Father: {fileID: 1143774416}
+  m_RootOrder: 0
+--- !u!212 &904985188
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21246838, guid: a0c06b71e483b4ef5877a273f18edaa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  m_GameObject: {fileID: 904985186}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 44bbda8c38e494df38c33da87f1b2a47, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &912372647
 GameObject:
   m_ObjectHideFlags: 0
@@ -8273,10 +8325,6 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1316367108}
     m_Modifications:
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -8309,34 +8357,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
-      value: '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.data[0]
-      value: 
-      objectReference: {fileID: 1992402099}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 7920667}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 1992402101}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
   m_RootGameObject: {fileID: 1992402099}
@@ -8650,6 +8670,71 @@ Transform:
   - {fileID: 831128996}
   m_Father: {fileID: 1316367108}
   m_RootOrder: 5
+--- !u!1 &1143774415
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 146836, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 1143774416}
+  - 212: {fileID: 1143774418}
+  - 114: {fileID: 1143774417}
+  m_Layer: 0
+  m_Name: PumpStatus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1143774416
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 446836, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  m_GameObject: {fileID: 1143774415}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
+  m_LocalPosition: {x: 0, y: .589999974, z: -1.46000004}
+  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_Children:
+  - {fileID: 904985187}
+  m_Father: {fileID: 1992402100}
+  m_RootOrder: 2
+--- !u!114 &1143774417
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11446840, guid: a0c06b71e483b4ef5877a273f18edaa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  m_GameObject: {fileID: 1143774415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cf2acaf23ce94cf88dc02c38689b70b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!212 &1143774418
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 21246836, guid: a0c06b71e483b4ef5877a273f18edaa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 953746899}
+  m_GameObject: {fileID: 1143774415}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_LightmapIndex: 255
+  m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
+  m_SubsetIndices: 
+  m_StaticBatchRoot: {fileID: 0}
+  m_UseLightProbes: 0
+  m_LightProbeAnchor: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &1146239773
 GameObject:
   m_ObjectHideFlags: 0
@@ -9754,8 +9839,9 @@ Transform:
 --- !u!114 &1614485661
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabParentObject: {fileID: 11446836, guid: a0c06b71e483b4ef5877a273f18edaa2,
+    type: 2}
+  m_PrefabInternal: {fileID: 953746899}
   m_GameObject: {fileID: 1614485657}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -11021,6 +11107,7 @@ Transform:
   m_Children:
   - {fileID: 695222385}
   - {fileID: 1614485660}
+  - {fileID: 1143774416}
   m_Father: {fileID: 1316367108}
   m_RootOrder: 2
 --- !u!82 &1992402101
@@ -11110,14 +11197,13 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 1992402099}
-    - {fileID: 7920667}
     - {fileID: 1992402101}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      - '[{"scripts":[{"Well":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":1},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       - true
   id: fe3cc5b1-aeca-4c48-a4c9-9b9416419022
   active: 1
