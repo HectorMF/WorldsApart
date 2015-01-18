@@ -31,7 +31,11 @@ public class CreditCardMemory : MonoBehaviour {
             string digits = this.GetComponent<InputField>().text;
             if(CheckLast4Digits(digits))
             {
-                //TODO:Stuff Happens
+                PopOutMessage(1);
+            }
+            else
+            {
+                PopOutMessage(0);
             }
         }
         catch(Exception e)
@@ -39,5 +43,33 @@ public class CreditCardMemory : MonoBehaviour {
             Debug.LogException(e);
         }
         
+    }
+    /// <summary>
+    /// Type = 1 Correct; type = 0 not correct
+    /// </summary>
+    /// <param name="type"></param>
+    private void PopOutMessage(int type)
+    {
+        //Remove the input
+        var input = this.GetComponent<InputField>();
+        input.DeactivateInputField();
+
+        ////Replace it by the message
+        //var msg = new GameObject("Message");
+        //Instantiate(msg);
+        //var text = msg.AddComponent<Text>();
+        //text.transform.position = input.transform.position;
+        if(type==1)
+        {
+            input.textComponent.CalculateLayoutInputHorizontal();
+            input.text = "Correct Answer, Congratulation you";
+            input.text += " just helped someone with PackH2O";
+            
+        }
+        else
+        {
+            input.text = "Wrong information. Please try again";
+            input.ActivateInputField();
+        }
     }
 }
