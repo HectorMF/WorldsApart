@@ -28,6 +28,7 @@ namespace WorldsApart
             phase = TransitionPhase.MovingCamera;
             transitionActive = true;
             dragController = gameObject.GetComponent<DragCamera>();
+            ParallaxLayer.xOffset = 400;
         }
 
         void OnEnable()
@@ -84,7 +85,11 @@ namespace WorldsApart
         public void Transition()
         {
             transitionActive = true;
-            if (currentScene == TargetScene.City) currentScene = TargetScene.Jungle;
+            if (currentScene == TargetScene.City)
+            {
+                currentScene = TargetScene.Jungle;
+                ParallaxLayer.xOffset = 400;
+            }
             else currentScene = TargetScene.City;
         }
     }
