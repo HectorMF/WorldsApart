@@ -34,6 +34,7 @@ public class ThirdWorldManager
 	private int requiredFood = 12;
 	public bool ProvidedWaterToFamily;
 
+	public Weather CurrentWeather { get { return currentWeather; } set {} }
 	public Mood CurrentMood  	{ get { return currentMood; }  set {} }
 	public int CurrentWater 	{ get { return currentWater; }  set {} }
 	public int CurrentFood 		{ get { return currentFood; }  set {} }
