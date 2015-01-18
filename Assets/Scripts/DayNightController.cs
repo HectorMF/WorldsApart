@@ -28,7 +28,6 @@ public class DayNightController : MonoBehaviour {
         if (transitionTimer >= 1)
         {
             switching = false;
-            NextSkyColor();
         }
         else
         {

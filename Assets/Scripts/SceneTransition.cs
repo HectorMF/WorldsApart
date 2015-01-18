@@ -30,6 +30,16 @@ namespace WorldsApart
             dragController = gameObject.GetComponent<DragCamera>();
         }
 
+        void OnEnable()
+        {
+            ThirdWorldManager.OnDayEnd += Transition;
+        }
+                    
+        void OnDisable()
+        {
+            ThirdWorldManager.OnDayEnd -= Transition;
+        }
+
         void Update()
         {
             if (transitionActive)
