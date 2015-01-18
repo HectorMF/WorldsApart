@@ -6,7 +6,7 @@ public class ChickenThirst : Thirst {
 	void Start () {
 		SurvivesFor = 1;
 		WaterRequiredPerMember = 1;
-		MemberCount = 3;
+		MemberCount = 1;
 		DaysWithoutWater = 0;
 	}
 	

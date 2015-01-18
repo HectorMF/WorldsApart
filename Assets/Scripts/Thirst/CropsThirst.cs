@@ -18,7 +18,6 @@ public class CropsThirst : Thirst {
 
 	public override void GetTheWeather(ThirdWorldManager.Weather newWeather) {
 		if (newWeather == ThirdWorldManager.Weather.Rainy) {
-
 			WaterRequiredPerMember = 0;
 			DaysWithoutWater = 0;
 			Debug.Log("it's raining");

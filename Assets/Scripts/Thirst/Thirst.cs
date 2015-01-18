@@ -62,4 +62,8 @@ public class Thirst : MonoBehaviour {
 	{
 		transform.Find("ThirstyBubble").gameObject.SetActive(false);
 	}
+	public virtual void GetTheWeather(ThirdWorldManager.Weather newWeather) 
+	{
+
+	}
 }

@@ -7,7 +7,7 @@ public class GoatThirst : Thirst {
 	{
 		SurvivesFor = 2;
 		WaterRequiredPerMember = 2;
-		MemberCount = 2;
+		MemberCount = 1;
 		DaysWithoutWater = 0;
 	}
 
