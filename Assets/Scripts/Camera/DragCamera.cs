@@ -20,6 +20,7 @@ namespace WorldsApart.Cameras
 
          void Update()
           {
+              if (!cameraDragging) return;
               if (phoneCamera)
               {
                   if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
