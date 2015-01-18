@@ -8325,9 +8325,13 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1316367108}
     m_Modifications:
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -16.0699997
       objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8356,6 +8360,18 @@ Prefab:
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_RootOrder
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[1]
+      value: 
+      objectReference: {fileID: 7920667}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[2]
+      value: 
+      objectReference: {fileID: 1992402101}
+    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
@@ -11102,7 +11118,7 @@ Transform:
   m_PrefabInternal: {fileID: 953746899}
   m_GameObject: {fileID: 1992402099}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: .730000019, z: 3}
+  m_LocalPosition: {x: -16.0699997, y: .730000019, z: 3}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 695222385}
@@ -11197,13 +11213,14 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 1992402099}
+    - {fileID: 7920667}
     - {fileID: 1992402101}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"Well":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":1},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      - '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       - true
   id: fe3cc5b1-aeca-4c48-a4c9-9b9416419022
   active: 1
