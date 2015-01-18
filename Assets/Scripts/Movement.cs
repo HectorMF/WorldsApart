@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 	public bool moving = false;
 	Vector3 target;
 	Vector3 dir;
+    Vector3 prevDir;
 	float speed = 1f;
 
     private Action _notify;
@@ -16,6 +17,13 @@ public class Movement : MonoBehaviour
 	{
         dir = target - transform.localPosition;
 
+        if (prevDir != null)
+        {
+            if ((prevDir.x > 0 && dir.x < 0) || (prevDir.x < 0 && dir.x > 0)) transform.Rotate(transform.up, 180f);
+        }
+        else if (dir.x < 0) transform.Rotate(transform.up, 180f);
+
+        prevDir = dir;
         var animHandler = new SetAnimationFloatHandler();
         animHandler.gameObject = gameObject;
         animHandler.floatName = "Speed";

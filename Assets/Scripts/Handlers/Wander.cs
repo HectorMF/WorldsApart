@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Linq;
 using System.Text;
+using System;
 
 namespace WorldsApart.Handlers
 {
@@ -15,7 +16,7 @@ namespace WorldsApart.Handlers
 		float travelDist;
 		float waitTimer;
 		float speed = 1.5f;
-		bool turn;
+		int turn;
 		bool waiting;
 
         SetAnimationFloatHandler animHandler;
@@ -24,7 +25,7 @@ namespace WorldsApart.Handlers
 		{
 			target = transform.localPosition;
 			travelDist = 0f;
-			turn = false;
+			turn = 0;
             animHandler = new SetAnimationFloatHandler();
             animHandler.gameObject = gameObject;
             animHandler.floatName = "Speed";
@@ -39,7 +40,7 @@ namespace WorldsApart.Handlers
 				{
 					waiting = false;
 					waitTimer = 0f;
-					turn = !turn;
+                    turn = UnityEngine.Random.Range(-1, 1);
 					travelDist = 0f;
 					startPos = transform.localPosition;
                     animHandler.value = 1f;
@@ -47,10 +48,10 @@ namespace WorldsApart.Handlers
 					Target();
 				}
 			}
-            else if (travelDist < distance.x) // Traveling to target pos
+            else if (travelDist < Math.Abs(distance.x)) // Traveling to target pos
             {
                 travelDist += Time.deltaTime * speed;
-                fracJourney = travelDist / distance.x;
+                fracJourney = travelDist / Math.Abs(distance.x);
                 transform.localPosition = Vector3.Lerp(startPos, target, fracJourney);
             }
             else // At target pos, start waiting
@@ -62,10 +63,13 @@ namespace WorldsApart.Handlers
 		}
 		void Target()
 		{
-			if(turn)
-				target = transform.localPosition + distance;
-			else
-				target = transform.localPosition - distance;
+            if (turn < 0)
+            {
+                distance = -distance;
+                transform.Rotate(transform.up, 180f);
+            }
+
+            target = transform.localPosition + distance;
 		}
 	}
 }
