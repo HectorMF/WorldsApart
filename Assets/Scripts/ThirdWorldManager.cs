@@ -7,7 +7,10 @@ public class ThirdWorldManager
 
 	public delegate void DayEnd();
 	public static event DayEnd OnDayEnd;
-	
+
+	public delegate void NewWeather(Weather newWeather);
+	public static event NewWeather OnNewWeather;
+
 	const int MoodMax = 4;
 	const int DefaultActions = 5;
 	const int WaterCapacity = 20;
@@ -65,27 +68,31 @@ public class ThirdWorldManager
 	{
 		ProvidedWaterToFamily = false;
 		currentWater = currentFood = 0;
-		float rand = Random.Range(0.0f, 1.0f);
-		if (rand < 0.1f)
-		{
+//		float rand = Random.Range(0.0f, 1.0f);
+//		if (rand < 0.1f)
+//		{  
 			currentWeather = Weather.Rainy;
 			availableWater = 30;
 			IncrementMood();
 			actions = (int)currentMood;
-		}
-		else if (rand < 0.7f)
-		{
-			currentWeather = Weather.Nice;
-			availableWater = 25;
-			actions = (int)currentMood;
-		}
-		else
-		{
-			currentWeather = Weather.Dry;
-			availableWater = 20;
-			DecrementMood();
-			actions = (int)currentMood;
-		}
+//		}
+//		else if (rand < 0.7f)
+//		{
+//			currentWeather = Weather.Nice;
+//			availableWater = 25;
+//			actions = (int)currentMood;
+//		}
+//		else
+//		{
+//			currentWeather = Weather.Dry;
+//			availableWater = 20;
+//			DecrementMood();
+//			actions = (int)currentMood;
+//		}
+
+		Debug.Log(OnNewWeather != null);
+		if (OnNewWeather != null) OnNewWeather(currentWeather);
+
 		UnityEngine.Debug.Log ("A new day! The weather is " + currentWeather);
 	}
 
