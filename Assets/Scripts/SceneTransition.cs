@@ -21,7 +21,9 @@ namespace WorldsApart
         private bool transitionActive;
         private TransitionPhase phase;
         private DragCamera dragController;
-        private GameObject gui;
+        private GameObject water;
+        private GameObject food;
+
 
         void Start()
         {
@@ -29,8 +31,9 @@ namespace WorldsApart
             phase = TransitionPhase.MovingCamera;
             transitionActive = true;
             dragController = gameObject.GetComponent<DragCamera>();
-            ParallaxLayer.xOffset = 400;
-            gui = GameObject.Find("GUI");
+            
+            water = GameObject.Find("Water");
+            food = GameObject.Find("Food");
         }
 
         void OnEnable()
@@ -45,6 +48,7 @@ namespace WorldsApart
 
         void Update()
         {
+           
             if (transitionActive)
             {
                 if (phase == TransitionPhase.FadingOut)
@@ -57,6 +61,12 @@ namespace WorldsApart
                         cityHierarchy.gameObject.SetActive(true);
                         transform.position = cityCameraAnchor.position;
                         if (dragController != null) dragController.maxY = 100;
+                        ParallaxLayer.xOffset = 180;
+                        ParallaxLayer.yOffset = 15;
+                        if(water != null)
+                        water.SetActive(false);
+                        if(food != null)
+                        food.SetActive(false);
                     }
                     else
                     {
@@ -64,6 +74,7 @@ namespace WorldsApart
                         jungleHierarchy.gameObject.SetActive(true);
                         transform.position = transform.position = jungleCameraAnchor.position;
                         if (dragController != null) dragController.maxY = 0;
+                        ParallaxLayer.xOffset = 400;
                     }
                     phase = TransitionPhase.FadingIn;
                 }
@@ -91,11 +102,13 @@ namespace WorldsApart
             {
                 currentScene = TargetScene.Jungle;
                 ParallaxLayer.xOffset = 400;
-                gui.SetActive(true);
+                water.SetActive(true);
+                food.SetActive(true);
             }
             else {
                 currentScene = TargetScene.City;
-                gui.SetActive(false);
+                water.SetActive(false);
+                food.SetActive(false);
             }
         }
     }
