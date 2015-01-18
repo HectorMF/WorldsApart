@@ -38,7 +38,7 @@ namespace WorldsApart.Cameras
                               ParallaxLayer.xOffset += touchDeltaPosition.x * dragSpeed;
                       }
 
-                      if (-touchDeltaPosition.y < 0)
+                      if (touchDeltaPosition.y < 0)
                       {
                           if (touchDeltaPosition.y * dragSpeed + ParallaxLayer.yOffset >= minY)
                               ParallaxLayer.yOffset += touchDeltaPosition.y * dragSpeed;
