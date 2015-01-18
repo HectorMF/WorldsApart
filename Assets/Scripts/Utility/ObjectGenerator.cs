@@ -60,7 +60,7 @@ namespace WorldsApart.Utility
 
         public virtual void Generate(GameObject origin)
         {
-            var obj = Instantiate(origin, bounds.getRandomPosition(), Quaternion.identity) as GameObject;
+            var obj = Instantiate(origin, bounds.getRandomPosition(transform.position), Quaternion.identity) as GameObject;
             obj.transform.parent = parentCollection;
         }
 

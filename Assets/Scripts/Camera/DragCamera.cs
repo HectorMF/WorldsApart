@@ -6,6 +6,8 @@ namespace WorldsApart.Cameras
 
     public class DragCamera : MonoBehaviour
     {
+        public bool phoneCamera = false;
+
         public float dragSpeed = 1;
         private Vector3 dragOrigin;
 
@@ -16,15 +18,71 @@ namespace WorldsApart.Cameras
         public float minY = 0;
         public float maxY = 2;
 
-        /*  void Update()
+         void Update()
           {
-              if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+              if (phoneCamera)
               {
-                  Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
-                  transform.Translate(-touchDeltaPosition.x * dragSpeed, -touchDeltaPosition.y * dragSpeed, 0);
-              }
-          }*/
+                  if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
+                  {
+                      Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
+                      //transform.Translate(-touchDeltaPosition.x * dragSpeed, -touchDeltaPosition.y * dragSpeed, 0);
+                      if (touchDeltaPosition.x < 0)
+                      {
+                          if (touchDeltaPosition.x * dragSpeed + ParallaxLayer.xOffset >= minX)
+                              ParallaxLayer.xOffset += touchDeltaPosition.x * dragSpeed;
 
+                      }
+                      else
+                      {
+                          if (touchDeltaPosition.x * dragSpeed + ParallaxLayer.xOffset < maxX)
+                              ParallaxLayer.xOffset += touchDeltaPosition.x * dragSpeed;
+                      }
+
+                      if (-touchDeltaPosition.y < 0)
+                      {
+                          if (touchDeltaPosition.y * dragSpeed + ParallaxLayer.yOffset >= minY)
+                              ParallaxLayer.yOffset += touchDeltaPosition.y * dragSpeed;
+
+                      }
+                      else
+                      {
+                          if (touchDeltaPosition.y * dragSpeed + ParallaxLayer.yOffset < maxY)
+                              ParallaxLayer.yOffset += touchDeltaPosition.y * dragSpeed;
+                      }
+                  }
+              }
+              else
+              {
+                  if (Input.GetMouseButton(0))
+                  {
+                      float leftMovement = Input.GetAxisRaw("Mouse X");
+                      float upMovement = Input.GetAxisRaw("Mouse Y");
+
+                      if (leftMovement < 0)
+                      {
+                          if (ParallaxLayer.xOffset + leftMovement >= minX)
+                              ParallaxLayer.xOffset += leftMovement;
+                      }
+                      else
+                      {
+                          if (ParallaxLayer.xOffset + leftMovement < maxX)
+                              ParallaxLayer.xOffset += leftMovement;
+                      }
+
+                      if (upMovement < 0)
+                      {
+                          if (ParallaxLayer.yOffset + upMovement >= minY)
+                              ParallaxLayer.yOffset += upMovement;
+                      }
+                      else
+                      {
+                          if (ParallaxLayer.yOffset + upMovement < maxY)
+                              ParallaxLayer.yOffset += upMovement;
+                      }
+                  }
+              }
+          }
+        /*
         void Update()
         {
 
@@ -55,7 +113,7 @@ namespace WorldsApart.Cameras
                         ParallaxLayer.yOffset += upMovement;
                 }
             }
-        }
+        }*/
         /*
         void Update()
         {
