@@ -17,4 +17,17 @@ public class GoatThirst : Thirst {
 		ThirdWorldManager.Instance.IncrementFood(2 * MemberCount);
 		Debug.Log("Your " + name + " has enough water");
 	}
+
+	public override void DayEnd ()
+	{
+		base.DayEnd ();
+		if(ThirdWorldManager.Instance.CurrentWeather == ThirdWorldManager.Weather.Rainy)
+		{
+			if (Random.Range(0.0f, 1.0f) < 0.25f) 
+			{
+				MemberCount = MemberCount - 1;
+				Debug.Log("LIGHTING STRIKES!!!!!!! OH THE HUMANITY!!");
+			}
+		}
+	}
 }
