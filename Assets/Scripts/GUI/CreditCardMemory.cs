@@ -5,7 +5,7 @@ using System;
 
 public class CreditCardMemory : MonoBehaviour {
     public string LastFourDigits = "4212";
-
+    public GameObject computer;
 	public bool CheckLast4Digits(string digits)
     {
         if (digits == null)
@@ -64,7 +64,14 @@ public class CreditCardMemory : MonoBehaviour {
             input.textComponent.CalculateLayoutInputHorizontal();
             input.text = "Correct Answer, Congratulation you";
             input.text += " just helped someone with PackH2O";
-            
+            try
+            {
+                computer.GetComponent<Computer>().ShutDown();
+            }
+            catch(Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
         else
         {
@@ -72,4 +79,5 @@ public class CreditCardMemory : MonoBehaviour {
             input.ActivateInputField();
         }
     }
+
 }
