@@ -84,6 +84,7 @@ namespace WorldsApart
         public void Transition()
         {
             transitionActive = true;
+            phase = TransitionPhase.FadingOut;
             if (currentScene == TargetScene.City) currentScene = TargetScene.Jungle;
             else currentScene = TargetScene.City;
         }
