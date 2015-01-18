@@ -21,6 +21,7 @@ namespace WorldsApart
         private bool transitionActive;
         private TransitionPhase phase;
         private DragCamera dragController;
+        private GameObject gui;
 
         void Start()
         {
@@ -29,6 +30,7 @@ namespace WorldsApart
             transitionActive = true;
             dragController = gameObject.GetComponent<DragCamera>();
             ParallaxLayer.xOffset = 400;
+            gui = GameObject.Find("GUI");
         }
 
         void OnEnable()
@@ -85,17 +87,16 @@ namespace WorldsApart
         public void Transition()
         {
             transitionActive = true;
-<<<<<<< HEAD
             if (currentScene == TargetScene.City)
             {
                 currentScene = TargetScene.Jungle;
                 ParallaxLayer.xOffset = 400;
+                gui.SetActive(true);
             }
-=======
-            phase = TransitionPhase.FadingOut;
-            if (currentScene == TargetScene.City) currentScene = TargetScene.Jungle;
->>>>>>> origin/master
-            else currentScene = TargetScene.City;
+            else {
+                currentScene = TargetScene.City;
+                gui.SetActive(false);
+            }
         }
     }
 
