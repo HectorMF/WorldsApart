@@ -14,7 +14,7 @@ public class Movement : MonoBehaviour
     private Action _notify;
 	
 	void Update () 
-	{
+	{			
         dir = target - transform.localPosition;
 
         if (prevDir != null)
@@ -41,12 +41,14 @@ public class Movement : MonoBehaviour
             animHandler.value = 0f;
             animHandler.Invoke();
             if(_notify != null) _notify();
+			audio.Stop();
 		}
 	}
 	public void Move(Vector3 targetRef)
 	{
 		target = targetRef;
 		moving = true;
+		audio.Play();
 	}
 
     public void Move(Vector3 targetRef, Action notify)

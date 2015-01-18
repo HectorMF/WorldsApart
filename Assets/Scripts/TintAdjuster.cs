@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class TintAdjuster : MonoBehaviour {
     public float percentTint = .5f;
@@ -10,6 +11,13 @@ public class TintAdjuster : MonoBehaviour {
 	}
 
 	void Update () {
-        renderer.color = Color.Lerp(Color.white, DayNightController.Instance.camera.backgroundColor, percentTint);
+        try
+        {
+            renderer.color = Color.Lerp(Color.white, DayNightController.Instance.camera.backgroundColor, percentTint);
+        }
+        catch(Exception e)
+        {
+            Debug.LogException(e);
+        }
 	}
 }
