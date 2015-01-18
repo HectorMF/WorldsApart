@@ -18,7 +18,8 @@ namespace WorldsApart.Utility
 		float waitTimer;
 		float speed = 1.5f;
 		int turn;
-		bool waiting;
+        [HideInInspector]
+		public bool waiting;
 
         SetAnimationFloatHandler animHandler;
 
