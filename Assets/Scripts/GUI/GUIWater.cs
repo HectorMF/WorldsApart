@@ -14,7 +14,7 @@ public class GUIWater : MonoBehaviour {
 	void Start () {
         slider = this.GetComponent<Slider>();
         if(slider != null)
-            slider.maxValue = ThirdWorldManager.Instance.AvailableWater;
+            slider.maxValue = 20;
         currentValue = slider.value;
         oldValue = slider.value;
         easing = false;
