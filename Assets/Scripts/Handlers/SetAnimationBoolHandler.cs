@@ -14,8 +14,15 @@ namespace WorldsApart.Handlers
 
         public override void innerDelegate()
         {
-            var animator = gameObject.GetComponent<Animator>();
-            if (animator != null) animator.SetBool(booleanName, value);
+            try
+            {
+                var animator = gameObject.GetComponent<Animator>();
+                if (animator != null) animator.SetBool(booleanName, value);
+            }
+            catch(Exception e)
+            {
+                Debug.LogException(e);
+            }
         }
     }
 }
