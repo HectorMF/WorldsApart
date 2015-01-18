@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
+using WorldsApart.Cameras;
 
 namespace WorldsApart
 {
@@ -19,12 +20,14 @@ namespace WorldsApart
 
         private bool transitionActive;
         private TransitionPhase phase;
+        private DragCamera dragController;
 
         void Start()
         {
             fadeImage.enabled = true;
             phase = TransitionPhase.MovingCamera;
             transitionActive = true;
+            dragController = gameObject.GetComponent<DragCamera>();
         }
 
         void Update()
@@ -40,12 +43,14 @@ namespace WorldsApart
                         jungleHierarchy.gameObject.SetActive(false);
                         cityHierarchy.gameObject.SetActive(true);
                         transform.position = cityCameraAnchor.position;
+                        if (dragController != null) dragController.maxY = 100;
                     }
                     else
                     {
                         cityHierarchy.gameObject.SetActive(false);
                         jungleHierarchy.gameObject.SetActive(true);
                         transform.position = transform.position = jungleCameraAnchor.position;
+                        if (dragController != null) dragController.maxY = 0;
                     }
                     phase = TransitionPhase.FadingIn;
                 }

@@ -6,7 +6,8 @@ using WorldsApart.Handlers;
 public class Movement : MonoBehaviour
 {
 	public bool moving = false;
-	Vector3 target;
+	private Vector3 target;
+    private Transform movingTarget;
 	Vector3 dir;
     Vector3 prevDir;
 	float speed = 1f;
@@ -14,7 +15,8 @@ public class Movement : MonoBehaviour
     private Action _notify;
 	
 	void Update () 
-	{			
+	{
+        if (movingTarget != null) target = movingTarget.position;
         dir = target - transform.localPosition;
 
         if (prevDir != null)
@@ -41,6 +43,7 @@ public class Movement : MonoBehaviour
             animHandler.value = 0f;
             animHandler.Invoke();
             if(_notify != null) _notify();
+            movingTarget = null;
 			audio.Stop();
 		}
 	}
@@ -52,6 +55,17 @@ public class Movement : MonoBehaviour
 	}
 
     public void Move(Vector3 targetRef, Action notify)
+    {
+        Move(targetRef);
+        _notify = notify;
+    }
+
+    public void Move(Transform targetRef)
+    {
+        movingTarget = targetRef;
+    }
+
+    public void Move(Transform targetRef, Action notify)
     {
         Move(targetRef);
         _notify = notify;

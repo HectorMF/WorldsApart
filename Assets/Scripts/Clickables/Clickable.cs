@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Vexe.Runtime.Types;
 using WorldsApart.Handlers;
 using WorldsApart.Utility;
+using WorldsApart.Scripting;
 
 namespace WorldsApart.Clickables
 {
@@ -27,20 +28,25 @@ namespace WorldsApart.Clickables
                 foreach (Handler handler in Handlers)
                     handler.Invoke();
             }
-            var moveHandler = new MoveHandler();
+            var moveScript = new MoveToTransformScript();
             var player = GameObject.Find("MainChar");
 
-            var wanderComponent = player.GetComponent<Wander>();
-            if (wanderComponent != null)
-            {
-                wanderComponent.enabled = false;
-                moveHandler.onFinished = () => wanderComponent.enabled = true;
-            }
+            var wanderOffScript = new WanderScript();
+            wanderOffScript.gameObject = player;
+            wanderOffScript.value = false;
 
-            moveHandler.targetObject = player;
-            moveHandler.target = transform.localPosition;
+            var wanderScript = new WanderScript();
+            wanderScript.gameObject = player;
+            wanderScript.value = true;
+
+            moveScript.gameObject = player;
+            moveScript.target = transform;
+
+            var controller = player.GetComponent<ScriptController>();
+            controller.scripts.Add(wanderOffScript);
+            controller.scripts.Add(moveScript);
+            controller.scripts.Add(wanderScript);
             
-            moveHandler.Invoke();
         }
 
         public void AddHandler(Handler handler)
