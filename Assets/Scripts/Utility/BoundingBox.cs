@@ -9,18 +9,15 @@ namespace WorldsApart.Utility
     [Serializable]
     public class BoundingBox
     {
-        public float top;
-        public float bottom;
-        public float left;
-        public float right;
-        public float z;
+        public float height;
+        public float width;
 
-        public Vector3 getRandomPosition()
+        public Vector3 getRandomPosition(Vector3 position)
         {
-            var x = UnityEngine.Random.Range(left, right);
-            var y = UnityEngine.Random.Range(top, bottom);
+            var x = UnityEngine.Random.Range(-width/2, width/2) + position.x;
+            var y = UnityEngine.Random.Range(-height/2, height/2) + position.y;
 
-            return new Vector3(x, y, z);
+            return new Vector3(x, y, position.z);
         }
     }
 }
