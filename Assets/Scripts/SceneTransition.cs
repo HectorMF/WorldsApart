@@ -99,9 +99,10 @@ namespace WorldsApart
         public void Transition()
         {
             transitionActive = true;
+            phase = TransitionPhase.FadingOut;
             if (currentScene == TargetScene.City)
             {
-                phase = TransitionPhase.FadingOut;
+                
                 currentScene = TargetScene.Jungle;
                 ParallaxLayer.xOffset = 400;
                 water.SetActive(true);
