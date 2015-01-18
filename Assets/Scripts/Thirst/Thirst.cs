@@ -44,7 +44,7 @@ public class Thirst : MonoBehaviour {
 		transform.Find("ThirstyBubble").gameObject.SetActive(true);
 	}
 	
-	public void Drink()
+	public int Drink()
 	{
 		AmountDrank += ThirdWorldManager.Instance.DecrementWater(TotalRequiredWater - AmountDrank);
 		if (AmountDrank >= TotalRequiredWater)
@@ -56,6 +56,7 @@ public class Thirst : MonoBehaviour {
 			Debug.Log("your " + name + " still needs " + (TotalRequiredWater - AmountDrank) + "L of water");
 		}
 		Debug.Log (string.Format("Name: {2}, Members: {0}, Tot Req H20: {1}, Drank: {3}", MemberCount, TotalRequiredWater, name, AmountDrank));
+		return AmountDrank;
 	}
 	
 	public virtual void DrinkSuccess()
