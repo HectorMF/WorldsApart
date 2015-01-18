@@ -18,6 +18,8 @@ public class GUIWater : MonoBehaviour {
         currentValue = slider.value;
         oldValue = slider.value;
         easing = false;
+
+        ThirdWorldManager.OnHasPackChanged += (value) => slider.maxValue = value;
 	}
 	
 	// Update is called once per frame

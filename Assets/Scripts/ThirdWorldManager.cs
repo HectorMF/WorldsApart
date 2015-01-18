@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using WorldsApart.Handlers;
 
 public class ThirdWorldManager 
 {
@@ -11,9 +12,31 @@ public class ThirdWorldManager
 	public delegate void NewWeather(Weather newWeather);
 	public static event NewWeather OnNewWeather;
 
+    public delegate void HasPackChanged(int value);
+    public static event HasPackChanged OnHasPackChanged;
+
 	const int MoodMax = 4;
 	const int DefaultActions = 5;
-	const int WaterCapacity = 20;
+	public int WaterCapacity = 20;
+
+    private bool _hasPack;
+    public bool HasPack
+    {
+        get { return _hasPack; }
+        set
+        {
+            _hasPack = value;
+            var handler = new SetAnimationBoolHandler();
+            handler.gameObject = GameObject.Find("MainChar");
+            handler.booleanName = "hasPack";
+            handler.value = value;
+            handler.Invoke();
+            if (value) WaterCapacity = 30;
+            else WaterCapacity = 20;
+
+            if (OnHasPackChanged != null) OnHasPackChanged(WaterCapacity);
+        }
+    }
 
 	public enum Mood
 	{
@@ -31,7 +54,25 @@ public class ThirdWorldManager
 		Dry,
 	}
 
-	private int currentWater, currentFood, actions, availableWater;
+	private int currentFood, actions, availableWater;
+    private int prevWater = 0;
+    private int _currentWater;
+    private int currentWater
+    {
+        get { return _currentWater; }
+        set
+        {
+            _currentWater = value;
+            if ((prevWater == 0 && _currentWater > 0) || (prevWater > 0 && _currentWater == 0))
+            {
+                var handler = new SetAnimationBoolHandler();
+                handler.gameObject = GameObject.Find("MainChar");
+                handler.booleanName = "hasWater";
+                handler.value = _currentWater > 0;
+                handler.Invoke();
+            }
+        }
+    }
 	private Mood currentMood = Mood.Neutral;
 	private Weather currentWeather;
 	private int requiredFood = 12;

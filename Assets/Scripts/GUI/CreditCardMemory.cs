@@ -64,6 +64,7 @@ public class CreditCardMemory : MonoBehaviour {
             input.textComponent.CalculateLayoutInputHorizontal();
             input.text = "Correct Answer, Congratulation you";
             input.text += " just helped someone with PackH2O";
+            ThirdWorldManager.Instance.HasPack = true;
             
         }
         else
