@@ -13,7 +13,7 @@ namespace WorldsApart.Utility
     {
         public BoundingBox bounds;
         public float waitTime;
-        public Transform parent;
+        public Transform parentCollection;
 
         public Dictionary<GameObject, float> objects;
 
@@ -61,7 +61,7 @@ namespace WorldsApart.Utility
         public virtual void Generate(GameObject origin)
         {
             var obj = Instantiate(origin, bounds.getRandomPosition(), Quaternion.identity) as GameObject;
-            obj.transform.parent = parent;
+            obj.transform.parent = parentCollection;
         }
 
         public void reset()

@@ -10,13 +10,19 @@ namespace WorldsApart.Handlers
 	{
 		public Vector3 target;
         public GameObject targetObject;
+        [HideInInspector]
+        public Action onFinished;
 
         private Movement movement;
 
         public override void innerDelegate()
         {
             if(movement == null && targetObject != null) movement = targetObject.GetComponent<Movement>();
-            if(movement != null) movement.Move(target);
+            if (movement != null)
+            {
+                if (onFinished != null) movement.Move(target, onFinished);
+                else movement.Move(target);
+            }
         }
     }
 }

@@ -17,6 +17,7 @@ public class DayNightController : MonoBehaviour {
         index = 0;
         transitionTimer = 0;
         camera.backgroundColor = colors[index];
+        NextSkyColor();
 	}
 
 	void Update () {
@@ -27,6 +28,7 @@ public class DayNightController : MonoBehaviour {
         if (transitionTimer >= 1)
         {
             switching = false;
+            NextSkyColor();
         }
         else
         {
@@ -36,7 +38,7 @@ public class DayNightController : MonoBehaviour {
 
     public void NextSkyColor()
     {
-        if (index + 1 >= colors.Count) return;
+        if (index + 1 >= colors.Count) index = 0; 
         switching = true;
         index++;
         transitionTimer = 0;

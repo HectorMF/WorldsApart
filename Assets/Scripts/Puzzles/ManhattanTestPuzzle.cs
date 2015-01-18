@@ -13,7 +13,6 @@ namespace WorldsApart.Puzzles
         void Start()
         {
             mappings = new List<Tuple<Vector2, Vector2>>();
-            var score = GeneticAlgorithm.getScore(this);
         }
 
         public override void setInitialState()
