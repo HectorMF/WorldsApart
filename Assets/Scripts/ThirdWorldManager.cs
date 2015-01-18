@@ -131,6 +131,7 @@ public class ThirdWorldManager
 			UnityEngine.Debug.Log("There's some water!");
 
 			int empty = WaterCapacity - currentWater;
+			if (empty == 0) return;
 			if (empty < availableWater)
 			{
 				UnityEngine.Debug.Log("fill up to full");
