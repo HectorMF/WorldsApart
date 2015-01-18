@@ -1,0 +1,278 @@
+fileFormatVersion: 2
+guid: 6d68ef719c419654887f5c5da0276a0b
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: 1stWorldMainCharIdle_0
+    21300002: 1stWorldMainCharIdle_1
+    21300004: 1stWorldMainCharIdle_2
+    21300006: 1stWorldMainCharIdle_3
+    21300008: 1stWorldMainCharIdle_4
+    21300010: 1stWorldMainCharIdle_5
+    21300012: 1stWorldMainCharIdle_6
+    21300014: 1stWorldMainCharIdle_7
+    21300016: 1stWorldMainCharIdle_8
+    21300018: 1stWorldMainCharIdle_9
+    21300020: 1stWorldMainCharIdle_10
+    21300022: 1stWorldMainCharIdle_11
+    21300024: 1stWorldMainCharIdle_12
+    21300026: 1stWorldMainCharIdle_13
+    21300028: 1stWorldMainCharIdle_14
+    21300030: 1stWorldMainCharIdle_15
+    21300032: 1stWorldMainCharIdle_16
+    21300034: 1stWorldMainCharIdle_17
+    21300036: 1stWorldMainCharIdle_18
+    21300038: 1stWorldMainCharIdle_19
+    21300040: 1stWorldMainCharIdle_20
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: 1stWorldMainCharIdle_0
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 170
+        width: 34
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_1
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 170
+        width: 34
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_2
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_3
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_4
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_5
+      rect:
+        serializedVersion: 2
+        x: 764
+        y: 170
+        width: 34
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_6
+      rect:
+        serializedVersion: 2
+        x: 908
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_7
+      rect:
+        serializedVersion: 2
+        x: 1052
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_8
+      rect:
+        serializedVersion: 2
+        x: 1196
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_9
+      rect:
+        serializedVersion: 2
+        x: 1340
+        y: 170
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_10
+      rect:
+        serializedVersion: 2
+        x: 1484
+        y: 170
+        width: 38
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_11
+      rect:
+        serializedVersion: 2
+        x: 1623
+        y: 170
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_12
+      rect:
+        serializedVersion: 2
+        x: 1767
+        y: 170
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_13
+      rect:
+        serializedVersion: 2
+        x: 1911
+        y: 170
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_14
+      rect:
+        serializedVersion: 2
+        x: 2055
+        y: 170
+        width: 48
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_15
+      rect:
+        serializedVersion: 2
+        x: 2204
+        y: 170
+        width: 47
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_16
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 26
+        width: 47
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_17
+      rect:
+        serializedVersion: 2
+        x: 188
+        y: 26
+        width: 43
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_18
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 26
+        width: 43
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_19
+      rect:
+        serializedVersion: 2
+        x: 476
+        y: 26
+        width: 43
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: 1stWorldMainCharIdle_20
+      rect:
+        serializedVersion: 2
+        x: 620
+        y: 26
+        width: 34
+        height: 97
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

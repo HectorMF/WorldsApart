@@ -85,11 +85,16 @@ namespace WorldsApart
         public void Transition()
         {
             transitionActive = true;
+<<<<<<< HEAD
             if (currentScene == TargetScene.City)
             {
                 currentScene = TargetScene.Jungle;
                 ParallaxLayer.xOffset = 400;
             }
+=======
+            phase = TransitionPhase.FadingOut;
+            if (currentScene == TargetScene.City) currentScene = TargetScene.Jungle;
+>>>>>>> origin/master
             else currentScene = TargetScene.City;
         }
     }
