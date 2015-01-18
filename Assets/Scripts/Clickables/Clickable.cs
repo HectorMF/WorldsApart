@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Vexe.Runtime.Types;
 using WorldsApart.Handlers;
+using WorldsApart.Utility;
 
 namespace WorldsApart.Clickables
 {
@@ -27,8 +28,18 @@ namespace WorldsApart.Clickables
                     handler.Invoke();
             }
             var moveHandler = new MoveHandler();
-            moveHandler.targetObject = GameObject.Find("MainChar");
+            var player = GameObject.Find("MainChar");
+
+            var wanderComponent = player.GetComponent<Wander>();
+            if (wanderComponent != null)
+            {
+                wanderComponent.enabled = false;
+                moveHandler.onFinished = () => wanderComponent.enabled = true;
+            }
+
+            moveHandler.targetObject = player;
             moveHandler.target = transform.localPosition;
+            
             moveHandler.Invoke();
         }
 

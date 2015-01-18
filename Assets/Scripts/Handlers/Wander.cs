@@ -3,8 +3,9 @@ using System.Collections;
 using System.Linq;
 using System.Text;
 using System;
+using WorldsApart.Handlers;
 
-namespace WorldsApart.Handlers
+namespace WorldsApart.Utility
 {
 	public class Wander : MonoBehaviour
 	{
