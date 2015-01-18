@@ -23,7 +23,10 @@ namespace WorldsApart.Scripting
         {
             if (index < scripts.Count)
             {
-                scripts[index].Start(() => { index++; NextScript(); });
+                if (scripts[index] != null)
+                    scripts[index].Start(() => { index++; NextScript(); });
+                else
+                    UnityEngine.Debug.LogWarning("A script in the Script Controller was empty");
             }
         }
     }
