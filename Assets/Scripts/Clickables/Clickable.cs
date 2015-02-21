@@ -38,6 +38,7 @@ namespace WorldsApart.Clickables
             moveScript.target = transform;
 
             var controller = player.GetComponent<ScriptController>();
+            controller.ResetQueue();
             controller.scripts.Add(wanderOffScript);
             controller.scripts.Add(moveScript);
             controller.scripts.Add(wanderScript);

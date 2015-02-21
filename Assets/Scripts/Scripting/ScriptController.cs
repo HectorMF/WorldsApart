@@ -40,5 +40,12 @@ namespace WorldsApart.Scripting
                 scripts.Clear();
             }
         }
+
+        internal void ResetQueue()
+        {
+            index = 0;
+            started = false;
+            scripts.Clear();
+        }
     }
 }
