@@ -41,7 +41,7 @@ Material:
       data:
         first:
           name: _Color1out
-        second: {r: .5, g: .433620691, b: .216911763, a: 1}
+        second: {r: 1, g: .492647052, b: .902028203, a: 1}
       data:
         first:
           name: _Color2in
@@ -49,7 +49,7 @@ Material:
       data:
         first:
           name: _Color2out
-        second: {r: .411764681, g: .464502871, b: 1, a: 1}
+        second: {r: 0, g: .0896549225, b: 1, a: 1}
       data:
         first:
           name: _Color3in
@@ -57,7 +57,7 @@ Material:
       data:
         first:
           name: _Color3out
-        second: {r: .904411793, g: .805348396, b: .5453071, a: 1}
+        second: {r: 0, g: 1, b: .131034613, a: 1}
       data:
         first:
           name: _Color4in
