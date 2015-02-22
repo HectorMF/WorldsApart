@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &7920659
 GameObject:
@@ -8714,6 +8715,14 @@ Prefab:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 22400012, guid: 9f764d336ccde6346bb9eb91e8499822, type: 2}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22400012, guid: 9f764d336ccde6346bb9eb91e8499822, type: 2}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9f764d336ccde6346bb9eb91e8499822, type: 2}
   m_RootGameObject: {fileID: 1445899442}
@@ -9311,14 +9320,13 @@ MonoBehaviour:
   dbg: 0
   _serializationData:
     serializedObjects:
-    - {fileID: 849068559}
     - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"controller":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteCropsGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"controller":null,"targetController":{"$content":0},"$type":"WorldsApart.Scripting.RemoteCropsGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: b8638abc-ba6a-4b78-bc10-795797f2b775
   active: 1
@@ -13857,8 +13865,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
