@@ -61,8 +61,8 @@ namespace WorldsApart
                         cityHierarchy.gameObject.SetActive(true);
                         transform.position = cityCameraAnchor.position;
                         if (dragController != null) dragController.maxY = 100;
-                        ParallaxLayer.xOffset = 180;
-                        ParallaxLayer.yOffset = 15;
+                        //ParallaxLayer.xOffset = 180;
+                       // ParallaxLayer.yOffset = 15;
                         if(water != null)
                         water.SetActive(false);
                         if(food != null)
@@ -74,7 +74,7 @@ namespace WorldsApart
                         jungleHierarchy.gameObject.SetActive(true);
                         transform.position = transform.position = jungleCameraAnchor.position;
                         if (dragController != null) dragController.maxY = 0;
-                        ParallaxLayer.xOffset = 400;
+                        //ParallaxLayer.xOffset = 400;
                     }
                     phase = TransitionPhase.FadingIn;
                 }
@@ -104,7 +104,7 @@ namespace WorldsApart
             {
                 
                 currentScene = TargetScene.Jungle;
-                ParallaxLayer.xOffset = 400;
+                //ParallaxLayer.xOffset = 400;
                 water.SetActive(true);
                 food.SetActive(true);
             }

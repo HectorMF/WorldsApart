@@ -12,7 +12,7 @@ namespace WorldsApart.Cameras
         {
 
         }
-
+        /*
         // Update is called once per frame
         void Update()
         {
@@ -27,6 +27,6 @@ namespace WorldsApart.Cameras
                 ParallaxLayer.yOffset += .1f;
             if (Input.GetKey(KeyCode.DownArrow))
                 ParallaxLayer.yOffset -= .1f;
-        }
+        }*/
     }
 }

@@ -17,7 +17,7 @@ namespace WorldsApart.Cameras
         public float maxX = 2;
         public float minY = 0;
         public float maxY = 2;
-
+        /*
          void Update()
           {
               if (!cameraDragging) return;
@@ -82,7 +82,7 @@ namespace WorldsApart.Cameras
                       }
                   }
               }
-          }
+          }*/
         /*
         void Update()
         {

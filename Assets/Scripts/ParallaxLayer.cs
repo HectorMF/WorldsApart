@@ -2,9 +2,6 @@
 using System.Collections;
 
 public class ParallaxLayer : MonoBehaviour {
-    public static float xOffset = 0;
-    public static float yOffset = 0;
-
     public float xScrollSpeed;
     public float yScrollSpeed;
 
@@ -12,10 +9,11 @@ public class ParallaxLayer : MonoBehaviour {
 
     void Start()
     {
+        ParallaxController.Instance.AddLayer(this);
         startPosition = transform.position;
     }
 
-	void Update () {
+	public void UpdateOffsets (float xOffset, float yOffset) {
         transform.position = new Vector3(startPosition.x + xOffset * xScrollSpeed, startPosition.y + yOffset * yScrollSpeed, startPosition.z);
 	}
 }
