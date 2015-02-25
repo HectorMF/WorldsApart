@@ -4,7 +4,7 @@ using System.Collections;
 //http://answers.unity3d.com/questions/618058/mobile-device-screen-sizes.html
 public class AspectRatioController : MonoBehaviour {
         // Use this for initialization
-        void Start()
+        void Update()
         {
             // set the desired aspect ratio (the values in this example are
             // hard-coded for 16:9, but you could make them into public
