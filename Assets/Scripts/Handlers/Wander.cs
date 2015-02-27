@@ -26,6 +26,7 @@ namespace WorldsApart.Utility
 		void Start()
 		{
 			target = transform.localPosition;
+            startPos = transform.localPosition;
 			travelDist = 0f;
 			turn = 0;
             animHandler = new SetAnimationFloatHandler();
