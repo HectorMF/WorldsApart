@@ -2,32 +2,26 @@
 using System.Collections;
 
 public class CameraTilt : MonoBehaviour {
-    float accUpdateInterval = 1 / 60f;
-    float lowPassKernelInS = 1f;
-    float LowPassFilterFactor;
-    Vector3 lowPassValue;
+    public const float AccelSmoothing = 0.5f;
+    public const float AccelLowPass = 0.1f;
+
+    private Vector3 _previousAcceleration;
+    private Vector3 _smoothAcceleration;
     void Start()
     {
-        LowPassFilterFactor = accUpdateInterval / lowPassKernelInS;
-        lowPassValue = Input.acceleration;
-    }
-    Vector3 LowPassFilterAccelerometer()
-    {
-        lowPassValue.x = Mathf.Lerp(lowPassValue.x, Input.acceleration.x, LowPassFilterFactor);
-
-        return lowPassValue;
+        _previousAcceleration = Vector3.zero;
     }
 	// Update is called once per frame
 	void Update () {
+        var acceleration = Input.acceleration;
+        acceleration.x = (acceleration.x * AccelSmoothing) + (_previousAcceleration.x * (1f - AccelLowPass));
+        acceleration.y = (acceleration.y * AccelSmoothing) + (_previousAcceleration.y * (1f - AccelLowPass));
 
-        
-        var dir = new Vector3();
-        dir.x = Input.acceleration.x;
-        if(dir.sqrMagnitude > 1)
-        {
-            dir.Normalize();
-        }
-        
+        _smoothAcceleration = Vector3.Lerp(acceleration, _previousAcceleration, AccelSmoothing);
+        _previousAcceleration = acceleration;
+
+        transform.rotation = Quaternion.Euler(0,0,acceleration.x);
+       
 
        
 	}
