@@ -17,7 +17,7 @@ namespace WorldsApart.Scripting
             var wander = gameObject.GetComponent<Wander>();
             wander.waiting = true;
             if (wander != null && wander.enabled != value) wander.enabled = value;
-            OnFinish();
+            if(OnFinish != null) OnFinish();
         }
     }
 }

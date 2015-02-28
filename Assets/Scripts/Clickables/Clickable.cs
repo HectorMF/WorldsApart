@@ -23,25 +23,29 @@ namespace WorldsApart.Clickables
 
         void OnMouseUpAsButton()
         {
-            var moveScript = new MoveToTransformScript();
             var player = GameObject.Find("MainChar");
 
-            var wanderOffScript = new WanderScript();
-            wanderOffScript.gameObject = player;
-            wanderOffScript.value = false;
+            if (player != null)
+            {
+                var moveScript = new MoveToTransformScript();
+                var wanderOffScript = new WanderScript();
 
-            var wanderScript = new WanderScript();
-            wanderScript.gameObject = player;
-            wanderScript.value = true;
+                wanderOffScript.gameObject = player;
+                wanderOffScript.value = false;
 
-            moveScript.gameObject = player;
-            moveScript.target = transform;
+                var wanderScript = new WanderScript();
+                wanderScript.gameObject = player;
+                wanderScript.value = true;
 
-            var controller = player.GetComponent<ScriptController>();
-            controller.ResetQueue();
-            controller.scripts.Add(wanderOffScript);
-            controller.scripts.Add(moveScript);
-            controller.scripts.Add(wanderScript);
+                moveScript.gameObject = player;
+                moveScript.target = transform;
+
+                var controller = player.GetComponent<ScriptController>();
+                controller.ResetQueue();
+                controller.scripts.Add(wanderOffScript);
+                controller.scripts.Add(moveScript);
+                controller.scripts.Add(wanderScript);
+            }
 
             if (active)
             {

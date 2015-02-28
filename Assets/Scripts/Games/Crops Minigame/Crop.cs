@@ -5,15 +5,36 @@ using System.Text;
 using UnityEngine;
 using Vexe.Runtime.Types;
 
-namespace WorldsApart.Games
+namespace WorldsApart.Games.CropsMinigame
 {
     public class Crop : BetterBehaviour
     {
         public List<CropPhase> phases;
+        public CropPhaseEnum currentPhase;
+        private int index;
+        private float timer;
 
+        void Start()
+        {
+            index = 0;
+            var startPhase = phases[index];
+            gameObject.GetComponent<SpriteRenderer>().sprite = startPhase.sprite;
+            currentPhase = startPhase.phase;
+            timer = 0;
+        }
 
-
-        
+        void Update()
+        {
+            timer += Time.deltaTime;
+            if (index != phases.Count - 1 && timer > phases[index].waitTime)
+            {
+                index++;
+                var phase = phases[index];
+                gameObject.GetComponent<SpriteRenderer>().sprite = phase.sprite;
+                currentPhase = phase.phase;
+                timer = 0;
+            }
+        }
     }
 
     [Serializable]
