@@ -4,16 +4,4 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes:
-  - enabled: 0
-    path: Assets/Scenes/Menu.unity
-  - enabled: 0
-    path: Assets/Scenes/WorldsApart.unity
-  - enabled: 0
-    path: Assets/Scenes/TestScene.unity
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/Minigame Scenes/WaterGame.unity
-=======
-    path: Assets/Scenes/Minigame Scenes/Milking Minigame.unity
->>>>>>> bf66bd4ba22c6af72e455cb9194f6aadf6f2e452
+  m_Scenes: []
