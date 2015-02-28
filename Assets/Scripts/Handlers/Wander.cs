@@ -9,7 +9,7 @@ namespace WorldsApart.Utility
 {
 	public class Wander : MonoBehaviour
 	{
-		Vector3 distance = new Vector3 (2f,0f,0f);
+		public Vector3 distance = new Vector3 (2f,0f,0f);
 		Vector3 target;
 		Vector3 startPos;
 		float startTime;
