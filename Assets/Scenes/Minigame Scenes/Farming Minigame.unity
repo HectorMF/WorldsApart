@@ -578,6 +578,7 @@ GameObject:
   - 114: {fileID: 930948936}
   - 65: {fileID: 930948940}
   - 54: {fileID: 930948944}
+  - 114: {fileID: 930948937}
   m_Layer: 0
   m_Name: Sheep
   m_TagString: Untagged
@@ -596,7 +597,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdde2efc18a1364fb00e1ee67db1ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
+  bounds:
+    height: 2.5
+    width: 8
+  center: {x: 0, y: -2, z: 5}
+--- !u!114 &930948937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 930948935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d2aa4ac9d70a142b8518cb489b3f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moving: 0
 --- !u!82 &930948938
 AudioSource:
   m_ObjectHideFlags: 0
@@ -672,13 +688,12 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 930948938}
-    - {fileID: 930948935}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"clickRequirement":2,"bounds":{"height":2.5,"width":8},"center":[0,-2.11,5],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
@@ -1198,7 +1213,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.83705592
+  orthographic size: 2.81421328
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

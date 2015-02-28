@@ -16,8 +16,8 @@ public class Movement : MonoBehaviour
 	
 	void Update () 
 	{
-        if (movingTarget != null) target = movingTarget.localPosition;
-        dir = target - transform.localPosition;
+        if (movingTarget != null) target = movingTarget.position;
+        dir = target - transform.position;
 
         if (prevDir != null)
         {
@@ -32,14 +32,14 @@ public class Movement : MonoBehaviour
 
         if (moving && Vector3.Magnitude(dir) > 0.2f) 
 		{
-			transform.localPosition = Vector3.MoveTowards(transform.localPosition, target, speed * Time.deltaTime);
+			transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
             animHandler.value = 1f;
             animHandler.Invoke();
 		}
 		else if (moving && Vector3.Magnitude(dir) < 0.2f)
 		{
 			moving = false;
-			transform.localPosition = target;
+			transform.position = target;
             animHandler.value = 0f;
             animHandler.Invoke();
             if(_notify != null) _notify();

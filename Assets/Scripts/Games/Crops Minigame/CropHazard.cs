@@ -4,12 +4,28 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using WorldsApart.Handlers;
+using WorldsApart.Utility;
 
 namespace WorldsApart.Games.CropsMinigame
 {
     public class CropHazard : MonoBehaviour
     {
-        public float range;
+        public BoundingBox bounds;
+        public Vector3 center;
+        private bool moving = false;
+
+        void Update()
+        {
+            if (!moving)
+            {
+                var handler = new MoveHandler();
+                handler.gameObject = gameObject;
+                handler.target = bounds.getRandomPosition(center);
+                handler.onFinished = () => moving = false;
+                moving = true;
+                handler.Invoke();
+            }
+        }
 
         void OnTriggerEnter(Collider col)
         {

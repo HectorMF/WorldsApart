@@ -20,13 +20,13 @@ namespace WorldsApart.Utility
             return new Vector3(x, y, position.z);
         }
 
-        public Vector3 getClosestOutOfBounds(Vector3 center, Vector3 position)
+        public Vector3 getClosestOutOfBounds(Vector3 center, Vector3 position, Axis axis = Axis.Both)
         {
             if (position.x < center.x)
             {
                 if (position.y < center.y)
                 {
-                    if (position.x - (center.x - width / 2) < (center.y - height / 2) - position.y)
+                    if (axis != Axis.Vertical && (axis == Axis.Horizontal || position.x - (center.x - width / 2) < (center.y - height / 2) - position.y))
                     {
                         return new Vector3(center.x - width / 2 - 2f, position.y, position.z);
                     }
@@ -37,7 +37,7 @@ namespace WorldsApart.Utility
                 }
                 else
                 {
-                    if (position.x - (center.x - width / 2) < position.y - (center.y + height / 2))
+                    if (axis != Axis.Vertical && (axis == Axis.Horizontal || position.x - (center.x - width / 2) < position.y - (center.y + height / 2)))
                     {
                         return new Vector3(center.x - width / 2 - 2f, position.y, position.z);
                     }
@@ -74,10 +74,10 @@ namespace WorldsApart.Utility
             }
         }
 
-        public Vector3 getRandomOutOfBounds(Vector3 center)
+        public Vector3 getRandomOutOfBounds(Vector3 center, Axis axis = Axis.Both)
         {
             float random = UnityEngine.Random.Range(-1, 1);
-            if(random < 0)
+            if(axis == Axis.Horizontal || (axis != Axis.Vertical && random < 0))
             {
                 float displacement = UnityEngine.Random.Range(-height / 2, height / 2);
 
@@ -95,6 +95,13 @@ namespace WorldsApart.Utility
                 else
                     return new Vector3(displacement + center.x, center.y + height / 2 + 2f, center.z);
             }
+        }
+
+        public enum Axis
+        {
+            Vertical,
+            Horizontal,
+            Both
         }
     }
 }
