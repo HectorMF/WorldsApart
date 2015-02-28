@@ -32,6 +32,7 @@ public class CameraFit : MonoBehaviour
 {
     #region FIELDS
     public float UnitsForWidth = 1; // width of your scene in unity units
+    public Vector2 AspectRatio = new Vector2(16,9);
     public static CameraFit Instance;
     private DeviceOrientation orientation;
     private float _width;
@@ -136,7 +137,7 @@ public class CameraFit : MonoBehaviour
     private void Awake()
     {
         Screen.orientation = ScreenOrientation.Landscape;
-       
+
         try
         {
             if ((bool)GetComponent<Camera>())
@@ -144,6 +145,7 @@ public class CameraFit : MonoBehaviour
                 if (camera.orthographic)
                 {
                     ComputeResolution();
+                    ComputeAspectRatio();
                 }
             }
         }
@@ -169,6 +171,7 @@ public class CameraFit : MonoBehaviour
                 Screen.orientation = ScreenOrientation.LandscapeRight;
             }
             ComputeResolution();
+            ComputeAspectRatio();
             orientation = Input.deviceOrientation;
 
         }
@@ -255,5 +258,41 @@ public class CameraFit : MonoBehaviour
         System.Object resolution = getSizeOfMainGameView.Invoke(null, null);
         return (Vector2)resolution;
     }
+
+    private void ComputeAspectRatio()
+    {
+        float targetaspect = AspectRatio.x / AspectRatio.y;
+
+        // determine the game window's current aspect ratio
+        float windowaspect = (float)Screen.width / (float)Screen.height;
+
+        // current viewport height should be scaled by this amount
+        float scaleheight = windowaspect / targetaspect;
+
+        // if scaled height is less than current height, add letterbox
+        if (scaleheight < 1.0f)
+        {
+            Rect rect = camera.rect;
+            rect.width = 1.0f;
+            rect.height = scaleheight;
+            rect.x = 0;
+            rect.y = (1.0f - scaleheight) / 2.0f;
+
+            camera.rect = rect;
+        }
+        else // add pillarbox
+        {
+            float scalewidth = 1.0f / scaleheight;
+            Rect rect = camera.rect;
+
+            rect.width = scalewidth;
+            rect.height = 1.0f;
+            rect.x = (1.0f - scalewidth) / 2.0f;
+            rect.y = 0;
+
+            camera.rect = rect;
+        }
+    }
+
     #endregion
 }

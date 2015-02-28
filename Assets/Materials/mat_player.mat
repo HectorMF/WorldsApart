@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: ManMat
+  m_Name: mat_player
   m_Shader: {fileID: 4800000, guid: 4d3c38d6ac50ffa4d92d6cb70f0c5f77, type: 3}
   m_ShaderKeywords: []
   m_CustomRenderQueue: -1
