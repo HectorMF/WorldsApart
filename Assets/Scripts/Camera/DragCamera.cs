@@ -6,7 +6,6 @@ namespace WorldsApart.Cameras
 
     public class DragCamera : MonoBehaviour
     {
-        public bool phoneCamera = false;
 
         public float dragSpeed = 1;
         private Vector3 dragOrigin;
@@ -17,43 +16,40 @@ namespace WorldsApart.Cameras
         public float maxX = 2;
         public float minY = 0;
         public float maxY = 2;
-        /*
+        
          void Update()
           {
               if (!cameraDragging) return;
-              if (phoneCamera)
-              {
+             
                   if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Moved)
                   {
                       Vector2 touchDeltaPosition = Input.GetTouch(0).deltaPosition;
                       //transform.Translate(-touchDeltaPosition.x * dragSpeed, -touchDeltaPosition.y * dragSpeed, 0);
                       if (touchDeltaPosition.x < 0)
                       {
-                          if (touchDeltaPosition.x * dragSpeed + ParallaxLayer.xOffset >= minX)
-                              ParallaxLayer.xOffset += touchDeltaPosition.x * dragSpeed;
+                          if (touchDeltaPosition.x * dragSpeed + ParallaxObject.xOffset >= minX)
+                              ParallaxObject.xOffset += touchDeltaPosition.x * dragSpeed;
 
                       }
                       else
                       {
-                          if (touchDeltaPosition.x * dragSpeed + ParallaxLayer.xOffset < maxX)
-                              ParallaxLayer.xOffset += touchDeltaPosition.x * dragSpeed;
+                          if (touchDeltaPosition.x * dragSpeed + ParallaxObject.xOffset < maxX)
+                              ParallaxObject.xOffset += touchDeltaPosition.x * dragSpeed;
                       }
 
                       if (touchDeltaPosition.y < 0)
                       {
-                          if (touchDeltaPosition.y * dragSpeed + ParallaxLayer.yOffset >= minY)
-                              ParallaxLayer.yOffset += touchDeltaPosition.y * dragSpeed;
+                          if (touchDeltaPosition.y * dragSpeed + ParallaxObject.yOffset >= minY)
+                              ParallaxObject.yOffset += touchDeltaPosition.y * dragSpeed;
 
                       }
                       else
                       {
-                          if (touchDeltaPosition.y * dragSpeed + ParallaxLayer.yOffset < maxY)
-                              ParallaxLayer.yOffset += touchDeltaPosition.y * dragSpeed;
+                          if (touchDeltaPosition.y * dragSpeed + ParallaxObject.yOffset < maxY)
+                              ParallaxObject.yOffset += touchDeltaPosition.y * dragSpeed;
                       }
                   }
-              }
-              else
-              {
+ 
                   if (Input.GetMouseButton(0))
                   {
                       float leftMovement = Input.GetAxisRaw("Mouse X");
@@ -61,28 +57,28 @@ namespace WorldsApart.Cameras
 
                       if (leftMovement < 0)
                       {
-                          if (ParallaxLayer.xOffset + leftMovement >= minX)
-                              ParallaxLayer.xOffset += leftMovement;
+                          if (ParallaxObject.xOffset + leftMovement >= minX)
+                              ParallaxObject.xOffset += leftMovement;
                       }
                       else
                       {
-                          if (ParallaxLayer.xOffset + leftMovement < maxX)
-                              ParallaxLayer.xOffset += leftMovement;
+                          if (ParallaxObject.xOffset + leftMovement < maxX)
+                              ParallaxObject.xOffset += leftMovement;
                       }
 
                       if (upMovement < 0)
                       {
-                          if (ParallaxLayer.yOffset + upMovement >= minY)
-                              ParallaxLayer.yOffset += upMovement;
+                          if (ParallaxObject.yOffset + upMovement >= minY)
+                              ParallaxObject.yOffset += upMovement;
                       }
                       else
                       {
-                          if (ParallaxLayer.yOffset + upMovement < maxY)
-                              ParallaxLayer.yOffset += upMovement;
-                      }
+                          if (ParallaxObject.yOffset + upMovement < maxY)
+                              ParallaxObject.yOffset += upMovement;
+                      
                   }
               }
-          }*/
+          }
         /*
         void Update()
         {
@@ -94,24 +90,24 @@ namespace WorldsApart.Cameras
 
                 if (leftMovement < 0)
                 {
-                    if (ParallaxLayer.xOffset + leftMovement >= minX)
-                        ParallaxLayer.xOffset += leftMovement;
+                    if (ParallaxObject.xOffset + leftMovement >= minX)
+                        ParallaxObject.xOffset += leftMovement;
                 }
                 else
                 {
-                    if (ParallaxLayer.xOffset + leftMovement < maxX)
-                        ParallaxLayer.xOffset += leftMovement;
+                    if (ParallaxObject.xOffset + leftMovement < maxX)
+                        ParallaxObject.xOffset += leftMovement;
                 }
 
                 if (upMovement < 0)
                 {
-                    if (ParallaxLayer.yOffset + upMovement >= minY)
-                        ParallaxLayer.yOffset += upMovement;
+                    if (ParallaxObject.yOffset + upMovement >= minY)
+                        ParallaxObject.yOffset += upMovement;
                 }
                 else
                 {
-                    if (ParallaxLayer.yOffset + upMovement < maxY)
-                        ParallaxLayer.yOffset += upMovement;
+                    if (ParallaxObject.yOffset + upMovement < maxY)
+                        ParallaxObject.yOffset += upMovement;
                 }
             }
         }*/
@@ -159,32 +155,32 @@ namespace WorldsApart.Cameras
 
                 if (pos.x > 0f)
                 {
-                    if (ParallaxLayer.xOffset < maxX)
+                    if (ParallaxObject.xOffset < maxX)
                     {
-                        ParallaxLayer.xOffset += dragSpeed;//transform.Translate(move, Space.World);
+                        ParallaxObject.xOffset += dragSpeed;//transform.Translate(move, Space.World);
                     }
                 }
                 else
                 {
-                    if (ParallaxLayer.xOffset > minX)
+                    if (ParallaxObject.xOffset > minX)
                     {
-                        ParallaxLayer.xOffset -= dragSpeed; 
+                        ParallaxObject.xOffset -= dragSpeed; 
                         //transform.Translate(move, Space.World);
                     }
                 }
 
                 if (pos.y > 0f)
                 {
-                    if (ParallaxLayer.yOffset < maxY)
+                    if (ParallaxObject.yOffset < maxY)
                     {
-                        ParallaxLayer.yOffset += dragSpeed;//transform.Translate(move, Space.World);
+                        ParallaxObject.yOffset += dragSpeed;//transform.Translate(move, Space.World);
                     }
                 }
                 else
                 {
-                    if (ParallaxLayer.yOffset > minY)
+                    if (ParallaxObject.yOffset > minY)
                     {
-                        ParallaxLayer.yOffset -=  dragSpeed;
+                        ParallaxObject.yOffset -=  dragSpeed;
                         //transform.Translate(move, Space.World);
                     }
                 }
