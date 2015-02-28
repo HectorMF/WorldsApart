@@ -68,21 +68,21 @@ MonoBehaviour:
       - 'Field: List<CropPhase> phases'
       - 'Field: CropPhaseEnum currentPhase'
       values:
-      - '[{"sprite":{"$content":0},"waitTime":1,"phase":"Budding"},{"sprite":{"$content":1},"waitTime":2,"phase":"Harvestable"},{"sprite":{"$content":2},"waitTime":2,"phase":"Harvestable"},{"sprite":{"$content":3},"waitTime":3,"phase":"Decaying"},{"sprite":{"$content":4},"waitTime":0,"phase":"Weed"}]'
+      - '[{"sprite":{"$content":0},"waitTime":3,"phase":"Budding"},{"sprite":{"$content":1},"waitTime":5,"phase":"Harvestable"},{"sprite":{"$content":2},"waitTime":10,"phase":"Harvestable"},{"sprite":{"$content":3},"waitTime":10,"phase":"Decaying"},{"sprite":{"$content":4},"waitTime":0,"phase":"Weed"}]'
       - '"Budding"'
   id: 9ec24a7a-4ab1-4d12-9d56-13df8caa42fc
   phases:
   - sprite: {fileID: 21300000, guid: 2f93f33486bc12241b0fc333fd747099, type: 3}
-    waitTime: 1
+    waitTime: 3
     phase: 0
   - sprite: {fileID: 21300000, guid: 4e1ad505809d52447be3fa82ee27ba52, type: 3}
-    waitTime: 2
+    waitTime: 5
     phase: 1
   - sprite: {fileID: 21300000, guid: 95060c37eaf746d4fa980e2a4c0cfdda, type: 3}
-    waitTime: 2
+    waitTime: 10
     phase: 1
   - sprite: {fileID: 21300000, guid: c3012c1e87fdcf54f96488cf8dfe6a5e, type: 3}
-    waitTime: 3
+    waitTime: 10
     phase: 2
   - sprite: {fileID: 21300000, guid: 16c742873549b7446bfbe85436c4867b, type: 3}
     waitTime: 0
@@ -122,7 +122,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acdde2efc18a1364fb00e1ee67db1ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 0
+  bounds:
+    height: 0
+    width: 0
+  center: {x: 0, y: 0, z: 0}
 --- !u!212 &21200000
 SpriteRenderer:
   m_ObjectHideFlags: 1
