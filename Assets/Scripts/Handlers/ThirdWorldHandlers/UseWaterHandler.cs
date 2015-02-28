@@ -18,7 +18,7 @@ namespace WorldsApart.Handlers
 		{
 			return ThirdWorldManager.Instance.AnyWater 
 					&& gameObject.GetComponent<Thirst>().AmountDrank < gameObject.GetComponent<Thirst>().TotalRequiredWater
-					&& ThirdWorldManager.Instance.TryAction();
+					&& ThirdWorldManager.Instance.Actions > 0;
 		}
 	}
 }

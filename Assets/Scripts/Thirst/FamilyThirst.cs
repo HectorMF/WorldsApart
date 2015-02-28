@@ -5,11 +5,9 @@ public class FamilyThirst : Thirst {
 
 	int foodRequiredPerPerson = 3;
 
-	void Start () {
-		SurvivesFor = 3;
-		WaterRequiredPerMember = 2;
-		MemberCount = 4;
-		DaysWithoutWater = 0;
+	void Start () 
+	{
+		InitializeWaterRequirements(new ThirstInfo().Family());
 		SetFoodRequirements();
 	}
 
@@ -22,35 +20,44 @@ public class FamilyThirst : Thirst {
 	{
 		base.DrinkSuccess();
 		ThirdWorldManager.Instance.IncrementMood();
-		ThirdWorldManager.Instance.ProvidedWaterToFamily = true;
-		Debug.Log("Your " + name + " has enough water");
 	}
 
 	public override void DayEnd ()
 	{
-		if (AmountDrank >= TotalRequiredWater)
-		{ 
+		ReportFoodUsage ();
+		ReportWaterUsage ();
+		base.DayEnd ();
+		SetFoodRequirements();
+	}
+
+	void ReportFoodUsage ()
+	{
+
+		if (ThirdWorldManager.Instance.CurrentFood < MemberCount * foodRequiredPerPerson) {
+			ThirdWorldManager.Instance.CurrentFood = 0;
+			Debug.Log("Your family did not eat enough today");
+		} else {
+			ThirdWorldManager.Instance.CurrentFood = ThirdWorldManager.Instance.CurrentFood - (MemberCount * foodRequiredPerPerson);
+			Debug.Log("Your family ate enough today");
+		}
+	}
+
+	void ReportWaterUsage ()
+	{
+		if (AmountDrank >= TotalRequiredWater) {
 			Debug.Log ("Your family drank enough water today!");
 		}
-		else
-		{
-			ThirdWorldManager.Instance.DecrementMood();
+		else {
+			ThirdWorldManager.Instance.DecrementMood ();
 			string adj;
-			if (AmountDrank >= 0 && AmountDrank < 3)
-				adj = " extremely ";
-			else if (AmountDrank >= 4 && AmountDrank < 7)
-				adj = " very ";
+			if (AmountDrank >= 0 && AmountDrank < 4)
+				adj = "extremely";
 			else
-				adj = " somewhat ";
-
-			Debug.Log("Your family is" + adj + "thirsty");
+				if (AmountDrank >= 4 && AmountDrank < 7)
+					adj = "very";
+				else
+					adj = "somewhat";
+			Debug.Log (string.Format ("Your family is {0} thirsty", adj));
 		}
-		SetFoodRequirements();
-		base.DayEnd ();
 	}
 }
-
-//public int DaysWithoutWater { get; set; }
-//public int SurvivesFor { get; private set; }
-//public int WaterRequiredPerMember { get; } 
-//public int MemberCount { get; set; }

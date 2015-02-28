@@ -13,15 +13,20 @@ namespace WorldsApart.Scripting
 
         public override void Start(Action OnFinish)
         {
-            Debug.Log("get water from well");
-            if (ThirdWorldManager.Instance.AvailableWater > 0 && ThirdWorldManager.Instance.TryAction())
-            {
-                ThirdWorldManager.Instance.GetWater();
-                Well.GetComponent<PumpAnimator>().Pump();
-            }
+            if (CanGetWater ()) 
+			{
+				ThirdWorldManager.Instance.GetWater ();
+				Well.GetComponent<PumpAnimator> ().Pump ();
+				ThirdWorldManager.Instance.UsedAction ();
+			}
             ThirdWorldManager.Instance.Report();
 
             new Wait(OnFinish, 2.5f);
         }
+
+		static bool CanGetWater ()
+		{
+			return ThirdWorldManager.Instance.AvailableWater > 0 && ThirdWorldManager.Instance.Actions > 0;
+		}
     }
 }
