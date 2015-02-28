@@ -349,7 +349,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 193502576}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -2.1099999, z: -5}
+  m_LocalPosition: {x: 0, y: -2.1099999, z: 5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -389,14 +389,7 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 193502577}
-    - {fileID: 100000, guid: a10c5d44c98b0d94b9cca297ee778ccd, type: 2}
-    - {fileID: 100000, guid: 19a75d8b29f2aa1499640e5f3a03e188, type: 2}
-    - {fileID: 100000, guid: 7867f6d86a1c87a478fef1da2890c7b2, type: 2}
-    - {fileID: 100000, guid: 454a1e972eb167641af447da4e236406, type: 2}
-    - {fileID: 100000, guid: ed19cbdbdc97862439004e0cd68ca932, type: 2}
-    - {fileID: 100000, guid: 10e0607c8651f174f8355e33faa953db, type: 2}
-    - {fileID: 100000, guid: d7cc575dcb82c7743b6f97824b0675ce, type: 2}
-    - {fileID: 100000, guid: b27c702923d12b6499c213fa56271f7f, type: 2}
+    - {fileID: 100000, guid: 8d3f566e0de46d44d9ec8c10222bf10f, type: 2}
     serializedStrings:
       keys:
       - 'Field: BoundingBox bounds'
@@ -405,14 +398,14 @@ MonoBehaviour:
       - 'Field: Dictionary<GameObject, float> objects'
       values:
       - '{"height":2.5,"width":8}'
-      - 0.05
+      - 0.5
       - '{"$content":0}'
-      - '[{"Key":{"$content":1,"$type":"UnityEngine.GameObject"},"Value":{"$content":0.5,"$type":"System.Single"}},{"Key":{"$content":2,"$type":"UnityEngine.GameObject"},"Value":{"$content":0.35,"$type":"System.Single"}},{"Key":{"$content":3,"$type":"UnityEngine.GameObject"},"Value":{"$content":0.35,"$type":"System.Single"}},{"Key":{"$content":4,"$type":"UnityEngine.GameObject"},"Value":{"$content":0.25,"$type":"System.Single"}},{"Key":{"$content":5,"$type":"UnityEngine.GameObject"},"Value":{"$content":0.25,"$type":"System.Single"}},{"Key":{"$content":6,"$type":"UnityEngine.GameObject"},"Value":{"$content":0.1,"$type":"System.Single"}},{"Key":{"$content":7,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}},{"Key":{"$content":8,"$type":"UnityEngine.GameObject"},"Value":{"$content":1.5,"$type":"System.Single"}}]'
+      - '[{"Key":{"$content":1,"$type":"UnityEngine.GameObject"},"Value":{"$content":0,"$type":"System.Single"}}]'
   id: 6cc1b440-2a02-4414-a1f2-ed349b69aec5
   bounds:
     height: 2.5
     width: 8
-  waitTime: .0500000007
+  waitTime: .5
   parentCollection: {fileID: 193502577}
 --- !u!114 &193502580
 MonoBehaviour:
@@ -422,11 +415,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 193502576}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 414fd4541887f401ea3354a682d5eab1, type: 3}
+  m_Script: {fileID: 11500000, guid: 2632efa4c74185543a988bf085ac0b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   miniGame: {fileID: 193502576}
-  speed: 1
+  speed: 20
   CurrentState: 0
 --- !u!1 &432730203
 GameObject:
@@ -1204,7 +1197,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.80327868
+  orthographic size: 2.83705592
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
