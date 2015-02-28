@@ -3320,6 +3320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc2585b0ca5349bc52d4dc3b166da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  initialWeather: 0
   camera: {fileID: 826886511}
   rain: {fileID: 787469559}
   dry: {fileID: 694388820}
