@@ -7,8 +7,7 @@ namespace WorldsApart.Handlers
 	{
         public override void innerDelegate()
 		{
-			Debug.Log("get water from well");
-			if (ThirdWorldManager.Instance.AvailableWater > 0 && ThirdWorldManager.Instance.TryAction())
+			if (ThirdWorldManager.Instance.AvailableWater > 0 && ThirdWorldManager.Instance.Actions > 0)
 			{
 				ThirdWorldManager.Instance.GetWater();
 				gameObject.GetComponent<PumpAnimator>().Pump();

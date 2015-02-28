@@ -23,7 +23,7 @@ namespace WorldsApart.Scripting
 		{
 			return ThirdWorldManager.Instance.AnyWater 
 					&& drinker.GetComponent<Thirst>().AmountDrank < drinker.GetComponent<Thirst>().TotalRequiredWater
-					&& ThirdWorldManager.Instance.TryAction();
+					&& ThirdWorldManager.Instance.Actions > 0;
 		}
 	}
 }

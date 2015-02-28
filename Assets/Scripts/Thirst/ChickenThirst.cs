@@ -3,17 +3,14 @@ using System.Collections;
 
 public class ChickenThirst : Thirst {
 	
-	void Start () {
-		SurvivesFor = 1;
-		WaterRequiredPerMember = 1;
-		MemberCount = 1;
-		DaysWithoutWater = 0;
+	void Start ()
+	{
+		InitializeWaterRequirements(new ThirstInfo().Chicken());
 	}
 	
 	public override void DrinkSuccess()
 	{
 		base.DrinkSuccess();
-		ThirdWorldManager.Instance.IncrementFood(MemberCount);
-		Debug.Log("Your " + name + " has enough water");
+		ThirdWorldManager.Instance.IncrementFood(Random.Range(1,2));
 	}
 }

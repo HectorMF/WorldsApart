@@ -25,7 +25,7 @@ namespace WorldsApart.Games.CropsMinigame
 
         void Start()
         {
-            StartGame();
+//            StartGame();
         }
 
         public MiniGameState CurrentState;
@@ -66,7 +66,7 @@ namespace WorldsApart.Games.CropsMinigame
         {
             return ThirdWorldManager.Instance.AnyWater
                 && gameObject.GetComponent<Thirst>().AmountDrank < gameObject.GetComponent<Thirst>().TotalRequiredWater
-                    && ThirdWorldManager.Instance.TryAction();
+                    && ThirdWorldManager.Instance.Actions > 0;
         }
     }
 }

@@ -1,21 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class GoatThirst : Thirst {
 
 	void Start () 
 	{
-		SurvivesFor = 2;
-		WaterRequiredPerMember = 2;
-		MemberCount = 1;
-		DaysWithoutWater = 0;
+		InitializeWaterRequirements(new ThirstInfo().Goat());
 	}
 
 	public override void DrinkSuccess ()
 	{
 		base.DrinkSuccess();
-		ThirdWorldManager.Instance.IncrementFood(2 * MemberCount);
-		Debug.Log("Your " + name + " has enough water");
+		ThirdWorldManager.Instance.IncrementFood(Random.Range(1, 3));
 	}
 
 	public override void DayEnd ()

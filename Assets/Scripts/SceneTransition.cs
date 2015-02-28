@@ -38,12 +38,12 @@ namespace WorldsApart
 
         void OnEnable()
         {
-            ThirdWorldManager.OnDayEnd += Transition;
+//            ThirdWorldManager.OnDayEnd += Transition;
         }
                     
         void OnDisable()
         {
-            ThirdWorldManager.OnDayEnd -= Transition;
+//            ThirdWorldManager.OnDayEnd -= Transition;
         }
 
         void Update()

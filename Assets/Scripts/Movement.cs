@@ -10,7 +10,7 @@ public class Movement : MonoBehaviour
     private Transform movingTarget;
 	Vector3 dir;
     Vector3 prevDir;
-	float speed = 1f;
+	public float speed = 1f;
 
     private Action _notify;
 	
