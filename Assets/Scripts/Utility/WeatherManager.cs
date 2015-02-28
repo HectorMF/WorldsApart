@@ -8,6 +8,7 @@ public class WeatherManager : MonoBehaviour
 {
     public static Weather weather = Weather.None;
 
+    public Weather initialWeather;
     public Camera camera;
     public GameObject rain;
     public GameObject dry;
@@ -16,6 +17,7 @@ public class WeatherManager : MonoBehaviour
 
     void Start()
     {
+        weather = initialWeather;
         UpdateWeather();
     }
 
