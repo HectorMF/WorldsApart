@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 using Vexe.Runtime.Types;
 
-namespace WorldsApart.Games
+namespace WorldsApart.Games.CropsMinigame
 {
     public class Crop : BetterBehaviour
     {

@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using UnityEngine;
 using WorldsApart.Games;
+using WorldsApart.Games.CropsMinigame;
 
-namespace Assets.Scripts.Conditions
+namespace WorldsApart.Conditions
 {
     public class HarvestableCondition: Condition
     {
