@@ -44,13 +44,13 @@ public class ThirdWorldManager
 
 	public int WaterCapacity = 20;
 	public Weather CurrentWeather { get { return currentWeather; } set {} }
-	public Mood.MoodNames CurrentMood  	{ get { return mood.CurrentMood; }  set {} }
-	public int CurrentWater 	{ get { return currentWater; }  set {} }
-	public int CurrentFood 		{ get { return currentFood; }  set {} }
-	public int AvailableWater 	{ get { return availableWater; }  set {} }
-	public int RequiredFood 	{ get { return requiredFood; }  set { requiredFood = value; } }
-	public int Actions 			{ get { return actions; }  set {} }
-	public bool AnyWater		{ get { return currentWater > 0; } set {} }
+	public Mood.MoodNames CurrentMood { get { return mood.CurrentMood; }  set {} }
+	public int CurrentWater { get { return currentWater; }  set {} }
+	public int CurrentFood { get { return currentFood; }  set {} }
+	public int AvailableWater { get { return availableWater; }  set {} }
+	public int RequiredFood { get { return requiredFood; }  set { requiredFood = value; } }
+	public int Actions { get { return actions; }  set {} }
+	public bool AnyWater { get { return currentWater > 0; } set {} }
 
 	private Mood mood = new Mood();
 	private Weather currentWeather;
@@ -68,8 +68,6 @@ public class ThirdWorldManager
             if (ShouldSwapSprite ()) InvokeSpriteSwap ();
         }
     }
-	
-
 
 	public ThirdWorldManager()
 	{
