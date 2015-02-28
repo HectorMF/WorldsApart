@@ -68,5 +68,14 @@ namespace WorldsApart.Utility
         {
             timeLeft = waitTime;
         }
+
+        private void OnDrawGizmos()
+        {
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position + new Vector3(bounds.width / 2, bounds.height/2, 0f), transform.position + new Vector3(bounds.width / 2, -bounds.height/2, 0f));
+            Gizmos.DrawLine(transform.position + new Vector3(bounds.width / 2, bounds.height / 2, 0f), transform.position + new Vector3(-bounds.width / 2, bounds.height / 2, 0f));
+            Gizmos.DrawLine(transform.position - new Vector3(bounds.width / 2, bounds.height / 2, 0f), transform.position - new Vector3(bounds.width / 2, -bounds.height / 2, 0f));
+            Gizmos.DrawLine(transform.position - new Vector3(bounds.width / 2, bounds.height / 2, 0f), transform.position - new Vector3(-bounds.width / 2, bounds.height / 2, 0f));
+        }
     }
 }

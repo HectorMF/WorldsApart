@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &7920659
 GameObject:
@@ -418,7 +417,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 41958429}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .0500000007
@@ -724,7 +723,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 118599370}
-  - 114: {fileID: 118599373}
+  - 114: {fileID: 118599371}
   m_Layer: 0
   m_Name: Main Layer
   m_TagString: Untagged
@@ -745,7 +744,7 @@ Transform:
   - {fileID: 157501396}
   m_Father: {fileID: 285367069}
   m_RootOrder: 3
---- !u!114 &118599373
+--- !u!114 &118599371
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -753,7 +752,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 118599369}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .0500000007
@@ -2553,7 +2552,8 @@ Prefab:
       propertyPath: yScrollSpeed
       value: .100000001
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 11467988, guid: d90156e1b682a254eb0387ed153aa8eb, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: d90156e1b682a254eb0387ed153aa8eb, type: 2}
   m_RootGameObject: {fileID: 302657125}
   m_IsPrefabParent: 0
@@ -4421,7 +4421,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 302657126}
-  - 114: {fileID: 302657127}
+  - 114: {fileID: 302657128}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -4515,16 +4515,15 @@ Transform:
   - {fileID: 1263994064}
   m_Father: {fileID: 285367069}
   m_RootOrder: 4
---- !u!114 &302657127
+--- !u!114 &302657128
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11467988, guid: d90156e1b682a254eb0387ed153aa8eb,
-    type: 2}
-  m_PrefabInternal: {fileID: 203739768}
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 302657125}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .100000001
@@ -6118,7 +6117,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 339628641}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .0199999996
@@ -6384,8 +6383,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 404976672}
-  - 114: {fileID: 404976673}
   - 114: {fileID: 404976674}
+  - 114: {fileID: 404976675}
   m_Layer: 0
   m_Name: Background
   m_TagString: Untagged
@@ -6410,19 +6409,6 @@ Transform:
   - {fileID: 1985851848}
   m_Father: {fileID: 285367069}
   m_RootOrder: 2
---- !u!114 &404976673
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 404976671}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xScrollSpeed: .0299999993
-  yScrollSpeed: .0299999993
 --- !u!114 &404976674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6438,6 +6424,19 @@ MonoBehaviour:
   - {fileID: 400000, guid: 99e329fa6abf74b018879fa4b7e95f89, type: 2}
   leftSpawn: {fileID: 1985851848}
   rightSpawn: {fileID: 1887091682}
+--- !u!114 &404976675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 404976671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  xScrollSpeed: .0299999993
+  yScrollSpeed: .0299999993
 --- !u!1 &416793173
 GameObject:
   m_ObjectHideFlags: 0
@@ -8055,7 +8054,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 682231019}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .0299999993
@@ -9320,13 +9319,14 @@ MonoBehaviour:
   dbg: 0
   _serializationData:
     serializedObjects:
+    - {fileID: 849068559}
     - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"controller":null,"targetController":{"$content":0},"$type":"WorldsApart.Scripting.RemoteCropsGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"controller":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteCropsGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: b8638abc-ba6a-4b78-bc10-795797f2b775
   active: 1
@@ -9468,7 +9468,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 850808421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .075000003
@@ -11574,7 +11574,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 981054631}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .00999999978
@@ -12303,7 +12303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1926655f0f52a624ebc46c152a91aa8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  phoneCamera: 1
   dragSpeed: .5
   cameraDragging: 1
   minX: 0
@@ -13016,7 +13015,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1316367106}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .100000001
@@ -13098,8 +13097,8 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 1329193502}
-  - 114: {fileID: 1329193503}
   - 212: {fileID: 1329193504}
+  - 114: {fileID: 1329193503}
   m_Layer: 0
   m_Name: Foreground
   m_TagString: Untagged
@@ -13131,7 +13130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1329193501}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
+  m_Script: {fileID: 11500000, guid: f0e233546dbc5fd45b7848aa94cc4b63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   xScrollSpeed: .300000012
@@ -13865,8 +13864,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295

@@ -12,4 +12,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/TestScene.unity
   - enabled: 1
+<<<<<<< HEAD
     path: Assets/Scenes/Minigame Scenes/WaterGame.unity
+=======
+    path: Assets/Scenes/Minigame Scenes/Milking Minigame.unity
+>>>>>>> bf66bd4ba22c6af72e455cb9194f6aadf6f2e452
