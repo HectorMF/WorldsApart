@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
 
 public class WaterBasket : MonoBehaviour {
 
@@ -20,18 +21,26 @@ public class WaterBasket : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //TODO: Test to make sure this is right way to do this
-        Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
-        //converting from Rad to Degrees
-        currentAngel = Mathf.Rad2Deg * currentAngel;
-        var drippingAngel = 90 * (BasketSize-AmountOfWater) / BasketSize;
-        if(currentAngel > 80)
+        try
         {
-            wgLogic.DropWaterPack();
+
+            Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
+            //converting from Rad to Degrees
+            currentAngel = Mathf.Rad2Deg * currentAngel;
+            var drippingAngel = 90 * (BasketSize - AmountOfWater) / BasketSize;
+            if (currentAngel > 80)
+            {
+                wgLogic.DropWaterPack();
+            }
+            if (currentAngel > drippingAngel)
+            {
+                //TODO: Double check the logic
+                wgLogic.LoseSomeWater((currentAngel - drippingAngel) * BasketSize / 90);
+            }
         }
-        if (currentAngel > drippingAngel)
+        catch(Exception e)
         {
-            //TODO: Double check the logic
-            wgLogic.LoseSomeWater((currentAngel - drippingAngel)*BasketSize/90);
+            Debug.LogException(e);
         }
 	}
 }
