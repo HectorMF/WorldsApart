@@ -54,14 +54,30 @@ namespace WorldsApart.Games.SheeringMinigame
         //    throw new Exception("Invalid Direction");
         //}
 
-        void OnMouseUpAsButton()
+        void OnMouseDown()
         {
             if (controller.ValidIndex(index))
             {
                 var renderer = gameObject.GetComponent<MeshRenderer>();
                 if (renderer != null) renderer.material.color = Color.red;
                 controller.registerSelected(index);
+                controller.setMouseActive(true);
             }
+        }
+
+        void OnMouseOver()
+        {
+            if (controller.getMouseActive() && controller.ValidIndex(index))
+            {
+                var renderer = gameObject.GetComponent<MeshRenderer>();
+                if (renderer != null) renderer.material.color = Color.red;
+                controller.registerSelected(index);
+            }
+        }
+
+        void OnMouseUp()
+        {
+            controller.setMouseActive(false);
         }
     }
 
