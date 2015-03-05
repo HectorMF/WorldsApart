@@ -158,6 +158,7 @@ public class CameraFit : MonoBehaviour
     private void Update()
     {
         #if UNITY_EDITOR
+                ComputeAspectRatio();
                 ComputeResolution();
         #endif
         if (Input.deviceOrientation != orientation)
