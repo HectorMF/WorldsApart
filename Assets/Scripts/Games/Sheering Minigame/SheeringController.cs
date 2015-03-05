@@ -18,10 +18,12 @@ namespace WorldsApart.Games.SheeringMinigame
 
         //private Sheerable[] contents;
         private int prevIndex;
+        private int count;
 
         void Start()
         {
             prevIndex = -1;
+            count = 0;
             //contents = new Sheerable[columns * rows];
 
             for (int x = 0; x < columns; x++)
@@ -52,7 +54,10 @@ namespace WorldsApart.Games.SheeringMinigame
 
         public void registerSelected(int index)
         {
+            count++;
             prevIndex = index;
+            if (count == columns * rows)
+                Debug.Log("Winner winner chicken dinner");
         }
 
         internal bool ValidIndex(int index)
