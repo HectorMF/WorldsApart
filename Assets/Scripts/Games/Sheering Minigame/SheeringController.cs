@@ -80,10 +80,10 @@ namespace WorldsApart.Games.SheeringMinigame
             if (prevIndex % columns != columns - 1 && prevIndex == index - 1) return true;
             //Look right
             if (prevIndex % columns != 0 && prevIndex == index + 1) return true;
-            //Look down
-            if (prevIndex < columns * (rows - 1) && prevIndex == index - columns) return true;
             //Look up
-            if (prevIndex > columns && prevIndex == index + columns) return true;
+            if (prevIndex < columns * (rows - 1) && prevIndex == index - columns) return true;
+            //Look down
+            if (prevIndex > columns - 1 && prevIndex == index + columns) return true;
             return false;
         }
 
@@ -92,7 +92,7 @@ namespace WorldsApart.Games.SheeringMinigame
             if (index % columns != columns - 1 && !path.Contains(index + 1)) return true;
             if (index % columns != 0 && !path.Contains(index - 1)) return true;
             if (index < columns * (rows - 1) && !path.Contains(index + columns)) return true;
-            if (index > columns && !path.Contains(index - columns)) return true;
+            if (index > columns - 1 && !path.Contains(index - columns)) return true;
             return false;
         }
     }
