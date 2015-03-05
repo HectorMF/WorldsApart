@@ -85,7 +85,6 @@ GameObject:
   - 212: {fileID: 779628}
   - 114: {fileID: 779627}
   - 65: {fileID: 779626}
-  - 114: {fileID: 779630}
   m_Layer: 0
   m_Name: CowNipple
   m_TagString: Untagged
@@ -121,6 +120,10 @@ MonoBehaviour:
   tweenDuration: 1
   yOffsetMin: -.25
   yOffsetMax: .25
+  currentFillValue: 0
+  fillRate: .400000006
+  minScale: {x: .5, y: 1, z: 1}
+  maxScale: {x: 1, y: 1, z: 1}
 --- !u!212 &779628
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -155,21 +158,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 30499238}
   m_RootOrder: 0
---- !u!114 &779630
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 779625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404e2f928e2969e449437dea64a7703b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentValue: 0
-  fillRate: .100000001
-  minScale: {x: .100000001, y: 1, z: 1}
-  maxScale: {x: 1, y: 1, z: 1}
 --- !u!1 &30499236
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,9 +307,7 @@ GameObject:
   - 4: {fileID: 396989921}
   - 212: {fileID: 396989920}
   - 114: {fileID: 396989919}
-  - 114: {fileID: 396989922}
   - 65: {fileID: 396989918}
-  - 114: {fileID: 396989923}
   m_Layer: 0
   m_Name: CowNipple
   m_TagString: Untagged
@@ -357,6 +343,10 @@ MonoBehaviour:
   tweenDuration: 1
   yOffsetMin: -.25
   yOffsetMax: .25
+  currentFillValue: 0
+  fillRate: .400000006
+  minScale: {x: .5, y: 1, z: 1}
+  maxScale: {x: 1, y: 1, z: 1}
 --- !u!212 &396989920
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -391,36 +381,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 30499238}
   m_RootOrder: 3
---- !u!114 &396989922
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 396989917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404e2f928e2969e449437dea64a7703b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentValue: 0
-  fillRate: .100000001
-  minScale: {x: .100000001, y: 1, z: 1}
-  maxScale: {x: 1, y: 1, z: 1}
---- !u!114 &396989923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 396989917}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404e2f928e2969e449437dea64a7703b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentValue: 0
-  fillRate: .100000001
-  minScale: {x: .100000001, y: 1, z: 1}
-  maxScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1100055368
 GameObject:
   m_ObjectHideFlags: 0
@@ -593,7 +553,6 @@ GameObject:
   - 212: {fileID: 1410012149}
   - 114: {fileID: 1410012148}
   - 65: {fileID: 1410012147}
-  - 114: {fileID: 1410012151}
   m_Layer: 0
   m_Name: CowNipple
   m_TagString: Untagged
@@ -629,6 +588,10 @@ MonoBehaviour:
   tweenDuration: 1
   yOffsetMin: -.25
   yOffsetMax: .25
+  currentFillValue: 0
+  fillRate: .400000006
+  minScale: {x: .5, y: 1, z: 1}
+  maxScale: {x: 1, y: 1, z: 1}
 --- !u!212 &1410012149
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -663,21 +626,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 30499238}
   m_RootOrder: 1
---- !u!114 &1410012151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1410012146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404e2f928e2969e449437dea64a7703b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentValue: 0
-  fillRate: .200000003
-  minScale: {x: .100000001, y: 1, z: 1}
-  maxScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1461869983
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,7 +713,6 @@ GameObject:
   - 212: {fileID: 1659731376}
   - 114: {fileID: 1659731378}
   - 65: {fileID: 1659731379}
-  - 114: {fileID: 1659731380}
   m_Layer: 0
   m_Name: CowNipple
   m_TagString: Untagged
@@ -823,6 +770,10 @@ MonoBehaviour:
   tweenDuration: 1
   yOffsetMin: -.25
   yOffsetMax: .25
+  currentFillValue: 0
+  fillRate: .400000006
+  minScale: {x: .5, y: 1, z: 1}
+  maxScale: {x: 1, y: 1, z: 1}
 --- !u!65 &1659731379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -835,21 +786,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: .25999999, y: 2.55999994, z: .200000003}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1659731380
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1659731375}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 404e2f928e2969e449437dea64a7703b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentValue: 0
-  fillRate: .400000006
-  minScale: {x: .100000001, y: 1, z: 1}
-  maxScale: {x: 1, y: 1, z: 1}
 --- !u!1 &1684609429
 GameObject:
   m_ObjectHideFlags: 0
