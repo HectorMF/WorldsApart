@@ -20,7 +20,7 @@ public class WaterBasket : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //TODO: Test to make sure this is right way to do this
-        camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
+        Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
         //converting from Rad to Degrees
         currentAngel = Mathf.Rad2Deg * currentAngel;
         var drippingAngel = 90 * (BasketSize-AmountOfWater) / BasketSize;
