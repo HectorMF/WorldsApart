@@ -87,7 +87,6 @@ namespace GoofyGhost.Utility
                     if(pos > -1){
                         
                         draggedObject = dragList[pos];
-                        Debug.Log(draggedObject.CanDrag);
                         if (draggedObject.CanDrag)
                         {
                             isDragging = true;

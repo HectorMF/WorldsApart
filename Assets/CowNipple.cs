@@ -88,7 +88,7 @@ namespace GoofyGhost.WorldsApart
             currentFillValue = Clamp(currentFillValue, minFillValue, maxFillValue);
             transform.localScale = Vector3.Lerp(minScale, maxScale, (currentFillValue - minFillValue) / (maxFillValue - minFillValue));
             if (currentFillValue == maxFillValue)
-                transform.DOShakeScale(.5f, new Vector3(.12f, 0, 0), 16);
+                transform.DOShakeScale(.5f, new Vector3(.15f, 0, 0), 16);
         }
 
         public float Clamp(float val, float min, float max)
