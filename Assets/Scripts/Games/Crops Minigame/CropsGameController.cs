@@ -35,7 +35,7 @@ namespace WorldsApart.Games.CropsMinigame
 
         void Start()
         {
-//            StartGame();
+            StartGame();
         }
 
         public MiniGameState CurrentState;

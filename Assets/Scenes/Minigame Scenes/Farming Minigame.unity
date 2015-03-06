@@ -390,6 +390,7 @@ MonoBehaviour:
     serializedObjects:
     - {fileID: 193502577}
     - {fileID: 100000, guid: 8d3f566e0de46d44d9ec8c10222bf10f, type: 2}
+    - {fileID: 100000, guid: b3adb939db726d249a41e82c13c90845, type: 2}
     serializedStrings:
       keys:
       - 'Field: BoundingBox bounds'
@@ -400,7 +401,7 @@ MonoBehaviour:
       - '{"height":2.5,"width":8}'
       - 0.5
       - '{"$content":0}'
-      - '[{"Key":{"$content":1,"$type":"UnityEngine.GameObject"},"Value":{"$content":0,"$type":"System.Single"}}]'
+      - '[{"Key":{"$content":1,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}},{"Key":{"$content":2,"$type":"UnityEngine.GameObject"},"Value":{"$content":1,"$type":"System.Single"}}]'
   id: 6cc1b440-2a02-4414-a1f2-ed349b69aec5
   bounds:
     height: 2.5
@@ -1014,9 +1015,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0502739549
+    y: .0531753898
     width: 1
-    height: .89945209
+    height: .89364922
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60

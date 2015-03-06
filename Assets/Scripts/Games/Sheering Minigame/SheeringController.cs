@@ -31,7 +31,7 @@ namespace WorldsApart.Games.SheeringMinigame
             {
                 for (int y = 0; y < rows; y++)
                 {
-                    var block = Instantiate(sheerablePrefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * (.05f + spriteWidth) + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * (spriteHeight + .05f) + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
+                    var block = Instantiate(sheerablePrefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * (.01f + spriteWidth) + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * (spriteHeight + .01f) + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
                     block.transform.parent = transform;
                     block.setController(this);
                     block.index = y * columns + x;

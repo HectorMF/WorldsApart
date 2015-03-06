@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 65: {fileID: 6500000}
   m_Layer: 0
-  m_Name: Crop
+  m_Name: Crop2
   m_TagString: Crop
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -58,10 +58,10 @@ MonoBehaviour:
   dbg: 0
   _serializationData:
     serializedObjects:
-    - {fileID: 21300000, guid: de8130d8221f4f148a5eace54b6d0bb0, type: 3}
-    - {fileID: 21300000, guid: b2a9012be85067842b230879402a17cd, type: 3}
-    - {fileID: 21300000, guid: 2d8bf22fbd7012648b1b5c7ee47d5586, type: 3}
-    - {fileID: 21300000, guid: 4c084e636e7a03a43a2998dc9b442067, type: 3}
+    - {fileID: 21300000, guid: 58033c8373df150458f41c0aa1e9ee9d, type: 3}
+    - {fileID: 21300000, guid: 1798d646fe627f945a2c833fbd468b18, type: 3}
+    - {fileID: 21300000, guid: 492af3cdaad21154fb25427cee75507b, type: 3}
+    - {fileID: 21300000, guid: c4222db1664b2244e91c5e8129207aa0, type: 3}
     - {fileID: 21300000, guid: 088ae304ac70d0645b13da36d759d3dc, type: 3}
     serializedStrings:
       keys:
@@ -72,16 +72,16 @@ MonoBehaviour:
       - '"Budding"'
   id: 9ec24a7a-4ab1-4d12-9d56-13df8caa42fc
   phases:
-  - sprite: {fileID: 21300000, guid: de8130d8221f4f148a5eace54b6d0bb0, type: 3}
+  - sprite: {fileID: 21300000, guid: 58033c8373df150458f41c0aa1e9ee9d, type: 3}
     waitTime: 3
     phase: 0
-  - sprite: {fileID: 21300000, guid: b2a9012be85067842b230879402a17cd, type: 3}
+  - sprite: {fileID: 21300000, guid: 1798d646fe627f945a2c833fbd468b18, type: 3}
     waitTime: 10
     phase: 1
-  - sprite: {fileID: 21300000, guid: 2d8bf22fbd7012648b1b5c7ee47d5586, type: 3}
+  - sprite: {fileID: 21300000, guid: 492af3cdaad21154fb25427cee75507b, type: 3}
     waitTime: 5
     phase: 1
-  - sprite: {fileID: 21300000, guid: 4c084e636e7a03a43a2998dc9b442067, type: 3}
+  - sprite: {fileID: 21300000, guid: c4222db1664b2244e91c5e8129207aa0, type: 3}
     waitTime: 10
     phase: 2
   - sprite: {fileID: 21300000, guid: 088ae304ac70d0645b13da36d759d3dc, type: 3}
