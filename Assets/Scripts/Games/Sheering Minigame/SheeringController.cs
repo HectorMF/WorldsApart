@@ -76,6 +76,7 @@ namespace WorldsApart.Games.SheeringMinigame
         internal bool ValidIndex(int index)
         {
             if (prevIndex == -1) return true;
+            if(path.Contains(index)) return false;
             //Look left
             if (prevIndex % columns != columns - 1 && prevIndex == index - 1) return true;
             //Look right
