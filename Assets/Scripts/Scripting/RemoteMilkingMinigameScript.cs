@@ -7,12 +7,15 @@ namespace WorldsApart.Scripting
 	{
 		public override void Start(System.Action OnFinish)
 		{
-			Debug.Log("Milk game!");
+			Debug.Log("Milking game!");
 			ThirdWorldManager.Instance.UsedAction();
-			Application.LoadLevel("Milking Minigame");
-
+			Fader.FadeToBlack(0,2,"Milk The Cow","",switchLevel);
 			base.targetController.scripts.Clear();
 			OnFinish();
+		}
+
+		public void switchLevel(){
+			Application.LoadLevel("Milking Minigame");
 		}
 	}
 }

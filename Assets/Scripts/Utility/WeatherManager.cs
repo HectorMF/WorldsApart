@@ -42,7 +42,9 @@ public class WeatherManager : MonoBehaviour
             dry.SetActive(true);
         if (weather == Weather.Rain)
             rain.SetActive(true);
-        if (weather == Weather.EarthQuake)
+        if (weather == Weather.EarthQuake){
             camera.DOShakePosition(10, .4f, 5);
+			Handheld.Vibrate();
+		}
     }
 }

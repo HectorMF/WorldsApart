@@ -136,9 +136,9 @@ public class CameraFit : MonoBehaviour
     #region METHODS
     private void Awake()
     {
-        Screen.orientation = ScreenOrientation.Landscape;
-
-        try
+		ComputeAspectRatio();
+		ComputeResolution();
+        /*try
         {
             if ((bool)GetComponent<Camera>())
             {
@@ -152,8 +152,15 @@ public class CameraFit : MonoBehaviour
         catch (Exception e)
         {
             Debug.LogException(e, this);
-        }
+        }*/
     }
+
+	private void Start()
+	{
+		ComputeAspectRatio();
+		ComputeResolution();
+	}
+
 
     private void Update()
     {
@@ -161,21 +168,26 @@ public class CameraFit : MonoBehaviour
                 ComputeAspectRatio();
                 ComputeResolution();
         #endif
-        if (Input.deviceOrientation != orientation)
+
+		ComputeAspectRatio();
+		ComputeResolution();
+
+        /*if (Input.deviceOrientation != orientation)
         {
             if (orientation == DeviceOrientation.LandscapeLeft)
             {
                 Screen.orientation = ScreenOrientation.LandscapeLeft;
             }
-            else if (orientation == DeviceOrientation.LandscapeRight)
+			if (orientation == DeviceOrientation.LandscapeRight)
             {
                 Screen.orientation = ScreenOrientation.LandscapeRight;
             }
-            ComputeResolution();
-            ComputeAspectRatio();
+
+			ComputeAspectRatio();
+			ComputeResolution();
             orientation = Input.deviceOrientation;
 
-        }
+		}*/
     }
 
     private void ComputeResolution()
