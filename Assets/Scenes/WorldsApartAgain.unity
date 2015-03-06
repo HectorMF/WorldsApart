@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &7920659
 GameObject:
@@ -2387,10 +2388,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .0982954502
-    width: 1
-    height: .8034091
+    x: .205555558
+    y: 0
+    width: .588888884
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -6527,8 +6528,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -7055,12 +7056,13 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 1576683656}
+    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.MilkHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteMilkingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
