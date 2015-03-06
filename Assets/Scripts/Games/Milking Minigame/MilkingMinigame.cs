@@ -9,7 +9,11 @@ public class MilkingMinigame : MonoBehaviour {
     private int seconds;
     private int minutes;
     private int oldSeconds;
-	
+
+	void Start(){
+		Fader.FadeToClear(2, 2,"Milk The Cow");
+	}
+
 	void Update () {
         if (time <= 0) {
             this.enabled = false;
@@ -36,7 +40,7 @@ public class MilkingMinigame : MonoBehaviour {
         }
 		
         if (seconds <= 0)
-			EndGame();
+			Fader.FadeToBlack(0, 2, "", "",EndGame);
         
 	}
 
