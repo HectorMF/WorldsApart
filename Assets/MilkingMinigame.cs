@@ -34,6 +34,15 @@ public class MilkingMinigame : MonoBehaviour {
                // timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
             }
         }
+
+		timer.text = minutes + ":" + seconds.ToString("00");
         
+        if (seconds <= 0)
+			EndGame();
+        
+	}
+
+	void EndGame() {
+		Application.LoadLevel("WorldsApartAgain");
 	}
 }

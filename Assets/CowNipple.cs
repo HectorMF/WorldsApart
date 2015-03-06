@@ -29,9 +29,11 @@ namespace GoofyGhost.WorldsApart
         private Vector3 screenPoint;
         private Vector3 offset;
 
+		private ScoreController scoreController;
+
         public void Start()
         {
-
+			scoreController = GameObject.Find("ScoreController").GetComponent<ScoreController>();
             DragHandler.Subscribe(this);
             currentFillValue = UnityEngine.Random.Range(minFillValue, maxFillValue);
             CanDrag = true;
@@ -75,6 +77,7 @@ namespace GoofyGhost.WorldsApart
             }
             if (yPosition == yOffsetMin + position.y)
             {
+				ReportMilk();
                 currentFillValue = 0;
             }
 
@@ -111,5 +114,9 @@ namespace GoofyGhost.WorldsApart
                 canDrag = value;
             }
         }
+
+		void ReportMilk() {
+			scoreController.Food += currentFillValue;
+		}
     }
 }
