@@ -11,7 +11,7 @@ namespace WorldsApart.GUI
 
         public void LoadLevel()
         {
-            Application.LoadLevel("WorldsApart");
+            Application.LoadLevel("WorldsApartAgain");
         }
 
     }

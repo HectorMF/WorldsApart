@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
 	private Vector3 target;
     private Transform movingTarget;
 	Vector3 dir;
-    Vector3 prevDir;
+    Vector3 prevDir = new Vector3(-999, -999, -999);
 	public float speed = 1f;
 
     private Action _notify;
@@ -19,7 +19,7 @@ public class Movement : MonoBehaviour
         if (movingTarget != null) target = movingTarget.position;
         dir = target - transform.position;
 
-        if (prevDir != null)
+        if (prevDir.x != -999 && prevDir.y != -999 && prevDir.z != -999)
         {
             if ((prevDir.x > 0 && dir.x < 0) || (prevDir.x < 0 && dir.x > 0)) transform.Rotate(transform.up, 180f);
         }
