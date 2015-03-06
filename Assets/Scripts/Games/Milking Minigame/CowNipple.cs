@@ -43,7 +43,7 @@ namespace GoofyGhost.WorldsApart
 
         public void BeginDrag()
         {
-            
+
             screenPoint = Camera.main.WorldToScreenPoint(transform.position);
             offset = transform.position - Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             position = transform.position;
@@ -70,8 +70,6 @@ namespace GoofyGhost.WorldsApart
             float yPosition = Clamp(curPosition.y, yOffsetMin + position.y, yOffsetMax + position.y);
             transform.position = new Vector3(transform.position.x, yPosition, transform.position.z);
             transform.localScale = Vector3.Lerp(minScale, maxScale, (yPosition - (yOffsetMin + position.y)) / ((position.y) - (yOffsetMin + position.y)));
-
-            //Debug.og
 
             if (yPosition == yOffsetMax + position.y)
             {
@@ -118,7 +116,7 @@ namespace GoofyGhost.WorldsApart
         }
 
 		void ReportMilk() {
-            if(scoreController != null) 
+            if(scoreController != null)
 			    scoreController.Food += currentFillValue;
 		}
     }
