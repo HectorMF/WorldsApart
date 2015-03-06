@@ -103,9 +103,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 354dc7442b69aa840a56735079ea7e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Camera: {fileID: 0}
-  AmountOfWater: 0
-  BasketSize: 1
+  Camera: {fileID: 796706782}
+  AmountOfWater: 100
+  BasketSize: 100
 --- !u!212 &1407220
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -126,7 +126,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 1357471b02d63424cbae3d07d3314e3c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1407221
 Transform:
@@ -135,8 +135,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407218}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 4.75, z: -1}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
@@ -1189,7 +1189,6 @@ GameObject:
   - 81: {fileID: 796706783}
   - 114: {fileID: 796706789}
   - 114: {fileID: 796706788}
-  - 114: {fileID: 796706790}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1230,9 +1229,9 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .075456053
+    x: .083211571
     y: 0
-    width: .849087894
+    width: .833576858
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
@@ -1284,17 +1283,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8deba245d5f730243a19e72f87b8e56d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &796706790
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 796706782}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49448ec99b03fa8488086f72efdeac79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &814703063
@@ -1459,7 +1447,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 958935960}
   - 212: {fileID: 958935959}
-  - 114: {fileID: 958935961}
   m_Layer: 0
   m_Name: BackgroundWalking
   m_TagString: Untagged
@@ -1501,19 +1488,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &958935961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 958935958}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 075c0202426d68e4e9f356581923ca5f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xScrollSpeed: 0
-  yScrollSpeed: 0
 --- !u!1 &1116201474
 GameObject:
   m_ObjectHideFlags: 0
@@ -1663,7 +1637,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170197441}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 462715af08d03b64c9aef2fd992817bd, type: 3}
   m_Name: 
@@ -1690,7 +1664,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300016, guid: 6d68ef719c419654887f5c5da0276a0b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1170197444
 Transform:
@@ -1699,8 +1673,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1170197441}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 1, z: -1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4

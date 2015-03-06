@@ -3,10 +3,10 @@ using System.Collections;
 
 public class WaterGameLogic {
 
-    public float water;
-    public float maxWater;
-    public float currentDistance;
-    public float distance;
+    public float water = 0f;
+    public float maxWater = 0f;
+    public float currentDistance = 0f;
+    public float distance = 0f;
 
     public bool GameOver = false;
     public bool ReachedDestination = false;

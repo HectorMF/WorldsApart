@@ -23,19 +23,19 @@ public class WaterBasket : MonoBehaviour {
         //TODO: Test to make sure this is right way to do this
         try
         {
-
+            Debug.Log("Water LEVEL:" + wgLogic.water);
             Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
             //converting from Rad to Degrees
             currentAngel = Mathf.Rad2Deg * currentAngel;
-            var drippingAngel = 90 * (BasketSize - AmountOfWater) / BasketSize;
-            if (currentAngel > 80)
+            var drippingAngel = 270 * (BasketSize - AmountOfWater) / BasketSize;
+            if (currentAngel > 180)
             {
                 wgLogic.DropWaterPack();
             }
             if (currentAngel > drippingAngel)
             {
                 //TODO: Double check the logic
-                wgLogic.LoseSomeWater((currentAngel - drippingAngel) * BasketSize / 90);
+                wgLogic.LoseSomeWater(((currentAngel - drippingAngel) * BasketSize / 270) * Time.deltaTime);
             }
         }
         catch(Exception e)
