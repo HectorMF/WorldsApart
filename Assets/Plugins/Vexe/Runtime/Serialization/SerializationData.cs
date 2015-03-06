@@ -16,6 +16,11 @@ namespace Vexe.Runtime.Serialization
 			serializedObjects.Clear();
 			serializedStrings.Clear();
 		}
+
+		public override string ToString()
+		{
+			return "Runtime Serialization Data";
+		}
 	}
 
 	[Serializable]

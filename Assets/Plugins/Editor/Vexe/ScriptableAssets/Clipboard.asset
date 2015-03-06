@@ -15,20 +15,22 @@ MonoBehaviour:
     serializedObjects: []
     serializedStrings:
       keys:
-      - 'Property: Vector3 Vector3'
-      - 'Property: Vector2 Vector2'
-      - 'Property: int Int'
-      - 'Property: float Float'
-      - 'Property: bool Bool'
-      - 'Property: Color Color'
-      - 'Property: Quaternion Quaternion'
+      - 50726f70657274793a20566563746f723320566563746f7233
+      - 50726f70657274793a20566563746f723220566563746f7232
+      - 50726f70657274793a20696e7420496e74
+      - 50726f70657274793a20666c6f617420466c6f6174
+      - 50726f70657274793a20737472696e6720537472696e67
+      - 50726f70657274793a20626f6f6c20426f6f6c
+      - 50726f70657274793a20436f6c6f7220436f6c6f72
+      - 50726f70657274793a205175617465726e696f6e205175617465726e696f6e
       values:
-      - '[0,0,0]'
-      - '[0,0]'
-      - 0
-      - 0
-      - false
-      - '[0,0,0,0]'
-      - '{"x":0,"y":0,"z":0,"w":0}'
-  id: f20f77e7-2fe2-4bb3-ba77-ad10657a57be
+      - 5b302c302c305d
+      - 5b302c305d
+      - 30
+      - 30
+      - 2222
+      - 66616c7365
+      - 5b302c302c302c305d
+      - 7b2278223a302c2279223a302c227a223a302c2277223a317d
+  id: 66323066373765372d326665322d346262332d626137372d616431303635376135376265
   dbg: 0

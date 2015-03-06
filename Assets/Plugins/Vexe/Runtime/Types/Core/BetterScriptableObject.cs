@@ -85,9 +85,9 @@ namespace Vexe.Runtime.Types
 			Debug.Log(obj);
 		}
 
-		public void Reset()
+		public virtual void Reset()
 		{
-			BetterBehaviour.ResetTarget(this);
+			RuntimeUtils.ResetTarget(this);
 		}
 	}
 }

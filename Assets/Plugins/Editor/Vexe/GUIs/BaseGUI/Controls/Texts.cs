@@ -49,5 +49,12 @@ namespace Vexe.Editor.GUIs
 		}
 
 		public abstract string TextArea(string value, Layout option);
+
+		public string ScrollableTextArea(string value, ref Vector2 scrollPos, Layout option)
+		{
+			return ScrollableTextArea(value, ref scrollPos, styles.TextArea, option);
+		}
+
+		public abstract string ScrollableTextArea(string value, ref Vector2 scrollPos, GUIStyle style, Layout option);
 	}
 }

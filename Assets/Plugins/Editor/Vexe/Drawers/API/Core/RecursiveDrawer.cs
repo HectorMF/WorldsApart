@@ -17,17 +17,21 @@ namespace Vexe.Editor.Drawers
 {
 	public class RecursiveDrawer : ObjectDrawer<object>
 	{
-		private int childCount;
+		private bool isToStringImpl;
 		private string nullString;
 		private Type polymorphicType;
 
 		protected override void OnSingleInitialization()
 		{
-			childCount = memberType.GetChildren().Count();
 			nullString = string.Format("null ({0})", memberTypeName);
 
 			if (memberValue != null)
+			{ 
 				polymorphicType = memberValue.GetType();
+				isToStringImpl = polymorphicType.IsMethodImplemented("ToString");
+			}
+			else 
+				isToStringImpl = memberType.IsMethodImplemented("ToString");
 		}
 
 		public override void OnGUI()
@@ -43,7 +47,12 @@ namespace Vexe.Editor.Drawers
 
 			if (polymorphicType == null || polymorphicType == memberType)
 			{
-				DrawRecursive(memberValue, gui, id, unityTarget);
+				//object wrap = member.Value.UnwrapIfWrapped(); // A *MUST* for structs!
+				//object wrap = member.getter(member.Target.UnwrapIfWrapped());
+				object wrap = member.Value;
+				DrawRecursive(wrap, gui, id, unityTarget);
+				//DrawRecursive(member.Value, gui, id, unityTarget);
+				member.Value = wrap;
 			}
 			else
 			{
@@ -52,7 +61,9 @@ namespace Vexe.Editor.Drawers
 				var drawerType = drawer.GetType();
 				if (drawerType == typeof(RecursiveDrawer))
 				{
-					DrawRecursive(memberValue, gui, id, unityTarget);
+					object wrap = member.Value;
+					DrawRecursive(wrap, gui, id, unityTarget);
+					member.Value = wrap;
 				}
 				else
 				{
@@ -66,7 +77,7 @@ namespace Vexe.Editor.Drawers
 		/// if memberNames was null or empty, draws members in 'obj' recursively. Members are fetched according to the default serializaiton logic
 		/// otherwise, draws only the specified members by memberNames
 		/// </summary>
-		public static void DrawRecursive(object obj, BaseGUI gui, string id, UnityObject unityTarget, params string[] memberNames)
+		public static bool DrawRecursive(object obj, BaseGUI gui, string id, UnityObject unityTarget, params string[] memberNames)
 		{
 			List<MemberInfo> members;
 			var objType = obj.GetType();
@@ -94,17 +105,24 @@ namespace Vexe.Editor.Drawers
 			if (members.Count == 0)
 			{
 				gui.HelpBox("Object doesn't have any visible members");
-				return;
+				return false;
 			}
 
+			bool changed = false;
 			using (gui.Indent())
 			{
 				for (int i = 0; i < members.Count; i++)
 				{
+					//var test = (ItemSize)obj;
+					//test.area = 20;
+					//gui.Label(test.area.ToString());
+					//obj = test;
 					var member = members[i];
-					gui.Member(member, obj, unityTarget, id, false);
+					changed |= gui.Member(member, obj, unityTarget, id, false);
 				}
 			}
+
+			return changed;
 		}
 
 		private bool DrawField()
@@ -113,9 +131,20 @@ namespace Vexe.Editor.Drawers
 			{
 				var isEmpty = string.IsNullOrEmpty(niceName);
 				var display = isEmpty ? string.Empty : niceName + " " + (foldout ? "^" : ">");
-				var value   = memberValue;
-				var field   = value == null ? nullString :
-								 string.Format("{0} ({1})", value.ToString(), value.GetType().GetNiceName());
+				var value   = member.Value;
+				string field;
+				
+				if (value == null)
+				{
+					field = nullString;
+				}
+				else
+				{
+					if (isToStringImpl)
+						field = value.ToString();
+					else
+						field = string.Format("{0} ({1})", value.ToString(), value.GetType().GetNiceName());
+				}
 
 				if (isEmpty)
 					Foldout();
@@ -137,79 +166,81 @@ namespace Vexe.Editor.Drawers
 
 					var go = x as GameObject;
 					if (go != null)
-					{
 						return go.GetComponent(memberType);
-					}
+
 					return x.GetType().IsA(memberType) ? x : null;
 
 				}).FirstOrDefault());
 
 				if (drop != null)
-				{ 
 					value = memberValue = drop;
-				}
-
-				if (value == null && !memberType.IsAbstract)
-					TryCreateInstance(memberType);
 
 				SelectionButton();
 			}
+
 			return foldout;
 		}
 
 		protected virtual void SelectionButton()
 		{
-			if (childCount < 1)
-			{
-				using (gui.State(false))
-				{
-					gui.SelectionButton("Object doesn't have any children/implementers");
-				}
-			}
-			else
-			{
-				var tabs = new List<Tab>();
+			var tabs = new List<Tab>();
 
-				Action<Func<Type[]>, Action<Type>, string> newTypeTab = (getValues, create, title) =>
-					tabs.Add(new Tab<Type>(
+			Action<Func<Type[]>, Action<Type>, string> newTypeTab = (getValues, create, title) =>
+				tabs.Add(new Tab<Type>(
+					@getValues: getValues,
+					@getCurrent: () => { var x = memberValue; return x == null ? null : x.GetType(); },
+					@setTarget: newType => { if (newType == null) memberValue = memberType.GetDefaultValueEmptyIfString(); else create(newType); },
+					@getValueName: type => type.Name,
+					@title: title
+				));
+
+			if (memberType.IsInterface)
+			{
+				Action<Func<UnityObject[]>, string> newUnityTab = (getValues, title) =>
+					tabs.Add(new Tab<UnityObject>(
 						@getValues: getValues,
-						@getCurrent: () => { var x = memberValue; return x == null ? null : x.GetType(); },
-						@setTarget: newType => { if (newType == null) memberValue = memberType.GetDefaultValueEmptyIfString(); else create(newType); },
-						@getValueName: type => type.Name,
+						@getCurrent: member.As<UnityObject>,
+						@setTarget: member.Set,
+						@getValueName: obj => obj.name + " (" + obj.GetType().Name + ")",
 						@title: title
 					));
 
-				if (memberType.IsInterface)
-				{
-					Action<Func<UnityObject[]>, string> newUnityTab = (getValues, title) =>
-						tabs.Add(new Tab<UnityObject>(
-							@getValues: getValues,
-							@getCurrent: member.As<UnityObject>,
-							@setTarget: member.Set,
-							@getValueName: obj => obj.name + " (" + obj.GetType().Name + ")",
-							@title: title
-						));
+				newUnityTab(() => UnityObject.FindObjectsOfType<UnityObject>()
+											 .OfType(memberType)
+											 .ToArray(), "Scene");
 
-					newUnityTab(() => UnityObject.FindObjectsOfType<UnityObject>()
-												 .OfType(memberType)
-												 .ToArray(), "Scene");
-
-					newUnityTab(() => PrefabHelper.GetComponentPrefabs(memberType)
-												  .ToArray(), "Prefabs");
-
-					newTypeTab(() => ReflectionHelper.GetAllUserTypesOf(memberType)
-													 .Where(t => t.IsA<MonoBehaviour>())
-													 .Where(t => !t.IsAbstract)
-													 .ToArray(), TryCreateInstanceInGO, "MonoBehaviours");
-				}
+				newUnityTab(() => PrefabHelper.GetComponentPrefabs(memberType)
+											  .ToArray(), "Prefabs");
 
 				newTypeTab(() => ReflectionHelper.GetAllUserTypesOf(memberType)
-												 .Disinclude(memberType.IsAbstract ? memberType : null)
-												 .Where(t => !t.IsA<UnityObject>() && !t.IsAbstract)
-												 .ToArray(), TryCreateInstance, "System types");
+												 .Where(t => t.IsA<MonoBehaviour>())
+												 .Where(t => !t.IsAbstract)
+												 .ToArray(), TryCreateInstanceInGO, "MonoBehaviours");
+			}
 
-				if (gui.SelectionButton())
+			newTypeTab(() => ReflectionHelper.GetAllUserTypesOf(memberType)
+											 .Disinclude(memberType.IsAbstract ? memberType : null)
+											 .Where(t => !t.IsA<UnityObject>() && !t.IsAbstract)
+											 .ToArray(), TryCreateInstance, "System types");
+
+			var click = Event.current.button;
+			if (gui.SelectionButton("Left click: select type. Right click: try instantiate"))
+			{
+				if (click == 0)
+				{
 					SelectionWindow.Show("Select a `" + memberTypeName + "` object", tabs.ToArray());
+				}
+				else if (click == 1)
+				{
+					try
+					{
+						memberValue = memberType.ActivatorInstance();
+					}
+					catch(Exception e)
+					{
+						Debug.Log("Error. Couldn't create instance: " + e.Message);
+					}
+				}
 			}
 		}
 
@@ -227,7 +258,8 @@ namespace Vexe.Editor.Drawers
 		{
 			try
 			{
-				member.Set(create());
+				var inst = create();
+				member.Set(inst);
 
 				if (memberValue != null)
 					polymorphicType = memberValue.GetType();

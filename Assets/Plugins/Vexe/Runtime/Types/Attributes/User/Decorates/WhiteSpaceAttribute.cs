@@ -5,7 +5,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Annotate a member with this attribute to add vertical space above it by a specified about of pixels
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method | AttributeTargets.Parameter)]
 	public class WhitespaceAttribute : CompositeAttribute
 	{
 		/// <summary>

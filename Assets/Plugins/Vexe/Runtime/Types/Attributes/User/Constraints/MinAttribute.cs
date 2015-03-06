@@ -6,7 +6,7 @@ namespace Vexe.Runtime.Types
 	/// Annotate an int or float with this attribute to constrain it to a min value
 	/// so it won't go below that value
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class MinAttribute : ConstrainValueAttribute
 	{
 		public readonly float floatMin;

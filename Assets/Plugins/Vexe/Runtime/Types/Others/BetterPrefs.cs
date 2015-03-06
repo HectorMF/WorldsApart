@@ -47,16 +47,6 @@ namespace Vexe.Runtime.Types
 			return dictionary ?? (dictionary = new Dictionary<string, T>());
 		}
 
-		[Show] void Add()
-		{
-			Bools["whatever"] = true;
-		}
-
-		[Show] void Remove()
-		{
-			Bools.Remove("whatever");
-		}
-
 		[Show, Category(Single)] void ClearSingles()
 		{
 			Ints.Clear();
@@ -102,10 +92,10 @@ namespace Vexe.Runtime.Types
 
 		public static class BetterPrefsMenus
 		{
-			[UnityEditor.MenuItem("Tools/Vexe/BetterPrefs/CreateAsset")]
+			[MenuItem("Tools/Vexe/BetterPrefs/CreateAsset")]
 			public static void CreateBetterPrefsAsset()
 			{
-				UnityEditor.AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<BetterPrefs>(), RuntimePrefsPath);
+				AssetDatabase.CreateAsset(ScriptableObject.CreateInstance<BetterPrefs>(), RuntimePrefsPath);
 			}
 		}
 #endif
@@ -125,7 +115,7 @@ namespace Vexe.Runtime.Types
 				 Bools[key] = (bool)obj;
 		}
 
-		public object TryGet(Type type, string key)
+		public object ValueOrDefault(Type type, string key)
 		{
 			if (type == typeof(int))
 				return Ints.ValueOrDefault(key);

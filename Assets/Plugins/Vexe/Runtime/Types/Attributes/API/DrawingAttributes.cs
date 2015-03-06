@@ -58,13 +58,6 @@ namespace Vexe.Runtime.Types
 	[DefinesElementDrawing] public class PerValueAttribute  : Attribute { }
 
 	/// <summary>
-	/// Annotate dictionaries with this to tell that you want your perkey/pervalue
-	/// attributes to be ignored on the adding segment
-	/// (the two values (key/value) that you use to add new pairs to the dictionary)
-	/// </summary>
-	public class IgnoreAddAreaAttribute : Attribute { }
-
-	/// <summary>
 	/// Annotate composite drawers with this to explictly state that this drawer will never be used on the types to ignore
 	/// Currently used on ReadonlyAttributeDrawer teling it to ignore Lists, Arrays, Dictionaries and Stacks
 	/// why? because Readonly is handled within the the code of those drawers in a custom way
@@ -122,6 +115,21 @@ namespace Vexe.Runtime.Types
 
 		public FormatPairAttribute()
 		{
+		}
+	}
+
+	/// <summary>
+	/// Annotate members with this attribute to make then visible only when a certain condition is met
+	/// The name of the condition method must be passed as an argument to the attribute constructor
+	/// The method should return a boolean, and take no parameters
+	/// </summary>
+	public class VisibleWhenAttribute : Attribute
+	{
+		public readonly string conditionMethod;
+
+		public VisibleWhenAttribute(string conditionMethod)
+		{
+			this.conditionMethod = conditionMethod;
 		}
 	}
 }

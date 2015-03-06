@@ -3,139 +3,158 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Fasterflect;
-using UnityEditor;
-using UnityEngine;
 using Vexe.Editor.GUIs;
-using Vexe.Editor.Helpers;
 using Vexe.Runtime.Exceptions;
 using Vexe.Runtime.Extensions;
 using Vexe.Runtime.Types;
 
 namespace Vexe.Editor.Drawers
 {
-	public abstract class BasePopupAttributeDrawer<T> : AttributeDrawer<T, PopupAttribute>
+	public class PopupAttributeDrawer : AttributeDrawer<string, PopupAttribute>
 	{
 		private string[] values;
 		private int? currentIndex;
-		private MethodInvoker populate;
+		private MethodInvoker populateMethod;
+		private MemberGetter populateMember;
+		private bool populateFromTarget, populateFromType;
+		private static string[] NA = new string[1] { "NA" };
+		private const string OwnerTypePrefix = "target";
 
 		protected override void OnSingleInitialization()
 		{
-			string populateMethod = attribute.PopulateFrom;
-			if (populateMethod.IsNullOrEmpty())
+			string fromMember = attribute.PopulateFrom;
+			if (fromMember.IsNullOrEmpty())
 			{
 				values = attribute.values;
 			}
 			else
 			{
-				var all = targetType.GetAllMembers(typeof(object));
-				var member = all.FirstOrDefault(x => x.MemberType == MemberTypes.Method && x.Name == populateMethod);
+				Type populateFrom;
+				var split = fromMember.Split('.');
+				if (split.Length == 1)
+				{
+					populateFrom = targetType;
+				}
+				else
+				{
+					if (split[0].ToLower() == OwnerTypePrefix) // populate from unityTarget
+					{ 
+						populateFrom = unityTarget.GetType();
+						populateFromTarget = true;
+					}
+					else // populate from type (member should be static)
+					{
+						var typeName = split[0];
+						populateFrom = AppDomain.CurrentDomain.GetAssemblies()
+											.SelectMany(x => x.GetTypes())
+											.FirstOrDefault(x => x.Name == typeName);
+
+						if (populateFrom == null)
+							throw new InvalidOperationException("Couldn't find type " + typeName);
+
+						populateFromType = true;
+					}
+
+					fromMember = split[1];
+				}
+
+				var all = populateFrom.GetAllMembers(typeof(object));
+				var member = all.FirstOrDefault(x => attribute.CaseSensitive ? x.Name == fromMember : x.Name.ToLower() == fromMember.ToLower());
 				if (member == null)
-					throw new MemberNotFoundException(populateMethod);
+					throw new MemberNotFoundException(fromMember);
 
-				populate = (member as MethodInfo).DelegateForCallMethod();
+				var field = member as FieldInfo;
+				if (field != null)
+					populateMember = (member as FieldInfo).DelegateForGetFieldValue();
+				else
+				{
+					var prop = member as PropertyInfo;
+					if (prop != null)
+						populateMember = (member as PropertyInfo).DelegateForGetPropertyValue();
+					else
+					{
+						var method = member as MethodInfo;
+						if (method == null)
+							throw new WTFException("{0} is not a field, nor a property nor a method!".FormatWith(fromMember));
 
-				var pop = populate(rawTarget);
-				if (pop != null)
-					values = ProcessPopulation(pop);
+						populateMethod = (member as MethodInfo).DelegateForCallMethod();
+					}
+				}
 			}
-
-			if (values.IsNullOrEmpty())
-				values = new[] { "NA" };
-		}
-
-		Func<T, string> _getString;
-		Func<T, string> GetString()
-		{
-			return _getString ?? (_getString = new Func<T, string>(x => x.ToString()).Memoize());
 		}
 
 		public override void OnGUI()
 		{
-			if (populate != null && attribute.AlwaysUpdate)
-			{
-				var pop = populate(rawTarget);
-				if (pop != null)
-					values = ProcessPopulation(pop);
-			}
+			if (memberValue == null)
+				memberValue = string.Empty;
+
+			if (values == null)
+				UpdateValues();
 
 			if (!currentIndex.HasValue)
 			{
-				string currentValue = GetString().Invoke(memberValue);
-				currentIndex = values.IndexOf(currentValue);
+				currentIndex = values.IndexOf(memberValue);
 				if (currentIndex == -1)
 				{
 					currentIndex = 0;
 					if (values.Length > 0)
-						SetValue(values[0]);
+						memberValue = values[0];
 				}
 			}
 
-			int x = gui.Popup(niceName, currentIndex.Value, values);
+			using (gui.Horizontal())
 			{
-				if (currentIndex != x)
+				int x = gui.Popup(niceName, currentIndex.Value, values);
 				{
-					SetValue(values[x]);
-					currentIndex = x;
-
-					var rabbit = gui as RabbitGUI;
-					if (rabbit != null)
-						rabbit.RequestReset();
+					if (currentIndex != x || (values.InBounds(x) && memberValue != values[x]))
+					{
+						memberValue = values[x];
+						currentIndex = x;
+						gui.RequestResetIfRabbit();
+					}
 				}
+
+				if (gui.MiniButton("U", "Update popup values"))
+					UpdateValues();
 			}
 		}
 
-		protected abstract string[] ProcessPopulation(object population);
-		protected abstract void SetValue(string value);
-	}
+		void UpdateValues()
+		{
+			object target;
+			if (populateFromTarget)
+				target = unityTarget;
+			else if (populateFromType)
+				target = null;
+			else target = rawTarget;
 
-	public class IntPopupAttributeDrawer : BasePopupAttributeDrawer<int>
-	{
-		protected override string[] ProcessPopulation(object population)
-		{
-			return population is int[] ? 
-				(population as int[]).Select(x => x.ToString()).ToArray() : 
-				(population as List<int>).Select(x => x.ToString()).ToArray();
-		}
-
-		protected override void SetValue(string value)
-		{
-			memberValue = Convert.ToInt32(value);
-		}
-	}
-	public class FloatPopupAttributeDrawer : BasePopupAttributeDrawer<float>
-	{
-		protected override string[] ProcessPopulation(object population)
-		{
-			return population is float[] ? 
-				(population as float[]).Select(x => x.ToString()).ToArray() : 
-				(population as List<float>).Select(x => x.ToString()).ToArray();
+			if (populateMember != null)
+			{
+				var pop = populateMember(target);
+				if (pop != null)
+					values = ProcessPopulation(pop);
+			}
+			else if (populateMethod != null)
+			{
+				var pop = populateMethod(target);
+				if (pop != null)
+					values = ProcessPopulation(pop);
+			}
+			else values = NA;
 		}
 
-		protected override void SetValue(string value)
+		string[] ProcessPopulation(object obj)
 		{
-			memberValue = Convert.ToSingle(value);
-		}
-	}
-	public class StringPopupAttributeDrawer : BasePopupAttributeDrawer<string>
-	{
-		protected override void OnSingleInitialization()
-		{
-			base.OnSingleInitialization();
-			if (memberValue == null)
-				memberValue = string.Empty;
+			var arr = obj as string[];
+			if (arr != null)
+				return arr;
+
+			var list = obj as List<string>;
+			if (list == null)
+				return NA;
+
+			return list.ToArray();
 		}
 
-		protected override string[] ProcessPopulation(object population)
-		{
-			return population is string[] ? 
-				(population as string[]).Select(x => x).ToArray() : 
-				(population as List<string>).Select(x => x).ToArray();
-		}
-
-		protected override void SetValue(string value)
-		{
-			memberValue = value;
-		}
 	}
 }

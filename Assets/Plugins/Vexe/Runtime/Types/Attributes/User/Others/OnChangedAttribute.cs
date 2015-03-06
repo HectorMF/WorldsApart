@@ -7,7 +7,7 @@ namespace Vexe.Runtime.Types
 	/// Annotate a field/property with this attribute if you're interested of when the value of the field/property changes
 	/// You can setup a method to call passing the new value, or a field/property to set the new value to
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class OnChangedAttribute : CompositeAttribute
 	{
 		/// <summary>

@@ -198,5 +198,10 @@ namespace Vexe.Editor.GUIs
 		{
 			EditorGUILayout.PrefixLabel(label);
 		}
+
+		public override string ScrollableTextArea(string value, ref Vector2 scrollPos, GUIStyle style, Layout option)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }

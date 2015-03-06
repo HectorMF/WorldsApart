@@ -5,7 +5,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Apply this to a string to get a popup of all the available variables in the Animator component that's attached to the owner's gameObject
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class AnimVarAttribute : DrawnAttribute
 	{
 		/// <summary>

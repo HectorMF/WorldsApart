@@ -2,6 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
+using Fasterflect;
 
 namespace Vexe.Editor.Drawers
 {
@@ -14,7 +15,39 @@ namespace Vexe.Editor.Drawers
 
 		public override void OnGUI()
 		{
-			memberValue = GetField().Invoke(niceName, memberValue);
+		//	try { 
+		//	var size = (ItemSize)rawTarget;
+		//	var before = size.area;
+		//	gui.Label("Before: " + before);
+
+		//	}
+		//	catch { }
+
+			//try
+			//{
+			//	//var size = (ItemSize)rawTarget;
+			//	//size.area = 100;
+			//	//member.Target = size;
+			//}
+			//catch { }
+
+			////gui.Label(rawTarget.UnwrapIfWrapped().ToString());
+
+			var field = GetField();
+			var curValue = memberValue;
+			var newValue = field.Invoke(niceName, curValue);
+			memberValue = newValue;
+
+			//gui.Label("modifiedå: " + newValue);
+
+			//memberValue = GetField().Invoke(niceName, memberValue);
+
+			//try { 
+			//var size = (ItemSize)rawTarget;
+			//var after = size.area;
+			//gui.Label("After: " + after);
+			//}
+			//catch { }
 		}
 	}
 

@@ -5,7 +5,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Fields marked-up with this attribute cannot be modified from the inspector
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class ReadonlyAttribute : CompositeAttribute
 	{
 		/// <summary>

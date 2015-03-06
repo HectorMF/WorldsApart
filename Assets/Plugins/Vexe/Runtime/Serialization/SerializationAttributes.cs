@@ -2,6 +2,8 @@
 using UnityEngine;
 using Vexe.Runtime.Types;
 
+#pragma warning disable 0618
+
 namespace Vexe.Runtime.Serialization
 {
 	public class SerializationAttributes

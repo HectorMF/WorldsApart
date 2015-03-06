@@ -185,6 +185,15 @@ namespace Vexe.Editor
 			for (int i = 0; i < typeCache.Length; i++)
 			{
 				var drawerType = typeCache[i];
+
+				var ignoreFor = drawerType.GetCustomAttribute<IgnoreOnTypes>();
+				if (ignoreFor != null)
+				{
+					var forTypes = ignoreFor.types;
+					if (forTypes.Any(x => objectType.IsSubclassOfRawGeneric(x)))
+						continue;
+				}
+
 				var firstGen = drawerType.GetParentGenericArguments(baseDrawerType)[0];
 				var drawer = ResolveDrawerFromTypes(objectType, drawerType, firstGen);
 				if (drawer != null)

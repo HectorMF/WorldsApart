@@ -7,7 +7,7 @@ namespace Vexe.Runtime.Types
 	/// filter its values for quick selection
 	/// Tip: Can be used with SelectEnum to have both a filter and a selection button for the enum
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class FilterEnumAttribute : CompositeAttribute
 	{
 		public FilterEnumAttribute() : this(-1)

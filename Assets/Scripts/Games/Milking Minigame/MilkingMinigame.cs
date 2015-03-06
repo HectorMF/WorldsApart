@@ -30,13 +30,11 @@ public class MilkingMinigame : MonoBehaviour {
             
             if (minutes == 0 && seconds <= 10)
             {
-               // timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
-               // timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+               timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+               timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
             }
         }
-
-		timer.text = minutes + ":" + seconds.ToString("00");
-        
+		
         if (seconds <= 0)
 			EndGame();
         

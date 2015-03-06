@@ -14,16 +14,6 @@ namespace Vexe.Editor.GUIs
 {
 	public abstract partial class BaseGUI
 	{
-		private static Func<Tuple<MemberInfo, string>, EditorMember> _getMember;
-		private static Func<Tuple<MemberInfo, string>, EditorMember> getMember
-		{
-			get
-			{
-				return _getMember ?? (_getMember = new Func<Tuple<MemberInfo, string>, EditorMember>(x =>
-					new EditorMember(x.Item1, null, null, x.Item2)).Memoize());
-			}
-		}
-
 		public bool Member(MemberInfo info, object rawTarget, UnityObject unityTarget, string key, bool ignoreComposition)
 		{
 			if (info.MemberType == MemberTypes.Method)
@@ -36,7 +26,7 @@ namespace Vexe.Editor.GUIs
 			}
 			else
 			{
-				var dm = getMember(Tuple.Create(info, key));
+				var dm = Cache.GetMember(Tuple.Create(info, key));
 				dm.Target = rawTarget;
 				dm.UnityTarget = unityTarget;
 
@@ -167,6 +157,16 @@ namespace Vexe.Editor.GUIs
 			public static Func<Tuple<string, MethodInfo>, string> GetMethodKey
 			{
 				get { return getMethodKey ?? (getMethodKey = new Func<Tuple<string, MethodInfo>, string>(x => x.Item1 + x.Item2.GetNiceName()).Memoize()); }
+			}
+
+			private static Func<Tuple<MemberInfo, string>, EditorMember> _getMember;
+			public static Func<Tuple<MemberInfo, string>, EditorMember> GetMember
+			{
+				get
+				{
+					return _getMember ?? (_getMember = new Func<Tuple<MemberInfo, string>, EditorMember>(x =>
+						new EditorMember(x.Item1, null, null, x.Item2)).Memoize());
+				}
 			}
 		}
 	}

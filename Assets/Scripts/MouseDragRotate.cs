@@ -11,7 +11,7 @@ public class MouseDragRotate : MonoBehaviour
 
     void Start()
     {
-        Screen.showCursor = false;
+        Cursor.visible = false;
     }
 
     void Update()

@@ -6,7 +6,7 @@ namespace Vexe.Runtime.Types
 	/// Annotate an int or float with this attribute to constrain it between a min and max values
 	/// i.e. it won't go below min, nor above max
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class NumericClampAttribute : ConstrainValueAttribute
 	{
 		public readonly int intMin;

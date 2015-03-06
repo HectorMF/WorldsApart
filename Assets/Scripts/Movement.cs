@@ -44,14 +44,14 @@ public class Movement : MonoBehaviour
             animHandler.Invoke();
             if(_notify != null) _notify();
             movingTarget = null;
-			audio.Stop();
+			GetComponent<AudioSource>().Stop();
 		}
 	}
 	public void Move(Vector3 targetRef)
 	{
 		target = targetRef;
 		moving = true;
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 	}
 
     public void Move(Vector3 targetRef, Action notify)
@@ -64,7 +64,7 @@ public class Movement : MonoBehaviour
     {
         movingTarget = targetRef;
         moving = true;
-        audio.Play();
+        GetComponent<AudioSource>().Play();
     }
 
     public void Move(Transform targetRef, Action notify)

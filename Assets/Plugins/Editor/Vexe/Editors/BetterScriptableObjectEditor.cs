@@ -5,16 +5,10 @@ using Vexe.Runtime.Types;
 
 namespace Vexe.Editor.Editors
 {
-	[CustomEditor(typeof(BetterScriptableObject), true)]
-	public class BetterScriptableObjectEditor : BetterEditor
+	[CustomEditor(typeof(BetterScriptableObject), true), CanEditMultipleObjects]
+	public class BetterScriptableObjectEditor : BaseEditor
 	{
-		protected override bool dbg
-		{
-			get { return GetCustomTypedTarget<BetterScriptableObject>().dbg; }
-			set { GetCustomTypedTarget<BetterScriptableObject>().dbg = value; ; }
-		}
-
-		protected override void OnAwakeAssertion()
+		protected override void OnBeforeInitialized()
 		{
 			if (target is ScriptableObject && !(target is BetterScriptableObject))
 			{
@@ -23,7 +17,7 @@ namespace Vexe.Editor.Editors
 
 			if ((target as BetterScriptableObject) == null)
 			{
-				Debug.LogError(string.Concat(new[] {
+				Debug.LogWarning(string.Concat(new[] {
 								"Casting target object to BetterScriptableObject failed! Something's wrong. ",
 								"Maybe you switched back and inherited ScriptableObject instead of BetterScriptableObject ",
 								"and you still had your gameObject selected? ",
@@ -31,8 +25,8 @@ namespace Vexe.Editor.Editors
 								"and so this could be resolved by reselcting your gameObject. ",
 								"Destroying this BetterScriptableObjectEditor instance anyway..."
 							}));
+
 				DestroyImmediate(this);
-				return;
 			}
 		}
 	}

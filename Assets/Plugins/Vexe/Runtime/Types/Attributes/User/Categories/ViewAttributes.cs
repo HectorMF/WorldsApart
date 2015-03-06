@@ -19,4 +19,12 @@ namespace Vexe.Runtime.Types
 	public class MinimalViewAttribute : Attribute
 	{
 	}
+
+	/// <summary>
+	/// Takes defined categories into consideration
+	/// </summary>
+	[AttributeUsage(AttributeTargets.Class, Inherited = true)]
+	public class FullViewAttribute : Attribute
+	{
+	}
 }

@@ -11,7 +11,7 @@ namespace Vexe.Runtime.Types
 	/// 2: Warning
 	/// 3: Error
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Method | AttributeTargets.Parameter)]
 	public class CommentAttribute : CompositeAttribute
 	{
 		public readonly string comment;

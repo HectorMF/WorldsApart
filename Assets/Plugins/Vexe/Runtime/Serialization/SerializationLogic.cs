@@ -44,8 +44,8 @@ namespace Vexe.Runtime.Serialization
 		public IEnumerable<RuntimeMember> GetSerializableMembers(Type type, object target)
 		{
 			var members = ReflectionUtil.GetMemoizedMembers(type);
-			var enumeration = RuntimeMember.Enumerate(members, target).ToList();
-			var result = enumeration.Where(IsSerializable).ToList();
+			var serializable = members.Where(IsSerializable);
+			var result = RuntimeMember.Enumerate(serializable, target);
 			return result;
 		}
 
@@ -58,21 +58,25 @@ namespace Vexe.Runtime.Serialization
 
 		public IEnumerable<MemberInfo> GetVisibleMembers(IEnumerable<MemberInfo> fromMembers)
 		{
-			Func<MemberInfo, int> FieldsThenPropsThenMethods = member =>
+			Func<MemberInfo, float> FieldsThenPropsThenMethods = member =>
 			{
+				var attrib = member.GetCustomAttribute<DisplayOrderAttribute>();
+				if (attrib != null)
+					return attrib.displayOrder;
+
 				switch (member.MemberType)
 				{
-					case MemberTypes.Field    : return 1;
-					case MemberTypes.Property : return 2;
-					case MemberTypes.Method   : return 3;
+					case MemberTypes.Field    : return 1000f;
+					case MemberTypes.Property : return 2000f;
+					case MemberTypes.Method   : return 3000f;
 					default : throw new NotSupportedException();
 				}
 			};
 
 			return fromMembers.Where(SerializationLogic.Default.IsVisibleMember)
-							  .OrderBy<MemberInfo, int>(FieldsThenPropsThenMethods)
-							  .ThenBy(m => m.GetDataType().Name)
-							  .ThenBy(m => m.Name);
+							  .OrderBy<MemberInfo, float>(FieldsThenPropsThenMethods);
+							  //.ThenBy(m => m.GetDataType().Name)
+							  //.ThenBy(m => m.Name);
 		}
 
 		/// <summary>
@@ -110,6 +114,22 @@ namespace Vexe.Runtime.Serialization
 			{
 				return _memoizedIsVisibleMember ?? (_memoizedIsVisibleMember = new Func<MemberInfo, bool>(IsVisibleMember).Memoize());
 			}
+		}
+
+		public bool IsSerializable(MemberInfo member)
+		{
+			if (member.MemberType == MemberTypes.Method)
+				return false;
+
+			var field = member as FieldInfo;
+			if (field != null)
+				return IsSerializable(field);
+
+			var prop = member as PropertyInfo;
+			if (prop != null)
+				return IsSerializable(prop);
+
+			return false;
 		}
 
 		public bool IsSerializable(RuntimeMember member)

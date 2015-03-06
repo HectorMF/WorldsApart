@@ -13,11 +13,12 @@ namespace Vexe.Editor.Drawers
 	public class MethodDrawer
 	{
 		private ArgMember[] argMembers;
+		private MethodInvoker invoke;
+		private MethodInfo isVisibleInfo;
 		private object[] argValues;
 		private string[] argKeys;
-		private MethodInvoker invoke;
-		private bool initialized;
 		private string niceName;
+		private bool initialized;
 
 		private object rawTarget;
 		private string id;
@@ -34,12 +35,11 @@ namespace Vexe.Editor.Drawers
 		public void Initialize(MethodInfo method, object rawTarget, UnityObject unityTarget, string id, BaseGUI gui)
 		{
 			this.gui = gui;
+			this.rawTarget = rawTarget;
+			this.id = id;
 
 			if (initialized) return;
 			initialized = true;
-
-			this.id        = id;
-			this.rawTarget = rawTarget;
 
 			niceName = method.GetNiceName();
 
@@ -53,21 +53,22 @@ namespace Vexe.Editor.Drawers
 			for (int iLoop = 0; iLoop < len; iLoop++)
 			{
 				int i = iLoop;
-				var arg = argInfos[i];
-				var argType = arg.ParameterType;
-				argKeys[i] = id + argType.FullName + arg.Name;
+				var argInfo = argInfos[i];
+				var argType = argInfo.ParameterType;
 
-				argValues[i] = prefs.TryGet(argInfos[i].ParameterType, argKeys[i]);
+				argKeys[i] = id + argType.FullName + argInfo.Name;
+
+				argValues[i] = prefs.ValueOrDefault(argInfos[i].ParameterType, argKeys[i]);
 
 				argMembers[i] = new ArgMember(
-						@getter        : () => argValues[i],
-						@setter        : x => argValues[i] = x,
-						@target		   : argValues,
-						@unityTarget   : unityTarget,
-						@attributes    : new Attribute[0],
-						@name          : arg.Name,
-						@id            : argKeys[i],
-						@dataType      : argType
+						@getter      : () => argValues[i],
+						@setter      : x => argValues[i] = x,
+						@target	     : rawTarget,
+						@unityTarget : unityTarget,
+						@attributes  : argInfo.GetCustomAttributes(true) as Attribute[],
+						@name        : argInfo.Name,
+						@id          : argKeys[i],
+						@dataType    : argType
 					);
 			}
 
@@ -88,9 +89,7 @@ namespace Vexe.Editor.Drawers
 						bool argChange = gui.Member(argMembers[i], false);
 						changed |= argChange;
 						if (argChange)
-						{
 							prefs.TryAdd(argValues[i], argKeys[i]);
-						}
 					}
 				}
 			}
@@ -107,16 +106,11 @@ namespace Vexe.Editor.Drawers
 				gui.Space(12f);
 				if (argMembers.Length > 0)
 				{ 
-					Foldout();
+					foldout = gui.Foldout(foldout);
 					gui.Space(-11.5f);
 				}
 			}
 			return foldout;
-		}
-
-		private void Foldout()
-		{
-			foldout = gui.Foldout(foldout);
 		}
 	}
 }

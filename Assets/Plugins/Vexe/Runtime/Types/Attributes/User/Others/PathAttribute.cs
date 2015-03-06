@@ -7,7 +7,7 @@ namespace Vexe.Runtime.Types
 	/// You can hold Ctrl and click the middle mouse button while hovering over the text field to display a selection window
 	/// of all the gameObjects in the scene to pick one
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class PathAttribute : CompositeAttribute
 	{
 		/// <summary>

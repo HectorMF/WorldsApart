@@ -1,5 +1,5 @@
 ﻿#if UNITY_EDITOR || UNITY_STANDALONE
-#define FASTERFLECT
+//#define FASTERFLECT
 #endif
 
 using System;
@@ -14,38 +14,29 @@ namespace Vexe.Runtime.Types
 {
 	public class RuntimeMember
 	{
-		private MemberSetter setter;
-		private MemberGetter getter;
+		private readonly MemberSetter setter;
+		private readonly MemberGetter getter;
 
 		static Attribute[] Empty = new Attribute[0];
 
-		private object target;
+		private object _target;
 		public object Target
 		{
-			get { return target; }
+			get { return _target; }
 			set
 			{
-				if (!IsStatic && target != value)
-					target = value.WrapIfValueType();
+				if (!IsStatic && _target != value)
+				{ 
+					_target = value;
+				}
 			}
 		}
 
 		public Type Type { get; protected set; }
 
-		public Type TryRuntimeType
-		{
-			get
-			{
-				var x = Value;
-				if (x != null)
-					return x.GetType();
-				return Type;
-			}
-		}
-
 		public MemberInfo Info { get; private set; }
 
-		public bool IsStatic { get; private set; }
+		public readonly bool IsStatic;
 
 		public MemberTypes MemberType { get { return Info == null ? MemberTypes.Custom : Info.MemberType; } }
 
@@ -90,14 +81,24 @@ namespace Vexe.Runtime.Types
 				if (field.IsLiteral)
 					throw new InvalidOperationException("Can't wrap const fields " + field.Name);
 
+				Type = field.FieldType;
+
 #if FASTERFLECT
-				setter = field.DelegateForSetFieldValue();
-				getter = field.DelegateForGetFieldValue();
+				//if (Type.IsValueType)
+				//{
+				//	UnityEngine.Debug.Log(Type.Name);
+				//	setter = field.SetValue;
+				//	getter = field.GetValue;
+				//}
+				//else
+				{ 
+					setter = field.DelegateForSetFieldValue();
+					getter = field.DelegateForGetFieldValue();
+				}
 #else
 				setter = field.SetValue;
 				getter = field.GetValue;
 #endif
-				Type = field.FieldType;
 			}
 			else
 			{
@@ -109,12 +110,18 @@ namespace Vexe.Runtime.Types
 					throw new InvalidOperationException("Can't wrap member {0} because it is an indexer.".FormatWith(member));
 
 				if (!property.CanRead)
-					throw new InvalidOperationException("Can only wrap readable properties " + member.Name);
+					throw new InvalidOperationException("Property needs at least a public getter method to be wrapped as a Runtime/EditorMember " + member.Name);
+
+
+				Type = property.PropertyType;
 
 				if (property.CanWrite)
 				{
 #if FASTERFLECT
-					setter = property.DelegateForSetPropertyValue();
+					//if (Type.IsStruct())
+					//	setter = (x, y) => property.SetValue(x, y, null);
+					//else
+						setter = property.DelegateForSetPropertyValue();
 #else
 					setter = (x, y) => property.SetValue(x, y, null);
 #endif
@@ -122,19 +129,14 @@ namespace Vexe.Runtime.Types
 				else setter = (obj, value) => { };
 
 #if FASTERFLECT
-				getter = property.DelegateForGetPropertyValue();
+				//if (Type.IsStruct())
+				//	getter = x => property.GetValue(x, null);
+				//else
+					getter = property.DelegateForGetPropertyValue();
 #else
 				getter = x => property.GetValue(x, null);
 #endif
-
-				Type = property.PropertyType;
 			}
-		}
-
-		public object Get(object target)
-		{
-			Target = target;
-			return Get();
 		}
 
 		public virtual object Get()

@@ -1,4 +1,6 @@
-﻿using System;
+﻿#define PROFILE
+
+using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Linq;
@@ -32,7 +34,13 @@ namespace Vexe.Runtime.Serialization
 
 		public void SerializeTargetIntoData(object target, SerializationData data)
 		{
+#if PROFILE
+			Profiler.BeginSample("Getting members for: " + target);
+#endif
 			var members = Logic.GetMemoizedSerializableMembers(target.GetType());
+#if PROFILE
+			Profiler.EndSample();
+#endif
 			for (int i = 0; i < members.Count; i++)
 			{
 				var member    = members[i];
@@ -45,12 +53,18 @@ namespace Vexe.Runtime.Serialization
 				try
 				{
 					string memberKey = GetMemberKey(member);
+#if PROFILE
+					Profiler.BeginSample("Serializing: " + member.Name);
+#endif
 					string serializedState = Serialize(member.Type, value, data.serializedObjects);
+#if PROFILE
+					Profiler.EndSample();
+#endif
 					data.serializedStrings[memberKey] = serializedState;
 				}
 				catch (Exception e)
 				{
-					Debug.LogError("Serialization error: " + e.Message + " | " + e.StackTrace);
+					Debug.LogError("Error serializing {0} in {1}. Msg: {2}. Stack: {3}".FormatWith(member.Name, target, e.Message, e.StackTrace));
 				}
 			}
 		}
@@ -75,7 +89,7 @@ namespace Vexe.Runtime.Serialization
 				}
 				catch (Exception e)
 				{
-					Debug.LogError("Deserialization error: " + e.Message + " | " + e.StackTrace);
+					Debug.LogError("Error deserializing member {0} in {1}. Msg: {2}. Stack: {3}".FormatWith(member.Name, target, e.Message, e.StackTrace));
 				}
 			}
 		}

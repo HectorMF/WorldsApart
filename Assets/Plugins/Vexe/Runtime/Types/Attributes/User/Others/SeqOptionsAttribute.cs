@@ -5,7 +5,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Annotate sequences (list/array) with this to customize the way they're displayed
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
+	[AttributeUsage(AttributeTargets.Property | AttributeTargets.Field | AttributeTargets.Parameter)]
 	public class SeqAttribute : Attribute
 	{
 		public readonly SeqOpt options;

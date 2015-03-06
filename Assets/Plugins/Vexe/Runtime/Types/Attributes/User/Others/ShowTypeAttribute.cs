@@ -6,7 +6,7 @@ namespace Vexe.Runtime.Types
 	/// A very useful attribute - Annotate System.Type fields/properties with this attribute
 	/// to make it possible to select a type from a list of possible types by means of a popup
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class ShowTypeAttribute : DrawnAttribute
 	{
 		/// <summary>

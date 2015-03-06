@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using Fasterflect;
 using UnityEditor;
 using UnityEngine;
 using Vexe.Editor.Helpers;
@@ -14,10 +15,10 @@ namespace Vexe.Editor.GUIs
 {
 	public partial class RabbitGUI : BaseGUI, IDisposable
 	{
-		private enum GUIPhase { Layout, Draw }
-
 		public float height { private set; get; }
+
 		public float width  { private set; get; }
+
 		public override Rect LastRect
 		{
 			get
@@ -40,6 +41,7 @@ namespace Vexe.Editor.GUIs
 			}
 		}
 
+		private enum GUIPhase { Layout, Draw }
 		private GUIPhase currentPhase;
 		private List<GUIControl> controls;
 		private List<GUIBlock> blocks;
@@ -411,8 +413,8 @@ namespace Vexe.Editor.GUIs
 		public override void HelpBox(string message, MessageType type)
 		{
 			var content = GetContent(message);
-			var size    = GUIHelper.HelpBox.CalcSize(content);
-			var layout  = Layout.sHeight(Mathf.Max(size.y, 20f));
+			var height  = GUIHelper.HelpBox.CalcHeight(content, width);
+			var layout  = Layout.sHeight(height);
 			var data    = new ControlData(content, GUIHelper.HelpBox, layout, ControlType.HelpBox);
 
 			Rect position;
@@ -495,6 +497,8 @@ namespace Vexe.Editor.GUIs
 			return value;
 		}
 
+		static int prev;
+
 		public override int Int(GUIContent content, int value, Layout option)
 		{
 			var data = new ControlData(content, styles.NumberField, option, ControlType.IntField);
@@ -502,7 +506,14 @@ namespace Vexe.Editor.GUIs
 			Rect position;
 			if (CanDrawControl(out position, data))
 			{
-				return EditorGUI.IntField(position, content, value);
+				//Debug.Log("intdrawer got: " + value);
+				var newValue = EditorGUI.IntField(position, content, value);
+				if (prev != newValue)
+				{
+					prev = newValue;
+				}
+				//Debug.Log("intdrawer new: " + newValue);
+				return newValue;
 			}
 
 			return value;
@@ -753,6 +764,58 @@ namespace Vexe.Editor.GUIs
 			{
 				EditorGUI.HandlePrefixLabel(position, position, content, 0, style);
 			}
+		}
+
+		private static MethodInvoker _scrollableTextArea;
+		private static MethodInvoker scrollableTextArea
+		{
+			get
+			{
+				if (_scrollableTextArea == null)
+				{
+					var type = typeof(EditorGUI);
+					var method = type.GetMethod("ScrollableTextAreaInternal",
+						new Type[] { typeof(Rect), typeof(string), typeof(Vector2).MakeByRefType(), typeof(GUIStyle) },
+						Flags.StaticAnyVisibility);
+
+					_scrollableTextArea = method.DelegateForCallMethod();
+
+				}
+				return _scrollableTextArea;
+			}
+		}
+
+		public override string ScrollableTextArea(string value, ref Vector2 scrollPos, GUIStyle style, Layout option)
+		{
+			if (option == null)
+				option = new Layout();
+
+			if (!option.height.HasValue)
+				option.height = 50f;
+
+			var content = GetContent(value);
+			var data = new ControlData(content, style, option, ControlType.TextArea);
+
+			Rect position;
+			if (CanDrawControl(out position, data))
+			{
+				var args = new object[] { position, value, scrollPos, style };
+				var newValue = scrollableTextArea.Invoke(null, args) as string;
+				scrollPos = (Vector2)args[2];
+				return newValue;
+			}
+
+			return value;
+		}
+	}
+
+	public static class RabbitExtensions
+	{
+		public static void RequestResetIfRabbit(this BaseGUI gui)
+		{
+			var rabbit = gui as RabbitGUI;
+			if (rabbit != null)
+				rabbit.RequestReset();
 		}
 	}
 }

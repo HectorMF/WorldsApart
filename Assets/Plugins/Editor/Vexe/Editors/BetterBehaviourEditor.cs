@@ -6,15 +6,9 @@ using Vexe.Runtime.Types;
 namespace Vexe.Editor.Editors
 {
 	[CustomEditor(typeof(BetterBehaviour), true), CanEditMultipleObjects]
-	public class BetterBehaviourEditor : BetterEditor
+	public class BetterBehaviourEditor : BaseEditor
 	{
-		protected override bool dbg
-		{
-			get { return GetCustomTypedTarget<BetterBehaviour>().dbg; }
-			set { GetCustomTypedTarget<BetterBehaviour>().dbg = value; ; }
-		}
-
-		protected override void OnAwakeAssertion()
+		protected override void OnBeforeInitialized()
 		{
 			if (target is MonoBehaviour && !(target is BetterBehaviour))
 			{
@@ -23,7 +17,7 @@ namespace Vexe.Editor.Editors
 
 			if ((target as BetterBehaviour) == null)
 			{
-				Debug.LogError(string.Concat(new[] {
+				Debug.LogWarning(string.Concat(new[] {
 								"Casting target object to BetterBehaviour failed! Something's wrong. ",
 								"Maybe you switched back and inherited MonoBehaviour instead of BetterBehaviour ",
 								"and you still had your gameObject selected? ",
@@ -31,8 +25,8 @@ namespace Vexe.Editor.Editors
 								"and so this could be resolved by reselcting your gameObject. ",
 								"Destroying this BetterBehaviourEditor instance anyway..."
 							}));
+
 				DestroyImmediate(this);
-				return;
 			}
 		}
 	}

@@ -5,6 +5,7 @@ using Fasterflect;
 using UnityEngine;
 using Vexe.Editor.GUIs;
 using Vexe.Runtime.Types;
+using Vexe.Runtime.Extensions;
 using UnityObject = UnityEngine.Object;
 
 namespace Vexe.Editor.Drawers

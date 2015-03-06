@@ -1,46 +1,72 @@
-﻿//#define PROFILE
+﻿#define PROFILE
 //#define DBG
 
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text.RegularExpressions;
 using Fasterflect;
+using UnityEditor;
+using UnityEngine;
+using Vexe.Editor.Helpers;
 using Vexe.Runtime.Extensions;
 using Vexe.Runtime.Types;
 using UnityObject = UnityEngine.Object;
 
 namespace Vexe.Editor.Drawers
 {
-	public class DictionaryDrawer<TKey, TValue> : ObjectDrawer<Dictionary<TKey, TValue>>
+	public class DictionaryDrawer<TKey, TValue> : ObjectDrawer<Dictionary<TKey, TValue>> where TKey : new()
 	{
 		private List<ElementMember<TKey>> keyElements;
 		private List<ElementMember<TValue>> valueElements;
-		private EditorMember addKeyInfo, addValueInfo;
-		private AddInfo addInfo;
 		private KVPList<TKey, TValue> kvpList;
 		private string dictionaryName;
 		private string pairFormatPattern;
 		private MethodInvoker pairFormatMethod;
-		private bool perKeyDrawing, perValueDrawing, ignoreAddArea;
-		private bool shouldRead = true, shouldWrite;
+		private bool perKeyDrawing, perValueDrawing;
+		private bool shouldRead = true, shouldWrite, invalidKeyType;
+		private Color dupKeyColor, shouldWriteColor;
 
 		public bool Readonly { get; set; }
 
 		protected override void OnSingleInitialization()
 		{
+			shouldWriteColor = GUIHelper.OrangeColorDuo.FirstColor;
+			dupKeyColor = GUIHelper.RedColorDuo.FirstColor;
+
+			var kt = typeof(TKey);
+
+			if (kt.IsAbstract || kt.IsA<UnityObject>())
+			{ 
+				//Log("key type is abstract or a unityobject");
+				invalidKeyType = true;
+			}
+
+			if (!invalidKeyType && !kt.IsValueType && kt != typeof(string))
+			{
+				try
+				{
+					kt.ActivatorInstance();
+				}
+				catch (MissingMemberException)
+				{
+					//Log("key type is not newable");
+					invalidKeyType = true;
+				}
+			}
+
+			if (invalidKeyType)
+				return;
+
 			keyElements   = new List<ElementMember<TKey>>();
 			valueElements = new List<ElementMember<TValue>>();
-			addInfo       = new AddInfo();
-			addKeyInfo    = new EditorMember(typeof(AddInfo).Field("key"), addInfo, unityTarget, id);
-			addValueInfo  = new EditorMember(typeof(AddInfo).Field("value"), addInfo, unityTarget, id);
 
 			perKeyDrawing   = attributes.AnyIs<PerKeyAttribute>();
 			perValueDrawing = attributes.AnyIs<PerValueAttribute>();
-			ignoreAddArea   = attributes.AnyIs<IgnoreAddAreaAttribute>();
 			Readonly		= attributes.AnyIs<ReadonlyAttribute>();
 
-			var formatMember	= attributes.OfType<FormatMemberAttribute>().FirstOrDefault();
+			var formatMember = attributes.OfType<FormatMemberAttribute>().FirstOrDefault();
 			if (formatMember == null || string.IsNullOrEmpty(formatMember.pattern))
 			{ 
 				dictionaryName  = niceName;
@@ -76,8 +102,12 @@ namespace Vexe.Editor.Drawers
 
 		public override void OnGUI()
 		{
-			if (!(foldout = gui.Foldout(dictionaryName, foldout, Layout.sExpandWidth())))
+			if (invalidKeyType)
+			{
+				gui.HelpBox("Key type {0} must either be a ValueType or a 'new'able ReferenceType (not an abstract type/a UnityEngine.Object and has an empty or implicit/compiler-generated constructor)".FormatWith(typeof(TKey).Name),
+					MessageType.Error);
 				return;
+			}
 
 			if (memberValue == null)
 			{ 
@@ -87,7 +117,7 @@ namespace Vexe.Editor.Drawers
 				memberValue = new Dictionary<TKey, TValue>();
 			}
 
-			shouldRead |= (kvpList == null || memberValue.Count != kvpList.Count);
+			shouldRead |= (kvpList == null || (!shouldWrite && memberValue.Count != kvpList.Count));
 
 			if (shouldRead)
 			{
@@ -98,63 +128,73 @@ namespace Vexe.Editor.Drawers
 				shouldRead = false;
 			}
 
-			if (!Readonly)
+
+			#if PROFILE
+			Profiler.BeginSample("DictionaryDrawer Header");
+			#endif
+
+			using (gui.Horizontal())
 			{
-				#if PROFILE
-				Profiler.BeginSample("DictionaryDrawer Header");
-				#endif
-				using (gui.Indent())
+				foldout = gui.Foldout(dictionaryName, foldout, Layout.sExpandWidth());
+
+				if (!Readonly)
 				{
-					var pStr   = FormatPair(addInfo.key, addInfo.value);
-					var addKey = id + "add";
+					gui.FlexibleSpace();
 
-					using (gui.Horizontal())
+					using (gui.State(kvpList.Count > 0))
 					{
-						foldouts[addKey] = gui.Foldout("Add pair:", foldouts[addKey], Layout.sWidth(65f));
-
-						gui.TextLabel(pStr);
-
-						using (gui.State(kvpList.Count > 0))
+						if (gui.ClearButton("dictionary"))
 						{
-							if (gui.ClearButton("entries"))
-							{
-								kvpList.Clear();
-								shouldWrite = true;
-							}
-
-							if (gui.RemoveButton("Last dictionary pair"))
-							{
-								kvpList.RemoveLast();
-								shouldWrite = true;
-							}
+							kvpList.Clear();
+							shouldWrite = true;
 						}
 
-						if (gui.AddButton("pair", MiniButtonStyle.ModRight))
+						if (gui.RemoveButton("last dictionary pair"))
 						{
-							AddPair(addInfo.key, addInfo.value);
+							kvpList.RemoveFirst();
 							shouldWrite = true;
 						}
 					}
 
-					if (foldouts[addKey])
+					if (gui.AddButton("pair"))
 					{
-						#if PROFILE
-						Profiler.BeginSample("DictionaryDrawer AddingPair");
+						AddNewPair();
+						shouldWrite = true;
+					}
+
+					Color col;
+					if (!kvpList.Keys.IsUnique())
+						col = dupKeyColor;
+					else if (shouldWrite)
+						col = shouldWriteColor;
+					else col = Color.white;
+
+					using (gui.ColorBlock(col))
+					if (gui.MiniButton("w", "Write dictionary (Orange means you modified the dictionary and should write, Red means you have a duplicate key and must address it before writing)", MiniButtonStyle.ModRight))
+					{
+						#if DBG
+						Log("Writing " + dictionaryName);
 						#endif
-						using (gui.Indent())
+						try
 						{
-							gui.Member(addKeyInfo, attributes, ignoreAddArea || !perKeyDrawing);
-							gui.Member(addValueInfo, attributes, ignoreAddArea || !perValueDrawing);
+							memberValue = kvpList.ToDictionary();
 						}
-						#if PROFILE
-						Profiler.EndSample();
-						#endif
+						catch (ArgumentException e)
+						{
+							Log(e.Message);
+						}
+
+						shouldWrite = false;
 					}
 				}
-				#if PROFILE
-				Profiler.EndSample();
-				#endif
 			}
+
+			#if PROFILE
+			Profiler.EndSample();
+			#endif
+
+			if (!foldout)
+				return;
 
 			if (kvpList.Count == 0)
 			{
@@ -171,10 +211,6 @@ namespace Vexe.Editor.Drawers
 					{
 						var dKey   = kvpList.Keys[i];
 						var dValue = kvpList.Values[i];
-
-						TValue val;
-						if (memberValue.TryGetValue(dKey, out val))
-							shouldRead |= !dValue.GenericEqual(val);
 
 						#if PROFILE
 						Profiler.BeginSample("DictionaryDrawer KVP assignments");
@@ -214,14 +250,21 @@ namespace Vexe.Editor.Drawers
 				shouldWrite |= memberValue.Count > kvpList.Count;
 			}
 
-			if (shouldWrite)
-			{
-				#if DBG
-				Log("Writing " + dictionaryName);
-				#endif
-				memberValue = kvpList.ToDictionary();
-				shouldWrite = false;
-			}
+			//if (shouldWrite)
+			//{
+			//	#if DBG
+			//	Log("Writing " + dictionaryName);
+			//	#endif
+			//	try
+			//	{
+			//		memberValue = kvpList.ToDictionary();
+			//	}
+			//	catch (ArgumentException e)
+			//	{
+			//		Log(e.Message);
+			//	}
+			//	shouldWrite = false;
+			//}
 		}
 
 		private ElementMember<T> GetElement<T>(List<ElementMember<T>> elements, List<T> source, int index, string id)
@@ -233,12 +276,22 @@ namespace Vexe.Editor.Drawers
 					@attributes  : attributes,
 					@name        : string.Empty
 				);
+				element.Initialize(source, index, rawTarget, unityTarget);
 				elements.Add(element);
+				return element;
 			}
 
-			var e = elements[index];
-			e.Initialize(source, index, rawTarget, unityTarget);
-			return e;
+			try
+			{
+				var e = elements[index];
+				e.Initialize(source, index, rawTarget, unityTarget);
+				return e;
+			}
+			catch (ArgumentOutOfRangeException)
+			{
+				Log("DictionaryDrawer: Accessing element out of range. Index: {0} Count {1}. This shouldn't really happen. Please report it with information on how to replicate it".FormatWith(index, elements.Count));
+				return null;
+			}
 		}
 
 		private string FormatPair(TKey key, TValue value)
@@ -282,17 +335,41 @@ namespace Vexe.Editor.Drawers
 			return (obj != null) ? (obj.name + " (" + obj.GetType().Name + ")") : from.ToString();
 		}
 
-		private void AddPair(TKey key, TValue value)
+		Func<TKey> _getNewKey;
+		Func<TKey> getNewKey
+		{
+			get
+			{
+				if (_getNewKey == null)
+				{
+					if (typeof(TKey).IsValueType)
+					{
+						_getNewKey = () => (TKey)typeof(TKey).GetDefaultValue();
+					}
+					else if (typeof(TKey) == typeof(string))
+					{
+						_getNewKey = () => (TKey)(object)string.Empty;
+					}
+					else
+					{
+						_getNewKey = () => new TKey();
+					}
+				}
+				return _getNewKey;
+			}
+		}
+
+		private void AddNewPair()
 		{
 			try
 			{
-				if (typeof(TKey) == typeof(string))
-				{
-					var str = key as string;
-					if (str == null)
-						key = (TKey)(object)string.Empty;
-				}
-				kvpList.Add(key, value);
+				var key = getNewKey();
+				var value = default(TValue); 
+				//kvpList.Add(key, value, false);
+				kvpList.Insert(0, key, value, false);
+
+				var pkey = id + (kvpList.Count - 1) + "entry";
+				foldouts[pkey] = true;
 			}
 			catch (ArgumentException e)
 			{

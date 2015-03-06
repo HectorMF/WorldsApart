@@ -3,7 +3,7 @@ using Vexe.Runtime.Extensions;
 
 namespace Vexe.Runtime.Types
 {
-	public class uAction : uDelegate<Action>
+	public class uAction : uBaseDelegate<Action>
 	{
 		public override Type[] ParamTypes
 		{
@@ -41,8 +41,7 @@ namespace Vexe.Runtime.Types
 		}
 	}
 
-	[Serializable]
-	public class uAction<T0> : uDelegate<Action<T0>>
+	public class uAction<T0> : uBaseDelegate<Action<T0>>
 	{
 		public override Type[] ParamTypes
 		{
@@ -80,8 +79,7 @@ namespace Vexe.Runtime.Types
 		}
 	}
 
-	[Serializable]
-	public class uAction<T0, T1> : uDelegate<Action<T0, T1>>
+	public class uAction<T0, T1> : uBaseDelegate<Action<T0, T1>>
 	{
 		public override Type[] ParamTypes
 		{
@@ -119,8 +117,7 @@ namespace Vexe.Runtime.Types
 		}
 	}
 
-	[Serializable]
-	public class uAction<T0, T1, T2> : uDelegate<Action<T0, T1, T2>>
+	public class uAction<T0, T1, T2> : uBaseDelegate<Action<T0, T1, T2>>
 	{
 		public override Type[] ParamTypes
 		{

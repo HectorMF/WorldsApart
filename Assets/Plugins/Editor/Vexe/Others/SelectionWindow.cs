@@ -6,7 +6,6 @@ using UnityEditor;
 using UnityEngine;
 using Vexe.Editor.GUIs;
 using Vexe.Runtime.Extensions;
-using Vexe.Runtime.Types.GUI;
 
 #pragma warning disable 0414
 

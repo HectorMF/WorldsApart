@@ -39,6 +39,6 @@ public class CarMovement : MonoBehaviour
 	public void DriveTo(Vector3 targetRef)
 	{
 		target = targetRef;
-		audio.Play();
+		GetComponent<AudioSource>().Play();
 	}
 }

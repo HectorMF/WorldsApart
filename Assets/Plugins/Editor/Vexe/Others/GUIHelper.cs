@@ -5,7 +5,6 @@ using UnityEditor;
 using UnityEngine;
 using Vexe.Editor.GUIs;
 using Vexe.Runtime.Helpers;
-using Vexe.Runtime.Types.GUI;
 using BF = System.Reflection.BindingFlags;
 using UnityObject = UnityEngine.Object;
 
@@ -239,6 +238,7 @@ namespace Vexe.Editor.Helpers
 		private static ColorDuo lightGreyColorDuo;
 		private static ColorDuo darkGreyColorDuo;
 		private static ColorDuo yellowColorDuo;
+		private static ColorDuo orangeColorDuo;
 		private static ColorDuo pinkColorDuo;
 		public static ColorDuo GreenColorDuo { get { return GetColorDuo(ref greenColorDuo, "8AFF8E", "7FE36D"); } }
 		public static ColorDuo RedColorDuo { get { return GetColorDuo(ref redColorDuo, "FF9696", "FFB8B8"); } }
@@ -247,6 +247,7 @@ namespace Vexe.Editor.Helpers
 		public static ColorDuo LightBlueColorDuo { get { return GetColorDuo(ref lightBlueColorDuo, "8FFFFD", "BAFFFE"); } }
 		public static ColorDuo DarkBlueColorDuo { get { return GetColorDuo(ref darkBlueColorDuo, "2737B8", "202D91"); } }
 		public static ColorDuo YellowColorDuo { get { return GetColorDuo(ref yellowColorDuo, "F7FF69", "FBFFAD"); } }
+		public static ColorDuo OrangeColorDuo { get { return GetColorDuo(ref orangeColorDuo, "FFCC99", "FF9933"); } }
 		public static ColorDuo PinkColorDuo { get { return GetColorDuo(ref pinkColorDuo, "FFADFA", "FFC9FB"); } }
 		private static ColorDuo GetColorDuo(ref ColorDuo cd, string c1, string c2)
 		{
@@ -287,7 +288,7 @@ namespace Vexe.Editor.Helpers
 			get
 			{
 				return toolbarSearchField_GL ?? (toolbarSearchField_GL =
-					typeof(EditorGUILayout).DelegateForCallMethod("ToolbarSearchField", Flags.StaticPrivate, typeof(string), typeof(GUILayoutOption[])));
+					typeof(EditorGUILayout).DelegateForCallMethod("ToolbarSearchField", Flags.StaticAnyVisibility, typeof(string), typeof(GUILayoutOption[])));
 			}
 		}
 
@@ -297,7 +298,7 @@ namespace Vexe.Editor.Helpers
 			get
 			{
 				return toolbarSearchField ?? (toolbarSearchField =
-					typeof(EditorGUI).DelegateForCallMethod("ToolbarSearchField", Flags.StaticPrivate, typeof(Rect), typeof(string[]), typeof(int).MakeByRefType(), typeof(string)));
+					typeof(EditorGUI).DelegateForCallMethod("ToolbarSearchField", Flags.StaticAnyVisibility, typeof(Rect), typeof(string[]), typeof(int).MakeByRefType(), typeof(string)));
 			}
 		}
 
@@ -310,7 +311,7 @@ namespace Vexe.Editor.Helpers
 			get
 			{
 				return selectionRect ??
-					(selectionRect = typeof(EditorStyles).DelegateForGetPropertyValue("selectionRect", Flags.StaticPrivate).Invoke(null) as GUIStyle);
+					(selectionRect = typeof(EditorStyles).DelegateForGetPropertyValue("selectionRect", Flags.StaticAnyVisibility).Invoke(null) as GUIStyle);
 			}
 		}
 
@@ -320,7 +321,7 @@ namespace Vexe.Editor.Helpers
 			{
 				return RTHelper.LazyValue(() => helpBox, value => helpBox = value, () =>
 					typeof(EditorStyles)
-						.GetProperty("helpBox", BF.Static | BF.NonPublic)
+						.GetProperty("helpBox", BF.Static | BF.NonPublic | BF.Public)
 						.GetValue(null, null) as GUIStyle
 				);
 			}
@@ -329,9 +330,91 @@ namespace Vexe.Editor.Helpers
 		public static Texture2D GetHelpIcon(MessageType type)
 		{
 			getHelpIcon = RTHelper.LazyValue(() => getHelpIcon, value => getHelpIcon = value, () =>
-				typeof(EditorGUIUtility).GetMethod("GetHelpIcon", BF.Static | BF.NonPublic));
+				typeof(EditorGUIUtility).GetMethod("GetHelpIcon", BF.Static | BF.NonPublic | BF.Public));
 			return getHelpIcon.Invoke(null, new object[] { type }) as Texture2D;
 		}
 		#endregion
 	}
 }
+
+namespace Vexe.Editor
+{
+	public class ColorDuo
+	{
+		protected int index;
+
+		private Color[] colors;
+
+		public ColorDuo(Color one, Color two)
+		{
+			colors = new Color[2];
+			colors[0] = one;
+			colors[1] = two;
+		}
+
+		public void Set(Color one, Color two)
+		{
+			colors[0] = one;
+			colors[1] = two;
+			Reset();
+		}
+
+		public Color CurrentColor { get { return colors[index]; } }
+		public Color FirstColor { get { return colors[0]; } set { colors[0] = value; } }
+		public Color SecondColor { get { return colors[1]; } set { colors[1] = value; } }
+		public Color NextColor { get { Increment(); return colors[index]; } }
+		
+		public void Reset()
+		{
+			index = 0;
+		}
+
+		protected void Increment()
+		{
+			index = (index + 1) % 2;
+		}
+	}
+
+	public class StyleDuo : ColorDuo
+	{
+		private GUIStyle[] styles;
+
+		private bool texturesHaveBeenDestroyed;
+
+		public StyleDuo(ColorDuo cd) : this(cd.FirstColor, cd.SecondColor) { }
+
+		public StyleDuo(Color c1, Color c2) : base(c1, c2)
+		{
+			styles = new GUIStyle[2];
+			styles[0] = new GUIStyle(GUIStyle.none)
+			{
+				normal = new GUIStyleState
+				{
+					background = RTHelper.GetTexture(c1, HideFlags.HideAndDontSave)
+				}
+			};
+			styles[1] = new GUIStyle(GUIStyle.none)
+			{
+				normal = new GUIStyleState
+				{
+					background = RTHelper.GetTexture(c2, HideFlags.HideAndDontSave)
+				}
+			};
+			Reset();
+		}
+
+		public bool TexturesHaveBeenDestroyed { get { return texturesHaveBeenDestroyed; } }
+		public GUIStyle CurrentStyle { get { return styles[index]; } }
+		public GUIStyle FirstStyle { get { return styles[0]; } }
+		public GUIStyle SecondStyle { get { return styles[1]; } }
+		public GUIStyle NextStyle { get { Increment(); return CurrentStyle; } }
+
+		public void DestroyTextures()
+		{
+			texturesHaveBeenDestroyed = true;
+			UnityObject.DestroyImmediate(FirstStyle.normal.background);
+			UnityObject.DestroyImmediate(SecondStyle.normal.background);
+		}
+	}
+}
+

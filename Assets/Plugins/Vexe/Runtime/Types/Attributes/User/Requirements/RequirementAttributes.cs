@@ -12,23 +12,26 @@ namespace Vexe.Runtime.Types
 	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
 	public class RequiredAttribute : CompositeAttribute
 	{
-		/// <summary>
-		/// Adds the component if it didn't exist
-		/// </summary>
-		public bool Add { get; set; }
-
-		public RequiredAttribute(int id, bool add) : base(id)
-		{
-			Add = add;
-		}
-
-		public RequiredAttribute(bool add) : this(-1, add)
+		public RequiredAttribute(int id) : base(id)
 		{
 		}
 
-		public RequiredAttribute()
+		public RequiredAttribute() : this(-1)
 		{
-			id = -1;
+		}
+	}
+
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	public class RequiredSingleAttribute : RequiredAttribute
+	{
+		public bool FromResources { get; set; }
+
+		public RequiredSingleAttribute(int id) : base(id)
+		{
+		}
+
+		public RequiredSingleAttribute()
+		{
 		}
 	}
 
@@ -36,14 +39,20 @@ namespace Vexe.Runtime.Types
 	/// Tag a field/property with this attribute to denote that it's required (should be assigned) from this gameObject
 	/// If it's not assigned you'll get a warning message
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class RequiredFromThisAttribute : RequiredAttribute
 	{
-		public RequiredFromThisAttribute(int id, bool add) : base(id, add)
+		/// <summary>
+		/// Adds the component if it didn't exist
+		/// </summary>
+		public bool Add { get; set; }
+
+		public RequiredFromThisAttribute(int id, bool add) : base(id)
 		{
+			Add = add;
 		}
 
-		public RequiredFromThisAttribute(bool add) : base(add)
+		public RequiredFromThisAttribute(bool add) : this(-1, add)
 		{
 		}
 

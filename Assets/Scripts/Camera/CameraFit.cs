@@ -142,7 +142,7 @@ public class CameraFit : MonoBehaviour
         {
             if ((bool)GetComponent<Camera>())
             {
-                if (camera.orthographic)
+                if (GetComponent<Camera>().orthographic)
                 {
                     ComputeResolution();
                     ComputeAspectRatio();
@@ -192,14 +192,14 @@ public class CameraFit : MonoBehaviour
         deviceHeight = Screen.height;
 #endif
 
-        camera.orthographicSize = 1f / camera.aspect * UnitsForWidth / 2f;
+        GetComponent<Camera>().orthographicSize = 1f / GetComponent<Camera>().aspect * UnitsForWidth / 2f;
 
-        _height = 2f * camera.orthographicSize;
-        _width = _height * camera.aspect;
+        _height = 2f * GetComponent<Camera>().orthographicSize;
+        _width = _height * GetComponent<Camera>().aspect;
 
         float cameraX, cameraY;
-        cameraX = camera.transform.position.x;
-        cameraY = camera.transform.position.y;
+        cameraX = GetComponent<Camera>().transform.position.x;
+        cameraY = GetComponent<Camera>().transform.position.y;
 
         leftX = cameraX - _width / 2;
         rightX = cameraX + _width / 2;
@@ -223,7 +223,7 @@ public class CameraFit : MonoBehaviour
 
     private void OnDrawGizmos()
     {
-        if (camera.orthographic)
+        if (GetComponent<Camera>().orthographic)
         {
             DrawGizmos();
         }
@@ -273,25 +273,25 @@ public class CameraFit : MonoBehaviour
         // if scaled height is less than current height, add letterbox
         if (scaleheight < 1.0f)
         {
-            Rect rect = camera.rect;
+            Rect rect = GetComponent<Camera>().rect;
             rect.width = 1.0f;
             rect.height = scaleheight;
             rect.x = 0;
             rect.y = (1.0f - scaleheight) / 2.0f;
 
-            camera.rect = rect;
+            GetComponent<Camera>().rect = rect;
         }
         else // add pillarbox
         {
             float scalewidth = 1.0f / scaleheight;
-            Rect rect = camera.rect;
+            Rect rect = GetComponent<Camera>().rect;
 
             rect.width = scalewidth;
             rect.height = 1.0f;
             rect.x = (1.0f - scalewidth) / 2.0f;
             rect.y = 0;
 
-            camera.rect = rect;
+            GetComponent<Camera>().rect = rect;
         }
     }
 

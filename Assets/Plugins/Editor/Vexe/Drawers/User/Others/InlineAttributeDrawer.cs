@@ -86,7 +86,7 @@ using Editor = UnityEditor.Editor;
 						using (gui.Indent())
 						{
 							var c = target as Camera;
-							if (c.isOrthoGraphic)
+							if (c.orthographic)
 								c.orthographicSize = gui.Float("Size", c.orthographicSize);
 							else c.fieldOfView = gui.FloatSlider("FOV", c.fieldOfView, 1, 179);
 						}
@@ -161,7 +161,7 @@ using Editor = UnityEditor.Editor;
 						go.layer = gui.Layer("Layer", go.layer);
 					}
 
-					go.GetAllComponents().Foreach(DrawEditor);
+					go.GetAllComponents().Foreach(DrawExpandableHeader);
 				}
 				else
 				{
@@ -184,11 +184,6 @@ using Editor = UnityEditor.Editor;
 			{
 				RecursiveDrawer.DrawRecursive(target, gui, id, unityTarget);
 			}
-		}
-
-		private void DrawEditor(Component target, int index)
-		{
-			DrawExpandableHeader(target, index);
 		}
 
 		private void DrawExpandableHeader(Component target, int index)

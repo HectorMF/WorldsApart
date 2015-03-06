@@ -112,7 +112,7 @@
         </member>
         <member name="F:FullSerializer.fsConfig.Log">
             <summary>
-            Used by the serializer to Log certain events
+            Used by the serializer to log certain events
             </summary>
         </member>
         <member name="F:FullSerializer.fsConfig.ShouldLog">
@@ -240,36 +240,6 @@
             </summary>
             <returns>A hash code for this instance, suitable for use in hashing algorithms and data
             structures like a hash table.</returns>
-        </member>
-        <member name="P:FullSerializer.fsData.IsNull">
-            <summary>
-            Returns true if this SerializedData instance maps back to null.
-            </summary>
-        </member>
-        <member name="P:FullSerializer.fsData.IsFloat">
-            <summary>
-            Returns true if this SerializedData instance maps back to a float.
-            </summary>
-        </member>
-        <member name="P:FullSerializer.fsData.IsBool">
-            <summary>
-            Returns true if this SerializedData instance maps back to a boolean.
-            </summary>
-        </member>
-        <member name="P:FullSerializer.fsData.IsString">
-            <summary>
-            Returns true if this SerializedData instance maps back to a string.
-            </summary>
-        </member>
-        <member name="P:FullSerializer.fsData.IsDictionary">
-            <summary>
-            Returns true if this SerializedData instance maps back to a Dictionary.
-            </summary>
-        </member>
-        <member name="P:FullSerializer.fsData.IsList">
-            <summary>
-            Returns true if this SerializedData instance maps back to a List.
-            </summary>
         </member>
         <member name="P:FullSerializer.fsData.AsFloat">
             <summary>

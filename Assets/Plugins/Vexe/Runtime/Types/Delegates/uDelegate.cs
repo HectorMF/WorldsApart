@@ -1,79 +1,55 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
+using System.Reflection;
+using UnityEngine;
 using Vexe.Runtime.Extensions;
-using UnityObject = UnityEngine.Object;
 
 namespace Vexe.Runtime.Types
 {
-	public abstract class uDelegate<T> : BaseDelegate where T : class
+	/// <summary>
+	/// A special delegate that takes no specific number nor type of arguments to invoke with
+	/// You have to set the argument values in the inspector
+	/// When invoking, whatever values you set are used as arguments to pass to the handlers
+	/// PS: currently uses reflection and MethodInfo.Invoke when invoking handlers
+	/// </summary>
+	public class uDelegate : IBaseDelegate
 	{
-		protected T directValue;
+		/// <summary>
+		/// Raw argument values for each handler method to be used in invocation (values set in inspector)
+		/// You could modify it at runtime to change the invocation arguments, but you better know what you're doing
+		/// </summary>
+		public List<object[]> arguments = new List<object[]>();
 
-		protected T Value
+		public override Type[] ParamTypes
 		{
-			get { if (directValue == null) Rebuild(); return directValue; }
-			set { directValue = value; }
+			get { return null; }
 		}
 
-		public void Add(T handler)
+		public override Type ReturnType
 		{
-			AssertHandlerValidity(handler);
-			handlers.Add(new Handler
-			{
-				target = GetHandlerTarget(handler) as UnityObject,
-				method = GetHandlerMethod(handler)
-			});
-			DirectAdd(handler);
+			get { return typeof(void); }
 		}
 
-		public void Remove(T handler)
+		public void Invoke()
 		{
-			AssertHandlerValidity(handler);
-			int index = handlers.IndexOf(t => t.target == GetUnityTarget(handler));
-			if (index == -1) return;
-			handlers.RemoveAt(index);
-			DirectRemove(handler);
-		}
-
-		public bool Contains(T handler)
-		{
-			AssertHandlerValidity(handler);
-			return handlers.Any(t => t.target == GetUnityTarget(handler) &&
-											 t.method == GetHandlerMethod(handler));
-		}
-
-		public void Clear()
-		{
-			directValue = null;
-			handlers.Clear();
-		}
-
-		public void Rebuild()
-		{
-			directValue = null;
 			for (int i = 0; i < handlers.Count; i++)
 			{
 				var handler = handlers[i];
-				var del     = Delegate.CreateDelegate(typeof(T), handler.target, handler.method) as T;
-				DirectAdd(del);
+				var methodName = handler.method;
+				var target = handler.target;
+				if (target == null || methodName.IsNullOrEmpty())
+					continue;
+
+				var flags  = BindingFlags.Public | BindingFlags.Instance;
+				var method = target.GetType().GetMethod(methodName, flags); //@Todo: Memozie
+				if (method == null)
+				{
+					Debug.LogError("Method not found. Make sure it's public " + methodName);
+					continue;
+				}
+
+				method.Invoke(target, arguments[i]);
 			}
-		}
-
-		protected abstract string GetHandlerMethod(T handler);
-		protected abstract object GetHandlerTarget(T handler);
-		protected abstract void DirectAdd(T handler);
-		protected abstract void DirectRemove(T handler);
-
-		private UnityObject GetUnityTarget(T handler)
-		{
-			return GetHandlerTarget(handler) as UnityObject;
-		}
-
-		private void AssertHandlerValidity(T handler)
-		{
-			var target = GetUnityTarget(handler);
-			if (!(target is UnityObject))
-				throw new InvalidOperationException("handler's target must be a unity object");
 		}
 	}
 }

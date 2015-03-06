@@ -14,15 +14,11 @@ namespace Vexe.Editor
 
 		public string Id { get; protected set; }
 
-		public void AssignId(string initialId)
-		{
-			Id = initialId + TypeNiceName + NiceName;
-		}
-
-		public EditorMember(MemberInfo member, object target, UnityObject unityTarget, string id) : base(member, target)
+		public EditorMember(MemberInfo member, object rawTarget, UnityObject unityTarget, string id) : base(member, rawTarget)
 		{
 			this.UnityTarget = unityTarget;
-			if (id != null) AssignId(id);
+			if (id != null)
+				this.Id = id + TypeNiceName + NiceName;
 		}
 
 		public override void Set(object value)
@@ -50,7 +46,6 @@ namespace Vexe.Editor
 			var member = obj as EditorMember;
 			return member != null && member.Id == Id;
 		}
-
 	}
 
 	public static class EditorMemberExtensions

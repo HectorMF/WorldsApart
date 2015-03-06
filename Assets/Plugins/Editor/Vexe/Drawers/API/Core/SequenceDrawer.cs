@@ -41,7 +41,6 @@ namespace Vexe.Editor.Drawers
 		{
 			var seqOptions   = attributes.GetAttribute<SeqAttribute>();
 			options          = new SequenceOptions(seqOptions != null ? seqOptions.options : SeqOpt.None);
-			options.Advanced = options.Advanced || attributes.AnyIs<AdvancedAttribute>();
 			options.Readonly = options.Readonly || attributes.AnyIs<ReadonlyAttribute>();
 
 			// Sequence name
@@ -159,7 +158,7 @@ namespace Vexe.Editor.Drawers
 						{
 							if (options.LineNumbers)
 							{
-								gui.NumericLabel(i + 1);
+								gui.NumericLabel(i);
 							}
 
 							var previous = elementValue;
@@ -280,13 +279,15 @@ namespace Vexe.Editor.Drawers
 		{
 			if (index >= elements.Count)
 			{
-				var newElement = new ElementMember<TElement>(
+				var element = new ElementMember<TElement>(
 					@attributes  : attributes,
 					@name        : string.Empty,
 					@id          : id + index
 				);
 
-				elements.Add(newElement);
+				element.Initialize(memberValue, index, rawTarget, unityTarget);
+				elements.Add(element);
+				return element;
 			}
 
 			var e = elements[index];

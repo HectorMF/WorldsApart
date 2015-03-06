@@ -3,8 +3,7 @@ using Vexe.Runtime.Extensions;
 
 namespace Vexe.Runtime.Types
 {
-	[Serializable]
-	public class uFunc<TReturn> : uDelegate<Func<TReturn>>
+	public class uFunc<TReturn> : uBaseDelegate<Func<TReturn>>
 	{
 		public override Type[] ParamTypes
 		{
@@ -42,8 +41,7 @@ namespace Vexe.Runtime.Types
 		}
 	}
 
-	[Serializable]
-	public class uFunc<T0, TReturn> : uDelegate<Func<T0, TReturn>>
+	public class uFunc<T0, TReturn> : uBaseDelegate<Func<T0, TReturn>>
 	{
 		public override Type[] ParamTypes
 		{
@@ -81,8 +79,7 @@ namespace Vexe.Runtime.Types
 		}
 	}
 
-	[Serializable]
-	public class uFunc<T0, T1, TReturn> : uDelegate<Func<T0, T1, TReturn>>
+	public class uFunc<T0, T1, TReturn> : uBaseDelegate<Func<T0, T1, TReturn>>
 	{
 		public override Type[] ParamTypes
 		{
@@ -120,8 +117,7 @@ namespace Vexe.Runtime.Types
 		}
 	}
 
-	[Serializable]
-	public class uFunc<T0, T1, T2, TReturn> : uDelegate<Func<T0, T1, T2, TReturn>>
+	public class uFunc<T0, T1, T2, TReturn> : uBaseDelegate<Func<T0, T1, T2, TReturn>>
 	{
 		public override Type[] ParamTypes
 		{

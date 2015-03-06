@@ -15,9 +15,9 @@ namespace Vexe.Runtime.Types
 		[Serialize, RequiredFromThis]
 		private Animator animator;
 
-		[Save, Hide] private IndexedBoolean bools;
-		[Save, Hide] private IndexedFloat floats;
-		[Save, Hide] private IndexedInteger ints;
+		[Serialize, Hide] private IndexedBoolean bools;
+		[Serialize, Hide] private IndexedFloat floats;
+		[Serialize, Hide] private IndexedInteger ints;
 
 		/// <summary>
 		/// A quick access to the animator's integer variables
@@ -129,14 +129,12 @@ namespace Vexe.Runtime.Types
 			return IsInState(0, stateHash);
 		}
 
-		[Serializable]
 		public abstract class IndexedMecanimVariable<T>
 		{
 			public Animator animator;
 			public abstract T this[string key] { get; set; }
 		}
 
-		[Serializable]
 		public class IndexedBoolean : IndexedMecanimVariable<bool>
 		{
 			public override bool this[string key]
@@ -146,7 +144,6 @@ namespace Vexe.Runtime.Types
 			}
 		}
 
-		[Serializable]
 		public class IndexedInteger : IndexedMecanimVariable<int>
 		{
 			public override int this[string key]
@@ -156,7 +153,6 @@ namespace Vexe.Runtime.Types
 			}
 		}
 
-		[Serializable]
 		public class IndexedFloat : IndexedMecanimVariable<float>
 		{
 			public override float this[string key]

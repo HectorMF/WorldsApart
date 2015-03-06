@@ -13,10 +13,10 @@ namespace Vexe.Editor.Windows
 			var start = new Rect(5f, 5f, EditorGUIUtility.currentViewWidth - 5f, 0f);
 			using (gui.Begin(start))
 			{
-				GUICode();
+				OnWindowGUI();
 			}
 		}
 
-		protected abstract void GUICode();
+		protected abstract void OnWindowGUI();
 	}
 }

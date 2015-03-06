@@ -5,7 +5,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Annotate a string with this attribute to clamp its length between a min and max values
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class StringClampAttribute : RegexAttribute
 	{
 		public readonly int min;

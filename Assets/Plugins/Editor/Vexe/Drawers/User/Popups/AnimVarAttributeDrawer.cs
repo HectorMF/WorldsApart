@@ -4,6 +4,7 @@ using UnityEngine;
 using Vexe.Editor.Helpers;
 using Vexe.Runtime.Extensions;
 using Vexe.Runtime.Types;
+using System.Linq;
 
 namespace Vexe.Editor.Drawers
 {
@@ -12,25 +13,25 @@ namespace Vexe.Editor.Drawers
 		private string[] variables;
 		private int current;
 
-		private Animator animator;
-		private Animator Animator
+		private Animator _animator;
+		private Animator animator
 		{
 			get
 			{
-				if (animator == null)
+				if (_animator == null)
 				{
 					string getter = attribute.GetAnimator;
 					if (getter.IsNullOrEmpty())
 					{
-						animator = gameObject.GetComponent<Animator>();
+						_animator = gameObject.GetComponent<Animator>();
 					}
 					else
 					{
-						animator = targetType.GetMethod(getter, Flags.InstanceAnyVisibility)
-										      .Invoke(rawTarget, null) as Animator;
+						_animator = targetType.GetMethod(getter, Flags.InstanceAnyVisibility)
+											  .Invoke(rawTarget, null) as Animator;
 					}
 				}
-				return animator;
+				return _animator;
 			}
 		}
 
@@ -39,13 +40,17 @@ namespace Vexe.Editor.Drawers
 			if (memberValue == null)
 				memberValue = "";
 
-			if (Animator != null && Animator.runtimeAnimatorController != null)
+			if (animator != null && animator.runtimeAnimatorController != null)
 				FetchVariables();
 		}
 
 		private void FetchVariables()
 		{
-			variables = EditorHelper.GetAnimatorVariableNames(Animator);
+#if UNITY_5
+			variables = animator.parameters.Select(x => x.name).ToArray();
+#else
+			variables = EditorHelper.GetAnimatorVariableNames(animator);
+#endif
 			if (variables.IsEmpty())
 				variables = new[] { "N/A" };
 			else
@@ -63,7 +68,7 @@ namespace Vexe.Editor.Drawers
 
 		public override void OnGUI()
 		{
-			if (Animator == null || Animator.runtimeAnimatorController == null)
+			if (animator == null || animator.runtimeAnimatorController == null)
 			{
 				memberValue = gui.Text(niceName, memberValue);
 			}

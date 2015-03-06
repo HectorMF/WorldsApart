@@ -8,8 +8,9 @@ namespace Vexe.Runtime.Types
 	/// Annotate ints, floats, bools, strings, enums, Vector2/3s, Colors to give them default values
 	/// (this value is assigned only once to your object when it's first created)
 	/// Only arrays of simple types are supported (not lists)
+	/// If you have a field/property 'object' and would to have it set to a new instance, pass Instantiate = true
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class DefaultAttribute : Attribute
 	{
 		public readonly int? intValue;

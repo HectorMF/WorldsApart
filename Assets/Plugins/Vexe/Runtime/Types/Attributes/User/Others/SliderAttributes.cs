@@ -5,7 +5,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Similar to Unity's RangeAttribute
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class IntSliderAttribute : DrawnAttribute
 	{
 		public readonly int left, right;
@@ -20,7 +20,7 @@ namespace Vexe.Runtime.Types
 	/// <summary>
 	/// Similar to Unity's RangeAttribute
 	/// </summary>
-	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property)]
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property | AttributeTargets.Parameter)]
 	public class FloatSliderAttribute : DrawnAttribute
 	{
 		public readonly float left, right;
