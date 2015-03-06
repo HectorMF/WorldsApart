@@ -162,6 +162,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: 0
+  speed: 1
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -182,7 +183,7 @@ MonoBehaviour:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"clickRequirement":2,"bounds":{"height":2.5,"width":8},"center":[0,-2.11,5],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"clickRequirement":10,"bounds":{"height":2.5,"width":8},"center":[0,-2.11,5],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
