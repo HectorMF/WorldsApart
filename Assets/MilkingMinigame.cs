@@ -8,26 +8,32 @@ public class MilkingMinigame : MonoBehaviour {
     public float time = 60f;
     private int seconds;
     private int minutes;
-	// Use this for initialization
-	void Start () {
-
-	}
+    private int oldSeconds;
 	
-	// Update is called once per frame
 	void Update () {
-        if (time <= 0) return;
-        time -= Time.deltaTime;
-        int oldSeconds = seconds;
-        minutes = (int)(time / 60.0);
-        seconds = (int)(time % 60.0);
-        if (seconds != oldSeconds && seconds <= 10)
-        {
-            timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
-            timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+        if (time <= 0) {
+            this.enabled = false;
+            return;
         }
-        timer.text = minutes + ":" + seconds.ToString("00");
+
+        oldSeconds = seconds;
         
-        
+        //decrement the timer, and calculate minutes and seconds as integers
+        time -= Time.deltaTime;
+        minutes = (int)(time / 60);
+        seconds = (int)(time % 60);
+
+        //instead of updating every frame, update every second change
+        if (seconds != oldSeconds)
+        {
+            timer.text = minutes + ":" + seconds.ToString("00");
+            
+            if (minutes == 0 && seconds <= 10)
+            {
+               // timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+               // timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+            }
+        }
         
 	}
 }
