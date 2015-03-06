@@ -117,6 +117,7 @@ namespace GoofyGhost.WorldsApart
 
 		void ReportMilk() {
 			scoreController.Food += currentFillValue;
+			Debug.Log(scoreController.Food);
 		}
     }
 }
