@@ -33,7 +33,9 @@ namespace GoofyGhost.WorldsApart
 
         public void Start()
         {
-			scoreController = GameObject.Find("ScoreController").GetComponent<ScoreController>();
+            GameObject scoreObject = GameObject.Find("ScoreController");
+            if(scoreObject != null)
+			    scoreController = scoreObject.GetComponent<ScoreController>();
             DragHandler.Subscribe(this);
             currentFillValue = UnityEngine.Random.Range(minFillValue, maxFillValue);
             CanDrag = true;
@@ -116,7 +118,8 @@ namespace GoofyGhost.WorldsApart
         }
 
 		void ReportMilk() {
-			scoreController.Food += currentFillValue;
+            if(scoreController != null) 
+			    scoreController.Food += currentFillValue;
 		}
     }
 }
