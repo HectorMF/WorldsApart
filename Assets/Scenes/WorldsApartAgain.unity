@@ -4815,13 +4815,12 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 1576683656}
-    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteMilkingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"targetController":null,"$type":"WorldsApart.Scripting.RemoteMilkingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
@@ -5610,7 +5609,7 @@ MonoBehaviour:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1,"$id":"3"},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"},{"targetController":{"$ref":"3"},"$type":"WorldsApart.Scripting.RemoteDinnerMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 55ff3222-d5c0-453b-983c-e8104df8d2c7
   active: 1
@@ -5625,8 +5624,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2, y: 2, z: 1}
-  m_Center: {x: 0, y: .289999992, z: 0}
+  m_Size: {x: 1.23259211, y: 2.32888889, z: 1}
+  m_Center: {x: 1.30771542, y: -2.06702757, z: 0}
 --- !u!1 &1958643556
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 96e70114d12f9a4498862895063eb1a7, type: 2}
