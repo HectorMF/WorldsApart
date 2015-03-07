@@ -6,7 +6,7 @@ public class LockRotation : MonoBehaviour {
     private Quaternion rotation;
 
 	void Start () {
-        rotation = this.transform.rotation;
+        rotation = this.transform.localRotation;
         //transform.parent.transform.DOShakePosition(100,new Vector3(0,.1f,0),1);
         //transform.parent.transform.DOShakeScale(100, new Vector3(.1f, .1f, 0),1);
     }
