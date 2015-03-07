@@ -1108,15 +1108,15 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .164570242
+    x: .132837355
     y: 0
-    width: .670859516
+    width: .73432529
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.76562548
+  orthographic size: 5.76562452
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2764,7 +2764,7 @@ MonoBehaviour:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"}]'
+      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"},{"scripts":[{"targetController":null,"$type":"WorldsApart.Scripting.RemoteCropsMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: b8638abc-ba6a-4b78-bc10-795797f2b775
   active: 1
@@ -3176,10 +3176,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: .5
       objectReference: {fileID: 0}
-    - target: {fileID: 22559342, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_Alpha
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
   m_IsPrefabParent: 0
@@ -3393,7 +3389,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc2585b0ca5349bc52d4dc3b166da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeather: 3
+  initialWeather: 0
   camera: {fileID: 260663934}
   rain: {fileID: 1973816287}
   dry: {fileID: 1958643556}
@@ -5446,7 +5442,7 @@ Prefab:
       objectReference: {fileID: 7920667}
     - target: {fileID: 11400004, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
       propertyPath: _serializationData.serializedStrings.values.Array.data[0]
-      value: '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      value: '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2,"$id":"5"},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"},{"targetController":{"$ref":"5"},"$type":"WorldsApart.Scripting.RemoteShearingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
