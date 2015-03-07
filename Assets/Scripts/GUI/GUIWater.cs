@@ -13,6 +13,14 @@ namespace WorldsApart.GUI
         private Slider slider;
         private float easeTimer;
         private bool easing;
+        public enum GameMode
+        {
+            ThirdWorld,
+            WaterMiniGame,
+            FarmingMiniGame,
+            MilkingMiniGame
+        }
+        public GameMode CurrentGameMode;
         // Use this for initialization
         void Start()
         {
@@ -22,17 +30,38 @@ namespace WorldsApart.GUI
             currentValue = slider.value;
             oldValue = slider.value;
             easing = false;
-
-            ThirdWorldManager.OnHasPackChanged += (value) => slider.maxValue = value;
+            if (CurrentGameMode == GameMode.ThirdWorld)
+            {
+                ThirdWorldManager.OnHasPackChanged += (value) => slider.maxValue = value;
+            }
+            else
+            {
+                slider.maxValue = WaterGameLogic.Instance.maxWater;
+            }
+            
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (!easing && slider.value != ThirdWorldManager.Instance.CurrentWater)
+            bool check = false;
+            float currentWater = 0f;
+            //HACKISH INTERFACE THE MANAGERS OUT! (TO MY SELF!)
+            switch(CurrentGameMode)
+            {
+                case GameMode.ThirdWorld:
+                    check = easing && slider.value != ThirdWorldManager.Instance.CurrentWater;
+                    currentWater = ThirdWorldManager.Instance.CurrentWater;
+                    break;
+                case GameMode.WaterMiniGame: 
+                    check = easing && slider.value != WaterGameLogic.Instance.water;
+                    currentWater = WaterGameLogic.Instance.water;
+                    break;
+            }
+            if (!check)
             {
                 oldValue = slider.value;
-                currentValue = ThirdWorldManager.Instance.CurrentWater;
+                currentValue = currentWater;
                 easeTimer = 0;
                 easing = true;
             }
@@ -43,7 +72,7 @@ namespace WorldsApart.GUI
                 if (easeTimer > 1)
                 {
                     easing = false;
-                    slider.value = ThirdWorldManager.Instance.CurrentWater;
+                    slider.value = currentWater;
                 }
                 else
                     slider.value = currentValue;//Mathf.Lerp(oldValue, currentValue, easeTimer);

@@ -2,8 +2,9 @@
 using System.Collections;
 
 public class CameraTilt : MonoBehaviour {
-    public const float AccelSmoothing = 0.5f;
-    public const float AccelLowPass = 0.1f;
+    public const float AccelSmoothing = 0.9f;
+    public const float AccelLowPass = 0.01f;
+    public Vector3 acceleration;
 
     private Vector3 _previousAcceleration;
     private Vector3 _smoothAcceleration;
@@ -13,7 +14,7 @@ public class CameraTilt : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        var acceleration = Input.acceleration;
+        acceleration = Input.acceleration;
         acceleration.x = (acceleration.x * AccelSmoothing) + (_previousAcceleration.x * (1f - AccelLowPass));
         acceleration.y = (acceleration.y * AccelSmoothing) + (_previousAcceleration.y * (1f - AccelLowPass));
 

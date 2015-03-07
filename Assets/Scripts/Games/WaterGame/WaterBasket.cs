@@ -20,27 +20,33 @@ public class WaterBasket : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        //TODO: Test to make sure this is right way to do this
         try
         {
-            Debug.Log("Water LEVEL:" + wgLogic.water);
-            Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
-            //converting from Rad to Degrees
-            currentAngel = Mathf.Rad2Deg * currentAngel;
-            var drippingAngel = 270 * (BasketSize - AmountOfWater) / BasketSize;
-            if (currentAngel > 180)
+            if (!wgLogic.GameOver)
             {
-                wgLogic.DropWaterPack();
-            }
-            if (currentAngel > drippingAngel)
-            {
-                //TODO: Double check the logic
-                wgLogic.LoseSomeWater(((currentAngel - drippingAngel) * BasketSize / 270) * Time.deltaTime);
+                Debug.Log("Water LEVEL:" + wgLogic.water);
+                Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
+                //converting from Rad to Degrees
+                Debug.Log("ROT:" + currentAngel);
+                var drippingAngel = 90 * (BasketSize - AmountOfWater) / BasketSize;
+                if (currentAngel > 90)
+                {
+                    wgLogic.DropWaterPack();
+                    
+                }
+                if (currentAngel > drippingAngel + 1)
+                {
+                    //TODO: Double check the logic
+                    wgLogic.LoseSomeWater(((currentAngel) * BasketSize / 90) * Time.deltaTime);
+                }
             }
         }
         catch(Exception e)
         {
             Debug.LogException(e);
         }
+
+        //Tilt the basket
+        transform.rotation = Camera.transform.rotation;
 	}
 }

@@ -8,10 +8,6 @@ public class PlayerWalking : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         wg.distance = totalDistance;
-        if(WaterGameLogic.Instance == null)
-        {
-            Debug.Log("FUCK!");
-        }
 	}
 	
 	// Update is called once per frame
