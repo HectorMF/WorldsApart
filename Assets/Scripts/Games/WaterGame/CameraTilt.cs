@@ -22,12 +22,12 @@ public class CameraTilt : MonoBehaviour {
         _previousAcceleration = acceleration;
 
         transform.rotation = Quaternion.Euler(0,0,acceleration.x);
-        Debug.Log("Camera:" + acceleration.x);
+        //Debug.Log("Camera:" + acceleration.x);
         float a = 0f;
         Vector3 b = Vector3.zero;
         transform.rotation.ToAngleAxis(out a, out b);
         a = a * Mathf.Rad2Deg;
-        Debug.Log("Rotation" + a);
+        //Debug.Log("Rotation" + a);
 
 
        

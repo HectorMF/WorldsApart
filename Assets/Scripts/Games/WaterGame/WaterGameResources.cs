@@ -1,8 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
-public class WaterGameResources {
+public class WaterGameResources: MonoBehaviour {
+    
     private static WaterGameResources instance;
+    public float TravelDistanceValue = 0f;
+    public float BucketSizeValue = 100f;
+    public Text DistanceText;
+    public GameObject Fader;
     private WaterGameResources()
     {
 
@@ -11,9 +17,15 @@ public class WaterGameResources {
     {
         get
         {
-            if(instance==null)
+            if (instance == null)
             {
-                instance = new WaterGameResources();
+                instance = GameObject.FindObjectOfType<WaterGameResources>();
+                if (instance == null)
+                {
+                    GameObject go = new GameObject();
+                    DontDestroyOnLoad(go);
+                    instance = go.AddComponent<WaterGameResources>();
+                }
             }
             return instance;
         }

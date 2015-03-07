@@ -6,7 +6,7 @@ public class WaterBasket : MonoBehaviour {
 
     public GameObject Camera;
     public float AmountOfWater = 0f;
-    public float BasketSize = 1f;
+    public float BucketSize = 1f;
 
     private float currentAngel;
     private Vector3 axis = Vector3.zero;
@@ -14,7 +14,7 @@ public class WaterBasket : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         wgLogic = WaterGameLogic.Instance;
-        wgLogic.maxWater = BasketSize;
+        wgLogic.maxWater = BucketSize;
         wgLogic.water = AmountOfWater;
 	}
 	
@@ -24,11 +24,11 @@ public class WaterBasket : MonoBehaviour {
         {
             if (!wgLogic.GameOver)
             {
-                Debug.Log("Water LEVEL:" + wgLogic.water);
+                //Debug.Log("Water LEVEL:" + wgLogic.water);
                 Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
                 //converting from Rad to Degrees
-                Debug.Log("ROT:" + currentAngel);
-                var drippingAngel = 90 * (BasketSize - AmountOfWater) / BasketSize;
+                //Debug.Log("ROT:" + currentAngel);
+                var drippingAngel = 90 * (BucketSize - AmountOfWater) / BucketSize;
                 if (currentAngel > 90)
                 {
                     wgLogic.DropWaterPack();
@@ -37,7 +37,7 @@ public class WaterBasket : MonoBehaviour {
                 if (currentAngel > drippingAngel + 1)
                 {
                     //TODO: Double check the logic
-                    wgLogic.LoseSomeWater(((currentAngel) * BasketSize / 90) * Time.deltaTime);
+                    wgLogic.LoseSomeWater(((currentAngel) * BucketSize / 90) * Time.deltaTime);
                 }
             }
         }

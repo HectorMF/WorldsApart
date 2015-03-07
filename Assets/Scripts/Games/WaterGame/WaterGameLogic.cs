@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WaterGameLogic {
 
@@ -45,6 +46,10 @@ public class WaterGameLogic {
     /// <param name="amount"></param>
     public void LoseSomeWater(float amount)
     {
+        if(maxWater< water)
+        {
+            water = maxWater;
+        }
         water = water - amount;
         if (water <= 0)
         {
@@ -53,8 +58,12 @@ public class WaterGameLogic {
     }
     private void LostTheGame()
     {
-        Debug.Log("LOST THE GAME!!!");
-        GameOver = true;
+        if (!ReachedDestination)
+        {
+            Debug.Log("LOST THE GAME!!!");
+            GameOver = true;
+            Fader.FadeToBlack(0, 1, "You lost all of your water", "Good luck next time!");
+        }
     }
 
     /// <summary>
@@ -63,15 +72,24 @@ public class WaterGameLogic {
     /// <param name="stepSize"></param>
     public void Walk(float stepSize)
     {
-        currentDistance += stepSize;
-        if(currentDistance>=distance)
+        if (!ReachedDestination && !GameOver)
         {
-            WinTheGame();
+            WaterGameResources.Instance.DistanceText.text = string.Format("{0:0.0} / {1} meter", currentDistance, distance);
+
+            currentDistance += stepSize;
+            if (currentDistance >= distance)
+            {
+                WinTheGame();
+            }
         }
     }
     private void WinTheGame()
     {
         ReachedDestination = true;
+        Fader.FadeToBlack(0, 1, 
+            string.Format(@"You reached the village with 
+{0: 0.0} liters of water 
+out of {1: 0.0} capacity", water, maxWater));
     }
 	
 }
