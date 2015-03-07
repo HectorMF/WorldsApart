@@ -13,8 +13,8 @@ namespace WorldsApart.Games.SheeringMinigame
         public float spriteHeight;
         public float spriteWidth;
 
-        public Sheerable sheerablePrefab;
-        public GameObject notSheerablePrefab;
+        public List<Sheerable> sheerablePrefabs;
+        public List<Sprite> notSheerablePrefabs;
 
         //private Sheerable[] contents;
         private int prevIndex;
@@ -25,30 +25,16 @@ namespace WorldsApart.Games.SheeringMinigame
         {
             prevIndex = -1;
             path = new List<int>();
-            //contents = new Sheerable[columns * rows];
 
             for (int x = 0; x < columns; x++)
             {
                 for (int y = 0; y < rows; y++)
                 {
-                    var block = Instantiate(sheerablePrefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * (.01f + spriteWidth) + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * (spriteHeight + .01f) + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
+                    var prefab = sheerablePrefabs[UnityEngine.Random.Range(0, sheerablePrefabs.Count)];
+                    var block = Instantiate(prefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * (.01f + spriteWidth) + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * (spriteHeight + .01f) + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
                     block.transform.parent = transform;
                     block.setController(this);
                     block.index = y * columns + x;
-                    
-                    //if (contents[x * columns + y] != null)
-                    //{
-                    //    block.AssignAdjacent(Direction.Left, contents[(x-1) * columns + y]);
-                    //    contents[(x - 1) * columns + y].AssignAdjacent(Direction.Right, block);
-                    //}
-
-                    //if (contents[x * columns + y - 1] != null)
-                    //{
-                    //    block.AssignAdjacent(Direction.Down, contents[x * columns + y - 1]);
-                    //    contents[x * columns + y - 1].AssignAdjacent(Direction.Up, block);
-                    //}
-
-                    //contents[x * columns + y] = block;
                 }
             }
         }
@@ -95,6 +81,11 @@ namespace WorldsApart.Games.SheeringMinigame
             if (index < columns * (rows - 1) && !path.Contains(index + columns)) return true;
             if (index > columns - 1 && !path.Contains(index - columns)) return true;
             return false;
+        }
+
+        internal Sprite getSheeredSprite()
+        {
+            return notSheerablePrefabs[UnityEngine.Random.Range(0, notSheerablePrefabs.Count)];
         }
     }
 }
