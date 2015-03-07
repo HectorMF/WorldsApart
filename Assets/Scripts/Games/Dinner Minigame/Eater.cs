@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using WorldsApart.GUI;
 
 namespace WorldsApart.Games.DinnerMinigame
 {
@@ -10,16 +11,20 @@ namespace WorldsApart.Games.DinnerMinigame
     {
         public Plate plate;
         public float time;
+        public DinnerGameManager manager;
+
         private float timePassed;
 
-        private const int maxMood = 5;
+        private const int maxMood = 4;
         private int mood;
-        private MeshRenderer renderer;
+        private SpriteRenderer renderer;
+        private Wobble wobble;
 
         void Start()
         {
             mood = maxMood;
-            renderer = GetComponent<MeshRenderer>();
+            renderer = GetComponentsInChildren<SpriteRenderer>()[1];
+            wobble = GetComponentInChildren<Wobble>();
             timePassed = time;
         }
 
@@ -31,13 +36,21 @@ namespace WorldsApart.Games.DinnerMinigame
             {
                 if (plate.Eat())
                 {
-                    if (mood < maxMood) mood++;
+                    if (mood < maxMood)
+                    {
+                        mood++;
+                        renderer.sprite = manager.getMoodSprite(mood);
+                        wobble.TriggerWobble();
+                    }
                 }
-                else if (mood > 0) mood--;
+                else if (mood > 0)
+                { 
+                    mood--;
+                    renderer.sprite = manager.getMoodSprite(mood);
+                    wobble.TriggerWobble();
+                }
                 timePassed = time;
             }
-
-            renderer.material.color = (Color.blue / maxMood) * mood;
         }
     }
 }
