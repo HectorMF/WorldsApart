@@ -8,9 +8,11 @@ public class TintAdjuster : MonoBehaviour {
     
 	void Start () {
         renderer = gameObject.GetComponent<SpriteRenderer>();
+		Debug.Log("TINT ADJUSTER STILL ON: " + gameObject.name);
 	}
 
 	void Update () {
+	
         try
         {
             renderer.color = Color.Lerp(Color.white, DayNightController.Instance.camera.backgroundColor, percentTint);

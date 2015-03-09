@@ -612,9 +612,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .183451414
+    y: .078125
     width: 1
-    height: .633097172
+    height: .84375
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -1092,6 +1092,10 @@ Prefab:
     - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
       propertyPath: m_Pivot.y
       value: .5
+      objectReference: {fileID: 0}
+    - target: {fileID: 22559342, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_Alpha
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}

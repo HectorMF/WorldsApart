@@ -5,17 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/WorldsApartAgain.unity
-  - enabled: 1
-<<<<<<< HEAD
-    path: Assets/Scenes/Minigame Scenes/WaterGame.unity
-=======
-    path: Assets/Scenes/Minigame Scenes/Dinner Minigame.unity
-  - enabled: 1
-    path: Assets/Scenes/Minigame Scenes/Farming Minigame.unity
   - enabled: 1
     path: Assets/Scenes/Minigame Scenes/Milking Minigame.unity
   - enabled: 1
     path: Assets/Scenes/Minigame Scenes/Shearing Minigame.unity
->>>>>>> 05a74165cc6f49c7f6064bebb4c859ec81805ac0
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/Farming Minigame.unity
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/Dinner Minigame.unity
