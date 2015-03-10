@@ -34,6 +34,8 @@ namespace WorldsApart
         {
             if (counters.ContainsKey(name))
                 return counters[name];
+            else 
+                RegisterCounter(name, 0);
             return null;
         }
     }

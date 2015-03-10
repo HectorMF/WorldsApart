@@ -16,13 +16,18 @@ namespace WorldsApart.Games.SheeringMinigame
         public List<Sheerable> sheerablePrefabs;
         public List<Sprite> notSheerablePrefabs;
 
-        //private Sheerable[] contents;
         private int prevIndex;
         private List<int> path;
         private bool mouseIsActive;
 
+        ScoreController scoreController;
+
         void Start()
         {
+            GameObject scoreObject = GameObject.Find("ScoreController");
+            if (scoreObject != null)
+                scoreController = scoreObject.GetComponent<ScoreController>();
+
             prevIndex = -1;
             path = new List<int>();
 
@@ -54,9 +59,11 @@ namespace WorldsApart.Games.SheeringMinigame
             path.Add(index);
             prevIndex = index;
             if (path.Count == rows * columns)
-                Debug.Log("Winner winner chicken dinner");
+                if (scoreController != null) scoreController.Mood = 2;
             else if (!NodesAvailable(index))
-                Debug.Log("You lost");
+            {
+                if(scoreController != null) scoreController.Mood = 0;
+            }
         }
 
         internal bool ValidIndex(int index)

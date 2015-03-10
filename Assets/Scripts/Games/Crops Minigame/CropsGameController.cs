@@ -12,10 +12,8 @@ namespace WorldsApart.Games.CropsMinigame
 {
     public class CropsGameController : BetterBehaviour
     {
-        Vector3 previousPosition;
         public GameObject miniGame;
         public float speed = 20.0f;
-        float lerpTime;
 
         public List<Hazard> Hazards;
         public float spawnFrequency;
@@ -23,77 +21,41 @@ namespace WorldsApart.Games.CropsMinigame
 
         private float timePassed = 0f;
 
-        int scoreGoal = 5;
-
-        public enum MiniGameState
-        {
-            Suspended,
-            Starting,
-            Playing,
-            Ending
-        }
+        ScoreController scoreController;
 
         void Start()
         {
+            GameObject scoreObject = GameObject.Find("ScoreController");
+            if (scoreObject != null)
+                scoreController = scoreObject.GetComponent<ScoreController>();
+
             StartGame();
         }
 
-        public MiniGameState CurrentState;
-
         void Update()
         {
-            switch (CurrentState)
+            timePassed += Time.deltaTime;
+            if (timePassed > spawnFrequency)
             {
-                case MiniGameState.Starting:
-                    miniGame.GetComponent<ObjectGenerator>().enabled = true;
-                    CurrentState = MiniGameState.Playing;
-                    break;
-                case MiniGameState.Playing:
-                    timePassed += Time.deltaTime;
-                    if (timePassed > spawnFrequency)
+                float sum = Hazards.Sum(x => x.probability);
+                float selection = UnityEngine.Random.Range(0f, sum);
+                for (int i = 0; i < Hazards.Count; i++)
+                {
+                    selection -= Hazards[i].probability;
+                    if (selection <= 0)
                     {
-                        float sum = Hazards.Sum(x => x.probability);
-                        float selection = UnityEngine.Random.Range(0f, sum);
-                        for (int i = 0; i < Hazards.Count; i++)
-                        {
-                            selection -= Hazards[i].probability;
-                            if (selection <= 0)
-                            {
-                                Vector3 spawnLocation = bounds.getRandomOutOfBounds(transform.position, BoundingBox.Axis.Horizontal);
-                                Instantiate(Hazards[i].prefab, spawnLocation, Quaternion.identity);
-                            }
-                        }
-                        timePassed = 0f;
+                        Vector3 spawnLocation = bounds.getRandomOutOfBounds(transform.position, BoundingBox.Axis.Horizontal);
+                        Instantiate(Hazards[i].prefab, spawnLocation, Quaternion.identity);
                     }
-                    if (CounterManager.Instance.GetCounter("GardenMiniGame").count >= scoreGoal)
-                    {
-                        CurrentState = MiniGameState.Ending;
-                        lerpTime = 0;
-                    }
-                    break;
-                case MiniGameState.Ending:
-                    ThirdWorldManager.Instance.Report();
-                    CurrentState = MiniGameState.Suspended;
-                    break;
+                }
+                timePassed = 0f;
             }
         }
 
         public void StartGame()
         {
-            //if (CanAndShouldWater())
-            //{
-            CurrentState = MiniGameState.Starting;
-            lerpTime = 0;
             miniGame.SetActive(true);
-            //scoreGoal =  gameObject.GetComponent<Thirst>().Drink();
-            //}
-        }
-
-        bool CanAndShouldWater()
-        {
-            return ThirdWorldManager.Instance.AnyWater
-                && gameObject.GetComponent<Thirst>().AmountDrank < gameObject.GetComponent<Thirst>().TotalRequiredWater
-                    && ThirdWorldManager.Instance.Actions > 0;
+            miniGame.GetComponent<ObjectGenerator>().enabled = true;
         }
 
         [Serializable]
@@ -101,6 +63,13 @@ namespace WorldsApart.Games.CropsMinigame
         {
             public GameObject prefab;
             public float probability;
+        }
+
+        public void EndGame()
+        {
+            if (scoreController != null) scoreController.Mood = CounterManager.Instance.GetCounter("HarvestCount").count;
+
+            Application.LoadLevel("WorldsApartAgain");
         }
     }
 }

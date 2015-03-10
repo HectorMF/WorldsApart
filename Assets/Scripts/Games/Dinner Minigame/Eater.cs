@@ -12,11 +12,12 @@ namespace WorldsApart.Games.DinnerMinigame
         public Plate plate;
         public float time;
         public DinnerGameManager manager;
+        [HideInInspector]
+        public int mood;
 
         private float timePassed;
 
         private const int maxMood = 4;
-        private int mood;
         private SpriteRenderer renderer;
         private Wobble wobble;
 
