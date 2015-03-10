@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System;
 using WorldsApart.Handlers;
+using DG.Tweening;
 
 namespace WorldsApart.Utility
 {
@@ -69,7 +70,8 @@ namespace WorldsApart.Utility
             if (turn < 0)
             {
                 distance = -distance;
-                transform.Rotate(transform.up, 180f);
+				transform.DORotate(new Vector3(0,180,0),.5f);
+                //transform.Rotate(transform.up, 180f);
             }
 
             target = transform.localPosition + distance;

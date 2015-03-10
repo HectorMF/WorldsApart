@@ -2,13 +2,14 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 3
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: mat_player
   m_Shader: {fileID: 4800000, guid: 4d3c38d6ac50ffa4d92d6cb70f0c5f77, type: 3}
-  m_ShaderKeywords: []
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
   m_CustomRenderQueue: -1
   m_SavedProperties:
     serializedVersion: 2
@@ -41,7 +42,7 @@ Material:
       data:
         first:
           name: _Color1out
-        second: {r: .492647052, g: .250920236, b: .0652032867, a: 1}
+        second: {r: .823529422, g: .604367018, b: .435986161, a: 1}
       data:
         first:
           name: _Color2in
@@ -49,7 +50,7 @@ Material:
       data:
         first:
           name: _Color2out
-        second: {r: 0, g: .0896549225, b: 1, a: 1}
+        second: {r: .216533318, g: .302295148, b: .33088237, a: 1}
       data:
         first:
           name: _Color3in
@@ -57,7 +58,7 @@ Material:
       data:
         first:
           name: _Color3out
-        second: {r: .845588207, g: .758113563, b: .52849263, a: 1}
+        second: {r: .588235259, g: .468917757, b: .155709341, a: 1}
       data:
         first:
           name: _Color4in
@@ -73,7 +74,7 @@ Material:
       data:
         first:
           name: _Color5out
-        second: {r: 1, g: .980121613, b: .279411793, a: 1}
+        second: {r: 1, g: 1, b: .360784322, a: 1}
       data:
         first:
           name: _Color6in
