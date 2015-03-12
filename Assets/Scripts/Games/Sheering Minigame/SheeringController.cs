@@ -59,10 +59,14 @@ namespace WorldsApart.Games.SheeringMinigame
             path.Add(index);
             prevIndex = index;
             if (path.Count == rows * columns)
+            {
                 if (scoreController != null) scoreController.Mood = 2;
+                Application.LoadLevel("WorldsApartAgain");
+            }
             else if (!NodesAvailable(index))
             {
-                if(scoreController != null) scoreController.Mood = 0;
+                if (scoreController != null) scoreController.Mood = 0;
+                Application.LoadLevel("WorldsApartAgain");
             }
         }
 
