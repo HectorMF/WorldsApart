@@ -70,7 +70,7 @@ namespace WorldsApart.Utility
             if (turn < 0)
             {
                 distance = -distance;
-				transform.DORotate(new Vector3(0,180,0),.5f);
+				transform.DORotate(transform.eulerAngles + new Vector3(0,180,0),.5f);
                 //transform.Rotate(transform.up, 180f);
             }
 
