@@ -11,6 +11,7 @@ namespace WorldsApart.Utility
 	public class Wander : MonoBehaviour
 	{
 		public Vector3 distance = new Vector3 (2f,0f,0f);
+		public float turnSpeed = 1;
 		Vector3 target;
 		Vector3 startPos;
 		float startTime;
@@ -70,7 +71,7 @@ namespace WorldsApart.Utility
             if (turn < 0)
             {
                 distance = -distance;
-				transform.DORotate(transform.eulerAngles + new Vector3(0,180,0),.5f);
+				transform.DORotate(transform.eulerAngles + new Vector3(0,180,0),turnSpeed);
                 //transform.Rotate(transform.up, 180f);
             }
 
