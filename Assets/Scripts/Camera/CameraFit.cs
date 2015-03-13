@@ -33,7 +33,7 @@ public class CameraFit : MonoBehaviour
     #region FIELDS
     public float UnitsForWidth = 1; // width of your scene in unity units
     public Vector2 AspectRatio = new Vector2(16,9);
-    public static CameraFit Instance;
+	private Camera camera;
     private DeviceOrientation orientation;
     private float _width;
     private float _height;
@@ -134,43 +134,14 @@ public class CameraFit : MonoBehaviour
     #endregion
 
     #region METHODS
-    private void Awake()
-    {
-		ComputeAspectRatio();
-		ComputeResolution();
-        /*try
-        {
-            if ((bool)GetComponent<Camera>())
-            {
-                if (GetComponent<Camera>().orthographic)
-                {
-                    ComputeResolution();
-                    ComputeAspectRatio();
-                }
-            }
-        }
-        catch (Exception e)
-        {
-            Debug.LogException(e, this);
-        }*/
-    }
-
-	private void Start()
-	{
-		ComputeAspectRatio();
-		ComputeResolution();
-	}
-
 
     private void Update()
     {
         #if UNITY_EDITOR
-                ComputeAspectRatio();
-                ComputeResolution();
+		UpdateCamera();
+		#else
+		UpdateCamera();
         #endif
-
-		ComputeAspectRatio();
-		ComputeResolution();
 
         /*if (Input.deviceOrientation != orientation)
         {
@@ -190,48 +161,80 @@ public class CameraFit : MonoBehaviour
 		}*/
     }
 
-    private void ComputeResolution()
-    {
-        float deviceWidth;
-        float deviceHeight;
-        float leftX, rightX, topY, bottomY;
+	private void UpdateCamera()
+	{
+		if(this.camera == null) camera = GetComponent<Camera>();
 
-#if UNITY_EDITOR
-        deviceWidth = GetGameView().x;
-        deviceHeight = GetGameView().y;
-#else
-        deviceWidth = Screen.width;
-        deviceHeight = Screen.height;
-#endif
+		float deviceWidth;
+		float deviceHeight;
+		float leftX, rightX, topY, bottomY;
 
-        GetComponent<Camera>().orthographicSize = 1f / GetComponent<Camera>().aspect * UnitsForWidth / 2f;
+		#if UNITY_EDITOR
+		deviceWidth = GetGameView().x;
+		deviceHeight = GetGameView().y;
+		#else
+		deviceWidth = Screen.width;
+		deviceHeight = Screen.height;
+		#endif
 
-        _height = 2f * GetComponent<Camera>().orthographicSize;
-        _width = _height * GetComponent<Camera>().aspect;
+		// determine the game window's current aspect ratio
+		float windowAspect = deviceWidth/deviceHeight;
+		//the target ratio
+		float targetAspect = AspectRatio.x / AspectRatio.y;
+		// current viewport height should be scaled by this amount
+		float scaleheight = windowAspect / targetAspect;
+		
+		// if scaled height is less than current height, add letterbox
+		if (scaleheight < 1.0f)
+		{
+			Rect rect = camera.rect;
+			rect.width = 1.0f;
+			rect.height = scaleheight;
+			rect.x = 0;
+			rect.y = (1.0f - scaleheight) / 2.0f;
+			
+			camera.rect = rect;
+		}
+		else // add pillarbox
+		{
+			float scalewidth = 1.0f / scaleheight;
+			Rect rect = camera.rect;
+			
+			rect.width = scalewidth;
+			rect.height = 1.0f;
+			rect.x = (1.0f - scalewidth) / 2.0f;
+			rect.y = 0;
+			
+			camera.rect = rect;
+		}
 
-        float cameraX, cameraY;
-        cameraX = GetComponent<Camera>().transform.position.x;
-        cameraY = GetComponent<Camera>().transform.position.y;
-
-        leftX = cameraX - _width / 2;
-        rightX = cameraX + _width / 2;
-        topY = cameraY + _height / 2;
-        bottomY = cameraY - _height / 2;
-
-        //*** bottom
-        _bl = new Vector3(leftX, bottomY, 0);
-        _bc = new Vector3(cameraX, bottomY, 0);
-        _br = new Vector3(rightX, bottomY, 0);
-        //*** middle
-        _ml = new Vector3(leftX, cameraY, 0);
-        _mc = new Vector3(cameraX, cameraY, 0);
-        _mr = new Vector3(rightX, cameraY, 0);
-        //*** top
-        _tl = new Vector3(leftX, topY, 0);
-        _tc = new Vector3(cameraX, topY, 0);
-        _tr = new Vector3(rightX, topY, 0);
-        Instance = this;
-    }
+		camera.orthographicSize = 1f / camera.aspect * UnitsForWidth / 2f;
+		
+		_height = 2f * camera.orthographicSize;
+		_width = _height * camera.aspect;
+		
+		float cameraX, cameraY;
+		cameraX = camera.transform.position.x;
+		cameraY = camera.transform.position.y;
+		
+		leftX = cameraX - _width / 2;
+		rightX = cameraX + _width / 2;
+		topY = cameraY + _height / 2;
+		bottomY = cameraY - _height / 2;
+		
+		//*** bottom
+		_bl = new Vector3(leftX, bottomY, 0);
+		_bc = new Vector3(cameraX, bottomY, 0);
+		_br = new Vector3(rightX, bottomY, 0);
+		//*** middle
+		_ml = new Vector3(leftX, cameraY, 0);
+		_mc = new Vector3(cameraX, cameraY, 0);
+		_mr = new Vector3(rightX, cameraY, 0);
+		//*** top
+		_tl = new Vector3(leftX, topY, 0);
+		_tc = new Vector3(cameraX, topY, 0);
+		_tr = new Vector3(rightX, topY, 0);
+	}
 
     private void OnDrawGizmos()
     {
@@ -270,41 +273,6 @@ public class CameraFit : MonoBehaviour
         T.GetMethod("GetSizeOfMainGameView", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Static);
         System.Object resolution = getSizeOfMainGameView.Invoke(null, null);
         return (Vector2)resolution;
-    }
-
-    private void ComputeAspectRatio()
-    {
-        float targetaspect = AspectRatio.x / AspectRatio.y;
-
-        // determine the game window's current aspect ratio
-        float windowaspect = (float)Screen.width / (float)Screen.height;
-
-        // current viewport height should be scaled by this amount
-        float scaleheight = windowaspect / targetaspect;
-
-        // if scaled height is less than current height, add letterbox
-        if (scaleheight < 1.0f)
-        {
-            Rect rect = GetComponent<Camera>().rect;
-            rect.width = 1.0f;
-            rect.height = scaleheight;
-            rect.x = 0;
-            rect.y = (1.0f - scaleheight) / 2.0f;
-
-            GetComponent<Camera>().rect = rect;
-        }
-        else // add pillarbox
-        {
-            float scalewidth = 1.0f / scaleheight;
-            Rect rect = GetComponent<Camera>().rect;
-
-            rect.width = scalewidth;
-            rect.height = 1.0f;
-            rect.x = (1.0f - scalewidth) / 2.0f;
-            rect.y = 0;
-
-            GetComponent<Camera>().rect = rect;
-        }
     }
 
     #endregion
