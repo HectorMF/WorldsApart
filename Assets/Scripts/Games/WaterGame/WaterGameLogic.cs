@@ -9,14 +9,23 @@ public class WaterGameLogic {
     public float currentDistance = 0f;
     public float distance = 0f;
 
+    private Quaternion targetRotation;
+
     public bool GameOver = false;
     public bool ReachedDestination = false;
+    private float step;
+    public float Step {
+        get{
+            return step;
+        }
+    }
+    
 	// Use this for initialization
     private static WaterGameLogic instance;
     private WaterGameLogic()
     {
         water = 0f;
-        maxWater = 1f;
+        maxWater = WaterGameResources.Instance.BucketSizeValue;
         currentDistance = 0f;
         distance = 10f;
     }
@@ -90,6 +99,33 @@ public class WaterGameLogic {
             string.Format(@"You reached the village with 
 {0: 0.0} liters of water 
 out of {1: 0.0} capacity", water, maxWater));
+    }
+
+    /// <summary>
+    /// CameraMovement Get called to make the player to adjust the device to match the camera.
+    /// </summary>
+    /// <param name="percentage"></param>
+    public void CameraRandomMove(int angel, GameObject camera)
+    {
+        if (step < 10)
+        {
+           // Debug.Log("Angel:" + angel);
+            if (angel != 0)
+            {
+             //   targetRotation = Quaternion.Euler(new Vector3(0, 0, angel));
+                camera.GetComponent<Rigidbody2D>().AddTorque(angel);
+            }
+            
+            //camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, targetRotation, step);
+           // Debug.Log("STEP:" + step);
+            //amera.transform.rotation = targetRotation;
+            step +=0.05f;
+        }
+        else if(step >= 1)
+        {
+            step = 0;
+ 
+        }
     }
 	
 }

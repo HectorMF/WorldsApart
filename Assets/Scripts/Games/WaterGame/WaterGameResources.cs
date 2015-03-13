@@ -7,6 +7,7 @@ public class WaterGameResources: MonoBehaviour {
     private static WaterGameResources instance;
     public float TravelDistanceValue = 0f;
     public float BucketSizeValue = 100f;
+    public float TrippingChance = 40f;
     public Text DistanceText;
     public GameObject Fader;
     private WaterGameResources()
