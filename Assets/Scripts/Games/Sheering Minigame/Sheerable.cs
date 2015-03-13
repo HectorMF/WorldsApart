@@ -31,6 +31,7 @@ namespace WorldsApart.Games.SheeringMinigame
         {
             var sprite = gameObject.GetComponent<SpriteRenderer>();
             sprite.sprite = controller.getSheeredSprite();
+            sprite.transform.Translate(new Vector3(0f, 0f, .1f));
 
             controller.registerSelected(index);
         }

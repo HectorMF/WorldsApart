@@ -36,7 +36,7 @@ namespace WorldsApart.Games.SheeringMinigame
                 for (int y = 0; y < rows; y++)
                 {
                     var prefab = sheerablePrefabs[UnityEngine.Random.Range(0, sheerablePrefabs.Count)];
-                    var block = Instantiate(prefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * (.01f + spriteWidth) + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * (spriteHeight + .01f) + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
+                    var block = Instantiate(prefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * spriteWidth + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * spriteHeight + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
                     block.transform.parent = transform;
                     block.setController(this);
                     block.index = y * columns + x;
@@ -61,12 +61,12 @@ namespace WorldsApart.Games.SheeringMinigame
             if (path.Count == rows * columns)
             {
                 if (scoreController != null) scoreController.Mood = 2;
-                Application.LoadLevel("WorldsApartAgain");
+                EndGame("You Win!!!");
             }
             else if (!NodesAvailable(index))
             {
                 if (scoreController != null) scoreController.Mood = 0;
-                Application.LoadLevel("WorldsApartAgain");
+                EndGame("You Lost.");
             }
         }
 
@@ -97,6 +97,16 @@ namespace WorldsApart.Games.SheeringMinigame
         internal Sprite getSheeredSprite()
         {
             return notSheerablePrefabs[UnityEngine.Random.Range(0, notSheerablePrefabs.Count)];
+        }
+
+        private void EndGame(string text)
+        {
+			Fader.FadeToBlack(0,2,text,"",switchLevel);
+        }
+
+        public void switchLevel()
+        {
+            Application.LoadLevel("WorldsApartAgain");
         }
     }
 }
