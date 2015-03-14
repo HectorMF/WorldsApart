@@ -12,6 +12,10 @@ namespace WorldsApart.Games.SheeringMinigame
         private SheeringController controller;
 
         public int index;
+        public bool upperLeft;
+        public bool upperRight;
+        public bool lowerLeft;
+        public bool lowerRight;
 
         public void setController(SheeringController controller)
         {
@@ -29,9 +33,7 @@ namespace WorldsApart.Games.SheeringMinigame
 
         private void Sheer()
         {
-            var sprite = gameObject.GetComponent<SpriteRenderer>();
-            sprite.sprite = controller.getSheeredSprite();
-            sprite.transform.Translate(new Vector3(0f, 0f, .1f));
+            gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
             controller.registerSelected(index);
         }

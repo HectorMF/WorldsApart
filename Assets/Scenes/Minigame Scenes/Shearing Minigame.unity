@@ -204,11 +204,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1b343276c2f70c43a0c0c3221125b2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rows: 5
-  columns: 9
+  rows: 6
+  columns: 11
   spriteHeight: .400000006
-  spriteWidth: .400000006
+  spriteWidth: .349999994
   sheerablePrefabs:
+  - {fileID: 11482106, guid: eb6dc7a110329d84786831fc2a52d9a6, type: 2}
   - {fileID: 11482106, guid: eb6dc7a110329d84786831fc2a52d9a6, type: 2}
   - {fileID: 11496868, guid: 57ed652fb3ae27e48b3d4988edc542b6, type: 2}
   - {fileID: 11433300, guid: 8d34034a53000504d8933389dd74acdc, type: 2}
@@ -355,8 +356,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1742154707}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -.389999986, y: .280000001, z: 0}
-  m_LocalScale: {x: .850610018, y: .942192972, z: 1}
+  m_LocalPosition: {x: -.230000004, y: .230000004, z: 0}
+  m_LocalScale: {x: .768689156, y: .934928119, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3

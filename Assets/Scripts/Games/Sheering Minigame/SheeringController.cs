@@ -14,7 +14,6 @@ namespace WorldsApart.Games.SheeringMinigame
         public float spriteWidth;
 
         public List<Sheerable> sheerablePrefabs;
-        public List<Sprite> notSheerablePrefabs;
 
         private int prevIndex;
         private List<int> path;
@@ -35,7 +34,14 @@ namespace WorldsApart.Games.SheeringMinigame
             {
                 for (int y = 0; y < rows; y++)
                 {
-                    var prefab = sheerablePrefabs[UnityEngine.Random.Range(0, sheerablePrefabs.Count)];
+                    var suitable = sheerablePrefabs;
+                    if (x == 0 && y == 0) suitable = sheerablePrefabs.Where(p => p.lowerLeft).ToList();
+                    if (x == 0 && y == rows - 1) suitable = sheerablePrefabs.Where(p => p.upperLeft).ToList();
+                    if (x == columns - 1 && y == rows - 1) suitable = sheerablePrefabs.Where(p => p.upperRight).ToList();
+                    if (x == columns - 1 && y == 0) suitable = sheerablePrefabs.Where(p => p.lowerRight).ToList();
+
+                    var prefab = suitable[UnityEngine.Random.Range(0, suitable.Count)];
+
                     var block = Instantiate(prefab, new Vector3(((float)x + .5f - ((float)columns / 2f)) * spriteWidth + transform.position.x, ((float)y + .5f - ((float)rows / 2f)) * spriteHeight + transform.position.y, transform.position.z), Quaternion.identity) as Sheerable;
                     block.transform.parent = transform;
                     block.setController(this);
@@ -92,11 +98,6 @@ namespace WorldsApart.Games.SheeringMinigame
             if (index < columns * (rows - 1) && !path.Contains(index + columns)) return true;
             if (index > columns - 1 && !path.Contains(index - columns)) return true;
             return false;
-        }
-
-        internal Sprite getSheeredSprite()
-        {
-            return notSheerablePrefabs[UnityEngine.Random.Range(0, notSheerablePrefabs.Count)];
         }
 
         private void EndGame(string text)
