@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Linq;
 using System.Text;
-using System;
 using WorldsApart.Handlers;
 using DG.Tweening;
 
@@ -10,72 +9,81 @@ namespace WorldsApart.Utility
 {
 	public class Wander : MonoBehaviour
 	{
-		public Vector3 distance = new Vector3 (2f,0f,0f);
+		public Rect zone;
+		public Ease easingFunction = Ease.InOutSine;
+		public float walkSpeed = 1.5f;
 		public float turnSpeed = 1;
-		Vector3 target;
-		Vector3 startPos;
-		float startTime;
-		float fracJourney;
-		float travelDist;
-		float waitTimer;
-		float speed = 1.5f;
-		int turn;
-        [HideInInspector]
-		public bool waiting;
+		public float minDelay = 5;
+		public float maxDelay = 10;
+		public float minDeltaDistance = 0;
 
-        SetAnimationFloatHandler animHandler;
+		private Vector3 target;
+		private bool isMoving;
+		private float waitTimer;
+		private float duration;
+		private Animator animator;
 
 		void Start()
 		{
-			target = transform.localPosition;
-            startPos = transform.localPosition;
-			travelDist = 0f;
-			turn = 0;
-            animHandler = new SetAnimationFloatHandler();
-            animHandler.gameObject = gameObject;
-            animHandler.floatName = "Speed";
+			animator = GetComponent<Animator>();
+			FinishWalking();
+			CalculateTarget();
+			transform.position = target;
 		}
+
+		private void CalculateTarget()
+		{
+			float x = Random.Range(zone.x, zone.x + zone.width);
+			float y = Random.Range(zone.y, zone.y + zone.height);
+			target = new Vector3(x, y, y);
+
+			while((target - transform.position).magnitude < minDeltaDistance)
+			{
+				x = Random.Range(zone.x, zone.x + zone.width);
+				y = Random.Range(zone.y, zone.y + zone.height);
+				target = new Vector3(x, y, y);
+			}
+
+			duration = (target - transform.position).magnitude / walkSpeed;
+		}
+
+		private void FinishWalking()
+		{
+			isMoving = false;
+			waitTimer = Random.Range(minDelay, maxDelay);
+		}
+
 		void Update ()
 		{
-			if (waiting) // At target pos waiting
+			Debug.Log(target);
+			if (!isMoving)
 			{
-				waitTimer += Time.deltaTime;
+				waitTimer -= Time.deltaTime;
                 
-				if (waitTimer >= 3f) //done waiting
+				if (waitTimer <= 0) //done waiting
 				{
-					waiting = false;
-					waitTimer = 0f;
-                    turn = UnityEngine.Random.Range(-1, 1);
-					travelDist = 0f;
-					startPos = transform.localPosition;
-                    animHandler.value = 1f;
-                    animHandler.Invoke();
-					Target();
+					isMoving = true;
+					CalculateTarget();
+					if (animator != null) 
+						animator.SetFloat("Speed", 1);
+					transform.DOMove(target, duration).SetEase(easingFunction).OnComplete(FinishWalking);
+					if(target.x > transform.position.x)
+						transform.DORotate(new Vector3(0,0,0), turnSpeed);
+					else
+						transform.DORotate(new Vector3(0,180,0), turnSpeed);
 				}
 			}
-            else if (travelDist < Math.Abs(distance.x)) // Traveling to target pos
+            else
             {
-                travelDist += Time.deltaTime * speed;
-                fracJourney = travelDist / Math.Abs(distance.x);
-                transform.localPosition = Vector3.Lerp(startPos, target, fracJourney);
-            }
-            else // At target pos, start waiting
-            {
-                animHandler.value = 0f;
-                animHandler.Invoke();
-                waiting = true;
+				if (animator != null) 
+					animator.SetFloat("Speed", 0);
             }
 		}
-		void Target()
-		{
-            if (turn < 0)
-            {
-                distance = -distance;
-				transform.DORotate(transform.eulerAngles + new Vector3(0,180,0),turnSpeed);
-                //transform.Rotate(transform.up, 180f);
-            }
 
-            target = transform.localPosition + distance;
+		private void OnDrawGizmosSelected()
+		{
+			Gizmos.color = Color.red;
+			Gizmos.DrawWireCube(zone.center, zone.size);
 		}
 	}
 }

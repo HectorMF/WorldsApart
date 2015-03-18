@@ -15,7 +15,7 @@ namespace WorldsApart.Scripting
         public override void Start(Action OnFinish)
         {
             var wander = gameObject.GetComponent<Wander>();
-            wander.waiting = true;
+            //wander.waiting = true;
             if (wander != null && wander.enabled != value) wander.enabled = value;
             if(OnFinish != null) OnFinish();
         }

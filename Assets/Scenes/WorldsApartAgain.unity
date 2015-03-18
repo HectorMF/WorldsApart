@@ -259,9 +259,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: 2, y: 0, z: 0}
+  zone:
+    serializedVersion: 2
+    x: -2.49000001
+    y: -4.09000015
+    width: 5.78999996
+    height: 1.73000002
+  easingFunction: 4
+  walkSpeed: 1.5
   turnSpeed: 1
-  waiting: 0
+  minDelay: 1
+  maxDelay: 1
+  minDeltaDistance: 1
 --- !u!114 &7920667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1257,9 +1266,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: 2, y: 0, z: 0}
+  zone:
+    serializedVersion: 2
+    x: -8.75
+    y: -4.48999977
+    width: 5.11999989
+    height: 1.5
+  easingFunction: 4
+  walkSpeed: 1
   turnSpeed: 1
-  waiting: 0
+  minDelay: 5
+  maxDelay: 30
+  minDeltaDistance: 1
 --- !u!95 &256282473
 Animator:
   serializedVersion: 3
@@ -1574,6 +1592,34 @@ Prefab:
     - target: {fileID: 11400002, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
       propertyPath: _serializationData.serializedStrings.values.Array.data[0]
       value: '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: zone.x
+      value: -20.2700005
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: zone.y
+      value: -4.44000006
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: zone.width
+      value: 5.78999996
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: zone.height
+      value: 2.38000011
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: minDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: maxDelay
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400004, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
+      propertyPath: minDeltaDistance
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11400006, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
@@ -4073,9 +4119,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: 2, y: 0, z: 0}
+  zone:
+    serializedVersion: 2
+    x: .889999986
+    y: -4.4000001
+    width: 5.78999996
+    height: 2.70000005
+  easingFunction: 4
+  walkSpeed: 1.5
   turnSpeed: 1
-  waiting: 0
+  minDelay: 1
+  maxDelay: 1
+  minDeltaDistance: 1
 --- !u!82 &1576683656
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4162,13 +4217,12 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 1576683656}
-    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteMilkingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"targetController":null,"$type":"WorldsApart.Scripting.RemoteMilkingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
@@ -5194,9 +5248,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: 2, y: 0, z: 0}
+  zone:
+    serializedVersion: 2
+    x: 4.42999983
+    y: -4.19999981
+    width: 5.78999996
+    height: 2.13000011
+  easingFunction: 4
+  walkSpeed: 1.5
   turnSpeed: 1
-  waiting: 0
+  minDelay: 1
+  maxDelay: 1
+  minDeltaDistance: 1
 --- !u!82 &2133994112
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5285,13 +5348,12 @@ MonoBehaviour:
     serializedObjects:
     - {fileID: 2133994112}
     - {fileID: 2133994109}
-    - {fileID: 7920667}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":{"$content":2},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"drinker":{"$content":1},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   active: 1
