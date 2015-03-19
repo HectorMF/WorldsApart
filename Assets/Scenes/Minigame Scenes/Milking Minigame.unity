@@ -541,6 +541,91 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &793888893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 793888894}
+  - 222: {fileID: 793888896}
+  - 114: {fileID: 793888895}
+  - 114: {fileID: 793888897}
+  m_Layer: 5
+  m_Name: Swiping
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &793888894
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793888893}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1216007367}
+  m_RootOrder: 2
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: 0, y: -188.789993}
+  m_SizeDelta: {x: 400, y: 300}
+  m_Pivot: {x: .5, y: .5}
+--- !u!114 &793888895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793888893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Texture: {fileID: 2800000, guid: b6614173964808f489c2ee4f00628001, type: 3}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+--- !u!222 &793888896
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793888893}
+--- !u!114 &793888897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 793888893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef077eb7918082d488b6838fc3125d6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frames:
+  - {fileID: 2800000, guid: b6614173964808f489c2ee4f00628001, type: 3}
+  - {fileID: 2800000, guid: d25ad4bd3e0b51447b6696c3ebf2ed2e, type: 3}
+  - {fileID: 2800000, guid: 623b6c3de64a227489688e22e48a0da1, type: 3}
+  - {fileID: 2800000, guid: 8f16d887050031a4694ed6066ddc576c, type: 3}
+  - {fileID: 2800000, guid: d74400b4789964f4b935068a875ab7cc, type: 3}
+  - {fileID: 2800000, guid: 18767abc473689843bcf751f27669791, type: 3}
+  - {fileID: 2800000, guid: d74400b4789964f4b935068a875ab7cc, type: 3}
+  - {fileID: 2800000, guid: 8f16d887050031a4694ed6066ddc576c, type: 3}
+  - {fileID: 2800000, guid: 623b6c3de64a227489688e22e48a0da1, type: 3}
+  - {fileID: 2800000, guid: d25ad4bd3e0b51447b6696c3ebf2ed2e, type: 3}
+  delay: .100000001
+  looping: 1
 --- !u!1 &1100055368
 GameObject:
   m_ObjectHideFlags: 0
@@ -612,9 +697,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .078125
+    y: .0161366463
     width: 1
-    height: .84375
+    height: .967726707
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -1096,6 +1181,22 @@ Prefab:
     - target: {fileID: 22559342, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
       propertyPath: m_Alpha
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_Text
+      value: Milk The Cow
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497600, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_Text
+      value: Swipe
+      objectReference: {fileID: 0}
+    - target: {fileID: 22481654, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 22497082, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
