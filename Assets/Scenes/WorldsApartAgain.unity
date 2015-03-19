@@ -1435,10 +1435,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .0722558796
-    y: 0
-    width: .855488241
-    height: 1
+    x: 0
+    y: .050285548
+    width: 1
+    height: .899428904
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -3112,7 +3112,7 @@ Prefab:
       objectReference: {fileID: 1992402101}
     - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: _serializationData.serializedStrings.values.Array.data[0]
-      value: '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      value: '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.WellScript"},{"targetController":null,"$type":"WorldsApart.Scripting.RemotePumpingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11446838, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
