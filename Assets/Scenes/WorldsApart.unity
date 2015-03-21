@@ -1230,14 +1230,13 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 256282467}
-    - {fileID: 7920667}
     - {fileID: 1821172541}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"drinker":{"$content":0},"targetController":{"$content":1},"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":1},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
       - true
   id: 66683744-6c11-4e27-b30a-43706681bd3f
   active: 1
@@ -1382,7 +1381,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1278eae4cc53944d9ca7c079a716641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  easingFunction: 12
+  easingFunction: 15
   duration: 3
   index: 1
   anchors:
@@ -1431,14 +1430,14 @@ Camera:
   m_GameObject: {fileID: 260663927}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 2
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .050285548
+    y: .0168450773
     width: 1
-    height: .899428904
+    height: .966309845
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60

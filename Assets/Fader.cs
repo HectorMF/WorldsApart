@@ -14,14 +14,14 @@ public class Fader : MonoBehaviour {
 		instance = this;
 	}
 
-	public static void FadeToBlack(float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.Core.TweenCallback action = null)
+	public static void FadeToBlack(float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null)
 	{
 		instance.title.text = title;
 		instance.subTitle.text = subtitle;
 		instance.group.DOFade(1, duration).SetDelay(delay).OnComplete(action);
 	}
 
-	public static void FadeToClear(float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.Core.TweenCallback action = null)
+	public static void FadeToClear(float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null)
 	{
 		instance.title.text = title;
 		instance.subTitle.text = subtitle;

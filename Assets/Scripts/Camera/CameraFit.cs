@@ -135,13 +135,18 @@ public class CameraFit : MonoBehaviour
 
     #region METHODS
 
-    private void Update()
+	private void Update()
+	{
+		#if UNITY_EDITOR
+		UpdateCamera();
+		#endif
+	}
+	private void Start()
     {
-        #if UNITY_EDITOR
+		Application.targetFrameRate = 60;
+		//QualitySettings.vSyncCount = 0;
 		UpdateCamera();
-		#else
-		UpdateCamera();
-        #endif
+
 
         /*if (Input.deviceOrientation != orientation)
         {
