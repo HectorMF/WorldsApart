@@ -787,7 +787,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.28999996
+      value: 1.66999996
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_LocalPosition.z
@@ -842,7 +842,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 1.28999996
+      value: 1.97000003
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_LocalPosition.z
@@ -1434,10 +1434,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .0168450773
-    width: 1
-    height: .966309845
+    x: .0218307674
+    y: 0
+    width: .956338465
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -5254,10 +5254,10 @@ MonoBehaviour:
     width: 5.78999996
     height: 2.13000011
   easingFunction: 4
-  walkSpeed: 1.5
+  walkSpeed: 1
   turnSpeed: 1
-  minDelay: 1
-  maxDelay: 1
+  minDelay: 2
+  maxDelay: 10
   minDeltaDistance: 1
 --- !u!82 &2133994112
 AudioSource:

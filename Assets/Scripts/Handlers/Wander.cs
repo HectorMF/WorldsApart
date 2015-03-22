@@ -51,6 +51,8 @@ namespace WorldsApart.Utility
 		{
 			isMoving = false;
 			waitTimer = Random.Range(minDelay, maxDelay);
+			if (animator != null) 
+				animator.SetFloat("Speed", 0);
 		}
 
 		void Update ()
@@ -73,11 +75,6 @@ namespace WorldsApart.Utility
 						transform.DORotate(new Vector3(0,180,0), turnSpeed);
 				}
 			}
-            else
-            {
-				if (animator != null) 
-					animator.SetFloat("Speed", 0);
-            }
 		}
 
 		private void OnDrawGizmosSelected()
