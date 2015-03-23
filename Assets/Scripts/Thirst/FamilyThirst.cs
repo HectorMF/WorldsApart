@@ -22,11 +22,11 @@ public class FamilyThirst : Thirst {
 		ThirdWorldManager.Instance.IncrementMood();
 	}
 
-	public override void DayEnd ()
+	public override void ResolveWater ()
 	{
 		ReportFoodUsage ();
 		ReportWaterUsage ();
-		base.DayEnd ();
+		base.ResolveWater ();
 		SetFoodRequirements();
 	}
 

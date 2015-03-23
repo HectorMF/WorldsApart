@@ -13,15 +13,15 @@ public class Thirst : MonoBehaviour {
 
 	void OnEnable()
 	{
-		ThirdWorldManager.OnDayEnd += DayEnd;
+		TroughManager.OnResolveWater += ResolveWater;
 	}
 
 	void OnDisable()
 	{
-		ThirdWorldManager.OnDayEnd -= DayEnd;
+		TroughManager.OnResolveWater -= ResolveWater;
 	}
 
-	public virtual void DayEnd()
+	public virtual void ResolveWater()
 	{
 		if (AmountDrank >= TotalRequiredWater)
 			DaysWithoutWater = 0;
@@ -65,7 +65,8 @@ public class Thirst : MonoBehaviour {
 		}
 		Debug.Log (string.Format("Name: {2}, Tot Req H20: {1}, Drank: {3}", MemberCount, TotalRequiredWater, name, AmountDrank));
 	}
-	private bool NoWaterRequirementOnRainyDay()
+
+	public bool NoWaterRequirementOnRainyDay()
 	{
 		return ThirdWorldManager.Instance.IsRaining() && !(this is FamilyThirst);
 	}

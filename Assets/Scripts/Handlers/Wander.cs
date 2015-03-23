@@ -31,6 +31,12 @@ namespace WorldsApart.Utility
 			transform.position = target;
 		}
 
+		public void SetTarget(Vector3 newTarget)
+		{
+			transform.DOKill();
+			transform.DOMove(newTarget, duration).SetEase(easingFunction).OnComplete(FinishWalking);
+		}
+
 		private void CalculateTarget()
 		{
 			float x = Random.Range(zone.x, zone.x + zone.width);
@@ -57,7 +63,6 @@ namespace WorldsApart.Utility
 
 		void Update ()
 		{
-			Debug.Log(target);
 			if (!isMoving)
 			{
 				waitTimer -= Time.deltaTime;

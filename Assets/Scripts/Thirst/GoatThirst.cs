@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class GoatThirst : Thirst {
+public class GoatThirst : AnimalThirst {
 
 	void Start () 
 	{
@@ -15,9 +15,9 @@ public class GoatThirst : Thirst {
 		ThirdWorldManager.Instance.IncrementFood(Random.Range(1, 3));
 	}
 
-	public override void DayEnd ()
+	public override void ResolveWater ()
 	{
-		base.DayEnd ();
+		base.ResolveWater ();
 		if(ThirdWorldManager.Instance.CurrentWeather == ThirdWorldManager.Weather.Rainy)
 		{
 			if (Random.Range(0.0f, 1.0f) < 0.25f) 

@@ -45,6 +45,6 @@ public class MilkingMinigame : MonoBehaviour {
 	}
 
 	void EndGame() {
-		Application.LoadLevel("WorldsApartAgain");
+		Application.LoadLevel("WorldsApart");
 	}
 }

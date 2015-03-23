@@ -82,7 +82,7 @@ public class SwipeManager : MonoBehaviour
                 // Make sure it was a legit swipe, not a tap
                 if (currentSwipe.magnitude < minSwipeLength)
                 {
-                    Debug.Log(currentSwipe.magnitude);
+//                    Debug.Log(currentSwipe.magnitude);
                     swipeDirection = Swipe.None;
                     return;
                 }
