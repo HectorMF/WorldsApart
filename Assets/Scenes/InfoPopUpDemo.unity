@@ -254,7 +254,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 7920659}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
@@ -878,69 +878,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260663935}
   m_RootOrder: 0
---- !u!1001 &953746899
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 1316367108}
-    m_Modifications:
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 1.70000005
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3.0999999
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.data[1]
-      value: 
-      objectReference: {fileID: 7920667}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedObjects.Array.data[2]
-      value: 
-      objectReference: {fileID: 1992402101}
-    - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
-      value: '[{"scripts":[{"Well":{"$content":0},"targetController":{"$content":1,"$id":"3"},"$type":"WorldsApart.Scripting.WellScript"},{"targetController":{"$ref":"3"},"$type":"WorldsApart.Scripting.RemotePumpingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":2},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 105804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11446838, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-  m_ParentPrefab: {fileID: 100100000, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1164234429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1073,6 @@ Transform:
   m_Children:
   - {fileID: 7920660}
   - {fileID: 1164234430}
-  - {fileID: 1992402100}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1 &1436799289
@@ -1545,15 +1481,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0787cd3ce876b0f40ad2e3715b1fc4fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1992402100
-Transform:
-  m_PrefabParentObject: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
-  m_PrefabInternal: {fileID: 953746899}
---- !u!82 &1992402101
-AudioSource:
-  m_PrefabParentObject: {fileID: 8206318, guid: a0c06b71e483b4ef5877a273f18edaa2,
-    type: 2}
-  m_PrefabInternal: {fileID: 953746899}
 --- !u!4 &2011874412
 Transform:
   m_PrefabParentObject: {fileID: 432378, guid: 45e0fb14a44c249bdb051ad601bb53e0, type: 2}
