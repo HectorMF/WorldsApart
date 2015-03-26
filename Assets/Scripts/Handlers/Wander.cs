@@ -16,20 +16,21 @@ namespace WorldsApart.Utility
 		public float minDelay = 5;
 		public float maxDelay = 10;
 		public float minDeltaDistance = 0;
+        public static bool pause = false;
 
-		private Vector3 target;
-		private bool isMoving;
-		private float waitTimer;
-		private float duration;
-		private Animator animator;
+        private Vector3 target;
+        private bool isMoving;
+        private float waitTimer;
+        private float duration;
+        private Animator animator;
 
-		void Start()
-		{
-			animator = GetComponent<Animator>();
-			FinishWalking();
-			CalculateTarget();
-			transform.position = target;
-		}
+        void Start()
+        {
+            animator = GetComponent<Animator>();
+            FinishWalking();
+            CalculateTarget();
+            transform.position = target;
+        }
 
 		public void SetTarget(Vector3 newTarget)
 		{
@@ -63,6 +64,9 @@ namespace WorldsApart.Utility
 
 		void Update ()
 		{
+            //TODO :: Handle Pauses Better
+            if (pause) return;
+
 			if (!isMoving)
 			{
 				waitTimer -= Time.deltaTime;
