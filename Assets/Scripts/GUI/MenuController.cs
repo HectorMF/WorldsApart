@@ -8,6 +8,7 @@ public class MenuController : MonoBehaviour {
     public Grayscale cameraGreyscale;
     public RectTransform button;
 
+    public float delay = 1f;
     public float duration = 3f;
 
     private bool buttonReady;
@@ -26,6 +27,11 @@ public class MenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        while (delay > 0f)
+        {
+            delay -= Time.deltaTime;
+            return;
+        }
         if (cameraGreyscale.effectAmount == 0) return;
         cameraGreyscale.effectAmount -= step;
         if (cameraGreyscale.effectAmount < .2 && !buttonReady)
