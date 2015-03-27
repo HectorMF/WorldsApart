@@ -16,19 +16,26 @@ namespace WorldsApart.Utility
 		public float minDelay = 5;
 		public float maxDelay = 10;
 		public float minDeltaDistance = 0;
+        public static bool pause = false;
 
-		private Vector3 target;
-		private bool isMoving;
-		private float waitTimer;
-		private float duration;
-		private Animator animator;
+        private Vector3 target;
+        private bool isMoving;
+        private float waitTimer;
+        private float duration;
+        private Animator animator;
 
-		void Start()
+        void Start()
+        {
+            animator = GetComponent<Animator>();
+            FinishWalking();
+            CalculateTarget();
+            transform.position = target;
+        }
+
+		public void SetTarget(Vector3 newTarget)
 		{
-			animator = GetComponent<Animator>();
-			FinishWalking();
-			CalculateTarget();
-			transform.position = target;
+			transform.DOKill();
+			transform.DOMove(newTarget, duration).SetEase(easingFunction).OnComplete(FinishWalking);
 		}
 
 		private void CalculateTarget()
@@ -51,11 +58,15 @@ namespace WorldsApart.Utility
 		{
 			isMoving = false;
 			waitTimer = Random.Range(minDelay, maxDelay);
+			if (animator != null) 
+				animator.SetFloat("Speed", 0);
 		}
 
 		void Update ()
 		{
-			Debug.Log(target);
+            //TODO :: Handle Pauses Better
+            if (pause) return;
+
 			if (!isMoving)
 			{
 				waitTimer -= Time.deltaTime;
@@ -73,11 +84,6 @@ namespace WorldsApart.Utility
 						transform.DORotate(new Vector3(0,180,0), turnSpeed);
 				}
 			}
-            else
-            {
-				if (animator != null) 
-					animator.SetFloat("Speed", 0);
-            }
 		}
 
 		private void OnDrawGizmosSelected()

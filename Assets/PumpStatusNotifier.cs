@@ -3,11 +3,14 @@ using System.Collections;
 
 public class PumpStatusNotifier : MonoBehaviour {
 
-	GameObject available, empty;
+	GameObject status, empty, popup;
+	bool turnedOff;
 	// Use this for initialization
 	void Start () {
-		available = transform.Find("PumpAvailable").gameObject;
-		available.SetActive(true);
+		status = transform.Find("PumpStatus").gameObject;
+		status.SetActive(true);
+		popup = transform.Find("InfoPopUp/PopUpBubble").gameObject;
+		turnedOff = false;
 	}
 
 	void OnEnable()
@@ -22,14 +25,23 @@ public class PumpStatusNotifier : MonoBehaviour {
 
 	void Update()
 	{
-		if (ThirdWorldManager.Instance.AvailableWater == 0)
+		if(popup.activeSelf)
+			status.SetActive(false);
+		else
+			status.SetActive(true);
+
+		if (ThirdWorldManager.Instance.AvailableWater == 0 && !turnedOff)
 		{
-			available.SetActive(false);
+			status.SetActive(false);
+			popup.transform.parent.gameObject.SetActive(false);
+			turnedOff = true;
 		}
 	}
 
 	void DayEnd()
 	{
-		available.SetActive(true);
+		status.SetActive(true);
+		popup.transform.parent.gameObject.SetActive(true);
+		turnedOff = false;
 	}
 }

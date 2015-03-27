@@ -14,7 +14,7 @@ namespace WorldsApart.Games.CropsMinigame
     {
         public GameObject miniGame;
         public float speed = 20.0f;
-
+		public float totalGameTime, timer;
         public List<Hazard> Hazards;
         public float spawnFrequency;
         public BoundingBox bounds;
@@ -25,6 +25,8 @@ namespace WorldsApart.Games.CropsMinigame
 
         void Start()
         {
+			totalGameTime = 10f;
+			timer = 0;
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
@@ -35,6 +37,8 @@ namespace WorldsApart.Games.CropsMinigame
         void Update()
         {
             timePassed += Time.deltaTime;
+			timer += Time.deltaTime;
+			if(timer >= totalGameTime) EndGame();
             if (timePassed > spawnFrequency)
             {
                 float sum = Hazards.Sum(x => x.probability);

@@ -159,7 +159,7 @@ public class ThirdWorldManager
 		currentWater = (currentWater + value <= WaterCapacity) ? currentWater + value : WaterCapacity;
 	}
 
-	// Returns amount of water used from 
+	// Returns amount of water used 
 	public int DecrementWater(int attemptedValue)
 	{
 		if (currentWater - attemptedValue > 0)

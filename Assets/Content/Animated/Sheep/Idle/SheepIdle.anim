@@ -6,8 +6,8 @@ AnimationClip:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: SheepIdle
-  serializedVersion: 4
-  m_AnimationType: 2
+  serializedVersion: 6
+  m_Legacy: 0
   m_Compressed: 0
   m_UseHighQualityCurve: 1
   m_RotationCurves: []
@@ -25,6 +25,14 @@ AnimationClip:
       value: {fileID: 21300000, guid: e9aefa914c9379e48ba18a5441509dcd, type: 3}
     - time: .25
       value: {fileID: 21300000, guid: 8e8ff63aa8ba601478151f73c7266e99, type: 3}
+    - time: .333333343
+      value: {fileID: 21300000, guid: 2b4213ee4f1508b47b521ab5125b3e3d, type: 3}
+    - time: .416666657
+      value: {fileID: 21300000, guid: da1ba35ce59c2364385733622f4696cb, type: 3}
+    - time: .5
+      value: {fileID: 21300000, guid: 22c9b9580b8b7174cbe828b3dbfc151f, type: 3}
+    - time: .583333313
+      value: {fileID: 21300000, guid: 3b36f12996cd8974dbb7407445f60496, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -47,10 +55,14 @@ AnimationClip:
     - {fileID: 21300000, guid: a2276d17935808d4296a84ff06772683, type: 3}
     - {fileID: 21300000, guid: e9aefa914c9379e48ba18a5441509dcd, type: 3}
     - {fileID: 21300000, guid: 8e8ff63aa8ba601478151f73c7266e99, type: 3}
+    - {fileID: 21300000, guid: 2b4213ee4f1508b47b521ab5125b3e3d, type: 3}
+    - {fileID: 21300000, guid: da1ba35ce59c2364385733622f4696cb, type: 3}
+    - {fileID: 21300000, guid: 22c9b9580b8b7174cbe828b3dbfc151f, type: 3}
+    - {fileID: 21300000, guid: 3b36f12996cd8974dbb7407445f60496, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_StartTime: 0
-    m_StopTime: .333333343
+    m_StopTime: .666666627
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -66,4 +78,7 @@ AnimationClip:
     m_Mirror: 0
   m_EditorCurves: []
   m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_GenerateMotionCurves: 0
   m_Events: []
