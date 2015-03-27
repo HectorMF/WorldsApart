@@ -26,7 +26,7 @@ public class FrameAnchors : MonoBehaviour {
             if (index - 1 >= 0)
                 SetIndex(--index);
             else
-                camera.DOShakePosition(1,1,3,0);
+                camera.transform.DOShakePosition(1,new Vector3(1,0,0),3,0);
 	}
 
     public void SetIndex(int i)
