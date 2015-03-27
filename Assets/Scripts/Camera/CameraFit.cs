@@ -137,9 +137,9 @@ public class CameraFit : MonoBehaviour
 
 	private void Update()
 	{
-		#if UNITY_EDITOR
+		//#if UNITY_EDITOR
 		UpdateCamera();
-		#endif
+		//#endif
 	}
 	private void Start()
     {
