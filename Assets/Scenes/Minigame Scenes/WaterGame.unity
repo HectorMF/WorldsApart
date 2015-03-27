@@ -97,6 +97,7 @@ GameObject:
   - 4: {fileID: 1407221}
   - 212: {fileID: 1407220}
   - 114: {fileID: 1407219}
+  - 95: {fileID: 1407222}
   m_Layer: 0
   m_Name: WaterBasket
   m_TagString: Untagged
@@ -141,7 +142,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1357471b02d63424cbae3d07d3314e3c, type: 3}
+  m_Sprite: {fileID: 21300008, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1407221
 Transform:
@@ -149,12 +150,29 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407218}
-  m_LocalRotation: {x: 0, y: 0, z: .99999994, w: .000461745891}
-  m_LocalPosition: {x: 0, y: 4.75, z: -1}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.75, z: -3}
+  m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!95 &1407222
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1407218}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 846af4b72637d324a84f40dbe5559369, type: 2}
+  m_CullingMode: 2
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &21926340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1594,9 +1612,9 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .199448526
+    x: .0918367505
     y: 0
-    width: .601102948
+    width: .816326499
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
@@ -2069,6 +2087,7 @@ GameObject:
   - 4: {fileID: 1170197444}
   - 212: {fileID: 1170197443}
   - 114: {fileID: 1170197442}
+  - 95: {fileID: 1170197445}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -2113,7 +2132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300016, guid: 6d68ef719c419654887f5c5da0276a0b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 10ac6230ed4630e4cbd54ea0a9719415, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1170197444
 Transform:
@@ -2127,6 +2146,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
+--- !u!95 &1170197445
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1170197441}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7e0e31bdd62f39849a40e246445a629a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1291828373
 GameObject:
   m_ObjectHideFlags: 0
@@ -2138,6 +2174,7 @@ GameObject:
   - 223: {fileID: 1291828376}
   - 114: {fileID: 1291828375}
   - 114: {fileID: 1291828374}
+  - 95: {fileID: 1291828378}
   m_Layer: 5
   m_Name: GUI
   m_TagString: Untagged
@@ -2221,6 +2258,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!95 &1291828378
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1291828373}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e762d50ef2cb7e44c9e69ff8209d17fc, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &1383264863
 GameObject:
   m_ObjectHideFlags: 0
