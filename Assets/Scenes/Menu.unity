@@ -2130,7 +2130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraGreyscale: {fileID: 1801410552}
   button: {fileID: 723105044}
-  delay: 1
+  delay: 2
   duration: 4
 --- !u!1 &1550221756
 GameObject:
@@ -2595,9 +2595,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0712763965
+    y: .0546479523
     width: 1
-    height: .857447207
+    height: .890704095
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -2774,7 +2774,7 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: daf9781cad112c75d0008dfa8d76c639, type: 3}
   textureRamp: {fileID: 0}
   rampOffset: 0
-  effectAmount: .5
+  effectAmount: 0
 --- !u!1 &1813102220
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,14 +15,14 @@ namespace WorldsApart.Utility
         public float waitTime;
         public Transform parentCollection;
 
-        public Dictionary<GameObject, float> objects;
+        public List<Tuple<GameObject, float>> objects;
 
         private float timeLeft;
         private float total;
 
         void Start()
         {
-            total = objects.Values.Sum();
+            total = objects.Sum(t => t.Item2);
             timeLeft = waitTime;
         }
 
@@ -37,7 +37,7 @@ namespace WorldsApart.Utility
                 if (objects.Count > 1)
                 {
                     var random = UnityEngine.Random.Range(0f, total);
-                    var floatList = objects.Values.ToList();
+                    var floatList = objects.Select(t => t.Item2).ToList();
                     int i = 0;
 
                     random -= floatList[i];
@@ -47,10 +47,10 @@ namespace WorldsApart.Utility
                         random -= floatList[i];
                     }
 
-                    origin = objects.Keys.ToList()[i];
+                    origin = objects.Select(t => t.Item1).ToList()[i];
                 }
                 else
-                    origin = objects.Keys.First();
+                    origin = objects.Select(t => t.Item1).First();
                 if (origin != null)
                 {
                     Generate(origin);
