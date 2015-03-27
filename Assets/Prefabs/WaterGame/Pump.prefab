@@ -481,13 +481,13 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 105804}
-    - {fileID: 8206318}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"Well":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":1},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PumpingGameHandler"}]'
+      - '[{"scripts":[{"Well":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"GameName":"Pumping
+        Minigame","Title":"Pump Water","Subtitle":"Time pumps for max water!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - true
   id: fe3cc5b1-aeca-4c48-a4c9-9b9416419022
   active: 1
