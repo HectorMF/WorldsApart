@@ -20,7 +20,7 @@ namespace WorldsApart.Games.CropsMinigame
             {
                 var handler = new MoveHandler();
                 handler.gameObject = gameObject;
-                handler.target = bounds.getRandomPosition(center);
+                handler.target = bounds.getRandomPosition(center) + new Vector3(0, 0, -1);
                 handler.onFinished = () => moving = false;
                 moving = true;
                 handler.Invoke();

@@ -14,8 +14,6 @@ namespace WorldsApart.Games.CropsMinigame
 {
     public class CropsGameController : BetterBehaviour
     {
-        public GameObject miniGame;
-        public float speed = 20.0f;
         public List<Hazard> Hazards;
         public float spawnFrequency;
         public BoundingBox bounds;
@@ -36,8 +34,6 @@ namespace WorldsApart.Games.CropsMinigame
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
-
-            StartGame();
         }
 
         void Update()
@@ -58,12 +54,15 @@ namespace WorldsApart.Games.CropsMinigame
             //instead of updating every frame, update every second change
             if (seconds != oldSeconds)
             {
-                timer.text = minutes + ":" + seconds.ToString("00");
+                if(timer != null) timer.text = minutes + ":" + seconds.ToString("00");
 
                 if (minutes == 0 && seconds <= 10)
                 {
-                    timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
-                    timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+                    if (timer != null)
+                    {
+                        timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+                        timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+                    }
                 }
             }
 
@@ -82,18 +81,13 @@ namespace WorldsApart.Games.CropsMinigame
                     selection -= Hazards[i].probability;
                     if (selection <= 0)
                     {
-                        Vector3 spawnLocation = bounds.getRandomOutOfBounds(transform.position, BoundingBox.Axis.Horizontal);
-                        Instantiate(Hazards[i].prefab, spawnLocation, Quaternion.identity);
+                        Vector3 spawnLocation = bounds.getRandomOutOfBounds(transform.position, BoundingBox.Axis.Horizontal) + new Vector3(0, 0, -1);
+                        Instantiate(Hazards[i].prefab, spawnLocation, Hazards[i].prefab.transform.rotation);
+                        break;
                     }
                 }
                 timePassed = 0f;
             }
-        }
-
-        public void StartGame()
-        {
-            miniGame.SetActive(true);
-            miniGame.GetComponent<ObjectGenerator>().enabled = true;
         }
 
         [Serializable]

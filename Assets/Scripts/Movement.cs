@@ -47,6 +47,7 @@ public class Movement : MonoBehaviour
 			GetComponent<AudioSource>().Stop();
 		}
 	}
+
 	public void Move(Vector3 targetRef)
 	{
 		target = targetRef;
