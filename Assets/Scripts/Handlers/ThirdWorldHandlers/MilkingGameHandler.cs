@@ -10,8 +10,7 @@ namespace WorldsApart.Handlers
 			Debug.Log("Milking game!");
 			ThirdWorldManager.Instance.UsedAction();
 			Fader.FadeToBlack(0,2,"Milk The Cow","",switchLevel);
-//			base.targetController.scripts.Clear();
-//			OnFinish();
+			gameObject.SetActive(false);
 		}
 
 		public void switchLevel()

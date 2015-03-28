@@ -8,8 +8,18 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/WolrdsApartInfoPopUpFork.unity
   - enabled: 1
-    path: Assets/Scenes/Minigame Scenes/Milking Minigame.unity
+    path: Assets/Scenes/WorldsApart.unity
   - enabled: 1
     path: Assets/Scenes/Menu.unity
   - enabled: 1
-    path: Assets/Scenes/WorldsApart.unity
+    path: Assets/Scenes/Minigame Scenes/Milking Minigame.unity
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/Farming Minigame.unity
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/Dinner Minigame.unity
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/Pumping Minigame.unity
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/Shearing Minigame.unity
+  - enabled: 1
+    path: Assets/Scenes/Minigame Scenes/WaterPumpGame.unity
