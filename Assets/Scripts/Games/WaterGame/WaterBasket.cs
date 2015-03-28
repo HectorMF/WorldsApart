@@ -6,14 +6,17 @@ public class WaterBasket : MonoBehaviour {
 
     public GameObject Camera;
     public float AmountOfWater = 100f;
-
     private float currentAngel;
     private Vector3 axis = Vector3.zero;
     private WaterGameLogic wgLogic;
+    private WaterBucketAnimationHandler animationHandler;
+    
 	// Use this for initialization
 	void Start () {
         wgLogic = WaterGameLogic.Instance;
         wgLogic.water = AmountOfWater;
+        try { animationHandler = gameObject.GetComponent<WaterBucketAnimationHandler>(); }
+        catch (Exception e) { Debug.LogException(e); }
 	}
 	
 	// Update is called once per frame
@@ -28,7 +31,7 @@ public class WaterBasket : MonoBehaviour {
                 //converting from Rad to Degrees
                 //Debug.Log("ROT:" + currentAngel);
                 float drippingAngel = 90 * ((WaterGameResources.Instance.BucketSizeValue - wgLogic.water) / WaterGameResources.Instance.BucketSizeValue);
-
+                
                 //Debug.Log("DrippingAngel" + drippingAngel);
                 if (currentAngel > 90)
                 {
@@ -40,16 +43,31 @@ public class WaterBasket : MonoBehaviour {
 
                     //TODO: Double check the logic
                     Debug.Log(currentAngel - drippingAngel);
-
-                    if (currentAngel - drippingAngel < 0.14 && currentAngel - drippingAngel > 0.09)
+                    Debug.Log("CA" + currentAngel);
+                    var diff = currentAngel - drippingAngel;
+                    if(diff < 0.01 && diff > 0)
                     {
-                        AnimationHandler.DripWater(this.gameObject, 1);
+                        animationHandler.DripWater(this.gameObject, 1);
                     }
-                    else if (currentAngel - drippingAngel > 0.2)
+                    else if (diff < 0.14 && diff > 0.01 && currentAngel != 0)
                     {
-                             AnimationHandler.DripWater(this.gameObject, 1);
+                        animationHandler.DripWater(this.gameObject, 1);
+                    }
+                    else if (diff > 0.14 && diff < 0.2)
+                    {
+                    //    animationHandler.DripWater(this.gameObject, 2);
+                   //     animationHandler.DripWater(this.gameObject, 4);
+                    }
+                    else if (diff > 0.2 && diff < 0.3 )
+                    {
+                    //    animationHandler.DripWater(this.gameObject, 3);
+                    //    animationHandler.DripWater(this.gameObject, 4);
                     }
                     wgLogic.LoseSomeWater(((currentAngel) * (WaterGameResources.Instance.BucketSizeValue) / 90f * Time.fixedDeltaTime));
+                }
+                else
+                {
+                    animationHandler.DripWater(this.gameObject, 0);
                 }
             }
         }
@@ -57,57 +75,7 @@ public class WaterBasket : MonoBehaviour {
         {
             Debug.LogException(e);
         }
-        float y;
-       // Debug.Log(Camera.transform.rotation.eulerAngles.z);
-        if(Camera.transform.rotation.eulerAngles.z > 180 && Camera.transform.rotation.eulerAngles.z < 360)
-        {
-            y = 180;
-        }
-        else
-        {
-            y = 0;
-        }
-        transform.rotation = Quaternion.Euler(new Vector3(Camera.transform.rotation.eulerAngles.x, y, Camera.transform.rotation.eulerAngles.z));
+
        
 	}
-     public class AnimationHandler
-    {
-         public static void DripWater(GameObject gameObject, int strength)
-         {
-             
-             try
-             {
-                 Animator animator = gameObject.GetComponent<Animator>();
-                 
-                 animator.enabled = true;
-                    
-                 
-                 animator.speed = 0;
-                 if (strength<5)
-                 {
-                     //animator.
-                     animator.Play("0");
-                     animator.Play("1");
-                     animator.speed = 1;
-                   //  animator.enabled = false;
-                     
-                 }
-                 else
-                 {
-                     animator.Play("2");
-                     animator.Play("3");
-                     animator.speed = 1;
-                 }
-                 
-              //   animator.Play(1);
-               //  animator.Play("BucketWaterGameBIG_2");
-                // animator.Play("BucketWaterGameBIG_3");
-                 
-             }
-             catch(Exception e)
-             {
-                 Debug.LogException(e);
-             }
-         }
-    }
 }

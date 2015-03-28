@@ -97,7 +97,7 @@ GameObject:
   - 4: {fileID: 1407221}
   - 212: {fileID: 1407220}
   - 114: {fileID: 1407219}
-  - 95: {fileID: 1407222}
+  - 114: {fileID: 1407222}
   m_Layer: 0
   m_Name: WaterBasket
   m_TagString: Untagged
@@ -156,23 +156,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
---- !u!95 &1407222
-Animator:
-  serializedVersion: 3
+--- !u!114 &1407222
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1407218}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 846af4b72637d324a84f40dbe5559369, type: 2}
-  m_CullingMode: 2
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50f215ee986a9c8409356fe2890cd57f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Stable: {fileID: 21300008, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
+  Dripping1: {fileID: 21300000, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
+  Dripping2: {fileID: 21300002, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
+  Dripping3: {fileID: 21300004, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
+  Dripping4: {fileID: 21300006, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
+  Dripping5: {fileID: 21300010, guid: f871280ffa2ffc247aed7548919d5dc0, type: 3}
 --- !u!1 &21926340
 GameObject:
   m_ObjectHideFlags: 0
@@ -1612,9 +1612,9 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .227891147
+    x: .213261634
     y: 0
-    width: .544217706
+    width: .573476732
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
