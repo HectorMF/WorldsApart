@@ -11,7 +11,7 @@ public class MilkingMinigame : MonoBehaviour {
     private int oldSeconds;
 
 	void Start(){
-		Fader.FadeToClear(2, 2,"Milk The Cow");
+		Fader.FadeToClear(Fader.Gesture.Swipe, 2, 2,"Milk The Cow");
 	}
 
 	void Update () {
