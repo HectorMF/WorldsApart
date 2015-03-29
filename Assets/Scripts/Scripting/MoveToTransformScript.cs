@@ -14,7 +14,7 @@ namespace WorldsApart.Scripting
 
         public override void Start(Action OnFinish)
         {
-            gameObject.GetComponent<Movement>().Move(target, OnFinish);
+			gameObject.GetComponent<Movement>().Move(target, OnFinish);
         }
     }
 }

@@ -99,7 +99,6 @@ GameObject:
   - 95: {fileID: 7920663}
   - 114: {fileID: 7920662}
   - 82: {fileID: 7920665}
-  - 114: {fileID: 7920666}
   - 114: {fileID: 7920667}
   m_Layer: 0
   m_Name: MainChar
@@ -133,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moving: 0
-  speed: 99
+  speed: 10
 --- !u!95 &7920663
 Animator:
   serializedVersion: 3
@@ -248,29 +247,6 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
---- !u!114 &7920666
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 7920659}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zone:
-    serializedVersion: 2
-    x: -2.49000001
-    y: -4.09000015
-    width: 5.78999996
-    height: 1.73000002
-  easingFunction: 4
-  walkSpeed: 1.5
-  turnSpeed: 1
-  minDelay: 1
-  maxDelay: 1
-  minDeltaDistance: 1
 --- !u!114 &7920667
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,11 +998,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[]'
+      - '[0,0,0]'
       - true
   id: 66683744-6c11-4e27-b30a-43706681bd3f
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!65 &256282471
 BoxCollider:
@@ -1222,10 +1201,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .00384137034
-    width: 1
-    height: .992317259
+    x: .0252852738
+    y: 0
+    width: .949429452
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -3588,6 +3567,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 11427000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[1]
+      value: '[1.88,-3.34,-3.34]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: targetOffset.y
+      value: -3.33999991
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: targetOffset.x
+      value: 1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 11427000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
+      propertyPath: targetOffset.z
+      value: -3.33999991
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
   m_IsPrefabParent: 0
@@ -4052,11 +4047,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.SkipHandler"}]'
+      - '[0,0,0]'
       - true
   id: 07da580d-65d9-4c24-8c4c-acce82849dee
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!23 &1913661586
 MeshRenderer:

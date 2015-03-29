@@ -10,6 +10,7 @@ namespace WorldsApart.Clickables
     public class Clickable : BetterBehaviour
     {
         public List<Handler> Handlers;
+		public Vector3 targetOffset;
         public bool active = true;
 
         void Start()
@@ -27,7 +28,7 @@ namespace WorldsApart.Clickables
 
             if (player != null)
             {
-                var moveScript = new MoveToTransformScript();
+                var moveScript = new MoveToPositionScript();
                 var wanderOffScript = new WanderScript();
 
                 wanderOffScript.gameObject = player;
@@ -38,7 +39,7 @@ namespace WorldsApart.Clickables
                 wanderScript.value = true;
 
                 moveScript.gameObject = player;
-                moveScript.target = transform;
+                moveScript.target = transform.position + targetOffset;
 
                 var controller = player.GetComponent<ScriptController>();
                 controller.ResetQueue();
@@ -59,5 +60,12 @@ namespace WorldsApart.Clickables
             Handlers.Add(handler);
             handler.gameObject = gameObject;
         }
+
+		
+		private void OnDrawGizmosSelected()
+		{
+			Gizmos.color = Color.blue;
+			Gizmos.DrawIcon(transform.position + targetOffset, "point.png", false);
+		}
     }
 }
