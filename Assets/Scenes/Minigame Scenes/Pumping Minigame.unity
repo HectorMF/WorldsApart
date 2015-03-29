@@ -597,11 +597,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 405804, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_LocalScale.z
@@ -610,6 +610,10 @@ Prefab:
     - target: {fileID: 11405808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: _serializationData.serializedStrings.values.Array.data[0]
       value: '[{"scripts":[{"Well":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.WellScript"}],"type":"SingleAction","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"audio":{"$content":1},"type":"SingleAction","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 21247212, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11446838, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
@@ -864,9 +868,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .049536407
+    y: .0505022407
     width: 1
-    height: .900927186
+    height: .898995519
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -1068,7 +1072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1746015370
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -52,11 +52,14 @@ public class PumpingMinigame : MonoBehaviour {
 			break;
 		case State.Finished:
 			this.enabled = false;
-			//Application.LoadLevel("WorldsApartAgain");
+			Invoke("EndGame", 3);
 			break;
 		}
 	}
-
+	void EndGame()
+	{
+		Application.LoadLevel("WaterGame");
+	}
 	private float UpdateTimer (float time) 
 	{
 		oldSeconds = seconds;
