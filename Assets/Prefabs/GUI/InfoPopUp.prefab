@@ -230,11 +230,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
+      - '[0,0,0]'
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!114 &11451708
 MonoBehaviour:
@@ -265,11 +268,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[{"scripts":[{"PopUp":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[0,0,0]'
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!114 &11498024
 MonoBehaviour:
@@ -288,11 +294,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[null]'
+      - '[0,0,0]'
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!212 &21200906
 SpriteRenderer:
@@ -318,7 +327,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1a2fefca646db47cca866eeaead395d0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b6a53f056b504d442b42f369457315b7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21214076
 SpriteRenderer:
@@ -344,7 +353,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 4dd93a6fdc66d4dddaffc688703424f1, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4889ed88711bca94d8dc964b6ac147b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21274064
 SpriteRenderer:
