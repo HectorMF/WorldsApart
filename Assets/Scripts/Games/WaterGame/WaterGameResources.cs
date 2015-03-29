@@ -9,7 +9,10 @@ public class WaterGameResources: MonoBehaviour {
     public float BucketSizeValue = 100f;
     public float TrippingChance = 40f;
     public Text DistanceText;
-    public GameObject Fader;
+
+	public void Start(){
+		Fader.FadeToClear(Fader.Gesture.Balance,0, 2, "Carry Your Water", "Don't Spill");
+	}
     private WaterGameResources()
     {
 

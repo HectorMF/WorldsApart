@@ -1271,10 +1271,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .00384137034
-    width: 1
-    height: .992317259
+    x: .0252852738
+    y: 0
+    width: .949429452
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -4248,6 +4248,9 @@ MonoBehaviour:
   title: {fileID: 1794917372}
   subTitle: {fileID: 2095597326}
   group: {fileID: 1604716283}
+  swipe: {fileID: 0}
+  tap: {fileID: 0}
+  balance: {fileID: 0}
 --- !u!114 &1604716285
 MonoBehaviour:
   m_ObjectHideFlags: 0
