@@ -209,7 +209,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108222, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_Name
@@ -301,7 +301,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108222, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_Name
@@ -493,7 +493,7 @@ Transform:
   m_LocalScale: {x: .800000012, y: .666666687, z: 1}
   m_Children: []
   m_Father: {fileID: 628229426}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!212 &480279849
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -613,7 +613,7 @@ Transform:
   m_LocalScale: {x: .800000012, y: .666666687, z: 1}
   m_Children: []
   m_Father: {fileID: 1446757128}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!212 &593347092
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plate: {fileID: 2077345867}
-  time: .5
+  time: 1
   manager: {fileID: 1002538858}
   mood: 0
 --- !u!4 &628229426
@@ -708,9 +708,9 @@ Transform:
   m_LocalPosition: {x: -2.8900001, y: -1.38999999, z: 2}
   m_LocalScale: {x: 1.25, y: 1.5, z: 1}
   m_Children:
-  - {fileID: 480279848}
   - {fileID: 1660183295}
   - {fileID: 2077345868}
+  - {fileID: 480279848}
   m_Father: {fileID: 0}
   m_RootOrder: 2
 --- !u!1001 &781143520
@@ -776,6 +776,10 @@ Prefab:
     - target: {fileID: 127056, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_Name
       value: Face
+      objectReference: {fileID: 0}
+    - target: {fileID: 127056, guid: d409552bbff10584ba48d776532c0319, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 11491358, guid: d409552bbff10584ba48d776532c0319, type: 2}
@@ -1009,7 +1013,7 @@ GameObject:
   - 114: {fileID: 1240323674}
   - 212: {fileID: 1240323675}
   m_Layer: 0
-  m_Name: Plate 2
+  m_Name: Plate 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1026,7 +1030,7 @@ Transform:
   m_LocalScale: {x: 1.20000005, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1321197923}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!114 &1240323674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1104,9 +1108,9 @@ Transform:
   m_LocalPosition: {x: .670000017, y: -1.44000006, z: 2}
   m_LocalScale: {x: 1.29999995, y: 1.60000002, z: 1}
   m_Children:
-  - {fileID: 1682995403}
   - {fileID: 262192958}
   - {fileID: 1240323673}
+  - {fileID: 1682995403}
   m_Father: {fileID: 0}
   m_RootOrder: 1
 --- !u!212 &1321197924
@@ -1147,7 +1151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plate: {fileID: 1240323674}
-  time: .5
+  time: 1.5
   manager: {fileID: 1002538858}
   mood: 0
 --- !u!1 &1446757127
@@ -1177,9 +1181,9 @@ Transform:
   m_LocalPosition: {x: 2.72000003, y: -1.5, z: 2}
   m_LocalScale: {x: 1.20000005, y: 1.29999995, z: 1}
   m_Children:
-  - {fileID: 593347091}
   - {fileID: 209193344}
   - {fileID: 1762515719}
+  - {fileID: 593347091}
   m_Father: {fileID: 0}
   m_RootOrder: 0
 --- !u!212 &1446757129
@@ -1220,7 +1224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plate: {fileID: 1762515721}
-  time: .5
+  time: .800000012
   manager: {fileID: 1002538858}
   mood: 0
 --- !u!1 &1450958627
@@ -1235,7 +1239,7 @@ GameObject:
   - 114: {fileID: 1450958628}
   - 212: {fileID: 1450958630}
   m_Layer: 0
-  m_Name: Plate 2
+  m_Name: Plate 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1431,7 +1435,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 441292, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 108222, guid: d409552bbff10584ba48d776532c0319, type: 2}
       propertyPath: m_Name
@@ -1539,7 +1543,7 @@ Transform:
   m_LocalScale: {x: .800000012, y: .666666687, z: 1}
   m_Children: []
   m_Father: {fileID: 1321197923}
-  m_RootOrder: 0
+  m_RootOrder: 2
 --- !u!224 &1751184967
 RectTransform:
   m_PrefabParentObject: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275,
@@ -1557,7 +1561,7 @@ GameObject:
   - 114: {fileID: 1762515721}
   - 212: {fileID: 1762515720}
   m_Layer: 0
-  m_Name: Plate 2
+  m_Name: Plate 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1574,7 +1578,7 @@ Transform:
   m_LocalScale: {x: 1.20000005, y: 1.25, z: 1}
   m_Children: []
   m_Father: {fileID: 1446757128}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!212 &1762515720
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1695,15 +1699,15 @@ Camera:
   m_BackGroundColor: {r: .367646933, g: .229779407, b: .91911763, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .0546479523
-    width: 1
-    height: .890704095
+    x: .141225845
+    y: 0
+    width: .717548311
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 4.21874952
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1964,7 +1968,7 @@ Transform:
   m_LocalScale: {x: 1.20000005, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 628229426}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!212 &2077345869
 SpriteRenderer:
   m_ObjectHideFlags: 0
