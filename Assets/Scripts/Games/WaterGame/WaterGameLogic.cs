@@ -73,6 +73,7 @@ public class WaterGameLogic {
             GameOver = true;
             Fader.FadeToBlack(0, 1, "You lost all of your water", "Good luck next time!");
         }
+        GameIsFinished(false);
     }
 
     /// <summary>
@@ -99,6 +100,7 @@ public class WaterGameLogic {
             string.Format(@"You reached the village with 
 {0: 0.0} liters of water 
 out of {1: 0.0} capacity", water, maxWater));
+        GameIsFinished(true);
     }
 
     /// <summary>
@@ -126,6 +128,14 @@ out of {1: 0.0} capacity", water, maxWater));
             step = 0;
  
         }
+    }
+    private void GameIsFinished(bool won)
+    {
+        //Re-Enabling the screen rotation after the game is over
+        Screen.autorotateToLandscapeLeft = true;
+        Screen.autorotateToLandscapeRight = true;
+
+        //TODO: Logic to send the result to the core game mechanic!
     }
 	
 }
