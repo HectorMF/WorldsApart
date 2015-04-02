@@ -562,7 +562,7 @@ MonoBehaviour:
       - 1
       - '{"height":2.5,"width":8}'
       - '{"$content":3}'
-      - 10
+      - 60
   id: 5ac836e8-ba49-4654-8145-e00fa1282e68
   Hazards:
   - prefab: {fileID: 138076, guid: 756169070fd35e74989a612d7c65eda4, type: 2}
@@ -576,7 +576,7 @@ MonoBehaviour:
     height: 2.5
     width: 8
   timer: {fileID: 503588067}
-  time: 10
+  time: 60
 --- !u!1 &335969163
 GameObject:
   m_ObjectHideFlags: 0
@@ -1839,9 +1839,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0546479523
+    y: .146138102
     width: 1
-    height: .890704095
+    height: .707723796
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
