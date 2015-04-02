@@ -42,7 +42,7 @@ namespace WorldsApart.Games.DinnerMinigame
         void OnMouseUpAsButton()
         {
             servings = filledServings;
-            renderer.material.color = Color.red;
+            renderer.sprite = sprites[servings];
         }
     }
 }
