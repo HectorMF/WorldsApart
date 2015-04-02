@@ -154,7 +154,7 @@ Material:
       data:
         first:
           name: _Color1out
-        second: {r: .823529422, g: .603921592, b: .435294122, a: 1}
+        second: {r: .860294104, g: .613400459, b: .42382136, a: 1}
       data:
         first:
           name: _Color2in
