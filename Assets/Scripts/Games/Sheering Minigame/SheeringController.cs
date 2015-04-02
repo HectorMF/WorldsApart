@@ -106,10 +106,10 @@ namespace WorldsApart.Games.SheeringMinigame
 
         private bool NodesAvailable(int index)
         {
-            if (index % columns != columns - 1 && !path.Contains(index + 1)) return true;
-            if (index % columns != 0 && !path.Contains(index - 1)) return true;
-            if (index < columns * (rows - 1) && !path.Contains(index + columns)) return true;
-            if (index > columns - 1 && !path.Contains(index - columns)) return true;
+            if (index % columns != columns - 1 && !path.Contains(index + 1) && puzzle[index+1] != '1') return true;
+            if (index % columns != 0 && !path.Contains(index - 1) && puzzle[index - 1] != '1') return true;
+            if (index < columns * (rows - 1) && !path.Contains(index + columns) && puzzle[index + columns] != '1') return true;
+            if (index > columns - 1 && !path.Contains(index - columns) && puzzle[index - columns] != '1') return true;
             return false;
         }
 
