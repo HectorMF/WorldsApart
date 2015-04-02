@@ -14,6 +14,7 @@ namespace WorldsApart.Games.DinnerMinigame
         public DinnerGameManager manager;
         [HideInInspector]
         public int mood;
+        internal bool started;
 
         private float timePassed;
 
@@ -31,6 +32,12 @@ namespace WorldsApart.Games.DinnerMinigame
 
         void Update()
         {
+            if (!started)
+            {
+                if (manager.started) started = true;
+                else return;
+            }
+
             timePassed -= Time.deltaTime;
 
             if (timePassed <= 0)

@@ -8,31 +8,40 @@ namespace WorldsApart.Games.DinnerMinigame
 {
     public class Plate : MonoBehaviour
     {
-        private const int filledServings = 5;
-        private int Servings;
-        private MeshRenderer renderer;
+        public DinnerGameManager manager;
+
+        private const int filledServings = 4;
+        private int servings;
+        private SpriteRenderer renderer;
+        private List<Sprite> sprites;
 
         void Start()
         {
-            Servings = filledServings;
-            renderer = GetComponent<MeshRenderer>();
-            renderer.material.color = Color.red;
+            servings = filledServings;
+            renderer = GetComponent<SpriteRenderer>();
+            sprites = manager.GetPlateSprites();
+            renderer.sprite = sprites[servings];
         }
 
         public bool Eat()
         {
-            if (Servings == 0) return false;
+            if (servings == 0) return false;
             else
             {
-                renderer.material.color -= Color.red / filledServings;
-                Servings--;
+                servings--;
+                renderer.sprite = sprites[servings];
                 return true; 
             }
         }
 
+        public void AssignSprites(List<Sprite> sprites)
+        {
+            this.sprites = sprites;
+        }
+
         void OnMouseUpAsButton()
         {
-            Servings = filledServings;
+            servings = filledServings;
             renderer.material.color = Color.red;
         }
     }
