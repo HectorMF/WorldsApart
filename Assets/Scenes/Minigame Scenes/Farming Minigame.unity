@@ -523,14 +523,14 @@ MonoBehaviour:
       - 'Field: List<Tuple<GameObject, float>> objects'
       values:
       - '{"height":2.5,"width":8}'
-      - 0.5
+      - 1.5
       - '{"$content":0}'
       - '[{"_item1":{"$content":1},"_item2":1},{"_item1":{"$content":2},"_item2":1}]'
   id: 6cc1b440-2a02-4414-a1f2-ed349b69aec5
   bounds:
     height: 2.5
     width: 8
-  waitTime: .5
+  waitTime: 1.5
   parentCollection: {fileID: 193502577}
 --- !u!114 &193502580
 MonoBehaviour:
@@ -1838,15 +1838,15 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .141225845
+    x: .0870370269
     y: 0
-    width: .717548311
+    width: .825925946
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.53124952
+  orthographic size: 2.53125
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

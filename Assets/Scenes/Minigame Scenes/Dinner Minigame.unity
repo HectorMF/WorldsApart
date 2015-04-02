@@ -411,7 +411,7 @@ Transform:
   - {fileID: 410283444}
   - {fileID: 848750102}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &410283442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1000,7 +1000,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &1240323672
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,7 +1390,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 2
   m_RenderMode: 1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1798301237}
   m_PlaneDistance: 1
   m_PixelPerfect: 1
   m_ReceivesEvents: 1
@@ -1660,7 +1660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1e150e2304b9e439e04993d9b79be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitsForWidth: 15
+  UnitsForWidth: 14
   AspectRatio: {x: 16, y: 9}
 --- !u!81 &1798301234
 AudioListener:
@@ -1699,15 +1699,15 @@ Camera:
   m_BackGroundColor: {r: .367646933, g: .229779407, b: .91911763, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .141225845
-    y: 0
-    width: .717548311
-    height: 1
+    x: 0
+    y: .0258640051
+    width: 1
+    height: .94827199
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21874952
+  orthographic size: 3.9375
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1730,7 +1730,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
 --- !u!1 &1845300736
 GameObject:
   m_PrefabParentObject: {fileID: 108222, guid: d409552bbff10584ba48d776532c0319, type: 2}
@@ -1808,7 +1808,7 @@ Transform:
   m_LocalScale: {x: 2.41933203, y: 2.11390615, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1001 &1846242056
 Prefab:
   m_ObjectHideFlags: 0
