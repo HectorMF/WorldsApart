@@ -5,12 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GoofyGhost.WorldsApart
 {
     public class CowNipple : MonoBehaviour, IDraggable
     {
 		public GameObject milk;
+		public Text text;
         public bool canDrag = true;
         public Ease easingFunction = Ease.OutElastic;
         public float tweenDuration = 1;
@@ -121,8 +123,20 @@ namespace GoofyGhost.WorldsApart
         }
 
 		void ReportMilk() {
+			text.text = "+" + currentFillValue;
+			text.transform.DOShakePosition(1,16);
+			text.DOFade(0,.5f).SetDelay(.5f).OnComplete(clearText);
+	
             if(scoreController != null)
 			    scoreController.Food += currentFillValue;
 		}
+
+		private void clearText()
+		{
+			text.text = "";
+			text.DOFade(1,0);
+		}
+
+
     }
 }
