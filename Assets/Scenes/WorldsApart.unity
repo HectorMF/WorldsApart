@@ -1386,6 +1386,7 @@ GameObject:
   - 82: {fileID: 260663936}
   - 114: {fileID: 260663937}
   - 114: {fileID: 260663938}
+  - 114: {fileID: 260663939}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1603,6 +1604,17 @@ MonoBehaviour:
   textureRamp: {fileID: 0}
   rampOffset: 0
   effectAmount: .200000003
+--- !u!114 &260663939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 260663927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abbecd0411944f34e8569feb728bd7a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &266479660
 Prefab:
   m_ObjectHideFlags: 0
@@ -4352,7 +4364,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 118770, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
