@@ -26,24 +26,26 @@ namespace WorldsApart.Games.CropsMinigame
         private float timePassed = 0f;
 
         ScoreController scoreController;
+        private bool started;
 
         void Start()
         {
-            Fader.FadeToClear(2, 2, "Pick the Crops");
+            Fader.FadeToClear(2, 2, "Pick the Crops", "", () => started = true);
 
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
+
+            minutes = (int)(time / 60);
+            seconds = (int)(time % 60);
+            if (timer != null) timer.text = minutes + ":" + seconds.ToString("00");
         }
 
         void Update()
         {
-            if (time <= 0)
-            {
-                this.enabled = false;
-                return;
-            }
-
+            if (!started) return;
+            if (time <= 0) return;
+            
             oldSeconds = seconds;
 
             //decrement the timer, and calculate minutes and seconds as integers
@@ -66,7 +68,7 @@ namespace WorldsApart.Games.CropsMinigame
                 }
             }
 
-            if (seconds <= 0)
+            if (time <= 0)
                 Fader.FadeToBlack(0, 2, "", "", EndGame);
 
 

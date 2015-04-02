@@ -189,6 +189,11 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
 --- !u!114 &80305338
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -200,6 +205,16 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!223 &80305339
 Canvas:
   m_ObjectHideFlags: 0
@@ -534,17 +549,20 @@ MonoBehaviour:
     - {fileID: 138076, guid: 756169070fd35e74989a612d7c65eda4, type: 2}
     - {fileID: 138864, guid: a4abe1016e34b3f45bbbcb60c83f1f54, type: 2}
     - {fileID: 137138, guid: 04a11a3b22c87184d8b31797f664fb4a, type: 2}
+    - {fileID: 503588067}
     serializedStrings:
       keys:
       - 'Field: List<Hazard> Hazards'
       - 'Field: float spawnFrequency'
       - 'Field: BoundingBox bounds'
+      - 'Field: Text timer'
       - 'Field: float time'
       values:
       - '[{"prefab":{"$content":0},"probability":30},{"prefab":{"$content":1},"probability":60},{"prefab":{"$content":2},"probability":10}]'
       - 1
       - '{"height":2.5,"width":8}'
-      - 60
+      - '{"$content":3}'
+      - 10
   id: 5ac836e8-ba49-4654-8145-e00fa1282e68
   Hazards:
   - prefab: {fileID: 138076, guid: 756169070fd35e74989a612d7c65eda4, type: 2}
@@ -557,8 +575,8 @@ MonoBehaviour:
   bounds:
     height: 2.5
     width: 8
-  timer: {fileID: 0}
-  time: 60
+  timer: {fileID: 503588067}
+  time: 10
 --- !u!1 &335969163
 GameObject:
   m_ObjectHideFlags: 0
@@ -682,6 +700,7 @@ GameObject:
   m_Component:
   - 224: {fileID: 503588066}
   - 222: {fileID: 503588068}
+  - 114: {fileID: 503588067}
   m_Layer: 5
   m_Name: Timer
   m_TagString: Untagged
@@ -706,6 +725,32 @@ RectTransform:
   m_AnchoredPosition: {x: -170, y: 60}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &503588067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 503588065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .1953125, g: .1953125, b: .1953125, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a9130d16faf5e644bab762986afce045, type: 3}
+    m_FontSize: 70
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!222 &503588068
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -991,6 +1036,10 @@ Prefab:
     - target: {fileID: 22497082, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 118770, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
@@ -1674,6 +1723,15 @@ MonoBehaviour:
   m_Script: {fileID: -98529514, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Texture: {fileID: 0}
+  m_UVRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
 --- !u!222 &1482600870
 CanvasRenderer:
   m_ObjectHideFlags: 0
