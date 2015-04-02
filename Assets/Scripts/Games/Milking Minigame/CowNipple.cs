@@ -10,6 +10,7 @@ namespace GoofyGhost.WorldsApart
 {
     public class CowNipple : MonoBehaviour, IDraggable
     {
+		public GameObject milk;
         public bool canDrag = true;
         public Ease easingFunction = Ease.OutElastic;
         public float tweenDuration = 1;
@@ -30,6 +31,8 @@ namespace GoofyGhost.WorldsApart
         private Vector3 offset;
 
 		private ScoreController scoreController;
+		private BoxCollider collider;
+		private bool canMilk = true;
 
         public void Start()
         {
@@ -39,6 +42,7 @@ namespace GoofyGhost.WorldsApart
             DragHandler.Subscribe(this);
             currentFillValue = UnityEngine.Random.Range(minFillValue, maxFillValue);
             CanDrag = true;
+			this.collider = this.GetComponent<BoxCollider>();
         }
 
         public void BeginDrag()
@@ -52,7 +56,7 @@ namespace GoofyGhost.WorldsApart
         public void EndDrag()
         {
             transform.DOMove(position, tweenDuration).SetEase(easingFunction).OnComplete(SetCanDrag);
-
+			canMilk = true;
             CanDrag = false;
         }
 
@@ -75,12 +79,13 @@ namespace GoofyGhost.WorldsApart
             {
                 DragHandler.StopDragging();
             }
-            if (yPosition == yOffsetMin + position.y)
+            if (canMilk && yPosition == yOffsetMin + position.y)
             {
+				canMilk = false;
 				ReportMilk();
+				Instantiate(milk, this.transform.position + new Vector3(0,-this.collider.size.y/2,4), Quaternion.identity);
                 currentFillValue = 0;
             }
-
         }
 
         void Update()
