@@ -558,7 +558,7 @@ MonoBehaviour:
       - 'Field: Text timer'
       - 'Field: float time'
       values:
-      - '[{"prefab":{"$content":0},"probability":30},{"prefab":{"$content":1},"probability":60},{"prefab":{"$content":2},"probability":1000}]'
+      - '[{"prefab":{"$content":0},"probability":30},{"prefab":{"$content":1},"probability":60},{"prefab":{"$content":2},"probability":10}]'
       - 3
       - '{"height":2.5,"width":8}'
       - '{"$content":3}'
@@ -570,7 +570,7 @@ MonoBehaviour:
   - prefab: {fileID: 138864, guid: a4abe1016e34b3f45bbbcb60c83f1f54, type: 2}
     probability: 60
   - prefab: {fileID: 137138, guid: 04a11a3b22c87184d8b31797f664fb4a, type: 2}
-    probability: 1000
+    probability: 10
   spawnFrequency: 3
   bounds:
     height: 2.5
