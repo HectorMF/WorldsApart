@@ -30,7 +30,7 @@ namespace WorldsApart.Games.CropsMinigame
 
         void Start()
         {
-            Fader.FadeToClear(2, 2, "Pick the Crops", "", () => started = true);
+            Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Pick the Crops", "Shoo away the animals", () => started = true);
 
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)

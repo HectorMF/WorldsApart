@@ -30,7 +30,7 @@ namespace WorldsApart.Games.DinnerMinigame
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
 
-            Fader.FadeToClear(Fader.Gesture.Swipe, 2, 2, "Feed Your Family", "Click the Plates", () => started = true);
+            Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Feed Your Family", "Click the Plates", () => started = true);
 
             minutes = (int)(time / 60);
             seconds = (int)(time % 60);
