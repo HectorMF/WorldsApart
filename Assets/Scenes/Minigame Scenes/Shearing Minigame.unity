@@ -87,6 +87,52 @@ NavMeshSettings:
     cellSize: .166666657
     manualCellSize: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &83590356
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 180568, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+      propertyPath: m_Name
+      value: Clear Camera
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &812133413
 GameObject:
   m_ObjectHideFlags: 0
@@ -427,8 +473,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f471b52f1109c6e42b09e30ab4013b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  top: {r: .610294104, g: .967748463, b: 1, a: 1}
-  bottom: {r: .136245668, g: .411764681, b: .13814579, a: 1}
+  top: {r: .662745118, g: .854901969, b: 1, a: 1}
+  bottom: {r: .407843143, g: .521568656, b: .0941176489, a: 1}
   shouldUpdate: 1
 --- !u!23 &1451052371
 MeshRenderer:
@@ -610,9 +656,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0258640051
+    y: .0509868562
     width: 1
-    height: .94827199
+    height: .898026288
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
