@@ -59,6 +59,7 @@ MonoBehaviour:
     serializedObjects:
     - {fileID: 21300000, guid: 58033c8373df150458f41c0aa1e9ee9d, type: 3}
     - {fileID: 21300000, guid: 1798d646fe627f945a2c833fbd468b18, type: 3}
+    - {fileID: 21300000, guid: 476975e990a287749afc52a08ab399ed, type: 3}
     - {fileID: 21300000, guid: 492af3cdaad21154fb25427cee75507b, type: 3}
     - {fileID: 21300000, guid: c4222db1664b2244e91c5e8129207aa0, type: 3}
     - {fileID: 21300000, guid: 088ae304ac70d0645b13da36d759d3dc, type: 3}
@@ -67,7 +68,7 @@ MonoBehaviour:
       - 'Field: List<CropPhase> phases'
       - 'Field: CropPhaseEnum currentPhase'
       values:
-      - '[{"sprite":{"$content":0},"waitTime":3,"phase":"Budding"},{"sprite":{"$content":1},"waitTime":10,"phase":"Harvestable"},{"sprite":{"$content":2},"waitTime":5,"phase":"Harvestable"},{"sprite":{"$content":3},"waitTime":10,"phase":"Decaying"},{"sprite":{"$content":4},"waitTime":0,"phase":"Weed"}]'
+      - '[{"sprite":{"$content":0},"waitTime":3,"phase":"Budding"},{"sprite":{"$content":1},"waitTime":7,"phase":"Harvestable"},{"sprite":{"$content":2},"waitTime":7,"phase":"Harvestable"},{"sprite":{"$content":3},"waitTime":5,"phase":"Harvestable"},{"sprite":{"$content":4},"waitTime":7,"phase":"Decaying"},{"sprite":{"$content":5},"waitTime":0,"phase":"Weed"}]'
       - '"Budding"'
   id: 9ec24a7a-4ab1-4d12-9d56-13df8caa42fc
   phases:
@@ -75,13 +76,16 @@ MonoBehaviour:
     waitTime: 3
     phase: 0
   - sprite: {fileID: 21300000, guid: 1798d646fe627f945a2c833fbd468b18, type: 3}
-    waitTime: 10
+    waitTime: 7
+    phase: 1
+  - sprite: {fileID: 21300000, guid: 476975e990a287749afc52a08ab399ed, type: 3}
+    waitTime: 7
     phase: 1
   - sprite: {fileID: 21300000, guid: 492af3cdaad21154fb25427cee75507b, type: 3}
     waitTime: 5
     phase: 1
   - sprite: {fileID: 21300000, guid: c4222db1664b2244e91c5e8129207aa0, type: 3}
-    waitTime: 10
+    waitTime: 7
     phase: 2
   - sprite: {fileID: 21300000, guid: 088ae304ac70d0645b13da36d759d3dc, type: 3}
     waitTime: 0
@@ -104,11 +108,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DeactivateHandler"},{"handler":{"counterName":"HarvestCount","amount":1,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.IncrementCounterHandler"},"condition":{"crop":null,"$type":"WorldsApart.Conditions.HarvestableCondition"},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.ConditionalHandler"}]'
+      - '[0,0,0]'
       - true
   id: 2958cd28-829e-4609-9dcb-2ca5bda9dd0a
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!212 &21200000
 SpriteRenderer:
