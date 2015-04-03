@@ -15,13 +15,13 @@ public class WaterGameResources: MonoBehaviour {
 	}
     private WaterGameResources()
     {
-
+        
     }
     public static WaterGameResources Instance
     {
         get
         {
-            if (instance == null)
+            while (instance == null)
             {
                 instance = GameObject.FindObjectOfType<WaterGameResources>();
                 if (instance == null)

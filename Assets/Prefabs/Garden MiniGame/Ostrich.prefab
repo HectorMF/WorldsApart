@@ -16,6 +16,7 @@ GameObject:
   - 114: {fileID: 11437258}
   - 65: {fileID: 6545352}
   - 54: {fileID: 5499384}
+  - 65: {fileID: 6507952}
   m_Layer: 0
   m_Name: Ostrich
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138076}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -11.9294167, y: -3.05483961, z: 0}
   m_LocalScale: {x: .600000024, y: .600000024, z: .600000024}
   m_Children: []
   m_Father: {fileID: 0}
@@ -46,10 +47,22 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &6507952
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 138076}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.20000005, y: 2.2028327, z: 2}
+  m_Center: {x: .00799973775, y: .00141660369, z: 0}
 --- !u!65 &6545352
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -179,11 +192,14 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
       - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"clickRequirement":5,"bounds":{"height":2.5,"width":8},"center":[0,-2.11,5],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
+      - '[0,0,0]'
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
+  targetOffset: {x: 0, y: 0, z: 0}
   active: 1
 --- !u!114 &11492370
 MonoBehaviour:

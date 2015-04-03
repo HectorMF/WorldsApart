@@ -9,9 +9,15 @@ public class CameraTilt : MonoBehaviour {
 
     private Vector3 _previousAcceleration;
     private Vector3 _smoothAcceleration;
+    private bool isCameraFlipped = false;
     void Start()
     {
         _previousAcceleration = Vector3.zero;
+       //As soon as it starts, it disables the CameraFit so it doesn't flip the screen
+        Screen.autorotateToLandscapeLeft = false;
+        Screen.autorotateToLandscapeRight = false;
+        Screen.autorotateToPortrait = false;
+        Screen.autorotateToPortraitUpsideDown = false;
     }
 	// Update is called once per frame
 	void Update () {
@@ -20,15 +26,13 @@ public class CameraTilt : MonoBehaviour {
         acc = acc * AccelSmoothing;
         //Debug.Log("acc" + acc);
 
-        acceleration = Input.acceleration;
-        acceleration.x = (acceleration.x * AccelSmoothing) + (_previousAcceleration.x * (1f - AccelLowPass));
-        acceleration.y = (acceleration.y * AccelSmoothing) + (_previousAcceleration.y * (1f - AccelLowPass));
-
         _smoothAcceleration = Vector3.Lerp(acceleration, _previousAcceleration, AccelSmoothing);
         _previousAcceleration = acceleration;
 
-        //transform.rotation = Quaternion.Euler(0,0,acceleration.x);
+        
         GetComponent<Rigidbody2D>().AddTorque(acc);
+        
+        
         //Debug.Log("Camera:" + acceleration.x);
         float a = 0f;
         Vector3 b = Vector3.zero;

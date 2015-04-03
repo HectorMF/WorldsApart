@@ -25,7 +25,7 @@ namespace WorldsApart.Games.DinnerMinigame
         void Start()
         {
             mood = maxMood;
-            renderer = GetComponentsInChildren<SpriteRenderer>()[1];
+            renderer = GetComponentsInChildren<SpriteRenderer>()[2];
             wobble = GetComponentInChildren<Wobble>();
             timePassed = time;
         }

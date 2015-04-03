@@ -12,6 +12,15 @@ namespace WorldsApart.Games.SheeringMinigame
         public int columns;
         public float spriteHeight;
         public float spriteWidth;
+        private static List<string> puzzles = new List<string> 
+        {
+            "000000000001111100001000001000000000010000010000001110011000000000",
+            "000001000000111110001000001001100000010001010000111110011100000000",
+            "000000000000001100000010000000100001110011000001100110000011001111",
+            "0011000000000000000000000000100000000000011000000000000111000000000",
+            "000000000001100000000000110000000000000001100000000011010000000000"
+        };
+        private string puzzle;
 
         public List<Sheerable> sheerablePrefabs;
 
@@ -23,6 +32,9 @@ namespace WorldsApart.Games.SheeringMinigame
 
         void Start()
         {
+            Fader.FadeToClear(Fader.Gesture.Swipe, 2, 2, "Shear the Sheep", "Don't touch any tuft twice");
+            puzzle = puzzles[UnityEngine.Random.Range(0, puzzles.Count)];
+
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
@@ -34,6 +46,7 @@ namespace WorldsApart.Games.SheeringMinigame
             {
                 for (int y = 0; y < rows; y++)
                 {
+                    if (puzzle[y * columns + x] == '1') continue;
                     var suitable = sheerablePrefabs;
                     if (x == 0 && y == 0) suitable = sheerablePrefabs.Where(p => p.lowerLeft).ToList();
                     if (x == 0 && y == rows - 1) suitable = sheerablePrefabs.Where(p => p.upperLeft).ToList();
@@ -64,7 +77,7 @@ namespace WorldsApart.Games.SheeringMinigame
         {
             path.Add(index);
             prevIndex = index;
-            if (path.Count == rows * columns)
+            if (path.Count == rows * columns - puzzle.Count(c => c=='1'))
             {
                 if (scoreController != null) scoreController.Mood = 2;
                 EndGame("You Win!!!");
@@ -93,10 +106,10 @@ namespace WorldsApart.Games.SheeringMinigame
 
         private bool NodesAvailable(int index)
         {
-            if (index % columns != columns - 1 && !path.Contains(index + 1)) return true;
-            if (index % columns != 0 && !path.Contains(index - 1)) return true;
-            if (index < columns * (rows - 1) && !path.Contains(index + columns)) return true;
-            if (index > columns - 1 && !path.Contains(index - columns)) return true;
+            if (index % columns != columns - 1 && !path.Contains(index + 1) && puzzle[index+1] != '1') return true;
+            if (index % columns != 0 && !path.Contains(index - 1) && puzzle[index - 1] != '1') return true;
+            if (index < columns * (rows - 1) && !path.Contains(index + columns) && puzzle[index + columns] != '1') return true;
+            if (index > columns - 1 && !path.Contains(index - columns) && puzzle[index - columns] != '1') return true;
             return false;
         }
 
@@ -107,7 +120,7 @@ namespace WorldsApart.Games.SheeringMinigame
 
         public void switchLevel()
         {
-            Application.LoadLevel("WorldsApartAgain");
+            Application.LoadLevel("WorldsApart");
         }
     }
 }

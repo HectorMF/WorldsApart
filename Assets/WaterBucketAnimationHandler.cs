@@ -75,11 +75,11 @@ public class WaterBucketAnimationHandler : MonoBehaviour {
        // flipping the basket based on the rotation of the camera
         if(wb.Camera.transform.rotation.eulerAngles.z > 180 && wb.Camera.transform.rotation.eulerAngles.z < 360)
         {
-            y = 180;
+            y = 0;
         }
         else
         {
-            y = 0;
+            y = -180;
         }
         transform.rotation = Quaternion.Euler(new Vector3(wb.Camera.transform.rotation.eulerAngles.x, y, wb.Camera.transform.rotation.eulerAngles.z));
     }

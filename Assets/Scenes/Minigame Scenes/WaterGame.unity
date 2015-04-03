@@ -1665,15 +1665,15 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .0252852738
+    x: .177865863
     y: 0
-    width: .949429452
+    width: .644268274
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 4.21875
+  orthographic size: 5.62499952
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1709,7 +1709,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f1e150e2304b9e439e04993d9b79be6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  UnitsForWidth: 15
+  UnitsForWidth: 20
   AspectRatio: {x: 16, y: 9}
 --- !u!114 &796706789
 MonoBehaviour:

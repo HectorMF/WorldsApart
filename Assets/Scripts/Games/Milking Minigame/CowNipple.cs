@@ -5,11 +5,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace GoofyGhost.WorldsApart
 {
     public class CowNipple : MonoBehaviour, IDraggable
     {
+		public GameObject milk;
+		public Text text;
         public bool canDrag = true;
         public Ease easingFunction = Ease.OutElastic;
         public float tweenDuration = 1;
@@ -30,6 +33,8 @@ namespace GoofyGhost.WorldsApart
         private Vector3 offset;
 
 		private ScoreController scoreController;
+		private BoxCollider collider;
+		private bool canMilk = true;
 
         public void Start()
         {
@@ -39,6 +44,7 @@ namespace GoofyGhost.WorldsApart
             DragHandler.Subscribe(this);
             currentFillValue = UnityEngine.Random.Range(minFillValue, maxFillValue);
             CanDrag = true;
+			this.collider = this.GetComponent<BoxCollider>();
         }
 
         public void BeginDrag()
@@ -52,7 +58,7 @@ namespace GoofyGhost.WorldsApart
         public void EndDrag()
         {
             transform.DOMove(position, tweenDuration).SetEase(easingFunction).OnComplete(SetCanDrag);
-
+			canMilk = true;
             CanDrag = false;
         }
 
@@ -75,12 +81,13 @@ namespace GoofyGhost.WorldsApart
             {
                 DragHandler.StopDragging();
             }
-            if (yPosition == yOffsetMin + position.y)
+            if (canMilk && yPosition == yOffsetMin + position.y)
             {
+				canMilk = false;
 				ReportMilk();
+				Instantiate(milk, this.transform.position + new Vector3(0,-this.collider.size.y/2,4), Quaternion.identity);
                 currentFillValue = 0;
             }
-
         }
 
         void Update()
@@ -116,8 +123,20 @@ namespace GoofyGhost.WorldsApart
         }
 
 		void ReportMilk() {
+			text.text = "+" + currentFillValue;
+			text.transform.DOShakePosition(1,16);
+			text.DOFade(0,.5f).SetDelay(.5f).OnComplete(clearText);
+	
             if(scoreController != null)
 			    scoreController.Food += currentFillValue;
 		}
+
+		private void clearText()
+		{
+			text.text = "";
+			text.DOFade(1,0);
+		}
+
+
     }
 }

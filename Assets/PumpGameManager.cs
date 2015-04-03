@@ -69,7 +69,8 @@ public class PumpGameManager : MonoBehaviour
 				state = State.Finished;	
 				break;
 			case State.Finished:
-				// Call Navid's water balancing game
+				// Call Navid's water balancing 
+                Application.LoadLevel("WaterGame");
 				break;
 		}
 	}
@@ -113,6 +114,6 @@ public class PumpGameManager : MonoBehaviour
 	}
 	void AddWater(int water){
 		Debug.Log("Water Added = " + water);
-		ThirdWorldManager.Instance.IncrementWater(water);
+        WaterGameLogic.Instance.water = water;
 	}
 }
