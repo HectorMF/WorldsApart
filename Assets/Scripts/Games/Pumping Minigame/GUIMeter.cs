@@ -46,7 +46,7 @@ public class GUIMeter : MonoBehaviour
 			pumpAnim.Pump();
 			//if(scoreController != null)
 			//	scoreController.Water += slider.value;
-			ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
+			WaterGameLogic.Instance.water +=(Mathf.FloorToInt(slider.value));
 		}
 		else if (draining)
 		{

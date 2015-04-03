@@ -867,15 +867,15 @@ Camera:
   m_BackGroundColor: {r: .367646933, g: .229779407, b: .91911763, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .0505022407
-    width: 1
-    height: .898995519
+    x: .177865863
+    y: 0
+    width: .644268274
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.40625
+  orthographic size: 1.40624988
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1072,7 +1072,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1746015370
 MonoBehaviour:
   m_ObjectHideFlags: 0

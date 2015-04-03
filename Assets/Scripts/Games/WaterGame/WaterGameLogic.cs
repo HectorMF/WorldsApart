@@ -5,7 +5,14 @@ using UnityEngine.UI;
 public class WaterGameLogic {
 
     public float water = 0f;
-    public float maxWater = 0f;
+    private float _maxWater;
+    public float maxWater
+    {
+        get
+        {
+            return _maxWater;
+        }
+    }
     public float currentDistance = 0f;
     public float distance = 0f;
 
@@ -25,8 +32,9 @@ public class WaterGameLogic {
     private WaterGameLogic()
     {
         water = 0f;
-        maxWater = WaterGameResources.Instance.BucketSizeValue;
+        _maxWater = WaterGameResources.Instance.BucketSizeValue;
         currentDistance = 0f;
+        _maxWater = ThirdWorldManager.Instance.WaterCapacity;
         distance = 10f;
     }
     public static WaterGameLogic Instance
@@ -111,16 +119,10 @@ out of {1: 0.0} capacity", water, maxWater));
     {
         if (step < 10)
         {
-           // Debug.Log("Angel:" + angel);
             if (angel != 0)
             {
-             //   targetRotation = Quaternion.Euler(new Vector3(0, 0, angel));
                 camera.GetComponent<Rigidbody2D>().AddTorque(angel);
             }
-            
-            //camera.transform.rotation = Quaternion.Slerp(camera.transform.rotation, targetRotation, step);
-           // Debug.Log("STEP:" + step);
-            //amera.transform.rotation = targetRotation;
             step +=0.05f;
         }
         else if(step >= 1)
@@ -135,7 +137,11 @@ out of {1: 0.0} capacity", water, maxWater));
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
 
-        //TODO: Logic to send the result to the core game mechanic!
+        if(won)
+        {
+            ThirdWorldManager.Instance.IncrementWater((int)water);
+        }
+        Application.LoadLevel("WorldsApart");
     }
 	
 }
