@@ -980,7 +980,31 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 118770, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
       propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_FontData.m_RichText
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_FontData.m_HorizontalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_FontData.m_VerticalOverflow
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_FontData.m_BestFit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_FontData.m_MinSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 11400216, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
+      propertyPath: m_FontData.m_MaxSize
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
@@ -2165,7 +2189,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StepSizeAKASpeed: .00999999978
-  totalDistance: 100
+  totalDistance: 10
 --- !u!212 &1170197443
 SpriteRenderer:
   m_ObjectHideFlags: 0

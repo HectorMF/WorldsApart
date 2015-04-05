@@ -15,7 +15,5 @@ public class PlayerWalking : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         wg.Walk(StepSizeAKASpeed);
-      //  Debug.Log("Walking" + wg.currentDistance);
-      //  Debug.Log("Dest" + wg.distance);
 	}
 }
