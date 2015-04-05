@@ -13,6 +13,7 @@ public class WaterBucketAnimationHandler : MonoBehaviour {
 
     private WaterBasket wb;
     private float step = 0f;
+    private bool flipped = false;
 	// Use this for initialization
 	void Start () {
         try { wb = gameObject.GetComponent<WaterBasket>(); }
@@ -21,7 +22,29 @@ public class WaterBucketAnimationHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-	
+        transform.rotation = wb.Camera.transform.rotation;
+        Vector3 scale = transform.localScale;
+        if(!flipped)
+        {
+            if (!(wb.Camera.transform.rotation.eulerAngles.z > 180 && wb.Camera.transform.rotation.eulerAngles.z < 360))
+            {
+                scale.x *= -1;
+                transform.localScale = scale;
+                flipped = true;
+            }
+        }
+        else
+        {
+            if (wb.Camera.transform.rotation.eulerAngles.z > 180 && wb.Camera.transform.rotation.eulerAngles.z < 360)
+            {
+                scale.x *= -1;
+                transform.localScale = scale;
+                flipped = false;
+            }
+        }
+        
+
+        
 	}
     public void DripWater(GameObject gameObject, int strength)
     {
@@ -71,16 +94,6 @@ public class WaterBucketAnimationHandler : MonoBehaviour {
         {
             Debug.LogException(e);
         }
-                float y;
-       // flipping the basket based on the rotation of the camera
-        if(wb.Camera.transform.rotation.eulerAngles.z > 180 && wb.Camera.transform.rotation.eulerAngles.z < 360)
-        {
-            y = 0;
-        }
-        else
-        {
-            y = -180;
-        }
-        transform.rotation = Quaternion.Euler(new Vector3(wb.Camera.transform.rotation.eulerAngles.x, y, wb.Camera.transform.rotation.eulerAngles.z));
+
     }
 }

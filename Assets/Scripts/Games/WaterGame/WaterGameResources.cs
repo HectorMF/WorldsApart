@@ -8,6 +8,7 @@ public class WaterGameResources: MonoBehaviour {
     public float TravelDistanceValue = 0f;
     public float BucketSizeValue = 100f;
     public float TrippingChance = 40f;
+    public float CurrentWater;
     public Text DistanceText;
 
 	public void Start(){
@@ -42,5 +43,18 @@ public class WaterGameResources: MonoBehaviour {
             var camera = GameObject.FindObjectOfType<CameraTilt>();
             return camera.acceleration;
         }
+    }
+    public void Update()
+    {
+        BucketSizeValue = WaterGameLogic.Instance.maxWater;
+        CurrentWater = WaterGameLogic.Instance.water;
+    }
+    public void LoadNextLevel()
+    {
+        Invoke("LoadLevel", 3);
+    }
+    private void LoadLevel()
+    {
+        Application.LoadLevel("WorldsApart");
     }
 }

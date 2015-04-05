@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine;
 
 public class WaterGameLogic {
 
-    public float water = 0f;
+    public float water;
     private float _maxWater;
     public float maxWater
     {
@@ -31,10 +32,11 @@ public class WaterGameLogic {
     private static WaterGameLogic instance;
     private WaterGameLogic()
     {
-        water = 0f;
-        _maxWater = WaterGameResources.Instance.BucketSizeValue;
+       
+       
         currentDistance = 0f;
         _maxWater = ThirdWorldManager.Instance.WaterCapacity;
+        water = _maxWater;
         distance = 10f;
     }
     public static WaterGameLogic Instance
@@ -141,7 +143,7 @@ out of {1: 0.0} capacity", water, maxWater));
         {
             ThirdWorldManager.Instance.IncrementWater((int)water);
         }
-        Application.LoadLevel("WorldsApart");
+        WaterGameResources.Instance.LoadNextLevel();
     }
 	
 }

@@ -6,6 +6,7 @@ public class CameraTilt : MonoBehaviour {
     public const float AccelSmoothing = 0.8f;
     public const float AccelLowPass = 0.01f;
     public Vector3 acceleration;
+    public bool DebugMode = false;
 
     private Vector3 _previousAcceleration;
     private Vector3 _smoothAcceleration;
@@ -21,8 +22,25 @@ public class CameraTilt : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-        //Some Hackish converting going on here!
-        float acc = (float)Decimal.Round((decimal)Input.acceleration.x,1);
+        float acc;
+        if(DebugMode)
+        {
+            acc = 0;
+            if(Input.GetKey(KeyCode.LeftArrow))
+            {
+                acc -= 0.1f;
+            }
+            if(Input.GetKey(KeyCode.RightArrow))
+            {
+                acc += 0.1f;
+            }
+        }
+        else
+        {
+
+        acc = (float)Decimal.Round((decimal)Input.acceleration.x,1);
+
+        }
         acc = acc * AccelSmoothing;
         //Debug.Log("acc" + acc);
 

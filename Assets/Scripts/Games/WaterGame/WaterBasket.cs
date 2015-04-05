@@ -17,7 +17,7 @@ public class WaterBasket : MonoBehaviour {
         catch (Exception e) { Debug.LogException(e); }
 	}
 	
-	// Update is called once per frame
+	// Logic is located in late update so it can change stuff after the update
 	void Update () {
         try
         {
