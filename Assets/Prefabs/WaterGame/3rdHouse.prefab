@@ -345,13 +345,14 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 128348}
+    - {fileID: 167032}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"PopUp":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"InfoPopUp":{"$content":0},"WaterIndicator":{"$content":1},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[1.88,-3.34,-3.34]'
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
@@ -381,14 +382,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects: []
+    serializedObjects:
+    - {fileID: 167032}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
+      - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
