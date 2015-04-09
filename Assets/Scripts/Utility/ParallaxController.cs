@@ -5,7 +5,7 @@ public class ParallaxController : MonoBehaviour {
     static ParallaxController _instance;
 
     private List<ParallaxLayer> layers = new List<ParallaxLayer>();
-    private Vector3 oldPosition;
+	private Vector3 oldPosition;
 
     static public ParallaxController Instance
     {
@@ -27,9 +27,9 @@ public class ParallaxController : MonoBehaviour {
     }
 
 	void LateUpdate () {
-        if (oldPosition == transform.position) return;
-        oldPosition = transform.position;
-
+       // if (oldPosition == transform.position) return;
+        //oldPosition = transform.position;
+		Debug.Log(layers.Count);
         foreach (ParallaxLayer layer in layers)
             layer.UpdateOffsets(transform.position.x, transform.position.y);
 
