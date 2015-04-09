@@ -32,14 +32,17 @@ public class FamilyThirst : Thirst {
 
 	void ReportFoodUsage ()
 	{
-
-		if (ThirdWorldManager.Instance.CurrentFood < MemberCount * foodRequiredPerPerson) {
-			ThirdWorldManager.Instance.CurrentFood = 0;
-			Debug.Log("Your family did not eat enough today");
-		} else {
-			ThirdWorldManager.Instance.CurrentFood = ThirdWorldManager.Instance.CurrentFood - (MemberCount * foodRequiredPerPerson);
-			Debug.Log("Your family ate enough today");
-		}
+        int needfood;
+        needfood = ThirdWorldManager.Instance.DecrementFood(MemberCount * foodRequiredPerPerson);
+        if (needfood < 0)
+        {
+            Debug.Log("Your family did not eat enough today");
+        }
+        else
+        {
+            Debug.Log("Your family ate enough today");
+        }
+        
 	}
 
 	void ReportWaterUsage ()

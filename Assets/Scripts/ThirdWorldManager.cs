@@ -223,6 +223,21 @@ public class ThirdWorldManager
 		currentFood += value;
 	}
 
+    public int DecrementFood(int attemptedValue)
+    {
+        if (currentFood - attemptedValue > 0)
+        {
+            currentFood -= attemptedValue;
+            return 0;
+        }
+        else
+        {
+            int need = currentFood - attemptedValue;
+            currentFood = 0;
+            return need;
+        }
+    }
+
 	public void Report()
 	{
 		string weather = "The weather is " + currentWeather + ". ";
