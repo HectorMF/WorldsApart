@@ -6,11 +6,12 @@ namespace WorldsApart.Scripting
 {
 	public class RemoteOpenPopUpScript : RemoteScript 
 	{
-		public GameObject PopUp;
+		public GameObject InfoPopUp, WaterIndicator;
 
 		public override void Start(Action OnFinish)
 		{
-			PopUp.SetActive(true);
+			InfoPopUp.SetActive(true);
+			WaterIndicator.SetActive(false);
 		}
 	}
 }

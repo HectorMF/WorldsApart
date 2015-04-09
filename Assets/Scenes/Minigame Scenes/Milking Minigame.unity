@@ -423,7 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useAudioSource: 0
-  playOnStart: 0
+  playOnStart: 1
   audioList:
   - {fileID: 8300000, guid: 288ee1f11c141ef4da602b242714db87, type: 3}
   - {fileID: 8300000, guid: 343e82887f533d944bc3d7d2bddcec97, type: 3}
