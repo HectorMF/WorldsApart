@@ -84,4 +84,9 @@ public class Thirst : MonoBehaviour {
 		MemberCount = info.requirements[info.memberCount];
 		DaysWithoutWater = info.requirements[info.daysWithoutWater];
 	}
+
+	public bool NeedsWater() 
+	{
+		return AmountDrank < TotalRequiredWater;
+	}
 }

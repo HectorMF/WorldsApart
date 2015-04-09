@@ -162,7 +162,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.3900001, y: -4.30999994, z: 0}
+  m_LocalPosition: {x: 23.3299999, y: -4.30999994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 422116}
@@ -418,15 +418,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zone:
     serializedVersion: 2
-    x: 4.42999983
-    y: -4.19999981
-    width: 5.78999996
-    height: 2.13000011
+    x: 22.6800003
+    y: -4.63000011
+    width: 4.69000006
+    height: 2
   easingFunction: 4
   walkSpeed: 1.5
   turnSpeed: 1
-  minDelay: 1
-  maxDelay: 1
+  minDelay: 3
+  maxDelay: 7
   minDeltaDistance: 1
 --- !u!114 &11413168
 MonoBehaviour:
@@ -465,13 +465,14 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 133102}
+    - {fileID: 150144}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"PopUp":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"InfoPopUp":{"$content":0},"WaterIndicator":{"$content":1},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,0,0]'
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
@@ -488,7 +489,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82ac2072e9cc29f4b81deb1c64a832e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  useAudioSource: 1
   playOnStart: 1
+  audioList: []
   minTime: 20
   maxTime: 30
 --- !u!114 &11438532
@@ -504,14 +507,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects: []
+    serializedObjects:
+    - {fileID: 150144}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
+      - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
