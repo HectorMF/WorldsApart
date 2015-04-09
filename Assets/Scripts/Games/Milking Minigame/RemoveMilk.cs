@@ -10,9 +10,13 @@ namespace GoofyGhost.WorldsApart
 {
 	public class RemoveMilk : MonoBehaviour
 	{
+		public AudioClip sound;
 		void Update()
 		{
-			if(transform.position.y < -10) Destroy(gameObject);
+			if(transform.position.y < -10){
+				Destroy(gameObject);
+				AudioSource.PlayClipAtPoint(sound, transform.position);
+			}
 		}
 	}
 }

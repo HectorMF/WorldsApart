@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class RandomAudioPlay : MonoBehaviour {
+	public bool useAudioSource = true;
 	public bool playOnStart;
+	public List<AudioClip> audioList;
 	public float minTime;
 	public float maxTime;
 
@@ -12,9 +14,10 @@ public class RandomAudioPlay : MonoBehaviour {
 
 	void Start (){
 		nextPlay = Random.Range(minTime, maxTime);
-		audio = GetComponent<AudioSource>();
+		if(useAudioSource)
+			audio = GetComponent<AudioSource>();
 		if(playOnStart)
-			audio.Play();
+			PlaySound();
 	}
 
 	void Update () {
@@ -23,7 +26,16 @@ public class RandomAudioPlay : MonoBehaviour {
 		{
 			timer -= nextPlay;
 			nextPlay = Random.Range(minTime, maxTime);
+			PlaySound();
+		}
+	}
+
+	void PlaySound(){
+		if(useAudioSource)
 			audio.Play();
+		else
+		{
+			AudioSource.PlayClipAtPoint(audioList[Random.Range(0,audioList.Count)], transform.position);
 		}
 	}
 }
