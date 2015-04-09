@@ -28,8 +28,8 @@ public class CookingMinigame : MonoBehaviour {
 	float ratioOfScreen;
 	float fanRotation;
 	float rotationMultiplier = 30;
-	float maxRot = 50;
-	float minRot = -50;
+	float maxRot = 30;
+	float minRot = -30;
 	bool input;
 	
 	// Firepit stuff
