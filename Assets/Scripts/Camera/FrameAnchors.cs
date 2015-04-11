@@ -25,8 +25,8 @@ public class FrameAnchors : MonoBehaviour {
         if (SwipeManager.swipeDirection == Swipe.Right)
             if (index - 1 >= 0)
                 SetIndex(--index);
-            else
-                camera.transform.DOShakePosition(1,new Vector3(1,0,0),3,0);
+            //else
+              //  camera.transform.DOShakePosition(1,new Vector3(1,0,0),3,0);
 	}
 
     public void SetIndex(int i)

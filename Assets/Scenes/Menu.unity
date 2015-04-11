@@ -2742,7 +2742,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraGreyscale: {fileID: 1801410552}
   button: {fileID: 723105044}
-  delay: 1
+  delay: 16
   duration: 4
 --- !u!1 &1550221756
 GameObject:
@@ -3344,7 +3344,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1801410542}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d1278eae4cc53944d9ca7c079a716641, type: 3}
   m_Name: 
