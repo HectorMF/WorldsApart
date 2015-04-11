@@ -14,7 +14,7 @@ namespace WorldsApart.Handlers
 			gameObject.transform.parent.gameObject.SetActive(false);
 			Thirst thirst = gameObject.GetComponentInParent<Thirst> ();
 			if (thirst != null && thirst.NeedsWater ()) {
-				ActionIndicator.SetActive(true);
+				ActionIndicator.SetActive (true);
 			}
 		}
 	}
