@@ -893,16 +893,19 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Farming Minigame","Title":"Harvest Crops!","Subtitle":"Pick
+      - '[{"gesture":"None","GameName":"Farming Minigame","Title":"Harvest Crops!","Subtitle":"Pick
         them before the animals do!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &146255806
@@ -1360,6 +1363,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11499268, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[2]
+      value: false
+      objectReference: {fileID: 0}
+    - target: {fileID: 11499268, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: movePlayer
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447034, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[2]
+      value: false
+      objectReference: {fileID: 0}
+    - target: {fileID: 11447034, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
+      propertyPath: movePlayer
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
   m_IsPrefabParent: 0
@@ -1580,6 +1599,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -1587,8 +1607,10 @@ MonoBehaviour:
       - '[0,0,0]'
       - true
       - true
+      - true
   id: 66683744-6c11-4e27-b30a-43706681bd3f
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!65 &256282471
@@ -1791,9 +1813,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .050480783
+    y: .0535714328
     width: 1
-    height: .899038434
+    height: .892857134
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -1999,15 +2021,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &316405996
@@ -2591,15 +2616,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &422780423
@@ -2928,6 +2956,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -2935,8 +2964,10 @@ MonoBehaviour:
       - '[-1.57,-0.81,0]'
       - true
       - true
+      - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
   targetOffset: {x: -1.57000005, y: -.810000002, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!1 &528290353
@@ -3383,6 +3414,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -3390,8 +3422,10 @@ MonoBehaviour:
       - '[0,0,0]'
       - true
       - true
+      - true
   id: 66683744-6c11-4e27-b30a-43706681bd3f
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!65 &663999956
@@ -3553,15 +3587,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"scripts":[{"InfoPopUp":{"$content":0},"WaterIndicator":{"$content":1},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[20.66,-4.5,0]'
+      - true
       - false
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
   targetOffset: {x: 20.6599998, y: -4.5, z: 0}
+  movePlayer: 1
   relative: 0
   active: 1
 --- !u!1 &690339369
@@ -4046,8 +4083,7 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children:
-  - {fileID: 1205095745}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 0}
@@ -4159,7 +4195,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 782676691}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1101c2f669287b947b343c79df8a9be7, type: 3}
   m_Name: 
@@ -4171,15 +4207,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Cooking Minigame","Title":"Cook some food!","Subtitle":"","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[{"gesture":"None","GameName":"Cooking Minigame","Title":"Cook some food!","Subtitle":"","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &799722980
@@ -4562,7 +4601,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 901319561}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 842679503}
@@ -4614,6 +4653,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -4621,8 +4661,10 @@ MonoBehaviour:
       - '[1.88,-3.34,-3.34]'
       - true
       - true
+      - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
   targetOffset: {x: 1.88, y: -3.33999991, z: -3.33999991}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!4 &923300789
@@ -5072,15 +5114,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &1103753891
@@ -5399,11 +5444,6 @@ Transform:
   - {fileID: 1969772737}
   m_Father: {fileID: 1316367108}
   m_RootOrder: 4
---- !u!224 &1205095745
-RectTransform:
-  m_PrefabParentObject: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275,
-    type: 2}
-  m_PrefabInternal: {fileID: 1242060094}
 --- !u!1 &1241181964
 GameObject:
   m_ObjectHideFlags: 0
@@ -5459,104 +5499,6 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 5f296e8fd89065d4c8d272c6a0be8c84, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1001 &1242060094
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 773247042}
-    m_Modifications:
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_Pivot.x
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_Pivot.y
-      value: .5
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 118770, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0fdb0fc6b516de44ebc6577ad6709275, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1266545901
 GameObject:
   m_ObjectHideFlags: 0
@@ -5705,6 +5647,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -5712,8 +5655,10 @@ MonoBehaviour:
       - '[0,0,0]'
       - true
       - true
+      - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!61 &1266545906
@@ -5738,7 +5683,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266545901}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7f41853b99a55594bb15c3ff3669a088, type: 2}
   m_CullingMode: 0
@@ -5838,15 +5783,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &1315547118
@@ -6168,15 +6116,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Milking Minigame","Title":"Milk the Cow","Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[{"gesture":"Swipe","GameName":"Milking Minigame","Title":"Milk the Cow","Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &1436799289
@@ -6927,15 +6878,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"WaterIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &1706907249
@@ -7072,6 +7026,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -7079,8 +7034,10 @@ MonoBehaviour:
       - '[0,0,0]'
       - true
       - true
+      - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!1 &1771751410
@@ -7187,16 +7144,19 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"GameName":"Dinner
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"gesture":"Tap","GameName":"Dinner
         Minigame","Title":"Feed your Family","Subtitle":"Don''t let anyone go hungry!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: 55ff3222-d5c0-453b-983c-e8104df8d2c7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!65 &1786003575
@@ -7358,16 +7318,19 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Shearing Minigame","Title":"Shear the Sheep","Subtitle":"Don''t
+      - '[{"gesture":"None","GameName":"Shearing Minigame","Title":"Shear the Sheep","Subtitle":"Don''t
         touch any space twice!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!1 &1858292957
@@ -7739,6 +7702,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -7746,8 +7710,10 @@ MonoBehaviour:
       - '[0,0,0]'
       - true
       - true
+      - true
   id: 07da580d-65d9-4c24-8c4c-acce82849dee
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!23 &1913661586
@@ -7998,6 +7964,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -8005,8 +7972,10 @@ MonoBehaviour:
       - '[-4.93,-1.81,0]'
       - true
       - true
+      - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
   targetOffset: {x: -4.92999983, y: -1.80999994, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!4 &1969772737

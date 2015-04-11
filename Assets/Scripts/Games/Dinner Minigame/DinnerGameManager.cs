@@ -29,8 +29,9 @@ namespace WorldsApart.Games.DinnerMinigame
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
+			started = true;
 
-            Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Feed Your Family", "Click the Plates", () => started = true);
+           // Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Feed Your Family", "Click the Plates", () => started = true);
 
             minutes = (int)(time / 60);
             seconds = (int)(time % 60);
@@ -62,8 +63,10 @@ namespace WorldsApart.Games.DinnerMinigame
                 }
             }
 
-            if (seconds <= 0)
-                Fader.FadeToBlack(0, 2, "", "", EndGame);
+            if (seconds <= 0){
+				EndGame();
+				started = false;
+			}
         }
 
         public Sprite getMoodSprite(int mood)
@@ -80,7 +83,7 @@ namespace WorldsApart.Games.DinnerMinigame
         {
             if(scoreController != null) scoreController.Mood = eaters.Sum(e => e.mood);
                 
-            Application.LoadLevel("WorldsApartAgain");
+			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, "You have gained +" + "10" + " Mood.", "",()=>Application.LoadLevel("WorldsApart"));
         }
 
         internal List<Sprite> GetPlateSprites()

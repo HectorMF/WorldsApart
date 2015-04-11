@@ -30,9 +30,9 @@ namespace WorldsApart.Games.CropsMinigame
 
         void Start()
         {
-            Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Pick the Crops", "Shoo away the animals", () => started = true);
+            //Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Pick the Crops", "Shoo away the animals", );
             
-           
+			started = true;
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
@@ -69,8 +69,10 @@ namespace WorldsApart.Games.CropsMinigame
                 }
             }
 
-            if (time <= 0)
-                Fader.FadeToBlack(0, 2, "", "", EndGame);
+            if (time <= 0){
+				EndGame();
+				started = false;
+			}
 
 
             timePassed += Time.deltaTime;
@@ -108,7 +110,9 @@ namespace WorldsApart.Games.CropsMinigame
             {
                 ThirdWorldManager.Instance.IncrementMood();
             }
-            Application.LoadLevel("WorldsApart");
+
+			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, "You have gained +" + "10" + " Mood.", "",()=>Application.LoadLevel("WorldsApart"));
+            //Application.LoadLevel("WorldsApart");
         }
     }
 }
