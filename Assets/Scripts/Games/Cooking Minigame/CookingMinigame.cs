@@ -6,15 +6,17 @@ using DG.Tweening;
 public class CookingMinigame : MonoBehaviour {
 	private enum State {Starting, Started, Finishing, Finished}
 	private State currentState;
-	
+
+	// Game stuff
 	public Transform fan;
 	public Transform firePit;
 	public Text timer;
 	public Text temperatureText;
+	string endGameText;
 
 	// Timer stuff
-	float countDownTime = 6f;
 	public float playTime = 45f;
+	float countDownTime = 6f;
 	int minutes;
 	int seconds;
 	int oldSeconds;
@@ -40,7 +42,6 @@ public class CookingMinigame : MonoBehaviour {
 	bool changedDirection;
 	float fuel = 0;
 	float timeCooking = 0;
-
 	Color cold = Color.black;
 	Color lowTemp = Color.yellow;
 	Color medTemp = new Color(1,120.0f/255.0f, 0, 1);
@@ -49,9 +50,21 @@ public class CookingMinigame : MonoBehaviour {
 	
 	void Start()
 	{
-		Fader.FadeToClear(2,2, "Start the fire", "Swipe up and down to fan the coals");
 		pitColor = firePit.GetComponent<SpriteRenderer>();
-		currentState = State.Starting;
+		if(ThirdWorldManager.Instance.CurrentFood < 3) 
+		{
+			currentState = State.Finishing;
+			timeCooking = ThirdWorldManager.Instance.CurrentFood * 5;
+			endGameText = "Not enough food!";
+		}
+		else
+		{
+			Fader.FadeToClear(2,2, "Start the fire", "Swipe up and down to fan the coals");
+			currentState = State.Starting;
+			ThirdWorldManager.Instance.DecrementFood(3);
+			endGameText = "GameOver";
+		} 
+
 		pitColor.color = cold;
 		currentColor = cold;
 		//flameDegradeRate = ThirdWorldManager.instance.difficulty;
@@ -74,7 +87,7 @@ public class CookingMinigame : MonoBehaviour {
 			}
 			break;
 		case State.Finishing:
-			Fader.FadeToBlack(0,2,"Game Over");
+			Fader.FadeToBlack(0,2,endGameText);
 			currentState = State.Finished;
 			break;
 		case State.Finished:
@@ -112,7 +125,6 @@ public class CookingMinigame : MonoBehaviour {
 			}
 		}
 		temperatureText.text = Mathf.FloorToInt(flameTemp).ToString();
-		temperatureText.DOColor(currentColor, .5f).SetLoops(2, LoopType.Yoyo);
 	}
 	void UpdateInput(){
 		if(Input.GetMouseButton(0))

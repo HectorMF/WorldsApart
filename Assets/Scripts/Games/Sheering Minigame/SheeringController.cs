@@ -80,12 +80,12 @@ namespace WorldsApart.Games.SheeringMinigame
             if (path.Count == rows * columns - puzzle.Count(c => c=='1'))
             {
                 if (scoreController != null) scoreController.Mood = 2;
-                EndGame("You Win!!!");
+                EndGame("You Win!!!", true);
             }
             else if (!NodesAvailable(index))
             {
                 if (scoreController != null) scoreController.Mood = 0;
-                EndGame("You Lost.");
+                EndGame("You Lost.", false);
             }
         }
 
@@ -113,8 +113,14 @@ namespace WorldsApart.Games.SheeringMinigame
             return false;
         }
 
-        private void EndGame(string text)
+        private void EndGame(string text, bool win)
         {
+            if (win)
+            {
+                ThirdWorldManager.Instance.IncrementMood();
+            }
+            else
+                ThirdWorldManager.Instance.DecrementMood();
 			Fader.FadeToBlack(0,2,text,"",switchLevel);
         }
 
