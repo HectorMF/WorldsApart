@@ -59,7 +59,6 @@ GameObject:
   - 4: {fileID: 463856}
   - 212: {fileID: 21268618}
   - 95: {fileID: 9561674}
-  - 61: {fileID: 6156000}
   - 114: {fileID: 11465972}
   - 82: {fileID: 8265728}
   - 114: {fileID: 11442736}
@@ -366,19 +365,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 22481002}
   m_RootOrder: 0
---- !u!61 &6156000
-BoxCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 128170}
-  m_Enabled: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Size: {x: .649999976, y: .629999995}
 --- !u!65 &6571688
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -573,15 +559,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"ActionIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!114 &11442736
@@ -663,6 +652,7 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
@@ -670,8 +660,10 @@ MonoBehaviour:
       - '[0,0,0]'
       - true
       - true
+      - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!114 &11479820
@@ -692,15 +684,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":null,"Title":null,"Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[{"gesture":"None","GameName":"Milking Minigame","Title":"Milk the cow!","Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
+      - false
       - true
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!114 &11495156
@@ -725,15 +720,18 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":9,"RequiredFood":9,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
-      - '[0,0,0]'
+      - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":0,"RequiredFood":0,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[0.64,-2.06,0]'
+      - true
       - true
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
-  targetOffset: {x: 0, y: 0, z: 0}
+  targetOffset: {x: .639999986, y: -2.05999994, z: 0}
+  movePlayer: 1
   relative: 1
   active: 1
 --- !u!212 &21216914

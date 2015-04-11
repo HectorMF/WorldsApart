@@ -239,7 +239,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189940}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -4.53000021}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 487294}
@@ -450,12 +450,12 @@ MonoBehaviour:
       - 'Field: bool active'
       values:
       - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":0,"RequiredFood":0,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
-      - '[0,0,0]'
+      - '[0,-3.21,0]'
       - true
       - true
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
-  targetOffset: {x: 0, y: 0, z: 0}
+  targetOffset: {x: 0, y: -3.21000004, z: 0}
   movePlayer: 1
   relative: 1
   active: 1
@@ -501,12 +501,12 @@ MonoBehaviour:
       - '[{"gesture":"None","GameName":"Dinner Minigame","Title":"Feed your Family","Subtitle":"Don''t
         let anyone go hungry!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"},{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,0,0]'
-      - true
+      - false
       - true
       - true
   id: 77cfb528-d0ae-4319-92d9-1338828afb7b
   targetOffset: {x: 0, y: 0, z: 0}
-  movePlayer: 1
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!114 &11477356
@@ -582,12 +582,12 @@ MonoBehaviour:
       values:
       - '[{"ActionIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
-      - true
+      - false
       - true
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
   targetOffset: {x: 0, y: 0, z: 0}
-  movePlayer: 1
+  movePlayer: 0
   relative: 1
   active: 1
 --- !u!212 &21200000
