@@ -1,5 +1,22 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &113132
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22410176}
+  - 222: {fileID: 22231914}
+  - 114: {fileID: 11435754}
+  m_Layer: 5
+  m_Name: Text
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &114582
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,7 +28,7 @@ GameObject:
   - 212: {fileID: 21250090}
   - 114: {fileID: 11400834}
   m_Layer: 0
-  m_Name: Needs
+  m_Name: Action
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,7 +93,7 @@ GameObject:
   - 4: {fileID: 430482}
   - 212: {fileID: 21292024}
   m_Layer: 0
-  m_Name: food
+  m_Name: Food
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -160,7 +177,7 @@ GameObject:
   - 4: {fileID: 425074}
   - 212: {fileID: 21219452}
   m_Layer: 0
-  m_Name: water
+  m_Name: Water
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -207,9 +224,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.129999995, y: .170000002, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 22474910}
   m_Father: {fileID: 22460168}
-  m_RootOrder: 2
+  m_RootOrder: 1
 --- !u!4 &430482
 Transform:
   m_ObjectHideFlags: 1
@@ -219,9 +237,10 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -.100000001, y: -.310000002, z: 0}
   m_LocalScale: {x: .400000006, y: .400000006, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 22410176}
   m_Father: {fileID: 22460168}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!4 &432378
 Transform:
   m_ObjectHideFlags: 1
@@ -229,7 +248,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 179104}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.19999981, y: -1.48000002, z: -2}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 488878}
@@ -267,7 +286,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 117302}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.5, z: .100000024}
+  m_LocalPosition: {x: -.479999989, y: 2.38000011, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children:
   - {fileID: 470642}
@@ -306,7 +325,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 114582}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.420001, y: -.539999962, z: 3.9000001}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 483572}
@@ -377,7 +396,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects: []
+    serializedObjects:
+    - {fileID: 114582}
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -385,7 +405,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"WaterIndicator":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
+      - '[{"ActionIndicator":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
       - true
       - true
@@ -393,6 +413,32 @@ MonoBehaviour:
   targetOffset: {x: 0, y: 0, z: 0}
   relative: 1
   active: 1
+--- !u!114 &11435754
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a9130d16faf5e644bab762986afce045, type: 3}
+    m_FontSize: 20
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 2
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Food
 --- !u!114 &11451708
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -419,6 +465,7 @@ MonoBehaviour:
   _serializationData:
     serializedObjects:
     - {fileID: 117302}
+    - {fileID: 114582}
     - {fileID: 114684}
     - {fileID: 176924}
     serializedStrings:
@@ -428,7 +475,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":null,"RequiredWater":0,"RequiredFood":0,"Confirm":{"$content":1},"Requirements":{"$content":2},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":0,"RequiredFood":0,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,0,0]'
       - true
       - true
@@ -461,10 +508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'XX
-
-
-    YY'
+  m_Text: H20
 --- !u!114 &11498024
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,7 +530,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[null]'
+      - '[{"GameName":null,"Title":null,"Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - true
       - true
@@ -676,6 +720,12 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63d9d92df666c4a99b9ed3efb808ab6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!222 &22231914
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113132}
 --- !u!222 &22234938
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -699,6 +749,23 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
+--- !u!224 &22410176
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113132}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .0281294957, y: .0281294957, z: .0112517979}
+  m_Children: []
+  m_Father: {fileID: 430482}
+  m_RootOrder: 0
+  m_AnchorMin: {x: .5, y: .5}
+  m_AnchorMax: {x: .5, y: .5}
+  m_AnchoredPosition: {x: -2.07999992, y: -1.47000003}
+  m_SizeDelta: {x: 160, y: 120}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22459426
 RectTransform:
   m_ObjectHideFlags: 1
@@ -728,7 +795,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 22474910}
   - {fileID: 430482}
   - {fileID: 425074}
   m_Father: {fileID: 22459426}
@@ -745,14 +811,14 @@ RectTransform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 161568}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -7}
-  m_LocalScale: {x: .0112517979, y: .0112517979, z: .0112517979}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: .0281294975, y: .0281294975, z: .0112517979}
   m_Children: []
-  m_Father: {fileID: 22460168}
+  m_Father: {fileID: 425074}
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -.930000007, y: -.360000014}
+  m_AnchoredPosition: {x: -2, y: -1.47000003}
   m_SizeDelta: {x: 160, y: 120}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000
