@@ -11,7 +11,8 @@ public class MilkingMinigame : MonoBehaviour {
     private int oldSeconds;
 
 	void Start(){
-		Fader.FadeToClear(Fader.Gesture.Swipe, 2, 2,"Milk The Cow");
+		//Fader.FadeToBlack(Fader.Gesture.Swipe, 2, 2,"Milk The Cow");
+		Fader.FadeOutIn(Fader.Gesture.None,0, 2, "", "",()=>Application.LoadLevel("WorldsApart"));
 	}
 
 	void Update () {
@@ -40,11 +41,7 @@ public class MilkingMinigame : MonoBehaviour {
         }
 		
         if (seconds <= 0)
-			Fader.FadeToBlack(0, 2, "", "",EndGame);
+			Fader.FadeToBlack(0, 2, "", "",()=>Application.LoadLevel("WorldsApart"));
         
-	}
-
-	void EndGame() {
-		Application.LoadLevel("WorldsApart");
 	}
 }
