@@ -1750,7 +1750,7 @@ Prefab:
     - target: {fileID: 9505808, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 403f35fcd79f4455f93e537454f208a6, type: 2}
+      objectReference: {fileID: 9100000, guid: fa8374d9c846d40b3b89bdba468e7c95, type: 2}
     m_RemovedComponents:
     - {fileID: 11446838, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: a0c06b71e483b4ef5877a273f18edaa2, type: 2}
