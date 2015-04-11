@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 namespace WorldsApart.GUI
 {
@@ -11,8 +12,10 @@ namespace WorldsApart.GUI
 
         public void LoadLevel()
         {
-            Application.LoadLevel("WorldsApart");
-        }
+			Fader.FadeToBlack(Fader.Gesture.None,0, 4,"1 in 9 people do not have access \nto an improved water source.","",() =>
+				Application.LoadLevel("WorldsApart"),30
+			);
 
+        }
     }
 }

@@ -12,7 +12,8 @@ namespace WorldsApart.Handlers
 		public override void innerDelegate()
 		{
 			gameObject.transform.parent.gameObject.SetActive(false);
-			if (gameObject.GetComponentInParent<Thirst> ().NeedsWater ()) {
+			Thirst thirst = gameObject.GetComponentInParent<Thirst> ();
+			if (thirst != null && thirst.NeedsWater ()) {
 				WaterIndicator.SetActive(true);
 			}
 		}

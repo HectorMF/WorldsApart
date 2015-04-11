@@ -233,7 +233,7 @@ MonoBehaviour:
       - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
+      - '[{"WaterIndicator":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DismissInfoPopUpHandler"}]'
       - '[0,0,0]'
       - true
   id: c719c514-7cb5-4c90-8d84-a066deea78d7
@@ -271,7 +271,7 @@ MonoBehaviour:
       - 'Field: Vector3 targetOffset'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"PopUp":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"InfoPopUp":{"$content":0},"WaterIndicator":null,"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,0,0]'
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
