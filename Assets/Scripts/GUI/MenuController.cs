@@ -36,8 +36,8 @@ public class MenuController : MonoBehaviour {
         cameraGreyscale.effectAmount -= step;
         if (cameraGreyscale.effectAmount < .2 && !buttonReady)
         {
-            button.DOScale(origScale, .505f);
-            button.DOShakeScale(2f, 11f, 6, 120f).SetDelay(.03f);
+          	button.DOScale(origScale, 1f);
+			//button.DOPunchScale(new Vector3(0,0,0),2f).SetDelay(2f);//.DOShakeScale(2f, 1f,10).SetDelay(.506f);
         }
         if (cameraGreyscale.effectAmount < 0f)
         {
