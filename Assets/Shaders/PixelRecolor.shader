@@ -16,6 +16,8 @@ Shader "Custom/PixelRecolor" {
         _Color5out ("Color 5 Out", Color) = (1,1,1,1)
 		_Color6in ("Color 6 In", Color) = (1,1,1,1)
         _Color6out ("Color 6 Out", Color) = (1,1,1,1)
+		_Color7in ("Color 7 In", Color) = (1,1,1,1)
+        _Color7out ("Color 7 Out", Color) = (1,1,1,1)
         [MaterialToggle] PixelSnap ("Pixel snap", Float) = 0
     }
  
@@ -71,6 +73,8 @@ Shader "Custom/PixelRecolor" {
             fixed4 _Color5out;
 			fixed4 _Color6in;
             fixed4 _Color6out;
+			fixed4 _Color7in;
+            fixed4 _Color7out;
  
             v2f vert(appdata_t IN)
             {
@@ -96,6 +100,7 @@ Shader "Custom/PixelRecolor" {
                 texColor = all(texColor == _Color4in) ? _Color4out : texColor;
                 texColor = all(texColor == _Color5in) ? _Color5out : texColor;
 				texColor = all(texColor == _Color6in) ? _Color6out : texColor;
+				texColor = all(texColor == _Color7in) ? _Color7out : texColor;
                 return texColor * IN.color;
             }
         ENDCG
