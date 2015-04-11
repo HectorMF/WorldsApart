@@ -4,7 +4,9 @@ using UnityEngine.UI;
 
 public class GUIMeter : MonoBehaviour 
 {
+	public Transform pump;
 	public float speed = 0.1f;
+
 
 	private int difficulty;
 	private float oldValue;
@@ -13,6 +15,10 @@ public class GUIMeter : MonoBehaviour
 	private bool draining;
 	private float drainSpeed;
 	private PumpAnimator pumpAnim;
+	Color dirtyWater = new Color(182f/255f, 145f/255f, 49f/255f, 1f);
+	float chanceDirtyWater = 2;
+	int startingWater;
+	SpriteRenderer pumpRenderer;
 	
 	void Start () 
 	{
@@ -27,11 +33,14 @@ public class GUIMeter : MonoBehaviour
 		draining = false;
 		drainSpeed = 2 * -speed;
 		pumpAnim = GetComponentInChildren<PumpAnimator>();
+		startingWater = ThirdWorldManager.Instance.CurrentWater;
+		pumpRenderer = pump.GetComponent<SpriteRenderer>();
 
 	}
 
 	void Update () 
 	{
+		int rand;
 		if(slider.value == slider.maxValue || slider.value == slider.minValue)
 			speed = -speed;
 
@@ -39,7 +48,16 @@ public class GUIMeter : MonoBehaviour
 		{
 			draining = true;
 			pumpAnim.Pump();
-			ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
+			rand = Random.Range(1, 101);
+			if (rand <= chanceDirtyWater)
+			{
+				pumpRenderer.color = dirtyWater;
+				ThirdWorldManager.Instance.DecrementWater(ThirdWorldManager.Instance.CurrentWater);
+			}
+			else{
+				pumpRenderer.color = Color.white;
+				ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
+			}
 		}
 		else if (draining)
 		{
