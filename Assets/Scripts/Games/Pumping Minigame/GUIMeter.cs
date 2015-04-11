@@ -10,17 +10,12 @@ public class GUIMeter : MonoBehaviour
 	private float oldValue;
 	private float currentValue;
 	private Slider slider;
-	private ScoreController scoreController;
 	private bool draining;
 	private float drainSpeed;
 	private PumpAnimator pumpAnim;
 	
 	void Start () 
 	{
-		GameObject scoreObject = GameObject.Find("ScoreController");
-		if(scoreObject != null)
-			scoreController = scoreObject.GetComponent<ScoreController>();
-
 		slider = this.GetComponent<Slider>();
 		if (slider != null){
 			slider.maxValue = 3;
@@ -44,9 +39,7 @@ public class GUIMeter : MonoBehaviour
 		{
 			draining = true;
 			pumpAnim.Pump();
-			//if(scoreController != null)
-			//	scoreController.Water += slider.value;
-			WaterGameLogic.Instance.water +=(Mathf.FloorToInt(slider.value));
+			ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
 		}
 		else if (draining)
 		{

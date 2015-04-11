@@ -11,7 +11,7 @@ public class PumpAnimator : MonoBehaviour {
 	void Start () {
 		idle = transform.Find("PumpIdle");
 		pumping = transform.Find("Pumping");
-		totalTime = 2.5f;
+		totalTime = 1f;
 		IsPumping = false;
 	}
 	
