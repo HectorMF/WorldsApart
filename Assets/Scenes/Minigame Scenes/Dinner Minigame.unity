@@ -326,7 +326,7 @@ Transform:
   - {fileID: 410283444}
   - {fileID: 848750102}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
 --- !u!1 &410283442
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +695,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 472546, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 180568, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
       propertyPath: m_Name
@@ -968,12 +968,12 @@ MonoBehaviour:
       - 'Field: List<List<Sprite>> plates'
       values:
       - '{"$content":0,"$id":"0"}'
-      - 60
+      - 10
       - '[{"$content":1,"$id":"0"},{"$content":2},{"$content":3},{"$content":4},{"$content":5}]'
       - '[[{"$content":6,"$id":"0"},{"$content":7},{"$content":8},{"$content":9},{"$content":10}],[{"$ref":"0"},{"$content":11},{"$content":12},{"$content":13},{"$content":14}],[{"$ref":"0"},{"$content":15},{"$content":16},{"$content":17},{"$content":18}],[{"$ref":"0"},{"$content":19},{"$content":20},{"$content":21},{"$content":22}],[{"$ref":"0"},{"$content":23},{"$content":24},{"$content":25},{"$content":26}]]'
   id: 3b76ba62-6fae-4fc3-9096-f63499101a09
   timer: {fileID: 550287428}
-  time: 60
+  time: 10
   moods:
   - {fileID: 21300000, guid: 34661aa96b632d8488e4ff621700a9a2, type: 3}
   - {fileID: 21300000, guid: b4b345c7af0c6904b9abe610be2cf2b3, type: 3}
@@ -991,7 +991,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 9
 --- !u!1 &1082314012
 GameObject:
   m_PrefabParentObject: {fileID: 127056, guid: d409552bbff10584ba48d776532c0319, type: 2}
@@ -1745,9 +1745,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .049523294
+    y: .0535714328
     width: 1
-    height: .900953412
+    height: .892857134
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -1775,7 +1775,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
 --- !u!1 &1845300736
 GameObject:
   m_PrefabParentObject: {fileID: 108222, guid: d409552bbff10584ba48d776532c0319, type: 2}
@@ -1853,7 +1853,7 @@ Transform:
   m_LocalScale: {x: 2.41933203, y: 2.11390615, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
 --- !u!1 &1922973417
 GameObject:
   m_PrefabParentObject: {fileID: 127056, guid: d409552bbff10584ba48d776532c0319, type: 2}
