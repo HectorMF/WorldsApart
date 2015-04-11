@@ -23,7 +23,7 @@ public class ScoreController : MonoBehaviour {
 		{
 			ThirdWorldManager.Instance.IncrementFood((int)Food);
             ThirdWorldManager.Instance.IncrementWater((int)Water);
-            //TODO: Handle Mood
+            ThirdWorldManager.Instance.IncrementMood();
 			Food = 0;
 		}
 	}

@@ -31,7 +31,8 @@ namespace WorldsApart.Games.CropsMinigame
         void Start()
         {
             Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Pick the Crops", "Shoo away the animals", () => started = true);
-
+            
+           
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
@@ -101,8 +102,12 @@ namespace WorldsApart.Games.CropsMinigame
 
         public void EndGame()
         {
-            if (scoreController != null) scoreController.Mood = CounterManager.Instance.GetCounter("HarvestCount").count;
-
+            ThirdWorldManager.Instance.IncrementFood(CounterManager.Instance.GetCounter("HarvestCount").count);
+            ThirdWorldManager.Instance.DecrementWater(5);
+            if (CounterManager.Instance.GetCounter("HarvestCount").count>10)
+            {
+                ThirdWorldManager.Instance.IncrementMood();
+            }
             Application.LoadLevel("WorldsApart");
         }
     }
