@@ -11,6 +11,7 @@ namespace WorldsApart.Clickables
     {
         public List<Handler> Handlers;
 		public Vector3 targetOffset;
+		public bool relative = true;
         public bool active = true;
 
         void Start()
@@ -39,8 +40,10 @@ namespace WorldsApart.Clickables
                 wanderScript.value = true;
 
                 moveScript.gameObject = player;
-                moveScript.target = transform.position + targetOffset;
-
+				if(relative)
+                	moveScript.target = transform.position + targetOffset;
+				else
+					moveScript.target = targetOffset;
                 var controller = player.GetComponent<ScriptController>();
                 controller.ResetQueue();
                 controller.scripts.Add(wanderOffScript);
@@ -65,7 +68,10 @@ namespace WorldsApart.Clickables
 		private void OnDrawGizmosSelected()
 		{
 			Gizmos.color = Color.blue;
-			Gizmos.DrawIcon(transform.position + targetOffset, "point.png", false);
+			if(relative)
+				Gizmos.DrawIcon(transform.position + targetOffset, "point.png", false);
+			else
+				Gizmos.DrawIcon(targetOffset, "point.png", false);
 		}
     }
 }

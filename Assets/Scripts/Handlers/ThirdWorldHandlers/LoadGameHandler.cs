@@ -11,7 +11,7 @@ namespace WorldsApart.Handlers
 		{
 			ThirdWorldManager.Instance.UsedAction();
 			Fader.FadeToBlack(0, 2, Title, Subtitle, switchLevel);
-			gameObject.SetActive(false);
+			//gameObject.SetActive(false);
 		}
 		
 		public void switchLevel(){
