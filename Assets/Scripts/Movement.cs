@@ -51,6 +51,7 @@ public class Movement : MonoBehaviour
 	public void Move(Vector3 targetRef)
 	{
 		target = targetRef;
+		target = new Vector3(target.x, target.y, target.y);
 		moving = true;
 		GetComponent<AudioSource>().Play();
 	}
@@ -64,6 +65,7 @@ public class Movement : MonoBehaviour
     public void Move(Transform targetRef)
     {
         movingTarget = targetRef;
+//		movingTarget = new Vector3(movingTarget.x, movingTarget.y, movingTarget.y);
         moving = true;
         GetComponent<AudioSource>().Play();
     }
