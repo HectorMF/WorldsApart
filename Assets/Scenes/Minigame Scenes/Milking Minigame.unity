@@ -525,7 +525,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1319041030}
-  time: 33
+  time: 20
 --- !u!4 &318676801
 Transform:
   m_ObjectHideFlags: 0
@@ -917,9 +917,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .049523294
+    y: .0535714328
     width: 1
-    height: .900953412
+    height: .892857134
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60

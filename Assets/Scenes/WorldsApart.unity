@@ -897,7 +897,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Farming Minigame","Title":"Harvest Crops!","Subtitle":"Pick
+      - '[{"gesture":"None","GameName":"Farming Minigame","Title":"Harvest Crops!","Subtitle":"Pick
         them before the animals do!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - false
@@ -1813,9 +1813,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .049523294
+    y: .0535714328
     width: 1
-    height: .900953412
+    height: .892857134
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -4211,7 +4211,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Cooking Minigame","Title":"Cook some food!","Subtitle":"","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[{"gesture":"None","GameName":"Cooking Minigame","Title":"Cook some food!","Subtitle":"","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - false
       - true
@@ -5683,7 +5683,7 @@ Animator:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1266545901}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 7f41853b99a55594bb15c3ff3669a088, type: 2}
   m_CullingMode: 0
@@ -6120,7 +6120,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Milking Minigame","Title":"Milk the Cow","Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[{"gesture":"Swipe","GameName":"Milking Minigame","Title":"Milk the Cow","Subtitle":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - false
       - true
@@ -7148,7 +7148,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"GameName":"Dinner
+      - '[{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"gesture":"None","GameName":"Dinner
         Minigame","Title":"Feed your Family","Subtitle":"Don''t let anyone go hungry!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - false
@@ -7322,7 +7322,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"GameName":"Shearing Minigame","Title":"Shear the Sheep","Subtitle":"Don''t
+      - '[{"gesture":"None","GameName":"Shearing Minigame","Title":"Shear the Sheep","Subtitle":"Don''t
         touch any space twice!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - false
