@@ -10,18 +10,19 @@ public class Thirst : MonoBehaviour {
 	public int WaterRequiredPerMember { get; protected set;} 
 	public int MemberCount { get; set; }
 	public int TotalRequiredWater { get { return MemberCount * WaterRequiredPerMember; } set {} }
+	public int CurrentWaterRequirement { get { return TotalRequiredWater - AmountDrank; } }
 
 	void OnEnable()
 	{
-		TroughManager.OnResolveWater += ResolveWater;
+		ThirdWorldManager.OnDayEnd += DayEnd;
 	}
 
 	void OnDisable()
 	{
-		TroughManager.OnResolveWater -= ResolveWater;
+		ThirdWorldManager.OnDayEnd -= DayEnd;
 	}
 
-	public virtual void ResolveWater()
+	public virtual void DayEnd()
 	{
 		if (AmountDrank >= TotalRequiredWater)
 			DaysWithoutWater = 0;

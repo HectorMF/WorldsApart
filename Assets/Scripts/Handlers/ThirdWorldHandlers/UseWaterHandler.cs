@@ -5,11 +5,13 @@ namespace WorldsApart.Handlers
 {
 	public class UseWaterHandler : Handler 
 	{
+		public GameObject drinker;
+
 		public override void innerDelegate()
 		{
 			if (CanAndShouldWater())
 			{
-				gameObject.GetComponent<Thirst>().Drink();
+				drinker.GetComponent<Thirst>().Drink();
 			}
 			ThirdWorldManager.Instance.Report();
 		}
@@ -17,8 +19,8 @@ namespace WorldsApart.Handlers
 		bool CanAndShouldWater()
 		{
 			return ThirdWorldManager.Instance.AnyWater 
-					&& gameObject.GetComponent<Thirst>().AmountDrank < gameObject.GetComponent<Thirst>().TotalRequiredWater
-					&& ThirdWorldManager.Instance.Actions > 0;
+				&& drinker.GetComponent<Thirst> ().AmountDrank < drinker.GetComponent<Thirst> ().TotalRequiredWater;
+//					&& ThirdWorldManager.Instance.Actions > 0;
 		}
 	}
 }

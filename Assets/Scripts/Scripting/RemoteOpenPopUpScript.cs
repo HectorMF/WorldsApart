@@ -14,6 +14,10 @@ namespace WorldsApart.Scripting
 
 		public override void Start(Action OnFinish)
 		{
+			// The pump does not have a thirst script on it
+			Thirst thirst = ActionIndicator.transform.parent.parent.GetComponent<Thirst> ();
+			if (thirst != null) RequiredWater = thirst.CurrentWaterRequirement;
+
 			if (RequirementsMet ()) {
 				SetConfirmActive();
 			} else {
@@ -29,8 +33,14 @@ namespace WorldsApart.Scripting
 		{
 			int currentFood = ThirdWorldManager.Instance.CurrentFood;
 			int currentWater = ThirdWorldManager.Instance.CurrentWater;
-			
-			return (currentFood >= RequiredFood && currentWater >= RequiredWater) || currentFood >= RequiredFood || currentWater >= RequiredWater;
+			if (RequiredFood != 0 && RequiredWater != 0)
+				return (currentFood >= RequiredFood && currentWater >= RequiredWater) || currentFood >= RequiredFood || currentWater >= RequiredWater;
+			else if (RequiredFood == 0)
+				return currentWater >= RequiredWater;
+			else if (RequiredWater == 0)
+				return currentFood >= RequiredFood;
+			else
+				return false;
 		}
 
 		void SetConfirmActive()
