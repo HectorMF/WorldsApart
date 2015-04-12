@@ -51,7 +51,6 @@ public class CookingMinigame : MonoBehaviour {
 	void Start()
 	{
 		pitColor = firePit.GetComponent<SpriteRenderer>();
-		Fader.FadeToClear(2,2, "Start the fire", "Swipe up and down to fan the coals");
 		currentState = State.Starting;
 		ThirdWorldManager.Instance.DecrementFood(3);
 		pitColor.color = cold;
@@ -76,7 +75,7 @@ public class CookingMinigame : MonoBehaviour {
 			}
 			break;
 		case State.Finishing:
-			Fader.FadeToBlack(0,2,endGameText);
+			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, endGameText, string.Format("You cooked {0} food!", FoodGain()), EndGame); 
 			currentState = State.Finished;
 			break;
 		case State.Finished:
@@ -177,10 +176,13 @@ public class CookingMinigame : MonoBehaviour {
 	}
 	void EndGame()
 	{
-		int foodGain = 0;
-		foodGain = Mathf.FloorToInt(timeCooking/5);
-		ThirdWorldManager.Instance.IncrementFood(foodGain);
+		ThirdWorldManager.Instance.IncrementFood(FoodGain());
 		ThirdWorldManager.Instance.UsedAction();
 		Application.LoadLevel("WorldsApart");
+	}
+
+	int FoodGain()
+	{
+		return Mathf.FloorToInt(timeCooking/5);
 	}
 }
