@@ -138,6 +138,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 484114}
+  - 114: {fileID: 11454940}
   m_Layer: 0
   m_Name: FirePit
   m_TagString: Untagged
@@ -170,7 +171,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 456736}
-  - 212: {fileID: 21274002}
   m_Layer: 0
   m_Name: WaterDrop2
   m_TagString: Untagged
@@ -498,6 +498,17 @@ MonoBehaviour:
   movePlayer: 0
   relative: 1
   active: 1
+--- !u!114 &11454940
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 156042}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b53ee72c432394b1d98631e3b5aeeaa2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11466614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -655,32 +666,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 63d9d92df666c4a99b9ed3efb808ab6b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21274002
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 161284}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 892c6872cf9fca848bfc99d1d9a13858, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21276604
 SpriteRenderer:

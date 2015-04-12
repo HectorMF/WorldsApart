@@ -45,6 +45,12 @@ public class ThirstInfo {
 		return this;
 	}
 
+	public ThirstInfo FirePit()
+	{
+		requirements = WaterRequirements (99999, 2, 1);
+		return this;
+	}
+
 	private Dictionary<string, int> WaterRequirements(int survives, int waterRequired, int members)
 	{
 		Dictionary<string, int> d = new Dictionary<string, int>();
