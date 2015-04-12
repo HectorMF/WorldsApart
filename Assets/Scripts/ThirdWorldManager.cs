@@ -80,6 +80,7 @@ public class ThirdWorldManager
         float rand = Random.Range(0.0f, 1.0f);
         if (rand < 0.1f)
         {
+			WeatherManager.weather = global::Weather.Rain;
             currentWeather = Weather.Rainy;
             availableWater = Random.Range(35, 45);
             IncrementMood();
@@ -87,12 +88,14 @@ public class ThirdWorldManager
         }
         else if (rand < 0.7f)
         {
+			WeatherManager.weather = global::Weather.None;
             currentWeather = Weather.Nice;
             availableWater = Random.Range(25, 35);
             actions = (int)CurrentMood;
         }
         else
         {
+			WeatherManager.weather = global::Weather.Dry;
             currentWeather = Weather.Dry;
             availableWater = Random.Range(15, 25);
             DecrementMood();

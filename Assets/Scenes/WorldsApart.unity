@@ -850,7 +850,7 @@ Transform:
   - {fileID: 1501324521}
   m_Father: {fileID: 422780424}
   m_RootOrder: 4
---- !u!4 &212788732 stripped
+--- !u!4 &212788732
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: de899ede09701be4997dce1cbc5769c2, type: 2}
   m_PrefabInternal: {fileID: 1148453262}
@@ -1285,9 +1285,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0541548431
+    y: .0495331883
     width: 1
-    height: .891690314
+    height: .900933623
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -1398,7 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4975a6e437fc3b149a8cd508ce5bdd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  threshold: .649999976
+  threshold: .850000024
   intensity: .75
   blurSize: .25
   blurIterations: 1
@@ -1418,7 +1418,7 @@ MonoBehaviour:
   shader: {fileID: 4800000, guid: daf9781cad112c75d0008dfa8d76c639, type: 3}
   textureRamp: {fileID: 0}
   rampOffset: 0
-  effectAmount: .200000003
+  effectAmount: -.200000003
 --- !u!114 &260663939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1950,7 +1950,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cbf71778fe2d84fff9208bd8679ee3bb, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &430574831 stripped
+--- !u!4 &430574831
 Transform:
   m_PrefabParentObject: {fileID: 463856, guid: cbf71778fe2d84fff9208bd8679ee3bb, type: 2}
   m_PrefabInternal: {fileID: 430574830}
@@ -2386,7 +2386,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c3012c1e87fdcf54f96488cf8dfe6a5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &630314009 stripped
+--- !u!4 &630314009
 Transform:
   m_PrefabParentObject: {fileID: 484114, guid: eb92478b251de48d8af13788b927d3b9, type: 2}
   m_PrefabInternal: {fileID: 1618367813}
@@ -3011,7 +3011,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 260663935}
   m_RootOrder: 0
---- !u!4 &923300789 stripped
+--- !u!4 &923300789
 Transform:
   m_PrefabParentObject: {fileID: 477354, guid: 7cb02feeadf3242fcb880a8ad623414f, type: 2}
   m_PrefabInternal: {fileID: 1026225516}
@@ -3305,7 +3305,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc2585b0ca5349bc52d4dc3b166da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeather: 0
   camera: {fileID: 260663934}
   rain: {fileID: 1973816287}
   dry: {fileID: 1958643556}
@@ -4309,7 +4308,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4fe8ab172bc0e5a47813235c007b2302, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1541875005 stripped
+--- !u!4 &1541875005
 Transform:
   m_PrefabParentObject: {fileID: 458272, guid: dbe34456630f74fbba09aab7967e1db5, type: 2}
   m_PrefabInternal: {fileID: 1681079029}
@@ -4921,11 +4920,11 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 821ab55b46ef35c47802634c6c141308, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!1 &1958643556 stripped
+--- !u!1 &1958643556
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 96e70114d12f9a4498862895063eb1a7, type: 2}
   m_PrefabInternal: {fileID: 1122793601}
---- !u!4 &1958643559 stripped
+--- !u!4 &1958643559
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 96e70114d12f9a4498862895063eb1a7, type: 2}
   m_PrefabInternal: {fileID: 1122793601}
@@ -4983,19 +4982,19 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0787cd3ce876b0f40ad2e3715b1fc4fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!4 &1969772737 stripped
+--- !u!4 &1969772737
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 3e05b12b50e1f984c893d5772246884f, type: 2}
   m_PrefabInternal: {fileID: 1566513442}
---- !u!1 &1973816287 stripped
+--- !u!1 &1973816287
 GameObject:
   m_PrefabParentObject: {fileID: 100002, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_PrefabInternal: {fileID: 75539255}
---- !u!4 &1973816288 stripped
+--- !u!4 &1973816288
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_PrefabInternal: {fileID: 75539255}
---- !u!4 &1992402100 stripped
+--- !u!4 &1992402100
 Transform:
   m_PrefabParentObject: {fileID: 452610, guid: ffbdc09403cca44639f8f9d4a4da5ab2, type: 2}
   m_PrefabInternal: {fileID: 1173604829}

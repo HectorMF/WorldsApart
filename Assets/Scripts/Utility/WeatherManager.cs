@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
+using UnityStandardAssets.ImageEffects;
 
 public enum Weather { None, Dry, Rain, EarthQuake};
 
@@ -8,7 +9,6 @@ public class WeatherManager : MonoBehaviour
 {
     public static Weather weather = Weather.None;
 
-    public Weather initialWeather;
     public Camera camera;
     public GameObject rain;
     public GameObject dry;
@@ -19,7 +19,6 @@ public class WeatherManager : MonoBehaviour
 
     void Start()
     {
-        weather = initialWeather;
         UpdateWeather();
     }
 
@@ -44,11 +43,14 @@ public class WeatherManager : MonoBehaviour
 
         if (weather == Weather.Dry){
 			bloom.enabled = true;
+			grayscale.enabled = true;
             dry.SetActive(true);
+			((Grayscale)grayscale).effectAmount = -.3f;
 		}
         if (weather == Weather.Rain){
 			grayscale.enabled = true;
             rain.SetActive(true);
+			((Grayscale)grayscale).effectAmount = .3f;
 		}
         if (weather == Weather.EarthQuake){
             camera.DOShakePosition(10, .4f, 5);
