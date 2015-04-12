@@ -562,12 +562,12 @@ MonoBehaviour:
       - 'Field: bool active'
       values:
       - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":0,"RequiredFood":0,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
-      - '[0,0,0]'
+      - '[-1.21,-2.01,0]'
       - true
       - true
       - true
   id: 74aaaa56-e551-4c57-a049-4906efb3e250
-  targetOffset: {x: 0, y: 0, z: 0}
+  targetOffset: {x: -1.21000004, y: -2.00999999, z: 0}
   movePlayer: 1
   relative: 1
   active: 1
