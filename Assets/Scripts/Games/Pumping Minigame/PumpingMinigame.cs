@@ -20,7 +20,7 @@ public class PumpingMinigame : MonoBehaviour {
 
 	void Start ()
 	{
-		Fader.FadeToClear(2,2,"Pump Water", "Time pumps for max water");
+		//Fader.FadeToClear(2,2,"Pump Water", "Time pumps for max water");
 		currentState = State.Starting;
 		meterScript = GetComponentInChildren<GUIMeter>();
 		meterScript.enabled = false;
@@ -46,7 +46,7 @@ public class PumpingMinigame : MonoBehaviour {
 				playTime = UpdateTimer(playTime);
 			break;
 		case State.Finishing:
-			Fader.FadeToBlack(0,2,"Game Over");
+			Fader.FadeOutIn(Fader.Gesture.None,0,2,"Game Over","",()=>Application.LoadLevel("WaterGame"));
 			meterScript.enabled = false;
 			currentState = State.Finished;
 			break;
@@ -56,10 +56,7 @@ public class PumpingMinigame : MonoBehaviour {
 			break;
 		}
 	}
-	void EndGame()
-	{
-		Application.LoadLevel("WaterGame");
-	}
+
 	private float UpdateTimer (float time) 
 	{
 		oldSeconds = seconds;
