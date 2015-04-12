@@ -109,7 +109,7 @@ public class WaterGameLogic {
         Fader.FadeOutIn(Fader.Gesture.None, 0, 2, 
             string.Format(@"You reached the village with 
 {0: 0.0} liters of water 
-out of {1: 0.0} capacity", water, maxWater),"", ()=>Application.LoadLevel("WorldsApart"),24);
+out of {1: 0.0} capacity", water, maxWater),"", ()=>Application.LoadLevel("WorldsApart"),35);
         GameIsFinished(true);
     }
 
