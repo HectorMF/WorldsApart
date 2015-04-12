@@ -1395,6 +1395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!1 &1009558977
 GameObject:
@@ -1464,6 +1465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!1 &1063453817
 GameObject:
@@ -1526,6 +1528,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!114 &1065944443
 MonoBehaviour:
@@ -1840,6 +1843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!1 &1317975982
 GameObject:
@@ -1909,6 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!1 &1338362806
 GameObject:
@@ -1978,6 +1983,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!1 &1388912676
 GameObject:
@@ -2303,6 +2309,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!95 &1676595281
 Animator:
@@ -2488,6 +2495,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!212 &1979265770
 SpriteRenderer:
@@ -2660,6 +2668,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scale: 1
+  duration: 4
   Land: {fileID: 2139733377}
 --- !u!1 &2097710105
 GameObject:
@@ -2707,7 +2716,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: .0620689392, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9130d16faf5e644bab762986afce045, type: 3}
     m_FontSize: 40
