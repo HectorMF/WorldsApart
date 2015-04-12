@@ -46,6 +46,7 @@ public class PumpingMinigame : MonoBehaviour {
 				playTime = UpdateTimer(playTime);
 			break;
 		case State.Finishing:
+			ThirdWorldManager.Instance.UsedAction();
 			Fader.FadeOutIn(Fader.Gesture.None,0,2,"Game Over","",()=>Application.LoadLevel("WaterGame"));
 			meterScript.enabled = false;
 			currentState = State.Finished;
