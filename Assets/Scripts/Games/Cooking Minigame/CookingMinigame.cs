@@ -16,7 +16,8 @@ public class CookingMinigame : MonoBehaviour {
 
 	// Timer stuff
 	public float playTime = 45f;
-	float countDownTime = 6f;
+	float time;
+	float countDownTime = 3f;
 	int minutes;
 	int seconds;
 	int oldSeconds;
@@ -86,7 +87,6 @@ public class CookingMinigame : MonoBehaviour {
 	}
 	void UpdateTimer()
 	{
-		float time = 0;
 		if (currentState == State.Starting)
 		{
 			countDownTime -= Time.deltaTime;
@@ -104,7 +104,10 @@ public class CookingMinigame : MonoBehaviour {
 		//instead of updating every frame, update every second change
 		if (seconds != oldSeconds)
 		{
-			timer.text = minutes + ":" + seconds.ToString("00");
+			if (currentState == State.Starting && seconds == 2) timer.text = "Ready";
+			else if (currentState == State.Starting && seconds == 1) timer.text = "Set";
+			else if (currentState == State.Starting && seconds == 0) timer.text = "Go!";
+			else timer.text = minutes + ":" + seconds.ToString("00");
 			
 			if (minutes == 0 && seconds <= 10)
 			{

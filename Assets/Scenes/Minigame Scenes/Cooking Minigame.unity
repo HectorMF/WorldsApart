@@ -1396,7 +1396,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -1423,7 +1423,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -875, y: 1000}
-  m_SizeDelta: {x: 300, y: 80}
+  m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &1211222328
 GameObject:
@@ -1741,9 +1741,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .049523294
+    y: .0501532853
     width: 1
-    height: .900953412
+    height: .899693429
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
