@@ -51,20 +51,9 @@ public class CookingMinigame : MonoBehaviour {
 	void Start()
 	{
 		pitColor = firePit.GetComponent<SpriteRenderer>();
-		if(ThirdWorldManager.Instance.CurrentFood < 3) 
-		{
-			currentState = State.Finishing;
-			timeCooking = ThirdWorldManager.Instance.CurrentFood * 5;
-			endGameText = "Not enough food!";
-		}
-		else
-		{
-			Fader.FadeToClear(2,2, "Start the fire", "Swipe up and down to fan the coals");
-			currentState = State.Starting;
-			ThirdWorldManager.Instance.DecrementFood(3);
-			endGameText = "GameOver";
-		} 
-
+		Fader.FadeToClear(2,2, "Start the fire", "Swipe up and down to fan the coals");
+		currentState = State.Starting;
+		ThirdWorldManager.Instance.DecrementFood(3);
 		pitColor.color = cold;
 		currentColor = cold;
 		//flameDegradeRate = ThirdWorldManager.instance.difficulty;
@@ -191,6 +180,7 @@ public class CookingMinigame : MonoBehaviour {
 		int foodGain = 0;
 		foodGain = Mathf.FloorToInt(timeCooking/5);
 		ThirdWorldManager.Instance.IncrementFood(foodGain);
+		ThirdWorldManager.Instance.UsedAction();
 		Application.LoadLevel("WorldsApart");
 	}
 }
