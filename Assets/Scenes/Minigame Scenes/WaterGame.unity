@@ -1577,14 +1577,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .049523294
+    y: .0491071641
     width: 1
-    height: .900953412
+    height: .901785672
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.625
+  orthographic size: 5.62499952
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1875,7 +1875,7 @@ GameObject:
   - 4: {fileID: 979318682}
   - 114: {fileID: 979318681}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Water Game Resources
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

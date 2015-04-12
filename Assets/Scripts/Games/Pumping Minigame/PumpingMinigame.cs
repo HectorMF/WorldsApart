@@ -52,7 +52,6 @@ public class PumpingMinigame : MonoBehaviour {
 			break;
 		case State.Finished:
 			this.enabled = false;
-			Invoke("EndGame", 3);
 			break;
 		}
 	}
