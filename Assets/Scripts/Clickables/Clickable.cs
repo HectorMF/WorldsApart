@@ -26,6 +26,9 @@ namespace WorldsApart.Clickables
 
         void OnMouseUpAsButton()
         {
+			if (!enabled)
+				return;
+
             var player = GameObject.Find("MainChar");
 
             if (player != null)
