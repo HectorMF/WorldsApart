@@ -46,7 +46,6 @@ public class Thirst : MonoBehaviour {
 	
 	public void Drink()
 	{
-		ThirdWorldManager.Instance.UsedAction();
 		if(NoWaterRequirementOnRainyDay())
 		{
 			DrinkSuccess();
