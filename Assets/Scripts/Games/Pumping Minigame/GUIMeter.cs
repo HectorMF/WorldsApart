@@ -52,7 +52,7 @@ public class GUIMeter : MonoBehaviour
 			if (rand <= chanceDirtyWater)
 			{
 				pumpRenderer.color = dirtyWater;
-				ThirdWorldManager.Instance.DecrementWater(ThirdWorldManager.Instance.CurrentWater);
+				ThirdWorldManager.Instance.DecrementWater(ThirdWorldManager.Instance.CurrentWater - startingWater);
 			}
 			else{
 				pumpRenderer.color = Color.white;
