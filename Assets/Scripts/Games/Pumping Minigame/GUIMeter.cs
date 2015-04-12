@@ -8,13 +8,14 @@ public class GUIMeter : MonoBehaviour
 	public float speed = 0.1f;
 
 
-	private int difficulty;
-	private float oldValue;
-	private float currentValue;
-	private Slider slider;
-	private bool draining;
-	private float drainSpeed;
-	private PumpAnimator pumpAnim;
+	int difficulty;
+	int waterPumped;
+	float oldValue;
+	float currentValue;
+	Slider slider;
+	bool draining;
+	float drainSpeed;
+	PumpAnimator pumpAnim;
 	Color dirtyWater = new Color(182f/255f, 145f/255f, 49f/255f, 1f);
 	float chanceDirtyWater = 2;
 	int startingWater;
@@ -52,10 +53,12 @@ public class GUIMeter : MonoBehaviour
 			if (rand <= chanceDirtyWater)
 			{
 				pumpRenderer.color = dirtyWater;
+				waterPumped = 0;
 				ThirdWorldManager.Instance.DecrementWater(ThirdWorldManager.Instance.CurrentWater - startingWater);
 			}
 			else{
 				pumpRenderer.color = Color.white;
+				waterPumped += Mathf.FloorToInt(slider.value);
 				ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
 			}
 		}
@@ -67,6 +70,9 @@ public class GUIMeter : MonoBehaviour
 		}
 		else 
 			slider.value += speed * Time.deltaTime * difficulty;
-
+	}
+	public int GetWaterPumped()
+	{
+		return waterPumped;
 	}
 }

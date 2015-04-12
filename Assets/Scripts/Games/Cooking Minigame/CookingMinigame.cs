@@ -12,7 +12,6 @@ public class CookingMinigame : MonoBehaviour {
 	public Transform firePit;
 	public Text timer;
 	public Text temperatureText;
-	string endGameText;
 
 	// Timer stuff
 	public float playTime = 45f;
@@ -76,7 +75,7 @@ public class CookingMinigame : MonoBehaviour {
 			}
 			break;
 		case State.Finishing:
-			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, endGameText, string.Format("You cooked {0} food!", FoodGain()), EndGame); 
+			Fader.FadeOutIn(Fader.Gesture.None, 0, 2,string.Format("You cooked {0} food!", FoodGain()),"", EndGame); 
 			currentState = State.Finished;
 			break;
 		case State.Finished:
