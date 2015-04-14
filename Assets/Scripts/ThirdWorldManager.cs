@@ -59,7 +59,7 @@ public class ThirdWorldManager
     private static ThirdWorldManager instance;
     private ThirdWorldManager()
     {
-        LoadData();
+        //LoadData();
         Reinitialize();
         Report();
     }

@@ -2,26 +2,32 @@
 using System.Collections;
 using Parse;
 
+
 public class TestSave : MonoBehaviour {
 
     bool paused;
+
+    void Awake()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
 	// Use this for initialization
 	void Start () {
-        Save();
+        
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey("p"))
+        if (Input.GetKeyDown("p"))
         {
-            OnApplicationPause(true);
+            Save();
             //OnApplicationFocus(true);
         }
 	}
     void OnApplicationPause(bool pauseStatus)
     {
         paused = pauseStatus;
-      //  Save();
+        
         
     }
     void OnApplicationFocus(bool focusStatus)
@@ -30,30 +36,57 @@ public class TestSave : MonoBehaviour {
     private bool Save()
     {
         Debug.Log("Saving...");
-        ParseObject SaveObject = new ParseObject("SaveObject");
-        SaveObject["Device ID"] = SystemInfo.deviceUniqueIdentifier;
-        SaveObject["Days Alive"] = 4; //TODO: Get the number of days alive
-        SaveObject["Has Pack"] = false; //TODO: Get if the player has Ph2o
-        SaveObject["Water"] = ThirdWorldManager.Instance.CurrentWater;
-        SaveObject["Food"] = ThirdWorldManager.Instance.CurrentFood;
-        SaveObject["Mood"] = (int)ThirdWorldManager.Instance.CurrentMood;
-        var save = SaveObject.SaveAsync();
-        if(save.IsCompleted)
+        ParseObject result = new ParseObject("SaveObject");
+        // First set up a callback.
+        ParseObject obj;
+        for (int i = 0; i < 4; i++)
         {
-            Debug.Log("Save Completed!");
+            var query = ParseObject.GetQuery("GameScore")
+                .WhereEqualTo("DeviceID", SystemInfo.deviceUniqueIdentifier.ToString());
+
         }
-        else
+            Debug.Log("Result is" + result.ClassName);
+
+        if (result.ClassName == "SaveObject")
         {
-            if(save.IsCanceled)
+            ParseObject dataObject = new ParseObject("SaveObject");
+
+            dataObject["DeviceID"] = SystemInfo.deviceUniqueIdentifier.ToString();
+            dataObject["DaysAlive"] = 4; //TODO: Get the number of days alive
+            dataObject["HasPack"] = false; //TODO: Get if the player has Ph2o
+            dataObject["Water"] = ThirdWorldManager.Instance.CurrentWater;
+            dataObject["Food"] = ThirdWorldManager.Instance.CurrentFood;
+            dataObject["Mood"] = (int)ThirdWorldManager.Instance.CurrentMood;
+
+            var save = dataObject.SaveAsync();
+            bool finishSaved = false;
+            int tries = 0;
+            Debug.Log("Saving..");
+            if (save.IsCompleted)
             {
-                Debug.Log("Saving is canceled");
+                Debug.Log("Save Completed!");
             }
-            if(save.IsFaulted)
+            while (!finishSaved && tries < 4)
             {
-                Debug.Log("Saving is crapped out");
+                Debug.Log("...");
+                if (save.IsCanceled)
+                {
+                    Debug.Log("Saving is canceled");
+                    finishSaved = true;
+                }
+                if (save.IsFaulted)
+                {
+                    Debug.Log("Saving is crapped out");
+                    finishSaved = true;
+                }
+                if (save.IsCompleted)
+                {
+                    Debug.Log("Save Completed!");
+                }
+                tries++;
             }
-            Debug.Log("SAVE STATUS:" + save.IsCompleted);
+            return save.IsCompleted;
         }
-        return save.IsCompleted;
+        return false;
     }
 }
