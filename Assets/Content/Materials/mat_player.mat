@@ -83,3 +83,11 @@ Material:
         first:
           name: _Color6out
         second: {r: 0, g: 0, b: 0, a: 1}
+      data:
+        first:
+          name: _Color7in
+        second: {r: 0, g: 0, b: 1, a: 1}
+      data:
+        first:
+          name: _Color7out
+        second: {r: .254901975, g: .34117648, b: .368627459, a: 1}

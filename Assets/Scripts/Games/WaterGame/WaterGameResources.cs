@@ -12,7 +12,7 @@ public class WaterGameResources: MonoBehaviour {
     public Text DistanceText;
 
 	public void Start(){
-		Fader.FadeToClear(Fader.Gesture.Balance,0, 2, "Carry Your Water", "Don't Spill");
+		//Fader.FadeToClear(Fader.Gesture.Balance,0, 2, "Carry Your Water", "Don't Spill");
 	}
     private WaterGameResources()
     {
@@ -48,13 +48,5 @@ public class WaterGameResources: MonoBehaviour {
     {
         BucketSizeValue = WaterGameLogic.Instance.maxWater;
         CurrentWater = WaterGameLogic.Instance.water;
-    }
-    public void LoadNextLevel()
-    {
-        Invoke("LoadLevel", 3);
-    }
-    private void LoadLevel()
-    {
-        Application.LoadLevel("WorldsApart");
     }
 }

@@ -15,8 +15,23 @@ public class Fader : MonoBehaviour {
 	public GameObject tap;
 	public GameObject balance;
 
-	void Awake () {
-		instance = this;
+	static private Fader Instance
+	{
+		get
+		{
+			if (instance == null)
+			{
+				instance = Object.FindObjectOfType(typeof(Fader)) as Fader;
+				
+				if (instance == null)
+				{
+					GameObject go = (GameObject)Instantiate(Resources.Load("Fader Canvas"));
+					DontDestroyOnLoad(go);
+					instance = go.GetComponentsInChildren<Fader>()[0];
+				}
+			}
+			return instance;
+		}
 	}
 
 	private void SetGesture(Gesture gesture)
@@ -45,21 +60,29 @@ public class Fader : MonoBehaviour {
 
 	public static void FadeToBlack(Gesture gesture, float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null,int titleFont = 50, int subTitleFont = 30)
 	{
-		instance.SetGesture(gesture);
-		instance.title.text = title;
-		instance.subTitle.text = subtitle;
-		instance.title.fontSize = titleFont;
-		instance.subTitle.fontSize = subTitleFont;
-		instance.group.DOFade(1, duration).SetDelay(delay).OnComplete(action);
+		Instance.group.alpha = 0;
+		Instance.SetGesture(gesture);
+		Instance.title.text = title;
+		Instance.subTitle.text = subtitle;
+		Instance.title.fontSize = titleFont;
+		Instance.subTitle.fontSize = subTitleFont;
+		Instance.group.DOFade(1, duration).SetDelay(delay).OnComplete(action);
 	}
 	
 	public static void FadeToClear(Gesture gesture, float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null, int titleFont = 50, int subTitleFont = 30)
 	{
-		instance.SetGesture(gesture);
-		instance.title.text = title;
-		instance.subTitle.text = subtitle;
-		instance.title.fontSize = titleFont;
-		instance.subTitle.fontSize = subTitleFont;
-		instance.group.DOFade(0, duration).SetDelay(delay).OnComplete(action);
+		Instance.group.alpha = 1;
+		Instance.SetGesture(gesture);
+		Instance.title.text = title;
+		Instance.subTitle.text = subtitle;
+		Instance.title.fontSize = titleFont;
+		Instance.subTitle.fontSize = subTitleFont;
+		Instance.group.DOFade(0, duration).SetDelay(delay).OnComplete(action);
+	}
+
+	public static void FadeOutIn(Gesture gesture, float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null, int titleFont = 50, int subTitleFont = 30)
+	{
+		FadeToBlack(gesture, delay, duration,title, subtitle, ()=>
+		            {FadeToClear(gesture, delay, duration,title, subtitle, null, titleFont, subTitleFont); action();}, titleFont, subTitleFont);
 	}
 }

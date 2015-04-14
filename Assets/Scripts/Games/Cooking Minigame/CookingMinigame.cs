@@ -12,11 +12,11 @@ public class CookingMinigame : MonoBehaviour {
 	public Transform firePit;
 	public Text timer;
 	public Text temperatureText;
-	string endGameText;
 
 	// Timer stuff
 	public float playTime = 45f;
-	float countDownTime = 6f;
+	float time;
+	float countDownTime = 3f;
 	int minutes;
 	int seconds;
 	int oldSeconds;
@@ -51,20 +51,8 @@ public class CookingMinigame : MonoBehaviour {
 	void Start()
 	{
 		pitColor = firePit.GetComponent<SpriteRenderer>();
-		if(ThirdWorldManager.Instance.CurrentFood < 3) 
-		{
-			currentState = State.Finishing;
-			timeCooking = ThirdWorldManager.Instance.CurrentFood * 5;
-			endGameText = "Not enough food!";
-		}
-		else
-		{
-			Fader.FadeToClear(2,2, "Start the fire", "Swipe up and down to fan the coals");
-			currentState = State.Starting;
-			ThirdWorldManager.Instance.DecrementFood(3);
-			endGameText = "GameOver";
-		} 
-
+		currentState = State.Starting;
+		ThirdWorldManager.Instance.DecrementFood(3);
 		pitColor.color = cold;
 		currentColor = cold;
 		//flameDegradeRate = ThirdWorldManager.instance.difficulty;
@@ -87,7 +75,7 @@ public class CookingMinigame : MonoBehaviour {
 			}
 			break;
 		case State.Finishing:
-			Fader.FadeToBlack(0,2,endGameText);
+			Fader.FadeOutIn(Fader.Gesture.None, 0, 2,string.Format("You cooked {0} food!", FoodGain()),"", EndGame); 
 			currentState = State.Finished;
 			break;
 		case State.Finished:
@@ -98,7 +86,6 @@ public class CookingMinigame : MonoBehaviour {
 	}
 	void UpdateTimer()
 	{
-		float time = 0;
 		if (currentState == State.Starting)
 		{
 			countDownTime -= Time.deltaTime;
@@ -116,7 +103,10 @@ public class CookingMinigame : MonoBehaviour {
 		//instead of updating every frame, update every second change
 		if (seconds != oldSeconds)
 		{
-			timer.text = minutes + ":" + seconds.ToString("00");
+			if (currentState == State.Starting && seconds == 2) timer.text = "Ready";
+			else if (currentState == State.Starting && seconds == 1) timer.text = "Set";
+			else if (currentState == State.Starting && seconds == 0) timer.text = "Go!";
+			else timer.text = minutes + ":" + seconds.ToString("00");
 			
 			if (minutes == 0 && seconds <= 10)
 			{
@@ -188,9 +178,13 @@ public class CookingMinigame : MonoBehaviour {
 	}
 	void EndGame()
 	{
-		int foodGain = 0;
-		foodGain = Mathf.FloorToInt(timeCooking/5);
-		ThirdWorldManager.Instance.IncrementFood(foodGain);
+		ThirdWorldManager.Instance.IncrementFood(FoodGain());
+		ThirdWorldManager.Instance.UsedAction();
 		Application.LoadLevel("WorldsApart");
+	}
+
+	int FoodGain()
+	{
+		return Mathf.FloorToInt(timeCooking/5);
 	}
 }

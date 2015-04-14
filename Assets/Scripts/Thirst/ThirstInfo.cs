@@ -27,6 +27,12 @@ public class ThirstInfo {
 		return this;
 	}
 
+	public ThirstInfo Cow()
+	{
+		requirements = WaterRequirements (3, 3, 1);
+		return this;
+	}
+
 	public ThirstInfo Crops()
 	{
 		requirements = WaterRequirements(1, 1, 10);
@@ -36,6 +42,12 @@ public class ThirstInfo {
 	public ThirstInfo Family()
 	{
 		requirements = WaterRequirements(3, 3, 4);
+		return this;
+	}
+
+	public ThirstInfo FirePit()
+	{
+		requirements = WaterRequirements (99999, 2, 1);
 		return this;
 	}
 

@@ -10,13 +10,10 @@ public class MilkingMinigame : MonoBehaviour {
     private int minutes;
     private int oldSeconds;
 
-	void Start(){
-		Fader.FadeToClear(Fader.Gesture.Swipe, 2, 2,"Milk The Cow");
-	}
-
 	void Update () {
         if (time <= 0) {
             this.enabled = false;
+			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, "You have gained +" + "10" + " Food.", "",()=>Application.LoadLevel("WorldsApart"));
             return;
         }
 
@@ -38,13 +35,5 @@ public class MilkingMinigame : MonoBehaviour {
                timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
             }
         }
-		
-        if (seconds <= 0)
-			Fader.FadeToBlack(0, 2, "", "",EndGame);
-        
-	}
-
-	void EndGame() {
-		Application.LoadLevel("WorldsApart");
 	}
 }

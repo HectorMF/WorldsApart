@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Linq;
 using WorldsApart.Utility;
 using UnityStandardAssets.ImageEffects;
 using DG.Tweening;
@@ -10,6 +11,7 @@ public class MenuController : MonoBehaviour {
 
     public float delay = 1f;
     public float duration = 3f;
+    public GameObject Scene;
 
     private bool buttonReady;
     private float step;
@@ -23,6 +25,11 @@ public class MenuController : MonoBehaviour {
         origScale = button.localScale;
         button.localScale = new Vector3(0f, 0f, 0f);
         buttonReady = false;
+        if (Scene != null)
+        {
+            foreach (var a in Scene.GetComponentsInChildren<Animator>()) a.enabled = false;
+            foreach (var a in Scene.GetComponentsInChildren<ScrollTexture>()) a.enabled = false;
+        }
 	}
 	
 	// Update is called once per frame
@@ -38,11 +45,13 @@ public class MenuController : MonoBehaviour {
         {
           	button.DOScale(origScale, 1f);
 			//button.DOPunchScale(new Vector3(0,0,0),2f).SetDelay(2f);//.DOShakeScale(2f, 1f,10).SetDelay(.506f);
-        }
-        if (cameraGreyscale.effectAmount < 0f)
-        {
             Wander.pause = false;
             cameraGreyscale.effectAmount = 0f;
+            if (Scene != null)
+            {
+                foreach (var a in Scene.GetComponentsInChildren<Animator>()) a.enabled = true;
+                foreach (var a in Scene.GetComponentsInChildren<ScrollTexture>()) a.enabled = true;
+            }
         }
 	}
 }

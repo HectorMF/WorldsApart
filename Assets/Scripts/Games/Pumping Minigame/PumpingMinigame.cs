@@ -6,21 +6,21 @@ using DG.Tweening;
 public class PumpingMinigame : MonoBehaviour {
 	public Text timer;
 
-	private enum State {Starting, Started, Finishing, Finished}
-	private State currentState;
+	enum State {Starting, Started, Finishing, Finished}
+	State currentState;
 
-	private float countDownTime = 6f;
-	private float playTime = 20f;
+	float countDownTime = 3f;
+	float playTime = 20f;
 
-	private int minutes;
-	private int seconds;
-	private int oldSeconds;
+	float time;
+	int minutes;
+	int seconds;
+	int oldSeconds;
 
-	private GUIMeter meterScript;
+	GUIMeter meterScript;
 
 	void Start ()
 	{
-		Fader.FadeToClear(2,2,"Pump Water", "Time pumps for max water");
 		currentState = State.Starting;
 		meterScript = GetComponentInChildren<GUIMeter>();
 		meterScript.enabled = false;
@@ -36,42 +36,47 @@ public class PumpingMinigame : MonoBehaviour {
 				meterScript.enabled = true;
 			}
 			else 
-				countDownTime = UpdateTimer(countDownTime);
+				UpdateTimer();
 			break;
 		case State.Started:
 			if (playTime <= 0){
 				currentState = State.Finishing;
 			}
 			else 
-				playTime = UpdateTimer(playTime);
+				UpdateTimer();
 			break;
 		case State.Finishing:
-			Fader.FadeToBlack(0,2,"Game Over");
+			Fader.FadeOutIn(Fader.Gesture.None,0,2,string.Format("You gained {0} water!", meterScript.GetWaterPumped()),"",EndGame);
 			meterScript.enabled = false;
 			currentState = State.Finished;
 			break;
 		case State.Finished:
 			this.enabled = false;
-			Invoke("EndGame", 3);
 			break;
 		}
 	}
-	void EndGame()
-	{
-		Application.LoadLevel("WaterGame");
-	}
-	private float UpdateTimer (float time) 
+
+	void UpdateTimer () 
 	{
 		oldSeconds = seconds;
-
-		time -= Time.deltaTime;
+		if (currentState == State.Starting){
+			countDownTime -= Time.deltaTime;
+			time = countDownTime;
+		} 
+		else {
+			playTime -= Time.deltaTime;
+			time = playTime;
+		}
 		minutes = (int)(time / 60);
 		seconds = (int)(time % 60);
 		
 		//instead of updating every frame, update every second change
 		if (seconds != oldSeconds)
 		{
-			timer.text = minutes + ":" + seconds.ToString("00");
+			if (currentState == State.Starting && seconds == 2) timer.text = "Ready";
+			else if (currentState == State.Starting && seconds == 1) timer.text = "Set";
+			else if (currentState == State.Starting && seconds == 0) timer.text = "Go!";
+			else timer.text = minutes + ":" + seconds.ToString("00");
 			
 			if (minutes == 0 && seconds <= 10)
 			{
@@ -79,7 +84,11 @@ public class PumpingMinigame : MonoBehaviour {
 				timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
 			}
 		}
-		return time;
+	}
+	void EndGame()
+	{
+		ThirdWorldManager.Instance.UsedAction();
+		Application.LoadLevel("WorldsApart");
 	}
 }
 

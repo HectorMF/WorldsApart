@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ChickenThirst : AnimalThirst {
+public class ChickenThirst : Thirst {
 	
 	void Start ()
 	{

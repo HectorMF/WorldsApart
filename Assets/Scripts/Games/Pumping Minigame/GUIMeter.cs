@@ -4,23 +4,25 @@ using UnityEngine.UI;
 
 public class GUIMeter : MonoBehaviour 
 {
+	public Transform pump;
 	public float speed = 0.1f;
 
-	private int difficulty;
-	private float oldValue;
-	private float currentValue;
-	private Slider slider;
-	private ScoreController scoreController;
-	private bool draining;
-	private float drainSpeed;
-	private PumpAnimator pumpAnim;
+
+	int difficulty;
+	int waterPumped;
+	float oldValue;
+	float currentValue;
+	Slider slider;
+	bool draining;
+	float drainSpeed;
+	PumpAnimator pumpAnim;
+	Color dirtyWater = new Color(182f/255f, 145f/255f, 49f/255f, 1f);
+	float chanceDirtyWater = 2;
+	int startingWater;
+	SpriteRenderer pumpRenderer;
 	
 	void Start () 
 	{
-		GameObject scoreObject = GameObject.Find("ScoreController");
-		if(scoreObject != null)
-			scoreController = scoreObject.GetComponent<ScoreController>();
-
 		slider = this.GetComponent<Slider>();
 		if (slider != null){
 			slider.maxValue = 3;
@@ -32,11 +34,14 @@ public class GUIMeter : MonoBehaviour
 		draining = false;
 		drainSpeed = 2 * -speed;
 		pumpAnim = GetComponentInChildren<PumpAnimator>();
+		startingWater = ThirdWorldManager.Instance.CurrentWater;
+		pumpRenderer = pump.GetComponent<SpriteRenderer>();
 
 	}
 
 	void Update () 
 	{
+		int rand;
 		if(slider.value == slider.maxValue || slider.value == slider.minValue)
 			speed = -speed;
 
@@ -44,9 +49,18 @@ public class GUIMeter : MonoBehaviour
 		{
 			draining = true;
 			pumpAnim.Pump();
-			//if(scoreController != null)
-			//	scoreController.Water += slider.value;
-			WaterGameLogic.Instance.water +=(Mathf.FloorToInt(slider.value));
+			rand = Random.Range(1, 101);
+			if (rand <= chanceDirtyWater)
+			{
+				pumpRenderer.color = dirtyWater;
+				waterPumped = 0;
+				ThirdWorldManager.Instance.DecrementWater(ThirdWorldManager.Instance.CurrentWater - startingWater);
+			}
+			else{
+				pumpRenderer.color = Color.white;
+				waterPumped += Mathf.FloorToInt(slider.value);
+				ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
+			}
 		}
 		else if (draining)
 		{
@@ -56,6 +70,9 @@ public class GUIMeter : MonoBehaviour
 		}
 		else 
 			slider.value += speed * Time.deltaTime * difficulty;
-
+	}
+	public int GetWaterPumped()
+	{
+		return waterPumped;
 	}
 }

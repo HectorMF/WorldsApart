@@ -8,13 +8,13 @@ namespace WorldsApart.Handlers
 {
 	public class DismissInfoPopUpHandler : Handler {
 
-		public GameObject WaterIndicator;
+		public GameObject ActionIndicator;
 		public override void innerDelegate()
 		{
 			gameObject.transform.parent.gameObject.SetActive(false);
 			Thirst thirst = gameObject.GetComponentInParent<Thirst> ();
 			if (thirst != null && thirst.NeedsWater ()) {
-				WaterIndicator.SetActive(true);
+				ActionIndicator.SetActive (true);
 			}
 		}
 	}
