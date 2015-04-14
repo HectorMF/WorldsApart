@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 using WorldsApart.Handlers;
+using Parse;
+using System.Collections.Generic;
 
 
 public class ThirdWorldManager 
@@ -27,6 +29,7 @@ public class ThirdWorldManager
     private int currentFood, actions, availableWater;
     private int prevWater = 0;
     private int _currentWater;
+    private int _daysAlive;
 
     #region Properties
     public int WaterCapacity = 20;
@@ -56,6 +59,7 @@ public class ThirdWorldManager
     private static ThirdWorldManager instance;
     private ThirdWorldManager()
     {
+        LoadData();
         Reinitialize();
         Report();
     }
@@ -76,10 +80,11 @@ public class ThirdWorldManager
     #region PrivateMethods
     private void Reinitialize()
     {
-        currentWater = currentFood = 0;
+        
         float rand = Random.Range(0.0f, 1.0f);
         if (rand < 0.1f)
         {
+            WeatherManager.weather = global::Weather.Rain;
             currentWeather = Weather.Rainy;
             availableWater = Random.Range(35, 45);
             IncrementMood();
@@ -87,12 +92,14 @@ public class ThirdWorldManager
         }
         else if (rand < 0.7f)
         {
+            WeatherManager.weather = global::Weather.None;
             currentWeather = Weather.Nice;
             availableWater = Random.Range(25, 35);
             actions = (int)CurrentMood;
         }
         else
         {
+            WeatherManager.weather = global::Weather.Dry;
             currentWeather = Weather.Dry;
             availableWater = Random.Range(15, 25);
             DecrementMood();
@@ -119,6 +126,27 @@ public class ThirdWorldManager
         Report();
         if (OnDayEnd != null) OnDayEnd();
         Reinitialize();
+    }
+
+    private bool LoadData()
+    {
+        ParseObject result = new ParseObject("NullObject");
+        ParseQuery<ParseObject> query = ParseObject.GetQuery("SaveObject").WhereEqualTo("Device ID", SystemInfo.deviceUniqueIdentifier);
+        query.FirstAsync().ContinueWith(t =>
+        {
+            result = t.Result;
+        });
+        if(result.ClassName == "SaveObject")
+        {
+            _currentWater = result.Get<int>("Water");
+            currentFood = result.Get<int>("Food");
+            CurrentMood = (Mood.MoodNames)result.Get<int>("Mood");
+            _daysAlive = result.Get<int>("Days Alive");
+            _hasPack = result.Get<bool>("Has Pack");
+            return true;
+        }
+        currentWater = currentFood = 0;
+        return false;
     }
 
 
