@@ -6,7 +6,7 @@ Material:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Sink
+  m_Name: Towel
   m_Shader: {fileID: 4800000, guid: 4d3c38d6ac50ffa4d92d6cb70f0c5f77, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 5
@@ -158,52 +158,52 @@ Material:
       data:
         first:
           name: _Color1out
-        second: {r: .448529422, g: .448529422, b: .448529422, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
           name: _Color2in
-        second: {r: 1, g: 0, b: 1, a: 1}
-      data:
-        first:
-          name: _Color2out
-        second: {r: .558823526, g: .558823526, b: .558823526, a: 1}
-      data:
-        first:
-          name: _Color3in
-        second: {r: 0, g: 1, b: 0, a: 1}
-      data:
-        first:
-          name: _Color3out
-        second: {r: .617647052, g: .635813117, b: .635813117, a: 1}
-      data:
-        first:
-          name: _Color4in
         second: {r: 1, g: 1, b: 0, a: 1}
       data:
         first:
+          name: _Color2out
+        second: {r: .875, g: .738349259, b: .501838267, a: 1}
+      data:
+        first:
+          name: _Color3in
+        second: {r: 1, g: 0, b: 1, a: 1}
+      data:
+        first:
+          name: _Color3out
+        second: {r: .786764741, g: .786764741, b: .786764741, a: 1}
+      data:
+        first:
+          name: _Color4in
+        second: {r: 0, g: 1, b: 0, a: 1}
+      data:
+        first:
           name: _Color4out
-        second: {r: .227941155, g: .22458908, b: .22458908, a: 1}
+        second: {r: .602941155, g: .602941155, b: .602941155, a: 1}
       data:
         first:
           name: _Color5in
-        second: {r: 0, g: 0, b: 0, a: 1}
-      data:
-        first:
-          name: _Color5out
-        second: {r: .258823544, g: .231372565, b: .231372565, a: 1}
-      data:
-        first:
-          name: _Color6in
         second: {r: 0, g: 0, b: 1, a: 1}
       data:
         first:
-          name: _Color6out
-        second: {r: .227450997, g: .200000018, b: .200000018, a: 1}
+          name: _Color5out
+        second: {r: .507352948, g: .492430806, b: .492430806, a: 1}
       data:
         first:
-          name: _Color7in
+          name: _Color6in
         second: {r: 0, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _Color6out
+        second: {r: .764705896, g: 1, b: .980527401, a: 1}
+      data:
+        first:
+          name: _Color7in
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
           name: _Color7out
-        second: {r: .454901993, g: .454901993, b: .454901993, a: 1}
+        second: {r: 1, g: 1, b: 1, a: 1}
