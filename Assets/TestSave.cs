@@ -33,31 +33,33 @@ public class TestSave : MonoBehaviour {
     void OnApplicationFocus(bool focusStatus)
     {
     }
-    private bool Save()
+    private void Save()
     {
         Debug.Log("Saving...");
         ParseObject result = new ParseObject("SaveObject");
-        // First set up a callback.
-        ParseObject obj;
-        for (int i = 0; i < 4; i++)
+        var deviceId = SystemInfo.deviceUniqueIdentifier.ToString();
+
+        var query = ParseObject.GetQuery("SaveObject")
+            .WhereEqualTo("DeviceID", deviceId).CountAsync().ContinueWith(t =>
+                { int count = t.Result;
+                Debug.Log("Count:" + count);
+                Save(count, deviceId);
+                });
+            
+
+    }
+    
+    public void Save(int numberOfExistingRecords, string deviceId)
+    {
+        ParseObject dataObject = new ParseObject("SaveObject");
+        dataObject["DeviceID"] = deviceId;
+        dataObject["DaysAlive"] = 4; //TODO: Get the number of days alive
+        dataObject["HasPack"] = false; //TODO: Get if the player has Ph2o
+        dataObject["Water"] = ThirdWorldManager.Instance.CurrentWater;
+        dataObject["Food"] = ThirdWorldManager.Instance.CurrentFood;
+        dataObject["Mood"] = (int)ThirdWorldManager.Instance.CurrentMood;
+        if (numberOfExistingRecords == 0)
         {
-            var query = ParseObject.GetQuery("GameScore")
-                .WhereEqualTo("DeviceID", SystemInfo.deviceUniqueIdentifier.ToString());
-
-        }
-            Debug.Log("Result is" + result.ClassName);
-
-        if (result.ClassName == "SaveObject")
-        {
-            ParseObject dataObject = new ParseObject("SaveObject");
-
-            dataObject["DeviceID"] = SystemInfo.deviceUniqueIdentifier.ToString();
-            dataObject["DaysAlive"] = 4; //TODO: Get the number of days alive
-            dataObject["HasPack"] = false; //TODO: Get if the player has Ph2o
-            dataObject["Water"] = ThirdWorldManager.Instance.CurrentWater;
-            dataObject["Food"] = ThirdWorldManager.Instance.CurrentFood;
-            dataObject["Mood"] = (int)ThirdWorldManager.Instance.CurrentMood;
-
             var save = dataObject.SaveAsync();
             bool finishSaved = false;
             int tries = 0;
@@ -85,8 +87,18 @@ public class TestSave : MonoBehaviour {
                 }
                 tries++;
             }
-            return save.IsCompleted;
         }
-        return false;
+        else
+        {
+            dataObject.SaveAsync().ContinueWith(t =>
+                {
+                    dataObject["DaysAlive"] = 4; //TODO: Get the number of days alive
+                    dataObject["HasPack"] = false; //TODO: Get if the player has Ph2o
+                    dataObject["Water"] = ThirdWorldManager.Instance.CurrentWater;
+                    dataObject["Food"] = ThirdWorldManager.Instance.CurrentFood;
+                    dataObject["Mood"] = (int)ThirdWorldManager.Instance.CurrentMood;
+                    dataObject.SaveAsync();
+                });
+        }
     }
 }
