@@ -41,7 +41,6 @@ public class Thirst : MonoBehaviour {
 			}
 		}
 		AmountDrank = 0;
-		transform.Find("ThirstyBubble").gameObject.SetActive(true);
 	}
 	
 	public void Drink()
