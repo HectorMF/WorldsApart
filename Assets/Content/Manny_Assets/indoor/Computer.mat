@@ -145,6 +145,10 @@ Material:
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
         first:
+          name: _EmissionColorUI
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
           name: _ColorTint
         second: {r: 1, g: 1, b: 1, a: 1}
       data:
@@ -166,19 +170,19 @@ Material:
       data:
         first:
           name: _Color3in
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 1, g: 1, b: 0, a: 1}
       data:
         first:
           name: _Color3out
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .154411793, g: .154411793, b: .154411793, a: 1}
       data:
         first:
           name: _Color4in
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: 0, g: 0, b: 1, a: 1}
       data:
         first:
           name: _Color4out
-        second: {r: 1, g: 1, b: 1, a: 1}
+        second: {r: .0955882072, g: .0934796408, b: .0934796408, a: 1}
       data:
         first:
           name: _Color5in
@@ -202,8 +206,4 @@ Material:
       data:
         first:
           name: _Color7out
-        second: {r: 1, g: 1, b: 1, a: 1}
-      data:
-        first:
-          name: _EmissionColorUI
         second: {r: 1, g: 1, b: 1, a: 1}
