@@ -104,19 +104,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11400000}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
+      - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DeactivateHandler"},{"handler":{"counterName":"HarvestCount","amount":1,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.IncrementCounterHandler"},"condition":{"crop":{"$content":0},"$type":"WorldsApart.Conditions.HarvestableCondition"},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.ConditionalHandler"}]'
+      - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DeactivateHandler"},{"handler":{"counterName":"HarvestCount","amount":1,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.IncrementCounterHandler"},"condition":{"crop":null,"$type":"WorldsApart.Conditions.HarvestableCondition"},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.ConditionalHandler"}]'
       - '[0,0,0]'
+      - true
+      - true
       - true
   id: 2958cd28-829e-4609-9dcb-2ca5bda9dd0a
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
+  relative: 1
   active: 1
 --- !u!212 &21200000
 SpriteRenderer:

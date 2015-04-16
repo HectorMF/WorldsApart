@@ -32,11 +32,9 @@ namespace WorldsApart
 
         public Counter GetCounter(string name)
         {
-            if (counters.ContainsKey(name))
-                return counters[name];
-            else 
+            if (!counters.ContainsKey(name))
                 RegisterCounter(name, 0);
-            return null;
+            return counters[name];
         }
     }
 }
