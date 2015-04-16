@@ -123,7 +123,6 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 487294}
-  - 212: {fileID: 21296294}
   m_Layer: 0
   m_Name: WaterDrop2
   m_TagString: Untagged
@@ -449,7 +448,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":0,"RequiredFood":0,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"InfoPopUp":{"$content":0},"ActionIndicator":{"$content":1},"RequiredWater":0,"RequiredFood":10,"Confirm":{"$content":2},"Requirements":{"$content":3},"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,-3.21,0]'
       - true
       - true
@@ -499,7 +498,7 @@ MonoBehaviour:
       - 'Field: bool active'
       values:
       - '[{"gesture":"None","GameName":"Dinner Minigame","Title":"Feed your Family","Subtitle":"Don''t
-        let anyone go hungry!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"},{"scripts":[{"drinker":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.RemoteUseWaterScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+        let anyone go hungry!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"},{"drinker":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseWaterHandler"},{"eaterPopUp":null,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.UseFoodHandler"}]'
       - '[0,0,0]'
       - false
       - true
@@ -745,32 +744,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 61c8650412c76ed45bf17a8ed569e784, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!212 &21296294
-SpriteRenderer:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 170122}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000e000000000000000, type: 0}
-  m_SubsetIndices: 
-  m_StaticBatchRoot: {fileID: 0}
-  m_UseLightProbes: 0
-  m_ReflectionProbeUsage: 1
-  m_ProbeAnchor: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_PreserveUVs: 0
-  m_ImportantGI: 0
-  m_AutoUVMaxDistance: .5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 892c6872cf9fca848bfc99d1d9a13858, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21299578
 SpriteRenderer:
