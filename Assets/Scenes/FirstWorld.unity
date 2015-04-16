@@ -569,6 +569,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 118424438}
   - 212: {fileID: 118424439}
+  - 114: {fileID: 118424440}
+  - 65: {fileID: 118424441}
   m_Layer: 0
   m_Name: paper
   m_TagString: Untagged
@@ -614,6 +616,50 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 90cc869cc91d9bc46955f376b0fd1bc7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &118424440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 118424437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1101c2f669287b947b343c79df8a9be7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dbg: 0
+  _serializationData:
+    serializedObjects: []
+    serializedStrings:
+      keys:
+      - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
+      - 'Field: bool relative'
+      - 'Field: bool active'
+      values:
+      - '[{"gesture":"None","GameName":"Menu","Title":"","Subtitle":"","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[0,0,0]'
+      - false
+      - true
+      - true
+  id: 77cfb528-d0ae-4319-92d9-1338828afb7b
+  targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 0
+  relative: 1
+  active: 1
+--- !u!65 &118424441
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 118424437}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.14788604, y: 1.09095454, z: .200002596}
+  m_Center: {x: -.0832412168, y: -.167918772, z: -1.09132379e-05}
 --- !u!1 &118611732
 GameObject:
   m_ObjectHideFlags: 0
