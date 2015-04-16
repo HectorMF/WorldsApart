@@ -73,12 +73,22 @@ public class PumpingMinigame : MonoBehaviour {
 		//instead of updating every frame, update every second change
 		if (seconds != oldSeconds)
 		{
-			if (currentState == State.Starting && seconds == 2) timer.text = "Ready";
-			else if (currentState == State.Starting && seconds == 1) timer.text = "Set";
-			else if (currentState == State.Starting && seconds == 0) timer.text = "Go!";
-			else timer.text = minutes + ":" + seconds.ToString("00");
+			if (currentState == State.Starting && seconds == 2){
+				timer.text = "Ready";
+				timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+			}
+			else if (currentState == State.Starting && seconds == 1) {
+				timer.text = "Set";
+				timer.DOColor(Color.yellow, .5f).SetLoops(2, LoopType.Yoyo);
+			}
+			else if (currentState == State.Starting && seconds == 0){
+				timer.text = "Go!";
+				timer.DOColor(Color.green, .5f).SetLoops(2, LoopType.Yoyo);
+			}
+			else 
+				timer.text = minutes + ":" + seconds.ToString("00");
 			
-			if (minutes == 0 && seconds <= 10)
+			if (minutes == 0 && seconds <= 10 && currentState != State.Starting)
 			{
 				timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
 				timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
@@ -88,7 +98,7 @@ public class PumpingMinigame : MonoBehaviour {
 	void EndGame()
 	{
 		ThirdWorldManager.Instance.UsedAction();
-		Application.LoadLevel("WorldsApart");
+		Application.LoadLevel("Watergame");
 	}
 }
 
