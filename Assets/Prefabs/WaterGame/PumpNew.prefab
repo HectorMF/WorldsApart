@@ -224,6 +224,7 @@ GameObject:
   - 114: {fileID: 11490740}
   - 65: {fileID: 6593706}
   - 114: {fileID: 11448374}
+  - 114: {fileID: 11457412}
   m_Layer: 0
   m_Name: InfoPopUp
   m_TagString: Untagged
@@ -555,6 +556,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Food
+--- !u!114 &11457412
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 192002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7f844c93c994890a12dfabfc69736a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11490654
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -568,8 +580,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 179390}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -578,7 +589,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"Well":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.WellScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"gesture":"None","GameName":"Pumping
+      - '[{"scripts":[],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"},{"gesture":"None","GameName":"Pumping
         Minigame","Title":"Pump Water","Subtitle":"Time pumps for max water!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
       - '[0,0,0]'
       - false

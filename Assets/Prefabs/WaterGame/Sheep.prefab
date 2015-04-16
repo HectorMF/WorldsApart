@@ -117,6 +117,7 @@ GameObject:
   - 114: {fileID: 11444988}
   - 65: {fileID: 6597556}
   - 114: {fileID: 11438908}
+  - 114: {fileID: 11462108}
   m_Layer: 0
   m_Name: InfoPopUp
   m_TagString: Untagged
@@ -672,6 +673,17 @@ MonoBehaviour:
   movePlayer: 1
   relative: 0
   active: 1
+--- !u!114 &11462108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f7f844c93c994890a12dfabfc69736a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11466598
 MonoBehaviour:
   m_ObjectHideFlags: 1
