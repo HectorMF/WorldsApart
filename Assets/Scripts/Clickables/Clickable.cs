@@ -9,6 +9,8 @@ namespace WorldsApart.Clickables
 {
     public class Clickable : BetterBehaviour
     {
+		[DontSerialize]
+		public static bool enabledAll = true;
         public List<Handler> Handlers;
 		public Vector3 targetOffset;
 		public bool movePlayer = true;
@@ -26,6 +28,8 @@ namespace WorldsApart.Clickables
 
         void OnMouseUpAsButton()
         {
+			if(!enabledAll) 
+				return;
 			if (!enabled)
 				return;
 

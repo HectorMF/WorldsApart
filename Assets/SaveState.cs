@@ -12,10 +12,11 @@ public class SaveState : MonoBehaviour {
 
 	void OnLevelWasLoaded(int level)
 	{
-		if (level != 1) {
-			SetChildrenActive(false);
-		} else {
+		Debug.Log(Application.loadedLevelName);
+		if (Application.loadedLevelName == "WorldsApart") {
 			SetChildrenActive(true);
+		} else {
+			SetChildrenActive(false);
 		}
 	}
 

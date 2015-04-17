@@ -293,11 +293,11 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 522028331d4b5b7429eb718d1b47e2d5, type: 3}
   m_Color: {r: .792156875, g: .913725495, b: 1, a: 1}
---- !u!4 &156526262 stripped
+--- !u!4 &156526262
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_PrefabInternal: {fileID: 537995945}
---- !u!4 &196229356 stripped
+--- !u!4 &196229356
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 96e70114d12f9a4498862895063eb1a7, type: 2}
   m_PrefabInternal: {fileID: 270476482}
@@ -793,7 +793,7 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &550967796 stripped
+--- !u!4 &550967796
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 96e70114d12f9a4498862895063eb1a7, type: 2}
   m_PrefabInternal: {fileID: 782865192}
@@ -3148,7 +3148,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xScrollSpeed: .800000012
   yScrollSpeed: 0
---- !u!4 &1591618644 stripped
+--- !u!4 &1591618644
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_PrefabInternal: {fileID: 527501375}
@@ -3561,15 +3561,15 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .024289459
-    width: 1
-    height: .951421082
+    x: .14274776
+    y: 0
+    width: .71450448
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8.74687481
+  orthographic size: 8.74687576
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3841,7 +3841,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0787cd3ce876b0f40ad2e3715b1fc4fe, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
---- !u!224 &1831287978 stripped
+--- !u!224 &1831287978
 RectTransform:
   m_PrefabParentObject: {fileID: 22454104, guid: 0fdb0fc6b516de44ebc6577ad6709275,
     type: 2}
