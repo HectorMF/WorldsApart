@@ -24,13 +24,13 @@ namespace WorldsApart.Utility
         private float duration;
         private Animator animator;
 
-        void Start()
-        {
-            animator = GetComponent<Animator>();
-            FinishWalking();
-            CalculateTarget();
-            transform.position = target;
-        }
+		void OnEnable(){
+			animator = GetComponent<Animator>();
+			FinishWalking();
+			CalculateTarget();
+			transform.position = target;
+			pause = false;
+		}
 
 		public void SetTarget(Vector3 newTarget)
 		{

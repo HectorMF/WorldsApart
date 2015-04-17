@@ -22,6 +22,12 @@ public class WeatherManager : MonoBehaviour
         UpdateWeather();
     }
 
+	void Awake()
+	{
+		bloom = camera.GetComponent<BloomOptimized> ();
+		grayscale = camera.GetComponent<Grayscale> ();
+	}
+
     void Update()
     {
         if (oldWeather == weather) return;
