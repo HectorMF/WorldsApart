@@ -14,6 +14,10 @@ public class InfoPanel : MonoBehaviour {
 	private Text rewardsFood;
 	private Text rewardsWater;
 	private Text rewardsMood;
+
+	public TweenCallback openAction;
+	public TweenCallback closeAction;
+	public TweenCallback acceptAction;
 	
 	void Start () {
 		requiredFood = GameObject.Find("reqFood").GetComponentInChildren<Text>();
@@ -23,7 +27,6 @@ public class InfoPanel : MonoBehaviour {
 		rewardsFood = GameObject.Find("rewFood").GetComponentInChildren<Text>();
 		rewardsWater = GameObject.Find("rewWater").GetComponentInChildren<Text>();
 		rewardsMood = GameObject.Find("rewMood").GetComponentInChildren<Text>();
-		Open(9,8,7,6,5,4);
 	}
 
 	public void Open(int reqFood, int reqWater, int reqMood,
@@ -32,7 +35,7 @@ public class InfoPanel : MonoBehaviour {
 		Clickable.enabledAll = false;
 		AudioSource.PlayClipAtPoint(clip, transform.position);
 		transform.localScale = Vector3.zero;	
-		transform.DOScale(Vector3.one,.5f).SetEase(Ease.OutExpo);
+		transform.DOScale(Vector3.one,.5f).SetEase(Ease.OutExpo).OnComplete(openAction);
 
 		requiredFood.text = reqFood + "";
 		requiredWater.text = reqWater + "";
@@ -47,11 +50,14 @@ public class InfoPanel : MonoBehaviour {
 		Clickable.enabledAll = true;
 		fade.DOFade(0,.5f);
 		transform.localScale = Vector3.one;
-		transform.DOScale(Vector3.zero,.5f).SetEase(Ease.OutExpo);
+		transform.DOScale(Vector3.zero,.5f).SetEase(Ease.OutExpo).OnComplete(closeAction);
 	}
 
-	public void DisableInput()
+	public void Accept()
 	{
-
+		Clickable.enabledAll = true;
+		fade.DOFade(0,.5f);
+		transform.localScale = Vector3.one;
+		transform.DOScale(Vector3.zero,.5f).SetEase(Ease.OutExpo).OnComplete(acceptAction);
 	}
 }

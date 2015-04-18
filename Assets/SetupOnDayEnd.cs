@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
-
+using DG.Tweening;
 public class SetupOnDayEnd : MonoBehaviour {
 
 	GameObject Info, Action;
@@ -9,7 +9,6 @@ public class SetupOnDayEnd : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		boxCollider = GetComponent<BoxCollider> ();
-		Info = transform.Find ("Info").gameObject;
 		Action = transform.Find ("Action").gameObject;
 	}
 
@@ -30,8 +29,8 @@ public class SetupOnDayEnd : MonoBehaviour {
 
 	public virtual void DayEnd()
 	{
-		Info.SetActive (false);
 		Action.SetActive (true);
+		Action.transform.DOScale(Vector3.one, 1f);
 		boxCollider.enabled = true;
 	}
 }

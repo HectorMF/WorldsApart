@@ -27,8 +27,12 @@ public class ParallaxController : MonoBehaviour {
     }
 
 	void LateUpdate () {
-       // if (oldPosition == transform.position) return;
-        //oldPosition = transform.position;
+		for(int i = layers.Count - 1; i >= 0; i--)
+		{
+			if(layers[i] == null)
+				layers.RemoveAt(i);
+		}
+
         foreach (ParallaxLayer layer in layers)
             layer.UpdateOffsets(transform.position.x, transform.position.y);
 

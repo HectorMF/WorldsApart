@@ -8,12 +8,24 @@ namespace WorldsApart.Scripting
 {
 	public class RemoteOpenPopUpScript : RemoteScript 
 	{
-		public GameObject InfoPopUp, ActionIndicator;
-		public int RequiredWater, RequiredFood;
-		public GameObject Confirm, Requirements;
+		public Fader.Gesture gesture = Fader.Gesture.None;
+		public string GameName, Title, Subtitle;
+		
+		public void LoadMiniGame()
+		{
+			ThirdWorldManager.Instance.UsedAction();
+			//gameObject.transform.parent.parent.GetComponent<BoxCollider> ().enabled = false;
+			//gameObject.transform.parent.gameObject.SetActive (false);
+			Fader.FadeOutIn(gesture, 0, 2, Title, Subtitle, ()=>Application.LoadLevel(GameName));
+		}
 
+		public GameObject ActionIndicator;
+		public int RequiredWater, RequiredFood, RequiredMood;
+		public GameObject Confirm, Requirements;
+		private InfoPanel panel;
 		public override void Start(Action OnFinish)
 		{
+			panel = GameObject.Find("InfoPanel").GetComponent<InfoPanel>();
 			// The pump does not have a thirst script on it
 			Thirst thirst = ActionIndicator.transform.parent.parent.GetComponent<Thirst> ();
 			if (thirst != null) RequiredWater = thirst.CurrentWaterRequirement;
@@ -24,9 +36,11 @@ namespace WorldsApart.Scripting
 				SetConfirmInactive();
 				SetRequirements();
 			}
+			panel.acceptAction = LoadMiniGame;
+			panel.openAction = ()=> ActionIndicator.SetActive(false); 
+			panel.closeAction = ()=> ActionIndicator.SetActive(true);
+			panel.Open(RequiredFood, RequiredWater, RequiredMood,0,1,3);
 
-			InfoPopUp.SetActive(true);
-			ActionIndicator.SetActive(false);
 		}
 
 		bool RequirementsMet()

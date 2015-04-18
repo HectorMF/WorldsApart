@@ -12,8 +12,8 @@ public class WeatherManager : MonoBehaviour
     public Camera camera;
     public GameObject rain;
     public GameObject dry;
-	public MonoBehaviour bloom;
-	public MonoBehaviour grayscale;
+	private MonoBehaviour bloom;
+	private MonoBehaviour grayscale;
 
     private Weather oldWeather;
 
