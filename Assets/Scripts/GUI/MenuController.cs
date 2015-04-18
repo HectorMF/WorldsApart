@@ -8,7 +8,7 @@ using DG.Tweening;
 public class MenuController : MonoBehaviour {
     public Grayscale cameraGreyscale;
     public RectTransform button;
-
+	public RectTransform header;
     public float delay = 1f;
     public float duration = 3f;
     public GameObject Scene;
@@ -24,6 +24,7 @@ public class MenuController : MonoBehaviour {
         step = 1f / (duration / Time.deltaTime);
         origScale = button.localScale;
         button.localScale = new Vector3(0f, 0f, 0f);
+		header.localScale = Vector3.zero;
         buttonReady = false;
         if (Scene != null)
         {
@@ -44,6 +45,7 @@ public class MenuController : MonoBehaviour {
         if (cameraGreyscale.effectAmount < .2 && !buttonReady)
         {
           	button.DOScale(origScale, 1f);
+			header.DOScale(Vector3.one, 1f);
 			//button.DOPunchScale(new Vector3(0,0,0),2f).SetDelay(2f);//.DOShakeScale(2f, 1f,10).SetDelay(.506f);
             Wander.pause = false;
             cameraGreyscale.effectAmount = 0f;

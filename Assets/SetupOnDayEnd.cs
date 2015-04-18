@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 using DG.Tweening;
+using WorldsApart.GUI;
+
+
 public class SetupOnDayEnd : MonoBehaviour {
 
 	GameObject Info, Action;
@@ -30,7 +33,8 @@ public class SetupOnDayEnd : MonoBehaviour {
 	public virtual void DayEnd()
 	{
 		Action.SetActive (true);
-		Action.transform.DOScale(Vector3.one, 1f);
+		Action.transform.DOScale(Vector3.one, 1f).OnComplete(()=>Action.GetComponent<Wobble>().enabled = true);
+
 		boxCollider.enabled = true;
 	}
 }

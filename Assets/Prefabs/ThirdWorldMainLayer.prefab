@@ -49,7 +49,6 @@ GameObject:
   - 82: {fileID: 8274954}
   - 61: {fileID: 6150892}
   - 114: {fileID: 11486458}
-  - 114: {fileID: 11469856}
   m_Layer: 0
   m_Name: Rooster
   m_TagString: Untagged
@@ -4060,15 +4059,15 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .112325788
+    x: .110280007
     y: 0
-    width: .775348425
+    width: .779439986
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.73749971
+  orthographic size: 5.73749924
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -6709,17 +6708,6 @@ MonoBehaviour:
   movePlayer: 0
   relative: 1
   active: 1
---- !u!114 &11469856
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 101122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &11470474
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -6942,7 +6930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   zone:
     serializedVersion: 2
-    x: -8.75
+    x: -20.9799995
     y: -4.48999977
     width: 5.11999989
     height: 1.5

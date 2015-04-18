@@ -3,6 +3,7 @@ using System.Collections;
 using System;
 using UnityEngine.UI;
 using DG.Tweening;
+using WorldsApart.GUI;
 
 public class MiniGameLoader : MonoBehaviour {
 
@@ -27,8 +28,6 @@ public class MiniGameLoader : MonoBehaviour {
 		
 		//if (RequirementsMet ()) {
 			panel.acceptAction = LoadMiniGame;
-
-			panel.closeAction = ()=> actionIndicator.transform.DOScale(Vector3.one, .2f);
 			panel.Open(RequiredFood, RequiredWater, RequiredMood, RewardFood, RewardWater, RewardMood);
 		//}
 	}
@@ -36,6 +35,9 @@ public class MiniGameLoader : MonoBehaviour {
 	private void LoadMiniGame()
 	{
 		ThirdWorldManager.Instance.UsedAction();
+		actionIndicator.transform.DOKill();
+		actionIndicator.GetComponent<Wobble>().enabled = false;
+		actionIndicator.transform.DOScale(Vector3.zero, 1f);
 		GetComponent<BoxCollider> ().enabled = false;
 		Fader.FadeOutIn(gesture, 0, 2, title, subTitle, ()=>Application.LoadLevel(sceneName));
 	}
