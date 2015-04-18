@@ -104,7 +104,8 @@ public class ThirdWorldManager
         if (OnNewWeather != null) OnNewWeather(currentWeather);
 
 		Fader.FadeOutIn(Fader.Gesture.None, "Day: " + _daysAlive, "Weather: " + currentWeather, 
-		                ()=> { WeatherManager.weather = currentWeather; actions = (int)CurrentMood;}
+		                ()=> { WeatherManager.weather = currentWeather; actions = (int)CurrentMood;
+							if (OnDayEnd != null) OnDayEnd();}
 						,50, 30,
 						()=>Clickable.enabledAll = true);
 
@@ -125,7 +126,6 @@ public class ThirdWorldManager
         }
 
         Report();
-        if (OnDayEnd != null) OnDayEnd();
 
 		Reinitialize();
     }
