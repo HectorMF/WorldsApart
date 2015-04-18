@@ -3,11 +3,9 @@ using System.Collections.Generic;
 using DG.Tweening;
 using UnityStandardAssets.ImageEffects;
 
-public enum Weather { None, Dry, Rain, EarthQuake};
-
 public class WeatherManager : MonoBehaviour
 {
-    public static Weather weather = Weather.None;
+	public static ThirdWorldManager.Weather weather = ThirdWorldManager.Weather.Nice;
 
     public Camera camera;
     public GameObject rain;
@@ -15,7 +13,7 @@ public class WeatherManager : MonoBehaviour
 	private MonoBehaviour bloom;
 	private MonoBehaviour grayscale;
 
-    private Weather oldWeather;
+	private ThirdWorldManager.Weather oldWeather;
 
     void Start()
     {
@@ -47,22 +45,22 @@ public class WeatherManager : MonoBehaviour
     {
         TurnOffWeather();
 
-        if (weather == Weather.Dry){
+		if (weather == ThirdWorldManager.Weather.Dry){
 			bloom.enabled = true;
 			grayscale.enabled = true;
             dry.SetActive(true);
 			((Grayscale)grayscale).effectAmount = -.3f;
 		}
-        if (weather == Weather.Rain){
+		if (weather == ThirdWorldManager.Weather.Rainy){
 			grayscale.enabled = true;
             rain.SetActive(true);
 			((Grayscale)grayscale).effectAmount = .3f;
 		}
-        if (weather == Weather.EarthQuake){
+        /*if (weather == Weather.EarthQuake){
             camera.DOShakePosition(10, .4f, 5);
 			#if UNITY_IPHONE || UNITY_ANDROID
 			Handheld.Vibrate();
 			#endif
-		}
+		}*/
     }
 }

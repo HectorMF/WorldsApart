@@ -7,6 +7,9 @@ public class Fader : MonoBehaviour {
 	public enum Gesture { None = 0, Tap = 1, Swipe = 2, Balance = 3 }
 	private static Fader instance;
 
+	public float duration = 2;
+	public float delay = 2;
+
 	public Text title;
 	public Text subTitle;
 	public CanvasGroup group;
@@ -66,7 +69,7 @@ public class Fader : MonoBehaviour {
 		Instance.subTitle.text = subtitle;
 		Instance.title.fontSize = titleFont;
 		Instance.subTitle.fontSize = subTitleFont;
-		Instance.group.DOFade(1, duration).SetDelay(delay).OnComplete(action);
+		Instance.group.DOFade(1, duration).SetDelay(delay).SetEase(Ease.InSine).OnComplete(action);
 	}
 	
 	public static void FadeToClear(Gesture gesture, float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null, int titleFont = 50, int subTitleFont = 30)
@@ -77,12 +80,12 @@ public class Fader : MonoBehaviour {
 		Instance.subTitle.text = subtitle;
 		Instance.title.fontSize = titleFont;
 		Instance.subTitle.fontSize = subTitleFont;
-		Instance.group.DOFade(0, duration).SetDelay(delay).OnComplete(action);
+		Instance.group.DOFade(0, duration).SetDelay(delay).SetEase(Ease.OutSine).OnComplete(action);
 	}
 
-	public static void FadeOutIn(Gesture gesture, float delay = 0, float duration = 1, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null, int titleFont = 50, int subTitleFont = 30)
+	public static void FadeOutIn(Gesture gesture, string title = "", string subtitle = "", DG.Tweening.TweenCallback action = null, int titleFont = 50, int subTitleFont = 30, DG.Tweening.TweenCallback actionOnEnd = null)
 	{
-		FadeToBlack(gesture, delay, duration,title, subtitle, ()=>
-		            {FadeToClear(gesture, delay, duration,title, subtitle, null, titleFont, subTitleFont); action();}, titleFont, subTitleFont);
+		FadeToBlack(gesture, 0, Fader.Instance.duration, title, subtitle, ()=>
+		            {FadeToClear(gesture, Fader.Instance.delay, Fader.instance.duration, title, subtitle, actionOnEnd, titleFont, subTitleFont); action();}, titleFont, subTitleFont);
 	}
 }

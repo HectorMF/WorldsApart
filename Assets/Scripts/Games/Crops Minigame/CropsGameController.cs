@@ -111,7 +111,7 @@ namespace WorldsApart.Games.CropsMinigame
                 ThirdWorldManager.Instance.IncrementMood();
             }
 
-			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, "You have gained +" + "10" + " Mood.", "",()=>Application.LoadLevel("WorldsApart"));
+			Fader.FadeOutIn(Fader.Gesture.None, "You have gained +" + "10" + " Mood.", "",()=>Application.LoadLevel("WorldsApart"));
             //Application.LoadLevel("WorldsApart");
         }
     }

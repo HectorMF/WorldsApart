@@ -3,6 +3,7 @@ using System.Collections;
 using WorldsApart.Handlers;
 using Parse;
 using System.Collections.Generic;
+using WorldsApart.Clickables;
 
 
 public class ThirdWorldManager 
@@ -29,7 +30,7 @@ public class ThirdWorldManager
     private int currentFood, actions, availableWater;
     private int prevWater = 0;
     private int _currentWater;
-    private int _daysAlive;
+    private int _daysAlive = 1;
 
     #region Properties
     public int WaterCapacity = 20;
@@ -80,35 +81,35 @@ public class ThirdWorldManager
     #region PrivateMethods
     private void Reinitialize()
     {
-        
+		Clickable.enabledAll = false;
         float rand = Random.Range(0.0f, 1.0f);
         if (rand < 0.1f)
         {
-			WeatherManager.weather = global::Weather.Rain;
             currentWeather = Weather.Rainy;
             availableWater = Random.Range(35, 45);
             IncrementMood();
-            actions = (int)CurrentMood;
-        }
+		}
         else if (rand < 0.7f)
         {
-			WeatherManager.weather = global::Weather.None;
             currentWeather = Weather.Nice;
             availableWater = Random.Range(25, 35);
-            actions = (int)CurrentMood;
         }
         else
         {
-			WeatherManager.weather = global::Weather.Dry;
             currentWeather = Weather.Dry;
             availableWater = Random.Range(15, 25);
             DecrementMood();
-            actions = (int)CurrentMood;
         }
 
         if (OnNewWeather != null) OnNewWeather(currentWeather);
 
+		Fader.FadeOutIn(Fader.Gesture.None, "Day: " + _daysAlive, "Weather: " + currentWeather, 
+		                ()=> { WeatherManager.weather = currentWeather; actions = (int)CurrentMood;}
+						,50, 30,
+						()=>Clickable.enabledAll = true);
+
         UnityEngine.Debug.Log("A new day! The weather is " + currentWeather);
+		_daysAlive ++;
     }
     private void ResolveDay()
     {
@@ -125,7 +126,8 @@ public class ThirdWorldManager
 
         Report();
         if (OnDayEnd != null) OnDayEnd();
-        Reinitialize();
+
+		Reinitialize();
     }
 
     private bool LoadData()

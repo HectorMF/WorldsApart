@@ -81,7 +81,7 @@ public class WaterGameLogic {
         {
             Debug.Log("LOST THE GAME!!!");
             GameOver = true;
-			Fader.FadeOutIn(Fader.Gesture.None, 0, 2, "You lost all of your water", "Good luck next time!",()=>Application.LoadLevel("WorldsApart"));
+			Fader.FadeOutIn(Fader.Gesture.None, "You lost all of your water", "Good luck next time!",()=>Application.LoadLevel("WorldsApart"));
         }
         GameIsFinished(false);
     }
@@ -106,7 +106,7 @@ public class WaterGameLogic {
     private void WinTheGame()
     {
         ReachedDestination = true;
-        Fader.FadeOutIn(Fader.Gesture.None, 0, 2, 
+        Fader.FadeOutIn(Fader.Gesture.None,
             string.Format(@"You reached the village with 
 {0: 0.0} liters of water 
 out of {1: 0.0} capacity", water, maxWater),"", ()=>Application.LoadLevel("WorldsApart"),35);

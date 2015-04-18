@@ -75,7 +75,7 @@ public class CookingMinigame : MonoBehaviour {
 			}
 			break;
 		case State.Finishing:
-			Fader.FadeOutIn(Fader.Gesture.None, 0, 2,string.Format("You cooked {0} food!", FoodGain()),"", EndGame); 
+			Fader.FadeOutIn(Fader.Gesture.None, string.Format("You cooked {0} food!", FoodGain()),"", EndGame); 
 			currentState = State.Finished;
 			break;
 		case State.Finished:

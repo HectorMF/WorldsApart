@@ -39,7 +39,7 @@ public class MiniGameLoader : MonoBehaviour {
 		actionIndicator.GetComponent<Wobble>().enabled = false;
 		actionIndicator.transform.DOScale(Vector3.zero, 1f);
 		GetComponent<BoxCollider> ().enabled = false;
-		Fader.FadeOutIn(gesture, 0, 2, title, subTitle, ()=>Application.LoadLevel(sceneName));
+		Fader.FadeOutIn(gesture, title, subTitle, ()=>Application.LoadLevel(sceneName));
 	}
 
 	public void Update()

@@ -46,7 +46,7 @@ public class PumpingMinigame : MonoBehaviour {
 				UpdateTimer();
 			break;
 		case State.Finishing:
-			Fader.FadeOutIn(Fader.Gesture.None,0,2,string.Format("You gained {0} water!", meterScript.GetWaterPumped()),"",EndGame);
+			Fader.FadeOutIn(Fader.Gesture.None, string.Format("You gained {0} water!", meterScript.GetWaterPumped()),"",EndGame);
 			meterScript.enabled = false;
 			currentState = State.Finished;
 			break;
