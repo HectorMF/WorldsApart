@@ -3,12 +3,11 @@ using System.Collections;
 
 public class PumpStatusNotifier : MonoBehaviour {
 
-	public GameObject actionIndicator, Info;
+	public GameObject actionIndicator;
 
 	void Start () 
 	{
 		actionIndicator = transform.Find("InfoPopUp/Action").gameObject;
-		Info = transform.Find ("InfoPopUp/Info").gameObject;
 	}
 
 	void OnEnable()
@@ -23,11 +22,6 @@ public class PumpStatusNotifier : MonoBehaviour {
 
 	void Update()
 	{
-		if (Info.activeSelf)
-			actionIndicator.SetActive (false);
-		else
-			actionIndicator.SetActive (true);
-
 		if (ThirdWorldManager.Instance.AvailableWater == 0)
 		{
 			actionIndicator.SetActive(false);

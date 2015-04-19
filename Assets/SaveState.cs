@@ -8,12 +8,12 @@ public class SaveState : MonoBehaviour {
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (gameObject);
-		SetChildrenActive(false);
+		//SetChildrenActive(false);
 	}
 
 	void OnLevelWasLoaded(int level)
 	{
-		Debug.Log(Application.loadedLevelName);
+//		Debug.Log(Application.loadedLevelName);
 		if (Application.loadedLevelName == "WorldsApart") {
 			SetChildrenActive(true);
 		} else {
