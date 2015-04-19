@@ -6,8 +6,8 @@ using DG.Tweening;
 using WorldsApart.GUI;
 
 public class MiniGameLoader : MonoBehaviour {
-
 	//Scene to load and fader info
+	public int gamesPerDay = 1;
 	public string sceneName;
 	public string title, subTitle;
 	public Fader.Gesture gesture = Fader.Gesture.None;
@@ -18,23 +18,35 @@ public class MiniGameLoader : MonoBehaviour {
 
 	private InfoPanel panel;
 	private GameObject actionIndicator;
+	private Thirst thirst;
+	private int timesPlayed = 0;
+
+	public void Start(){
+		actionIndicator = transform.FindChild("Action").gameObject;
+		if(!RequirementsMet()){
+			GetComponent<BoxCollider> ().enabled = false;
+			actionIndicator.transform.localScale = Vector3.zero;
+		}
+	}
 
 	public void Load()
 	{
 		panel = GameObject.Find("InfoPanel").GetComponent<InfoPanel>();
-		actionIndicator = transform.FindChild("Action").gameObject;
-		Thirst thirst = transform.parent.GetComponent<Thirst> ();
+
+		thirst = transform.parent.GetComponent<Thirst> ();
 		if (thirst != null) RequiredWater = thirst.CurrentWaterRequirement;
 		
-		//if (RequirementsMet ()) {
+		if (RequirementsMet ()) {
 			panel.acceptAction = LoadMiniGame;
 			panel.Open(RequiredFood, RequiredWater, RequiredMood, RewardFood, RewardWater, RewardMood);
-		//}
+		}
 	}
 
 	private void LoadMiniGame()
 	{
-		ThirdWorldManager.Instance.UsedAction();
+		timesPlayed ++;
+		if(thirst)
+			thirst.Drink();
 		actionIndicator.transform.DOKill();
 		actionIndicator.GetComponent<Wobble>().enabled = false;
 		actionIndicator.transform.DOScale(Vector3.zero, 1f);
@@ -44,10 +56,23 @@ public class MiniGameLoader : MonoBehaviour {
 
 	public void Update()
 	{
+		if(RequirementsMet())
+		{
+			actionIndicator.transform.DOKill();
+			actionIndicator.GetComponent<Wobble>().enabled = true;
+			actionIndicator.transform.DOScale(Vector3.one, 1f);
+			GetComponent<BoxCollider> ().enabled = true;
+		}else{
+			actionIndicator.transform.DOKill();
+			actionIndicator.GetComponent<Wobble>().enabled = false;
+			actionIndicator.transform.DOScale(Vector3.zero, 1f);
+			GetComponent<BoxCollider> ().enabled = false;
+		}
 	}
 	
 	bool RequirementsMet()
 	{
+		if(timesPlayed >= gamesPerDay) return false;
 		int currentFood = ThirdWorldManager.Instance.CurrentFood;
 		int currentWater = ThirdWorldManager.Instance.CurrentWater;
 		if (RequiredFood != 0 && RequiredWater != 0)
@@ -58,5 +83,20 @@ public class MiniGameLoader : MonoBehaviour {
 			return currentFood >= RequiredFood;
 		else
 			return false;
+	}
+
+	void OnEnable()
+	{
+		ThirdWorldManager.OnDayEnd += DayEnd;
+	}
+	
+	void OnDisable()
+	{
+		ThirdWorldManager.OnDayEnd -= DayEnd;
+	}
+	
+	public virtual void DayEnd()
+	{
+		timesPlayed = 0;
 	}
 }

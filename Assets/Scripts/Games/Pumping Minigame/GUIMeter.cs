@@ -33,7 +33,8 @@ public class GUIMeter : MonoBehaviour
 		difficulty = 1;
 		draining = false;
 		drainSpeed = 2 * -speed;
-		pumpAnim = GetComponentInChildren<PumpAnimator>();
+		pumpAnim = GameObject.Find("Pump").GetComponent<PumpAnimator>();
+		                          
 		startingWater = ThirdWorldManager.Instance.CurrentWater;
 		pumpRenderer = pump.GetComponent<SpriteRenderer>();
 

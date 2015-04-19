@@ -7,8 +7,8 @@ public class Fader : MonoBehaviour {
 	public enum Gesture { None = 0, Tap = 1, Swipe = 2, Balance = 3 }
 	private static Fader instance;
 
-	public float duration = 2;
-	public float delay = 2;
+	public float duration = 1;
+	public float delay = 3;
 
 	public Text title;
 	public Text subTitle;

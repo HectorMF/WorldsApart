@@ -97,7 +97,6 @@ public class PumpingMinigame : MonoBehaviour {
 	}
 	void EndGame()
 	{
-		ThirdWorldManager.Instance.UsedAction();
 		Application.LoadLevel("Watergame");
 	}
 }

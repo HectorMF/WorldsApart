@@ -3185,14 +3185,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: .110280007
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: .779439986
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
   m_IsPrefabParent: 0
@@ -3452,9 +3444,9 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .110280007
+    x: .114141405
     y: 0
-    width: .779439986
+    width: .771717191
     height: 1
   near clip plane: .300000012
   far clip plane: 1000

@@ -162,6 +162,7 @@ public class ThirdWorldManager
     {
         var handler = new SetAnimationBoolHandler();
         handler.gameObject = GameObject.Find("MainChar");
+		if(handler.gameObject == null) return;
         handler.booleanName = "hasWater";
         handler.value = _currentWater > 0;
         handler.Invoke();

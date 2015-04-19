@@ -33,8 +33,8 @@ public class SetupOnDayEnd : MonoBehaviour {
 	public virtual void DayEnd()
 	{
 		Action.SetActive (true);
-		Action.transform.DOScale(Vector3.one, 1f).OnComplete(()=>Action.GetComponent<Wobble>().enabled = true);
+		//Action.transform.DOScale(Vector3.one, 1f).OnComplete(()=>Action.GetComponent<Wobble>().enabled = true);
 
-		boxCollider.enabled = true;
+		//boxCollider.enabled = true;
 	}
 }

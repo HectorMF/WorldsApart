@@ -72,7 +72,7 @@ public class Thirst : MonoBehaviour {
 
 	public virtual void DrinkSuccess()
 	{
-		transform.Find("ThirstyBubble").gameObject.SetActive(false);
+//		transform.Find("ThirstyBubble").gameObject.SetActive(false);
 		Debug.Log(string.Format("Your {0} has enough water", name));
 	}
 
