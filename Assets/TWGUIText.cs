@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class TWGUIText : MonoBehaviour {
 	private Text text;
-	public enum Resource { Food = 0, Water = 1, Mood = 2};
+	public enum Resource { Food = 0, Water = 1, Mood = 2, Actions = 3};
 	public Resource gameResource;
 	// Use this for initialization
 	void Start () {
@@ -19,5 +19,7 @@ public class TWGUIText : MonoBehaviour {
 			text.text = ThirdWorldManager.Instance.CurrentWater + "";
 		if(gameResource == Resource.Mood)
 			text.text = ThirdWorldManager.Instance.CurrentMood + "";
+		if(gameResource == Resource.Actions)
+			text.text = ThirdWorldManager.Instance.Actions + "/" + (int)ThirdWorldManager.Instance.CurrentMood;
 	}
 }

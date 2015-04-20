@@ -1742,6 +1742,24 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &193022
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 22444638}
+  - 222: {fileID: 22230700}
+  - 114: {fileID: 11414134}
+  - 114: {fileID: 11438222}
+  m_Layer: 5
+  m_Name: Actions
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &194954
 GameObject:
   m_ObjectHideFlags: 1
@@ -2758,9 +2776,9 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .114141405
+    x: .115887374
     y: 0
-    width: .771717191
+    width: .768225253
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
@@ -3816,6 +3834,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b62df40973d163f41aa44d8fa538bb5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11414134
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .196078435, g: .196078435, b: .196078435, a: 1}
+  m_FontData:
+    m_Font: {fileID: 12800000, guid: a9130d16faf5e644bab762986afce045, type: 3}
+    m_FontSize: 50
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 
 --- !u!114 &11414762
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3908,8 +3952,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11450268}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -3918,7 +3961,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[-1,-3.3,0]'
       - true
       - true
@@ -4338,6 +4381,18 @@ MonoBehaviour:
   minDelay: 3
   maxDelay: 7
   minDeltaDistance: 1
+--- !u!114 &11438222
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdcc476ba78999549bee8b4ebae905be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameResource: 3
 --- !u!114 &11440606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -4938,8 +4993,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11444118}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -4948,7 +5002,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,-3.5,0]'
       - true
       - true
@@ -5282,8 +5336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11405674}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -5292,7 +5345,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[1.47,-1.3,0]'
       - true
       - true
@@ -5378,8 +5431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11422124}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -5388,7 +5440,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[-0.61,-3.03,-0.43]'
       - true
       - true
@@ -9749,6 +9801,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 122374}
+--- !u!222 &22230700
+CanvasRenderer:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193022}
 --- !u!222 &22232744
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -10249,6 +10307,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
+--- !u!224 &22444638
+RectTransform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 193022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 22479836}
+  m_RootOrder: 3
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 220, y: -65}
+  m_SizeDelta: {x: 400, y: 90}
+  m_Pivot: {x: .5, y: .5}
 --- !u!224 &22445596
 RectTransform:
   m_ObjectHideFlags: 1
@@ -10534,6 +10609,7 @@ RectTransform:
   - {fileID: 22419156}
   - {fileID: 22446234}
   - {fileID: 22445596}
+  - {fileID: 22444638}
   m_Father: {fileID: 419114}
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}

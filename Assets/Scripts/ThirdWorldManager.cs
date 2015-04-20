@@ -106,9 +106,13 @@ public class ThirdWorldManager
 		if(_daysAlive > 1)
 			Fader.FadeOutIn(Fader.Gesture.None, "Day: " + _daysAlive, "Weather: " + currentWeather, 
 		                ()=> { WeatherManager.weather = currentWeather; actions = (int)CurrentMood;
-							if (OnDayEnd != null) OnDayEnd();}
+				;if (OnDayEnd != null) OnDayEnd();}
 						,50, 30,
 						()=>Clickable.enabledAll = true);
+		else{
+			WeatherManager.weather = currentWeather; 
+			actions = (int)CurrentMood;
+		}
 
         UnityEngine.Debug.Log("A new day! The weather is " + currentWeather);
 		_daysAlive ++;

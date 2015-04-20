@@ -76,7 +76,7 @@ public class MiniGameLoader : MonoBehaviour {
 		int currentFood = ThirdWorldManager.Instance.CurrentFood;
 		int currentWater = ThirdWorldManager.Instance.CurrentWater;
 		if (RequiredFood != 0 && RequiredWater != 0)
-			return (currentFood >= RequiredFood && currentWater >= RequiredWater) || currentFood >= RequiredFood || currentWater >= RequiredWater;
+			return (currentFood >= RequiredFood && currentWater >= RequiredWater);
 		else if (RequiredFood == 0)
 			return currentWater >= RequiredWater;
 		else if (RequiredWater == 0)
