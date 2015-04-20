@@ -376,8 +376,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2b2ef0b02210a64697bb8fbc154ed2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: {fileID: 11420988}
-  subTitle: {fileID: 11479916}
+  titleText: {fileID: 11420988}
+  subTitleText: {fileID: 11479916}
   group: {fileID: 22526034}
   swipe: {fileID: 144074}
   tap: {fileID: 150218}

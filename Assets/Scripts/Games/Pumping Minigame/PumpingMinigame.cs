@@ -46,7 +46,13 @@ public class PumpingMinigame : MonoBehaviour {
 				UpdateTimer();
 			break;
 		case State.Finishing:
-			Fader.FadeOutIn(Fader.Gesture.None, string.Format("You gained {0} water!", meterScript.GetWaterPumped()),"",EndGame);
+			Fader.Instance
+				.SetTitle(string.Format("You gained {0} water!", meterScript.GetWaterPumped()))
+				.FadeOutOnComplete(()=>
+					{
+						Application.LoadLevel("Watergame");
+					})
+				.FadeOutIn();
 			meterScript.enabled = false;
 			currentState = State.Finished;
 			break;
@@ -94,10 +100,6 @@ public class PumpingMinigame : MonoBehaviour {
 				timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
 			}
 		}
-	}
-	void EndGame()
-	{
-		Application.LoadLevel("Watergame");
 	}
 }
 

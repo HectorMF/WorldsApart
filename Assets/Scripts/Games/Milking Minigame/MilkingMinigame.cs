@@ -13,7 +13,15 @@ public class MilkingMinigame : MonoBehaviour {
 	void Update () {
         if (time <= 0) {
             this.enabled = false;
-			Fader.FadeOutIn(Fader.Gesture.None, "You have gained +" + "10" + " Food.", "",()=>Application.LoadLevel("WorldsApart"));
+			Fader.Instance
+				.SetTitle("You have gained +" + "10" + " Food.")
+				.FadeOutOnComplete(()=>
+				    {
+						ThirdWorldManager.Instance.IncrementFood(10);
+						Application.LoadLevel("WorldsApart");
+					})
+				.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
+				.FadeOutIn();
             return;
         }
 

@@ -11,7 +11,5 @@ namespace WorldsApart.Scripting
 		{
 			loader.Load();
 		}
-
-
 	}
 }

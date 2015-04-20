@@ -13,10 +13,10 @@ namespace WorldsApart.GUI
         public void LoadLevel()
         {
 			gameObject.SetActive(false);
-			Fader.FadeOutIn(Fader.Gesture.None, "1 in 9 people do not have access \nto an improved water source.","",() =>
-				Application.LoadLevel("WorldsApart"),30
-			);
-
+			Fader.Instance.SetTitle("1 in 9 people do not have access \nto an improved water source.")
+				.FadeOutOnComplete(()=>Application.LoadLevel("WorldsApart"))
+				.SetTitleSize(30)
+				.FadeOutIn();
         }
     }
 }

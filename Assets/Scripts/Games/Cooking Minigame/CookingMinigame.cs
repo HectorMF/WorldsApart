@@ -75,7 +75,16 @@ public class CookingMinigame : MonoBehaviour {
 			}
 			break;
 		case State.Finishing:
-			Fader.FadeOutIn(Fader.Gesture.None, string.Format("You cooked {0} food!", FoodGain()),"", EndGame); 
+			Fader.Instance
+				.SetTitle(string.Format("You cooked {0} food!", FoodGain()))
+				.FadeOutOnComplete(()=>
+					{
+						ThirdWorldManager.Instance.IncrementFood(FoodGain());
+						Application.LoadLevel("WorldsApart");
+					})
+				.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
+				.FadeOutIn();
+
 			currentState = State.Finished;
 			break;
 		case State.Finished:
@@ -184,12 +193,6 @@ public class CookingMinigame : MonoBehaviour {
 
 		currentColor = Color.Lerp(currentColor, target, Time.deltaTime);
 		pitColor.color = currentColor;
-	}
-	void EndGame()
-	{
-		ThirdWorldManager.Instance.IncrementFood(FoodGain());
-		ThirdWorldManager.Instance.UsedAction();
-		Application.LoadLevel("WorldsApart");
 	}
 
 	int FoodGain()

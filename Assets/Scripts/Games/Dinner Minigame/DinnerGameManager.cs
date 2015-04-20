@@ -82,8 +82,14 @@ namespace WorldsApart.Games.DinnerMinigame
         public void EndGame()
         {
             if(scoreController != null) scoreController.Mood = eaters.Sum(e => e.mood);
-                
-			Fader.FadeOutIn(Fader.Gesture.None, "You have gained +" + "10" + " Mood.", "",()=>Application.LoadLevel("WorldsApart"));
+
+			Fader.Instance.SetTitle("You have gained +" + "10" + " Mood.")
+				.FadeOutOnComplete(()=>
+					{
+						Application.LoadLevel("WorldsApart");
+					})
+				.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
+				.FadeOutIn();
         }
 
         internal List<Sprite> GetPlateSprites()

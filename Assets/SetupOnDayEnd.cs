@@ -20,21 +20,5 @@ public class SetupOnDayEnd : MonoBehaviour {
 		boxCollider.enabled = false;
 	}
 	
-	void OnEnable()
-	{
-		ThirdWorldManager.OnDayEnd += DayEnd;
-	}
-	
-	void OnDisable()
-	{
-		ThirdWorldManager.OnDayEnd -= DayEnd;
-	}
 
-	public virtual void DayEnd()
-	{
-		Action.SetActive (true);
-		//Action.transform.DOScale(Vector3.one, 1f).OnComplete(()=>Action.GetComponent<Wobble>().enabled = true);
-
-		//boxCollider.enabled = true;
-	}
 }

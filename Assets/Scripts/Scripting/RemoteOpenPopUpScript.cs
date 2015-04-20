@@ -13,10 +13,10 @@ namespace WorldsApart.Scripting
 		
 		public void LoadMiniGame()
 		{
-			ThirdWorldManager.Instance.UsedAction();
+			//ThirdWorldManager.Instance.UsedAction();
 			//gameObject.transform.parent.parent.GetComponent<BoxCollider> ().enabled = false;
 			//gameObject.transform.parent.gameObject.SetActive (false);
-			Fader.FadeOutIn(gesture, Title, Subtitle, ()=>Application.LoadLevel(GameName));
+			//Fader.FadeOutIn(gesture, Title, Subtitle, ()=>Application.LoadLevel(GameName));
 		}
 
 		public GameObject ActionIndicator;

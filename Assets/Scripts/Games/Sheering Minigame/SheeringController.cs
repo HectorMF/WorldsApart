@@ -32,7 +32,6 @@ namespace WorldsApart.Games.SheeringMinigame
 
         void Start()
         {
-            Fader.FadeToClear(Fader.Gesture.Swipe, 2, 2, "Shear the Sheep", "Don't touch any tuft twice");
             puzzle = puzzles[UnityEngine.Random.Range(0, puzzles.Count)];
 
             GameObject scoreObject = GameObject.Find("ScoreController");
@@ -121,12 +120,15 @@ namespace WorldsApart.Games.SheeringMinigame
             }
             else
                 ThirdWorldManager.Instance.DecrementMood();
-			Fader.FadeToBlack(0,2,text,"",switchLevel);
-        }
 
-        public void switchLevel()
-        {
-            Application.LoadLevel("WorldsApart");
+			Fader.Instance
+				.SetTitle(text)
+				.FadeOutOnComplete(()=>
+				{
+					Application.LoadLevel("WorldsApart");
+				})
+				.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
+				.FadeOutIn();
         }
     }
 }

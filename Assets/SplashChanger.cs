@@ -10,6 +10,11 @@ public class SplashChanger : MonoBehaviour {
 	void Start () {
 		group2.alpha = 0;
 		group1.alpha = 0;
-		group1.DOFade(1,duration).OnComplete(()=>{group1.DOFade(0,1);group2.DOFade(1, duration).OnComplete(()=>Fader.FadeOutIn(Fader.Gesture.None,"","",()=>Application.LoadLevel("Menu")));});
+		group1.DOFade(1,duration).OnComplete(()=>{group1.DOFade(0,1);group2.DOFade(1, duration).OnComplete(FadeWithFader);});
+	}
+
+	void FadeWithFader()
+	{
+		Fader.Instance.FadeOutOnComplete(()=>Application.LoadLevel("Menu")).FadeOutIn();
 	}
 }
