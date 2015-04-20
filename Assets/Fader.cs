@@ -144,16 +144,29 @@ public class Fader : MonoBehaviour {
 	{
 		group.alpha = 0;
 		ConfigureFader();
-		group.DOFade(1, duration).SetDelay(delay).SetEase(ease).OnComplete(fadeOutAction);
-		ResetFader();
+		group.DOFade(1, duration)
+			.SetDelay(delay)
+			.SetEase(ease)
+			.OnComplete(()=>{
+					if(fadeOutAction != null)
+						fadeOutAction();
+					ResetFader();
+				});
+
 	}
 
 	public void FadeIn()
 	{
 		group.alpha = 1;
 		ConfigureFader();
-		group.DOFade(0, duration).SetDelay(delay).SetEase(ease).OnComplete(fadeInAction);
-		ResetFader();
+		group.DOFade(0, duration)
+			.SetDelay(delay)
+			.SetEase(ease)
+			.OnComplete(()=>{
+					if(fadeInAction != null)
+				   		fadeInAction();
+				        ResetFader();
+				});
 	}
 
 	public void FadeOutIn()
