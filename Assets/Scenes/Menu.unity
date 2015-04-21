@@ -2160,45 +2160,6 @@ MonoBehaviour:
   delay: 25
   duration: 2
   Scene: {fileID: 1926647240}
---- !u!1 &1535179338
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 4
-  m_Component:
-  - 4: {fileID: 1535179340}
-  - 114: {fileID: 1535179339}
-  m_Layer: 0
-  m_Name: Debug
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1535179339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1535179338}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d7c7bd8e2dcb4c5eab00071a5eaf247, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1535179340
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1535179338}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: .933807373, y: -1.07955933, z: .3359375}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
 --- !u!1 &1550221756
 GameObject:
   m_ObjectHideFlags: 0
@@ -2638,7 +2599,7 @@ Animator:
   m_GameObject: {fileID: 1770182766}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 432119d129f1ab0448ba070a9ef61028, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1e5ff7a1e74f80a48babe7ab60e41ce2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2671,7 +2632,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c26c47f280fdbc24a8690e068200332a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7d59953a48292cb43a7bc6d66d041e72, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!4 &1770182771
 Transform:
@@ -3032,7 +2993,7 @@ Transform:
   m_LocalScale: {x: 21, y: 21, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
 --- !u!1 &1857292403
 GameObject:
   m_ObjectHideFlags: 0
