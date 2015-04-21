@@ -2459,7 +2459,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
@@ -2720,15 +2720,15 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .115887374
+    x: .111492515
     y: 0
-    width: .768225253
+    width: .777014971
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.62499952
+  orthographic size: 5.62500048
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2

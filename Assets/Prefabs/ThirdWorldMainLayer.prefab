@@ -2776,15 +2776,15 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .115887374
+    x: .111492515
     y: 0
-    width: .768225253
+    width: .777014971
     height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.73749924
+  orthographic size: 5.73750019
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
@@ -3616,12 +3616,12 @@ Animator:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 154860}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb95dba3e8266ae41a866cf4f59ff10e, type: 2}
+  m_Controller: {fileID: 9100000, guid: 432119d129f1ab0448ba070a9ef61028, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -3770,8 +3770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11466974}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -3780,7 +3779,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,-3.5,0]'
       - true
       - true
@@ -3952,8 +3951,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11450268}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -3962,7 +3960,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[-1,-3.3,0]'
       - true
       - true
@@ -4032,8 +4030,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11472480}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -4042,7 +4039,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[-4.38,-2.78,0]'
       - true
       - true
@@ -4886,8 +4883,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11474382}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -4896,7 +4892,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[-0.61,-3.03,-0.43]'
       - true
       - true
@@ -4994,8 +4990,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11444118}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -5004,7 +4999,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,-3.5,0]'
       - true
       - true
@@ -5338,8 +5333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 11405674}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
@@ -5348,7 +5342,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"loader":null,"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[1.47,-1.3,0]'
       - true
       - true
@@ -9729,7 +9723,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 40ee132129d69774bbd2c1d135a419a8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c26c47f280fdbc24a8690e068200332a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!212 &21297834
 SpriteRenderer:
