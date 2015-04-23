@@ -233,6 +233,12 @@ Transform:
   - {fileID: 823854906}
   m_Father: {fileID: 1926647242}
   m_RootOrder: 0
+--- !u!114 &262057373
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11474382, guid: 0b432f29769904c10a49db3265ba91a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 770347807}
+  m_Script: {fileID: 11500000, guid: 5f6f239ddd4df354ab753f2226d104e0, type: 3}
 --- !u!1 &404916616
 GameObject:
   m_ObjectHideFlags: 0
@@ -959,6 +965,22 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11420674, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404056, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492846, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466652, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -990,6 +1012,38 @@ Prefab:
     - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 11420674, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 931929547}
+    - target: {fileID: 11420674, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11404056, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 2106833101}
+    - target: {fileID: 11404056, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11492846, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 1869838893}
+    - target: {fileID: 11492846, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 11466652, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedObjects.Array.data[0]
+      value: 
+      objectReference: {fileID: 262057373}
+    - target: {fileID: 11466652, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: _serializationData.serializedStrings.values.Array.data[0]
+      value: '[{"scripts":[{"loader":{"$content":0},"targetController":null,"$type":"WorldsApart.Scripting.LoadGameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
@@ -1225,6 +1279,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xScrollSpeed: -.200000003
   yScrollSpeed: -.200000003
+--- !u!114 &931929547
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11450268, guid: 0b432f29769904c10a49db3265ba91a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 770347807}
+  m_Script: {fileID: 11500000, guid: 5f6f239ddd4df354ab753f2226d104e0, type: 3}
 --- !u!1 &1018309313
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,6 +3115,12 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1801410544}
   m_RootOrder: 2
+--- !u!114 &1869838893
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11422124, guid: 0b432f29769904c10a49db3265ba91a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 770347807}
+  m_Script: {fileID: 11500000, guid: 5f6f239ddd4df354ab753f2226d104e0, type: 3}
 --- !u!1 &1881247825
 GameObject:
   m_ObjectHideFlags: 0
@@ -3197,3 +3263,9 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 199d499e36adc2247bdf93e127b1330a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+--- !u!114 &2106833101
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11466974, guid: 0b432f29769904c10a49db3265ba91a3,
+    type: 2}
+  m_PrefabInternal: {fileID: 770347807}
+  m_Script: {fileID: 11500000, guid: 5f6f239ddd4df354ab753f2226d104e0, type: 3}
