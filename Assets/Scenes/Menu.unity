@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 522028331d4b5b7429eb718d1b47e2d5, type: 3}
   m_Color: {r: .792156875, g: .913725495, b: 1, a: 1}
---- !u!4 &156526262
+--- !u!4 &156526262 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_PrefabInternal: {fileID: 537995945}
@@ -506,7 +506,53 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a4010907c5fef54d9936fb520c1ae1b, type: 2}
   m_IsPrefabParent: 0
---- !u!4 &550967796
+--- !u!1001 &543635907
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 19828390, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: SubModule.subEmitterDeath
+      value: 
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+  m_IsPrefabParent: 0
+--- !u!4 &550967796 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 96e70114d12f9a4498862895063eb1a7, type: 2}
   m_PrefabInternal: {fileID: 782865192}
@@ -952,76 +998,6 @@ Transform:
   - {fileID: 1607890396}
   m_Father: {fileID: 1926647242}
   m_RootOrder: 1
---- !u!1001 &770347807
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 419114, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.y
-      value: .0497194827
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.height
-      value: .900561035
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: orthographic size
-      value: 5.73749924
-      objectReference: {fileID: 0}
-    - target: {fileID: 11405674, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: gamesPerDay
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11450268, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: subTitle
-      value: Maintain a temperature between 300-350
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &782865192
 Prefab:
   m_ObjectHideFlags: 0
@@ -2574,14 +2550,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0497194827
+    y: .0645744205
     width: 1
-    height: .900561035
+    height: .870851159
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.62499952
+  orthographic size: 5.625
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
