@@ -41,9 +41,19 @@ public class InfoPanel : MonoBehaviour {
 		requiredWater.text = reqWater + "";
 		requiredMood.text = reqMood + "";
 
-		rewardsFood.text = rewFood + "";
-		rewardsWater.text = rewWater + "";
-		rewardsMood.text = rewMood + "";
+		rewardsFood.text = Reward(rewFood);
+		rewardsWater.text = Reward(rewWater);
+		rewardsMood.text = Reward(rewMood);
+	}
+
+	private string Reward(int amount)
+	{
+		if (amount > 0)
+			return "+";
+		else if (amount < 0)
+			return "-";
+		else
+			return "0";
 	}
 
 	public void Close(){
