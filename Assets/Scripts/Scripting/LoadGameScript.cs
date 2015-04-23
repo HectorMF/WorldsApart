@@ -6,10 +6,11 @@ namespace WorldsApart.Scripting
 {
 	public class LoadGameScript : RemoteScript
 	{
-		public MiniGameLoader loader;
+		public GameObject gameObject;
+
 		public override void Start(Action OnFinish)
 		{
-			loader.Load();
+			gameObject.GetComponent<MiniGameLoader> ().Load ();
 		}
 	}
 }
