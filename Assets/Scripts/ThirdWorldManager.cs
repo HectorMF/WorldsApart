@@ -81,7 +81,8 @@ public class ThirdWorldManager
     #region PrivateMethods
     private void Reinitialize()
     {
-		GameObject.Find("DialogPanel").GetComponent<DialogPanel>().Close ();
+		if(GameObject.Find("DialogPanel"))
+			GameObject.Find("DialogPanel").GetComponent<DialogPanel>().Close ();
 		if(_daysAlive > 1)
 			Clickable.enabledAll = false;
         float rand = Random.Range(0.0f, 1.0f);
