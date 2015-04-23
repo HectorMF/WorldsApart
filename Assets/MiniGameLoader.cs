@@ -6,6 +6,9 @@ using DG.Tweening;
 using WorldsApart.GUI;
 
 public class MiniGameLoader : MonoBehaviour {
+	//Dialog When Requirements not met
+	public string dialogText1;
+	public string dialogText2;
 	//Scene to load and fader info
 	public int gamesPerDay = 1;
 	public string sceneName;
@@ -17,28 +20,31 @@ public class MiniGameLoader : MonoBehaviour {
 	public int RewardWater, RewardFood, RewardMood;
 
 	private InfoPanel panel;
+	private DialogPanel dialog;
 	private GameObject actionIndicator;
 	private Thirst thirst;
 	private int timesPlayed = 0;
 
 	public void Start(){
 		actionIndicator = transform.FindChild("Action").gameObject;
-		if(!RequirementsMet()){
-			GetComponent<BoxCollider> ().enabled = false;
-			actionIndicator.transform.localScale = Vector3.zero;
-		}
+		panel = GameObject.Find("InfoPanel").GetComponent<InfoPanel>();
+		dialog = GameObject.Find("DialogPanel").GetComponent<DialogPanel>();
 	}
 
 	public void Load()
 	{
-		panel = GameObject.Find("InfoPanel").GetComponent<InfoPanel>();
-
+		dialog.Close();
 		thirst = transform.parent.GetComponent<Thirst> ();
 		if (thirst != null) RequiredWater = thirst.CurrentWaterRequirement;
 		
 		if (RequirementsMet ()) {
 			panel.acceptAction = LoadMiniGame;
 			panel.Open(RequiredFood, RequiredWater, RequiredMood, RewardFood, RewardWater, RewardMood);
+		}else{
+			if(timesPlayed >= gamesPerDay) 
+				dialog.Open(dialogText2);
+			else
+				dialog.Open(dialogText1);
 		}
 	}
 
@@ -66,12 +72,10 @@ public class MiniGameLoader : MonoBehaviour {
 			actionIndicator.transform.DOKill();
 			actionIndicator.GetComponent<Wobble>().enabled = true;
 			actionIndicator.transform.DOScale(Vector3.one, 1f);
-			GetComponent<BoxCollider> ().enabled = true;
 		}else{
 			actionIndicator.transform.DOKill();
 			actionIndicator.GetComponent<Wobble>().enabled = false;
 			actionIndicator.transform.DOScale(Vector3.zero, 1f);
-			GetComponent<BoxCollider> ().enabled = false;
 		}
 	}
 	

@@ -32,7 +32,7 @@ namespace WorldsApart.Clickables
 				return;
 			if (!enabled)
 				return;
-
+			GameObject.Find("DialogPanel").GetComponent<DialogPanel>().Close ();
             var player = GameObject.Find("MainChar");
 
             if (player != null)

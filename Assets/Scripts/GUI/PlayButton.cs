@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.UI;
 using System;
+using DG.Tweening;
 
 namespace WorldsApart.GUI
 {
@@ -12,7 +13,8 @@ namespace WorldsApart.GUI
 
         public void LoadLevel()
         {
-			gameObject.SetActive(false);
+			gameObject.transform.DOScale(new Vector3(0,0,0),.5f);
+			gameObject.transform.parent.transform.FindChild("Header").transform.DOScale(new Vector3(0,0,0),.5f);
 			Fader.Instance.SetTitle("1 in 9 people do not have access \nto an improved water source.")
 				.FadeOutOnComplete(()=>Application.LoadLevel("WorldsApart"))
 				.SetTitleSize(30)
