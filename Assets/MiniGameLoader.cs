@@ -81,7 +81,7 @@ public class MiniGameLoader : MonoBehaviour {
 	
 	bool RequirementsMet()
 	{
-		if(timesPlayed >= gamesPerDay) return false;
+		if(gamesPerDay != -1 && timesPlayed >= gamesPerDay) return false;
 		int currentFood = ThirdWorldManager.Instance.CurrentFood;
 		int currentWater = ThirdWorldManager.Instance.CurrentWater;
 		if (RequiredFood != 0 && RequiredWater != 0)
