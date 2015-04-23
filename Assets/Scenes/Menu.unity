@@ -993,19 +993,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: .10790351
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: .0497194827
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: .784192979
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: .900561035
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: orthographic size
@@ -1014,6 +1014,10 @@ Prefab:
     - target: {fileID: 11405674, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: gamesPerDay
       value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450268, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: subTitle
+      value: Maintain a temperature between 300-350
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
@@ -2569,10 +2573,10 @@ Camera:
   m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .10790351
-    y: 0
-    width: .784192979
-    height: 1
+    x: 0
+    y: .0497194827
+    width: 1
+    height: .900561035
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
