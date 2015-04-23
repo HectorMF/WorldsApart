@@ -56,7 +56,7 @@ public class MiniGameLoader : MonoBehaviour {
 		actionIndicator.transform.DOKill();
 		actionIndicator.GetComponent<Wobble>().enabled = false;
 		actionIndicator.transform.DOScale(Vector3.zero, 1f);
-		GetComponent<BoxCollider> ().enabled = false;
+
 		Fader.Instance
 			.SetGesture(gesture)
 			.SetTitle(title)
