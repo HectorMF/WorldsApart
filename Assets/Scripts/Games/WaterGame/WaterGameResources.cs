@@ -3,50 +3,55 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class WaterGameResources: MonoBehaviour {
+
+    public float travelDistance;
+    public float bucketSize;
+    public float currentWater;
+    public float trippingChance;
+    public float TravelDistanceValue
+    {
+        get
+        {
+            return WaterGameLogic.Instance.currentDistance;
+        }
+    }
+
+    public float BucketSizeValue
+    {
+        get
+        {
+            return WaterGameLogic.Instance.BucketSizeValue;
+        }
+    }
     
-    private static WaterGameResources instance;
-    public float TravelDistanceValue = 0f;
-    public float BucketSizeValue = 100f;
-    public float TrippingChance = 40f;
-    public float CurrentWater;
+    public float CurrentWater
+    {
+        get
+        {
+            return WaterGameLogic.Instance.water;
+        }
+    }
+    public float TrippingChance
+    {
+        get
+        {
+            return WaterGameLogic.Instance.TrippingChance;
+        }
+        set
+        {
+            WaterGameLogic.Instance.TrippingChance = value;
+        }
+    }
+
     public Text DistanceText;
 
 	public void Start(){
 		//Fader.FadeToClear(Fader.Gesture.Balance,0, 2, "Carry Your Water", "Don't Spill");
+        travelDistance= TravelDistanceValue;
+        bucketSize = BucketSizeValue;
+        currentWater = CurrentWater;
+        trippingChance = TrippingChance;
+        //giving the text box to the WaterGameLogic
+        WaterGameLogic.Instance.GiveMeTheTextBox(DistanceText);
 	}
-    private WaterGameResources()
-    {
-        
-    }
-    public static WaterGameResources Instance
-    {
-        get
-        {
-            while (instance == null)
-            {
-                instance = GameObject.FindObjectOfType<WaterGameResources>();
-                if (instance == null)
-                {
-                    GameObject go = new GameObject();
-                    DontDestroyOnLoad(go);
-                    instance = go.AddComponent<WaterGameResources>();
-                }
-            }
-            return instance;
-        }
-    }
-
-    public Vector3 Acceleration
-    {
-        get
-        {
-            var camera = GameObject.FindObjectOfType<CameraTilt>();
-            return camera.acceleration;
-        }
-    }
-    public void Update()
-    {
-        BucketSizeValue = WaterGameLogic.Instance.maxWater;
-        CurrentWater = WaterGameLogic.Instance.water;
-    }
 }

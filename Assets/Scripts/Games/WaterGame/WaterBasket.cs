@@ -25,7 +25,7 @@ public class WaterBasket : MonoBehaviour {
             {
                 Camera.transform.rotation.ToAngleAxis(out currentAngel, out axis);
                 //Calculating the angel that player starts losing water
-                float drippingAngel = 90 * ((WaterGameResources.Instance.BucketSizeValue - wgLogic.water) / WaterGameResources.Instance.BucketSizeValue);
+                float drippingAngel = 90 * ((WaterGameLogic.Instance.BucketSizeValue - wgLogic.water) / WaterGameLogic.Instance.BucketSizeValue);
                 //See if the angel is more than 90 in which case player loses the game
                 if (currentAngel > 90)
                 {
@@ -45,7 +45,7 @@ public class WaterBasket : MonoBehaviour {
                     {
                         animationHandler.DripWater(this.gameObject, 2);
                     }
-                    wgLogic.LoseSomeWater(((currentAngel) * (WaterGameResources.Instance.BucketSizeValue) / 90f * Time.fixedDeltaTime));
+                    wgLogic.LoseSomeWater(((currentAngel) * (WaterGameLogic.Instance.BucketSizeValue) / 90f * Time.fixedDeltaTime));
                 }
                 else
                 {

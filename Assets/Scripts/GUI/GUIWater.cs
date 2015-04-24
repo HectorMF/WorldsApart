@@ -36,7 +36,7 @@ namespace WorldsApart.GUI
             }
             else
             {
-                slider.maxValue = WaterGameLogic.Instance.maxWater;
+                slider.maxValue = WaterGameLogic.Instance.BucketSizeValue;
             }
             
         }

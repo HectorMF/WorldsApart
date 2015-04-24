@@ -7,6 +7,7 @@ public class CameraTilt : MonoBehaviour {
     public const float AccelLowPass = 0.01f;
     public Vector3 acceleration;
     public bool DebugMode = false;
+    public float TrippingChance = 40f;
 
     private Vector3 _previousAcceleration;
     private Vector3 _smoothAcceleration;
@@ -23,6 +24,9 @@ public class CameraTilt : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         float acc;
+        if(Input.GetKeyDown(KeyCode.D))
+            DebugMode = true;
+
         if(DebugMode)
         {
             acc = 0;
@@ -65,7 +69,7 @@ public class CameraTilt : MonoBehaviour {
         if (WaterGameLogic.Instance.Step == 0)
         {
             var r = UnityEngine.Random.Range(0, 100);
-            if (r < WaterGameResources.Instance.TrippingChance)
+            if (r < TrippingChance)
             {
                 var angel = UnityEngine.Random.Range(-5, 5);
                 //Debug.Log("What?" + angel);

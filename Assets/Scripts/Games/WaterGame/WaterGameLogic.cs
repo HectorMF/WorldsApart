@@ -7,7 +7,7 @@ public class WaterGameLogic {
 
     public float water;
     private float _maxWater;
-    public float maxWater
+    public float BucketSizeValue
     {
         get
         {
@@ -16,7 +16,7 @@ public class WaterGameLogic {
     }
     public float currentDistance = 0f;
     public float distance = 0f;
-
+    public float TrippingChance = 40f;
     private Quaternion targetRotation;
 
     public bool GameOver = false;
@@ -27,7 +27,8 @@ public class WaterGameLogic {
             return step;
         }
     }
-    
+
+    private Text distanceText;
 	// Use this for initialization
     private static WaterGameLogic instance;
     private WaterGameLogic()
@@ -36,7 +37,7 @@ public class WaterGameLogic {
        
         currentDistance = 0f;
         _maxWater = ThirdWorldManager.Instance.WaterCapacity;
-        water = _maxWater;
+        water = 0;
         distance = 10f;
     }
     public static WaterGameLogic Instance
@@ -65,9 +66,9 @@ public class WaterGameLogic {
     /// <param name="amount"></param>
     public void LoseSomeWater(float amount)
     {
-        if(maxWater< water)
+        if(BucketSizeValue< water)
         {
-            water = maxWater;
+            water = BucketSizeValue;
         }
         water = water - amount;
         if (water <= 0)
@@ -100,7 +101,7 @@ public class WaterGameLogic {
     {
         if (!ReachedDestination && !GameOver)
         {
-            WaterGameResources.Instance.DistanceText.text = string.Format("{0:0.0} / {1} meter", currentDistance, distance);
+            distanceText.text = string.Format("{0:0.0} / {1} meter", currentDistance, distance);
 
             currentDistance += stepSize;
             if (currentDistance >= distance)
@@ -113,7 +114,7 @@ public class WaterGameLogic {
     {
         ReachedDestination = true;
 		Fader.Instance
-			.SetTitle(string.Format(@"You reached the village with {0: 0.0} liters of water out of {1: 0.0} capacity", water, maxWater))
+			.SetTitle(string.Format(@"You reached the village with {0: 0.0} liters of water out of {1: 0.0} capacity", water, BucketSizeValue))
 			.SetTitleSize(35)
 			.FadeOutOnComplete(()=>
 		 		{
@@ -155,6 +156,28 @@ public class WaterGameLogic {
         {
             ThirdWorldManager.Instance.IncrementWater((int)water);
         }
+    }
+
+    public void GiveMeTheTextBox(Text textBox)
+    {
+        distanceText = textBox;
+    }
+
+    public void IncrementWater(float waterAmount)
+    {
+        if(waterAmount+water<_maxWater)
+        {
+            water += waterAmount;
+        }
+    }
+    public void DecrementWater(float waterAmount)
+    {
+        if (water - waterAmount > 0)
+        {
+            water -= waterAmount;
+        }
+        else
+            water = 0;
     }
 	
 }
