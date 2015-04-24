@@ -1705,7 +1705,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 118382, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.x

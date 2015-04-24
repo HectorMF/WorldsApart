@@ -31,9 +31,10 @@ public class FrameAnchors : MonoBehaviour {
 
     public void SetIndex(int i)
     {
+        BannerAd.banner.Hide();
         index = i;
 		locked = true;
-        camera.transform.DOMove(anchors[i], duration).SetEase(easingFunction).OnComplete(Unlock);
+        camera.transform.DOMove(anchors[i], duration).SetEase(easingFunction).OnComplete(() => { Unlock(); BannerAd.banner.Show(); });
     }
 
 	private void Unlock()
