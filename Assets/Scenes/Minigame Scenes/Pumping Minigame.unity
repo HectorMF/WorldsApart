@@ -171,7 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   easeTime: 0
-  CurrentGameMode: 0
+  CurrentGameMode: 1
 --- !u!114 &112622507
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,15 +1339,15 @@ Camera:
   m_BackGroundColor: {r: .367646933, g: .229779407, b: .91911763, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .113262445
-    y: 0
-    width: .773475111
-    height: 1
+    x: 0
+    y: .0497194827
+    width: 1
+    height: .900561035
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.96875012
+  orthographic size: 1.96874988
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

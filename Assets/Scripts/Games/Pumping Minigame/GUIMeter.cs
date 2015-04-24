@@ -7,18 +7,17 @@ public class GUIMeter : MonoBehaviour
 	public Transform pump;
 	public float speed = 0.1f;
 
-
+	int startingWater;
 	int difficulty;
 	int waterPumped;
 	float oldValue;
 	float currentValue;
+	float drainSpeed;
+	float chanceDirtyWater = 2;
 	Slider slider;
 	bool draining;
-	float drainSpeed;
 	PumpAnimator pumpAnim;
 	Color dirtyWater = new Color(182f/255f, 145f/255f, 49f/255f, 1f);
-	float chanceDirtyWater = 2;
-	int startingWater;
 	SpriteRenderer pumpRenderer;
 	
 	void Start () 
@@ -54,13 +53,13 @@ public class GUIMeter : MonoBehaviour
 			if (rand <= chanceDirtyWater)
 			{
 				pumpRenderer.color = dirtyWater;
+				WaterGameLogic.Instance.DecrementWater(waterPumped);
 				waterPumped = 0;
-				ThirdWorldManager.Instance.DecrementWater(ThirdWorldManager.Instance.CurrentWater - startingWater);
 			}
 			else{
 				pumpRenderer.color = Color.white;
 				waterPumped += Mathf.FloorToInt(slider.value);
-				ThirdWorldManager.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
+				WaterGameLogic.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
 			}
 		}
 		else if (draining)
