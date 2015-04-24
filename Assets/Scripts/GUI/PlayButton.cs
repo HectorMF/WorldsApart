@@ -20,5 +20,20 @@ namespace WorldsApart.GUI
 				.SetTitleSize(30)
 				.FadeOutIn();
         }
+
+		#if UNITY_EDITOR
+		public void Update()
+		{
+			if(Input.GetKeyDown(KeyCode.Space))
+			{
+				gameObject.transform.DOScale(new Vector3(0,0,0),.5f);
+				gameObject.transform.parent.transform.FindChild("Header").transform.DOScale(new Vector3(0,0,0),.5f);
+				Fader.Instance.SetTitle("1 in 9 people do not have access \nto an improved water source.")
+					.FadeOutOnComplete(()=>Application.LoadLevel("WorldsApart"))
+						.SetTitleSize(30)
+						.FadeOutIn();
+			}
+		}
+		#endif
     }
 }
