@@ -23,7 +23,10 @@ public class SaveState : MonoBehaviour {
 
 	void SetChildrenActive(bool b)
 	{
-		foreach (Transform child in transform)
+		foreach (Transform child in transform) {
 			child.gameObject.SetActive (b);
+			if (child.name == "Weather" && !b && Application.loadedLevelName != "Dinner Minigame")
+				child.gameObject.SetActive(true);
+		}
 	}
 }
