@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1421833163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b614c932a657a944ad6b4e6263d2a05, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c22f0c30db198b408297d70ca6debbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1436799289
@@ -1709,7 +1709,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: .184723854
+      value: .10817647
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.y
@@ -1717,7 +1717,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: .630552292
+      value: .78364706
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.height
@@ -1725,7 +1725,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: orthographic size
-      value: 5.73749924
+      value: 5.73749971
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
@@ -1853,7 +1853,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 180568, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bd611b90284d0ea438c6fab6fef73eb3, type: 2}
