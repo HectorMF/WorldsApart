@@ -311,4 +311,14 @@ public class ThirdWorldManager
 				.SetSubTitle("Consider donating to the cause.")
 				.FadeOut();
 	}
+
+    public void LoadGame(int daysAlive, int water, int food, int mood, bool hasPack)
+    {
+        _daysAlive = daysAlive;
+        currentWater = water;
+        currentFood = food;
+        CurrentMood = (Mood.MoodNames) mood;
+        _hasPack = hasPack;
+        Debug.Log(string.Format("Game Loaded by these values: DaysAlive:{0} - Water:{1} - Food:{2} - Mood:{3} - HasPack:{4}",daysAlive,water,food,mood,hasPack));
+    }
 }
