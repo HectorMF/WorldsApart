@@ -17,7 +17,7 @@ namespace WorldsApart.Games.DinnerMinigame
         private int minutes;
         private int oldSeconds;
         internal bool started;
-		public float playTime = 60f;
+		public float playTime = 30f;
 		private float countDownTime = 4f;
 
         public List<Sprite> moods;
@@ -124,6 +124,8 @@ namespace WorldsApart.Games.DinnerMinigame
 			else if (seconds == 0){
 				started = true;
 				time = playTime;
+				minutes = (int)(time / 60);
+				seconds = (int)(time % 60);
 			}
 		}
 	}

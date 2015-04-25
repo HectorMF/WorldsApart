@@ -19,7 +19,9 @@ namespace WorldsApart.Games.CropsMinigame
         public BoundingBox bounds;
 
         public Text timer;
-        public float time = 60f;
+		public float playTime = 60;
+        private float time;
+		private float countDownTime = 4f;
         private int seconds;
         private int minutes;
         private int oldSeconds;
@@ -32,19 +34,20 @@ namespace WorldsApart.Games.CropsMinigame
         {
             //Fader.FadeToClear(Fader.Gesture.Tap, 2, 2, "Pick the Crops", "Shoo away the animals", );
             
-			started = true;
+			started = false;
             GameObject scoreObject = GameObject.Find("ScoreController");
             if (scoreObject != null)
                 scoreController = scoreObject.GetComponent<ScoreController>();
 
+			time = countDownTime;
             minutes = (int)(time / 60);
             seconds = (int)(time % 60);
-            if (timer != null) timer.text = minutes + ":" + seconds.ToString("00");
+            //if (timer != null) timer.text = minutes + ":" + seconds.ToString("00");
         }
 
         void Update()
         {
-            if (!started) return;
+            //if (!started) return;
             if (time <= 0) return;
             
             oldSeconds = seconds;
@@ -57,25 +60,29 @@ namespace WorldsApart.Games.CropsMinigame
             //instead of updating every frame, update every second change
             if (seconds != oldSeconds)
             {
-                if(timer != null) timer.text = minutes + ":" + seconds.ToString("00");
+				if (!started){
+					CountDown();
+				}
+				else{
+	                if(timer != null) timer.text = minutes + ":" + seconds.ToString("00");
 
-                if (minutes == 0 && seconds <= 10)
-                {
-                    if (timer != null)
-                    {
-                        timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
-                        timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
-                    }
-                }
+	                if (minutes == 0 && seconds <= 10)
+	                {
+	                    if (timer != null)
+	                    {
+	                        timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+	                        timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+	                    }
+	                }
+				}
             }
 
-            if (time <= 0){
+			if (time <= 0){
 				EndGame();
 				started = false;
 			}
-
-
-            timePassed += Time.deltaTime;
+			
+			if(started) timePassed += Time.deltaTime;
 
             if (timePassed > spawnFrequency)
             {
@@ -119,5 +126,26 @@ namespace WorldsApart.Games.CropsMinigame
 				.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
 				.FadeOutIn();
         }
-    }
+
+		void CountDown(){
+			if (seconds == 3){
+				timer.text = "Ready";
+				timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+			}
+			else if (seconds == 2) {
+				timer.text = "Set";
+				timer.DOColor(Color.yellow, .5f).SetLoops(2, LoopType.Yoyo);
+			}
+			else if (seconds == 1){
+				timer.text = "Go!";
+				timer.DOColor(Color.green, .5f).SetLoops(2, LoopType.Yoyo);
+			}
+			else if (seconds == 0){
+				started = true;
+				time = playTime;
+				minutes = (int)(time / 60);
+				seconds = (int)(time % 60);
+			}
+		}
+	}
 }

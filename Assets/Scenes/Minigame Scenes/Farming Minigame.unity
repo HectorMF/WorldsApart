@@ -635,7 +635,7 @@ MonoBehaviour:
       - 'Field: float spawnFrequency'
       - 'Field: BoundingBox bounds'
       - 'Field: Text timer'
-      - 'Field: float time'
+      - 'Field: float playTime'
       values:
       - '[{"prefab":{"$content":0},"probability":30},{"prefab":{"$content":1},"probability":60},{"prefab":{"$content":2},"probability":10}]'
       - 3
@@ -655,7 +655,7 @@ MonoBehaviour:
     height: 2.5
     width: 8
   timer: {fileID: 503588067}
-  time: 30
+  playTime: 30
 --- !u!1 &329871838
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,8 +883,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -170, y: 60}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -321, y: 311}
+  m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &503588067
 MonoBehaviour:
@@ -901,12 +901,12 @@ MonoBehaviour:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9130d16faf5e644bab762986afce045, type: 3}
-    m_FontSize: 70
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -2095,14 +2095,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0714939237
+    y: .0497194827
     width: 1
-    height: .857012153
+    height: .900561035
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2.8125
+  orthographic size: 2.81249976
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
