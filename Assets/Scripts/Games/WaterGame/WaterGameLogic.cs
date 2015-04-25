@@ -116,6 +116,7 @@ public class WaterGameLogic {
 		Fader.Instance
 			.SetTitle(string.Format(@"You reached the village with {0: 0.0} liters of water out of {1: 0.0} capacity", water, BucketSizeValue))
 			.SetTitleSize(35)
+			.SetSubTitle("Women in water-stressed regions walk on average 3.5 miles everyday to get water.")
 			.FadeOutOnComplete(()=>
 		 		{
 					Application.LoadLevel("WorldsApart");
