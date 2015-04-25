@@ -1,0 +1,3 @@
+sound sources
+elephant: http://www.partnersinrhyme.com/soundfx/animals/animals_sounds/safari_sounds/safari_elephant4_wav.shtml
+ostrich: http://www.sounddogs.com/extendedsearch.asp?keyword=Ostrich
