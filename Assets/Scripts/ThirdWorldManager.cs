@@ -43,6 +43,7 @@ public class ThirdWorldManager
     public int Actions { get { return actions; } set { } }
     public bool AnyWater { get { return currentWater > 0; } set { } }
 	public int TotalActions { get; set; }
+	public bool GameOver { get; set; }
 
 
     private int currentWater
@@ -119,7 +120,12 @@ public class ThirdWorldManager
 						if (OnDayEnd != null) 
 							OnDayEnd();
 					})
-				.FadeInOnComplete(()=>Clickable.enabledAll = true)
+				.FadeInOnComplete(()=>
+				    {
+						Clickable.enabledAll = true; 
+						if(GameOver) 
+							EndGame();
+					})
 				.FadeOutIn();
 		else{
 			WeatherManager.weather = currentWeather; 
@@ -301,7 +307,7 @@ public class ThirdWorldManager
 	public void EndGame(){
 		Fader.Instance
 			.SetTitle("Life isn't easy without water.")
-				.SetSubTitle("Make it a bit easier by donating.")
+				.SetSubTitle("Consider donating to the cause.")
 				.FadeOut();
 	}
 }

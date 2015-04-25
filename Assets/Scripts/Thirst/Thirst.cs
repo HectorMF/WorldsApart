@@ -38,7 +38,7 @@ public class Thirst : MonoBehaviour {
 			{
 				if(this is FamilyThirst){
 					GameObject.Find ("MainChar").SetActive(false);
-					ThirdWorldManager.Instance.EndGame();
+					ThirdWorldManager.Instance.GameOver = true;
 				}
 
 				gameObject.SetActive(false);
