@@ -638,7 +638,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"gesture":"None","GameName":"Menu","Title":"","Subtitle":"","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[]'
       - '[0,0,0]'
       - false
       - true
@@ -898,9 +898,9 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0652558208
+    y: .0714939237
     width: 1
-    height: .869488358
+    height: .857012153
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -2573,8 +2573,6 @@ MonoBehaviour:
   camera: {fileID: 260663934}
   rain: {fileID: 1973816287}
   dry: {fileID: 1958643556}
-  bloom: {fileID: 260663937}
-  grayscale: {fileID: 260663938}
 --- !u!4 &1059364518
 Transform:
   m_ObjectHideFlags: 0
@@ -3007,8 +3005,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"gesture":"None","GameName":"Farming Minigame","Title":"Harvest Crops!","Subtitle":"Pick
-        them before the animals do!","type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.LoadGameHandler"}]'
+      - '[]'
       - '[0,0,0]'
       - true
       - true
@@ -4229,7 +4226,7 @@ MonoBehaviour:
       - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"scripts":[{"InfoPopUp":null,"ActionIndicator":null,"RequiredWater":0,"RequiredFood":0,"Confirm":null,"Requirements":null,"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"scripts":[{"gesture":"None","GameName":null,"Title":null,"Subtitle":null,"ActionIndicator":null,"RequiredWater":0,"RequiredFood":0,"RequiredMood":0,"Confirm":null,"Requirements":null,"targetController":null,"$type":"WorldsApart.Scripting.RemoteOpenPopUpScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
       - '[0,0,0]'
       - true
       - true

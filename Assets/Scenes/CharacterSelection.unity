@@ -416,7 +416,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb4cc2585b0ca5349bc52d4dc3b166da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeather: 0
   camera: {fileID: 0}
   rain: {fileID: 1816602152}
   dry: {fileID: 377563178}
@@ -844,8 +843,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: 2, y: 0, z: 0}
-  waiting: 0
+  zone:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  easingFunction: 4
+  walkSpeed: 1.5
+  turnSpeed: 1
+  minDelay: 5
+  maxDelay: 10
+  minDeltaDistance: 0
 --- !u!82 &358531914
 AudioSource:
   m_ObjectHideFlags: 0
@@ -935,11 +944,20 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
+      - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
+      - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[{"targetController":null,"$type":"WorldsApart.Scripting.RemoteMilkingMinigameScript"}],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"scripts":[],"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.RemoteScriptHandler"}]'
+      - '[0,0,0]'
+      - true
+      - true
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
+  targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
+  relative: 1
   active: 1
 --- !u!61 &358531916
 BoxCollider2D:
@@ -3120,8 +3138,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01e325bea2c0245d28bf653cc63b4238, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: {x: 2, y: 0, z: 0}
-  waiting: 0
+  zone:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 0
+    height: 0
+  easingFunction: 4
+  walkSpeed: 1.5
+  turnSpeed: 1
+  minDelay: 5
+  maxDelay: 10
+  minDeltaDistance: 0
 --- !u!82 &1623004735
 AudioSource:
   m_ObjectHideFlags: 0

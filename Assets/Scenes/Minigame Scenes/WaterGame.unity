@@ -1101,15 +1101,15 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: .10790351
-    y: 0
-    width: .784192979
-    height: 1
+    x: 0
+    y: .0714939237
+    width: 1
+    height: .857012153
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5.62499952
+  orthographic size: 5.625
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1160,6 +1160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceleration: {x: 0, y: 0, z: 0}
   DebugMode: 0
+  TrippingChance: 40
 --- !u!50 &796706790
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -1381,10 +1382,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 807e4a6c539e7524f941bfd9329a7ae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TravelDistanceValue: 0
-  BucketSizeValue: 100
-  TrippingChance: 40
-  CurrentWater: 0
+  travelDistance: 0
+  bucketSize: 0
+  currentWater: 0
+  trippingChance: 0
   DistanceText: {fileID: 2097710107}
 --- !u!4 &979318682
 Transform:
