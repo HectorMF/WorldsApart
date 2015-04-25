@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 
 namespace WorldsApart.Games.SheeringMinigame
 {
@@ -29,6 +31,14 @@ namespace WorldsApart.Games.SheeringMinigame
         private bool mouseIsActive;
 
         ScoreController scoreController;
+
+		public Text timer;
+		public float time = 60f;
+		private int seconds;
+		private int minutes;
+		private int oldSeconds;
+	
+
 
         void Start()
         {
@@ -61,6 +71,33 @@ namespace WorldsApart.Games.SheeringMinigame
                 }
             }
         }
+
+		void Update () {
+			if (time <= 0) {
+				this.enabled = false;
+				EndGame("Out of Time", false);
+				return;
+			}
+			
+			oldSeconds = seconds;
+			
+			//decrement the timer, and calculate minutes and seconds as integers
+			time -= Time.deltaTime;
+			minutes = (int)(time / 60);
+			seconds = (int)(time % 60);
+			
+			//instead of updating every frame, update every second change
+			if (seconds != oldSeconds)
+			{
+				timer.text = minutes + ":" + seconds.ToString("00");
+				
+				if (minutes == 0 && seconds <= 10)
+				{
+					timer.DOColor(Color.red, .5f).SetLoops(2, LoopType.Yoyo);
+					timer.gameObject.transform.DOScale(new Vector3(1.5f, 1.5f, 1), .5f).SetLoops(2, LoopType.Yoyo);
+				}
+			}
+		}
 
         public void setMouseActive(bool value)
         {
