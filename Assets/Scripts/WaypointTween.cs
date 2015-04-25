@@ -43,6 +43,7 @@ public class WaypointTween : MonoBehaviour {
             else
             {
                 if(actions != null) actions.ForEach(a => a());
+				button.transform.DOScale(new Vector3(0,0,0), .5f);
                 buttonPressed = false;
             }
 		}
