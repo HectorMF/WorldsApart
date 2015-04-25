@@ -8,7 +8,7 @@ public class SaveState : MonoBehaviour {
 
 	void Awake () {
 		GameObject.DontDestroyOnLoad (gameObject);
-	//	SetChildrenActive(false);
+		SetChildrenActive(false);
 	}
 
 	void OnLevelWasLoaded(int level)

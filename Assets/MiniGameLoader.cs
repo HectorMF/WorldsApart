@@ -29,6 +29,8 @@ public class MiniGameLoader : MonoBehaviour {
 		actionIndicator = transform.FindChild("Action").gameObject;
 		panel = GameObject.Find("InfoPanel").GetComponent<InfoPanel>();
 		dialog = GameObject.Find("DialogPanel").GetComponent<DialogPanel>();
+		if(!RequirementsMet ())
+			actionIndicator.transform.localScale = Vector3.zero;
 	}
 
 	public void Load()

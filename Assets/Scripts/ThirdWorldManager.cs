@@ -42,6 +42,8 @@ public class ThirdWorldManager
     public int RequiredFood { get { return requiredFood; } set { requiredFood = value; } }
     public int Actions { get { return actions; } set { } }
     public bool AnyWater { get { return currentWater > 0; } set { } }
+	public int TotalActions { get; set; }
+
 
     private int currentWater
     {
@@ -113,6 +115,7 @@ public class ThirdWorldManager
 					{ 
 						WeatherManager.weather = currentWeather; 
 						actions = (int)CurrentMood;
+						TotalActions = actions;
 						if (OnDayEnd != null) 
 							OnDayEnd();
 					})
@@ -120,7 +123,7 @@ public class ThirdWorldManager
 				.FadeOutIn();
 		else{
 			WeatherManager.weather = currentWeather; 
-			actions = (int)CurrentMood;
+			actions = TotalActions = (int)CurrentMood;
 		}
 
         UnityEngine.Debug.Log("A new day! The weather is " + currentWeather);
@@ -295,4 +298,10 @@ public class ThirdWorldManager
 		Debug.Log("-----------------------------------------");
 	}
 
+	public void EndGame(){
+		Fader.Instance
+			.SetTitle("Life isn't easy without water.")
+				.SetSubTitle("Make it a bit easier by donating.")
+				.FadeOut();
+	}
 }
