@@ -496,8 +496,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -190, y: 60}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -911.019836, y: 970}
+  m_SizeDelta: {x: 350, y: 80}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &550287428
 MonoBehaviour:
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: .95588237, g: .95588237, b: .95588237, a: 1}
+  m_Color: {r: .286764681, g: .265679032, b: .265679032, a: 1}
   m_FontData:
     m_Font: {fileID: 12800000, guid: a9130d16faf5e644bab762986afce045, type: 3}
     m_FontSize: 70
@@ -519,7 +519,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
@@ -963,17 +963,17 @@ MonoBehaviour:
     serializedStrings:
       keys:
       - 'Field: Text timer'
-      - 'Field: float time'
+      - 'Field: float playTime'
       - 'Field: List<Sprite> moods'
       - 'Field: List<List<Sprite>> plates'
       values:
       - '{"$content":0,"$id":"0"}'
-      - 10
+      - 60
       - '[{"$content":1,"$id":"0"},{"$content":2},{"$content":3},{"$content":4},{"$content":5}]'
       - '[[{"$content":6,"$id":"0"},{"$content":7},{"$content":8},{"$content":9},{"$content":10}],[{"$ref":"0"},{"$content":11},{"$content":12},{"$content":13},{"$content":14}],[{"$ref":"0"},{"$content":15},{"$content":16},{"$content":17},{"$content":18}],[{"$ref":"0"},{"$content":19},{"$content":20},{"$content":21},{"$content":22}],[{"$ref":"0"},{"$content":23},{"$content":24},{"$content":25},{"$content":26}]]'
   id: 3b76ba62-6fae-4fc3-9096-f63499101a09
   timer: {fileID: 550287428}
-  time: 10
+  playTime: 60
   moods:
   - {fileID: 21300000, guid: 34661aa96b632d8488e4ff621700a9a2, type: 3}
   - {fileID: 21300000, guid: b4b345c7af0c6904b9abe610be2cf2b3, type: 3}
@@ -1745,14 +1745,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0714939237
+    y: .0497194827
     width: 1
-    height: .857012153
+    height: .900561035
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.9375
+  orthographic size: 3.93749976
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
