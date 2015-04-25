@@ -9,13 +9,14 @@ public class MenuController : MonoBehaviour {
     public Grayscale cameraGreyscale;
     public RectTransform button;
 	public RectTransform header;
-    public float delay = 1f;
     public float duration = 3f;
     public GameObject Scene;
+    public WaypointTween tween;
 
     private bool buttonReady;
     private float step;
     private Vector3 origScale;
+    private bool ready = false;
 
 	// Use this for initialization
 	void Start () {
@@ -31,22 +32,19 @@ public class MenuController : MonoBehaviour {
             foreach (var a in Scene.GetComponentsInChildren<Animator>()) a.enabled = false;
             foreach (var a in Scene.GetComponentsInChildren<ScrollTexture>()) a.enabled = false;
         }
+        tween.SubscribeToFinished(() => ready = true);
 	}
-	
-	// Update is called once per frame
-	void Update () {
-        while (delay > 0f)
-        {
-            delay -= Time.deltaTime;
-            return;
-        }
+
+    void Update()
+    {
+        if (!ready) return;
         if (cameraGreyscale.effectAmount == 0) return;
         cameraGreyscale.effectAmount -= step;
         if (cameraGreyscale.effectAmount < .2 && !buttonReady)
         {
-          	button.DOScale(origScale, 1f);
-			header.DOScale(Vector3.one, 1f);
-			//button.DOPunchScale(new Vector3(0,0,0),2f).SetDelay(2f);//.DOShakeScale(2f, 1f,10).SetDelay(.506f);
+            button.DOScale(origScale, 1f);
+            header.DOScale(Vector3.one, 1f);
+            //button.DOPunchScale(new Vector3(0,0,0),2f).SetDelay(2f);//.DOShakeScale(2f, 1f,10).SetDelay(.506f);
             Wander.pause = false;
             cameraGreyscale.effectAmount = 0f;
             if (Scene != null)
@@ -54,6 +52,7 @@ public class MenuController : MonoBehaviour {
                 foreach (var a in Scene.GetComponentsInChildren<Animator>()) a.enabled = true;
                 foreach (var a in Scene.GetComponentsInChildren<ScrollTexture>()) a.enabled = true;
             }
+            ready = false;
         }
-	}
+    }
 }
