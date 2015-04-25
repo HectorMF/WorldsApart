@@ -2816,10 +2816,10 @@ Camera:
   m_BackGroundColor: {r: 0, g: 0, b: 0, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
-    x: 0
-    y: .0645744205
-    width: 1
-    height: .870851159
+    x: .115088522
+    y: 0
+    width: .769822955
+    height: 1
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
@@ -9478,7 +9478,7 @@ RectTransform:
   m_GameObject: {fileID: 135650}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 22428232}
   m_Father: {fileID: 22479836}

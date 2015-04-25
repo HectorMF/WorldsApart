@@ -36,7 +36,11 @@ public class Thirst : MonoBehaviour {
 			Debug.Log("You've lost one " + name);
 			if (MemberCount <= 0)
 			{
-				if(this is FamilyThirst) GameObject.Find ("MainChar").SetActive(false);
+				if(this is FamilyThirst){
+					GameObject.Find ("MainChar").SetActive(false);
+					ThirdWorldManager.Instance.GameOver = true;
+				}
+
 				gameObject.SetActive(false);
 			}
 		}

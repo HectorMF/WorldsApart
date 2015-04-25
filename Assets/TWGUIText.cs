@@ -20,6 +20,6 @@ public class TWGUIText : MonoBehaviour {
 		if(gameResource == Resource.Mood)
 			text.text = ThirdWorldManager.Instance.CurrentMood + "";
 		if(gameResource == Resource.Actions)
-			text.text = ThirdWorldManager.Instance.Actions + "/" + (int)ThirdWorldManager.Instance.CurrentMood;
+			text.text = ThirdWorldManager.Instance.Actions + "/" + (int)ThirdWorldManager.Instance.TotalActions;
 	}
 }

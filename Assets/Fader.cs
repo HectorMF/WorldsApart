@@ -151,12 +151,12 @@ public class Fader : MonoBehaviour {
 					if(fadeOutAction != null)
 						fadeOutAction();
 					ResetFader();
-				});
-
+			});
 	}
 
 	public void FadeIn()
 	{
+		group.DOKill();
 		group.alpha = 1;
 		ConfigureFader();
 		group.DOFade(0, duration)
@@ -166,11 +166,12 @@ public class Fader : MonoBehaviour {
 					if(fadeInAction != null)
 				   		fadeInAction();
 				        ResetFader();
-				});
+			});
 	}
 
 	public void FadeOutIn()
 	{
+		group.DOKill();
 		group.alpha = 0;
 		ConfigureFader();
 		group.DOFade(1, duration)

@@ -1,11 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class GUIMeter : MonoBehaviour 
 {
 	public Transform pump;
 	public float speed = 0.1f;
+	public Text dirtyWaterText;
 
 	int startingWater;
 	int difficulty;
@@ -52,12 +54,9 @@ public class GUIMeter : MonoBehaviour
 			rand = Random.Range(1, 101);
 			if (rand <= chanceDirtyWater)
 			{
-				pumpRenderer.color = dirtyWater;
-				WaterGameLogic.Instance.DecrementWater(waterPumped);
-				waterPumped = 0;
+				DirtyWater();
 			}
 			else{
-				pumpRenderer.color = Color.white;
 				waterPumped += Mathf.FloorToInt(slider.value);
 				WaterGameLogic.Instance.IncrementWater(Mathf.FloorToInt(slider.value));
 			}
@@ -74,5 +73,20 @@ public class GUIMeter : MonoBehaviour
 	public int GetWaterPumped()
 	{
 		return waterPumped;
+	}
+	void DirtyWater() {
+		pumpRenderer.color = dirtyWater;
+		WaterGameLogic.Instance.DecrementWater(waterPumped);
+		waterPumped = 0;
+		dirtyWaterText.text = "Dirty Water!";
+		dirtyWaterText.color = dirtyWater;
+		dirtyWaterText.transform.DOShakePosition(1,16);
+		dirtyWaterText.DOFade(0,.5f).SetDelay(.5f).OnComplete(clearText);
+	}
+	void clearText()
+	{
+		pumpRenderer.color = Color.white;
+		dirtyWaterText.text = "";
+		dirtyWaterText.DOFade(1,0);
 	}
 }

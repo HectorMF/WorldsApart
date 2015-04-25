@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using DG.Tweening;
+using WorldsApart.Clickables;
 
 namespace WorldsApart.GUI
 {
@@ -15,10 +16,16 @@ namespace WorldsApart.GUI
         {
 			gameObject.transform.DOScale(new Vector3(0,0,0),.5f);
 			gameObject.transform.parent.transform.FindChild("Header").transform.DOScale(new Vector3(0,0,0),.5f);
-			Fader.Instance.SetTitle("1 in 9 people do not have access \nto an improved water source.")
-				.FadeOutOnComplete(()=>Application.LoadLevel("WorldsApart"))
-				.SetTitleSize(30)
-				.FadeOutIn();
+			Clickable.enabledAll = false;
+			Fader.Instance
+				.SetTitle("Day: 1")
+					.SetSubTitle("Weather: " + ThirdWorldManager.Instance.CurrentWeather)
+					.FadeOutOnComplete(()=> 
+					{
+						Application.LoadLevel("WorldsApart");
+					})
+					.FadeInOnComplete(()=>Clickable.enabledAll = true)
+					.FadeOutIn();
         }
 
 		#if UNITY_EDITOR
@@ -26,11 +33,15 @@ namespace WorldsApart.GUI
 		{
 			if(Input.GetKeyDown(KeyCode.Space))
 			{
-				gameObject.transform.DOScale(new Vector3(0,0,0),.5f);
-				gameObject.transform.parent.transform.FindChild("Header").transform.DOScale(new Vector3(0,0,0),.5f);
-				Fader.Instance.SetTitle("1 in 9 people do not have access \nto an improved water source.")
-					.FadeOutOnComplete(()=>Application.LoadLevel("WorldsApart"))
-						.SetTitleSize(30)
+				Clickable.enabledAll = false;
+				Fader.Instance
+					.SetTitle("Day: 1")
+						.SetSubTitle("Weather: " + ThirdWorldManager.Instance.CurrentWeather)
+						.FadeOutOnComplete(()=> 
+						                   {
+							Application.LoadLevel("WorldsApart");
+						})
+						.FadeInOnComplete(()=>Clickable.enabledAll = true)
 						.FadeOutIn();
 			}
 		}

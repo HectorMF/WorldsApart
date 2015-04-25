@@ -48,6 +48,7 @@ public class PumpingMinigame : MonoBehaviour {
 		case State.Finishing:
 			Fader.Instance
 				.SetTitle(string.Format("You gained {0} water!", meterScript.GetWaterPumped()))
+				.SetSubTitle("In developing countries, dirty water is a greater threat than violent conflict.")
 				.FadeOutOnComplete(()=>
 					{
 						Application.LoadLevel("Watergame");
