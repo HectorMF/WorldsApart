@@ -109,13 +109,19 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
+      - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.DeactivateHandler"},{"handler":{"counterName":"HarvestCount","amount":1,"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.IncrementCounterHandler"},"condition":{"crop":null,"$type":"WorldsApart.Conditions.HarvestableCondition"},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.ConditionalHandler"}]'
       - '[0,0,0]'
       - true
+      - true
+      - true
   id: 2958cd28-829e-4609-9dcb-2ca5bda9dd0a
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
+  relative: 1
   active: 1
 --- !u!212 &21200000
 SpriteRenderer:
@@ -141,7 +147,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c3012c1e87fdcf54f96488cf8dfe6a5e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 476975e990a287749afc52a08ab399ed, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
