@@ -11,8 +11,14 @@ public class Movement : MonoBehaviour
 	Vector3 dir;
     Vector3 prevDir = new Vector3(-999, -999, -999);
 	public float speed = 1f;
+    private AudioSource audio;
 
     private Action _notify;
+
+    void Start()
+    {
+        audio = GetComponent<AudioSource>();
+    }
 	
 	void Update () 
 	{
@@ -44,7 +50,7 @@ public class Movement : MonoBehaviour
             animHandler.Invoke();
             if(_notify != null) _notify();
             movingTarget = null;
-			GetComponent<AudioSource>().Stop();
+			if (audio != null) audio.Stop();
 		}
 	}
 
@@ -53,7 +59,7 @@ public class Movement : MonoBehaviour
 		target = targetRef;
 		target = new Vector3(target.x, target.y, target.y);
 		moving = true;
-		GetComponent<AudioSource>().Play();
+        if (audio != null) audio.Play();
 	}
 
     public void Move(Vector3 targetRef, Action notify)
@@ -67,7 +73,7 @@ public class Movement : MonoBehaviour
         movingTarget = targetRef;
 //		movingTarget = new Vector3(movingTarget.x, movingTarget.y, movingTarget.y);
         moving = true;
-        GetComponent<AudioSource>().Play();
+        if (audio != null) audio.Play();
     }
 
     public void Move(Transform targetRef, Action notify)

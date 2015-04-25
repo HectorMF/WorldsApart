@@ -193,13 +193,19 @@ MonoBehaviour:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
+      - 'Field: bool relative'
       - 'Field: bool active'
       values:
       - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"clickRequirement":5,"bounds":{"height":2.5,"width":8},"center":[0,-2.11,5],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
       - '[0,0,0]'
       - true
+      - true
+      - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
+  relative: 1
   active: 1
 --- !u!114 &11492370
 MonoBehaviour:

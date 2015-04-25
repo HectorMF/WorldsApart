@@ -12,7 +12,6 @@ GameObject:
   - 95: {fileID: 9539424}
   - 114: {fileID: 11412986}
   - 114: {fileID: 11441340}
-  - 82: {fileID: 8253352}
   - 114: {fileID: 11444018}
   - 65: {fileID: 6598436}
   - 54: {fileID: 5472784}
@@ -30,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138864}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -1.62920685e-07}
-  m_LocalPosition: {x: 6.93086672, y: -3.81261015, z: 0}
+  m_LocalPosition: {x: .528567731, y: -2.33622003, z: 0}
   m_LocalScale: {x: .300000012, y: .300000012, z: .300000012}
   m_Children: []
   m_Father: {fileID: 0}
@@ -60,77 +59,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.20000005, y: .981709361, z: 2}
-  m_Center: {x: .00799973775, y: .0290377922, z: 0}
---- !u!82 &8253352
-AudioSource:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 138864}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: e615887f2e08a41efb5a3cea6fe02e26, type: 3}
-  m_PlayOnAwake: 0
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
+  m_Size: {x: 1.93761706, y: 1.89288294, z: 2}
+  m_Center: {x: .00799973775, y: .00734488154, z: 0}
 --- !u!95 &9539424
 Animator:
   serializedVersion: 3
@@ -189,19 +119,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dbg: 0
   _serializationData:
-    serializedObjects:
-    - {fileID: 8200000, guid: 7261406592bc7be488e563cd940c47b1, type: 2}
+    serializedObjects: []
     serializedStrings:
       keys:
       - 'Field: List<Handler> Handlers'
       - 'Field: Vector3 targetOffset'
+      - 'Field: bool movePlayer'
+      - 'Field: bool relative'
       - 'Field: bool active'
       values:
-      - '[{"audio":{"$content":0},"type":"Normal","enabled":true,"$type":"WorldsApart.Handlers.PlaySoundHandler"},{"clickRequirement":2,"bounds":{"height":2.5,"width":8},"center":[0,-2.11,5],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
+      - '[{"clickRequirement":1,"bounds":{"height":2.5,"width":8},"center":[0,0,0],"type":"Normal","enabled":true,"$type":"WorldsApart.Games.CropsMinigame.ShooHandler"}]'
       - '[0,0,0]'
+      - true
+      - true
       - true
   id: 7507ba25-7dbf-4728-9a90-ce28e0f739eb
   targetOffset: {x: 0, y: 0, z: 0}
+  movePlayer: 1
+  relative: 1
   active: 1
 --- !u!212 &21257430
 SpriteRenderer:
