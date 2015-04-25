@@ -44,6 +44,7 @@ public class ThirdWorldManager
     public bool AnyWater { get { return currentWater > 0; } set { } }
 	public int TotalActions { get; set; }
 	public bool GameOver { get; set; }
+	public int DaysAlive { get { return _daysAlive; } private set {} }
 
 
     private int currentWater
