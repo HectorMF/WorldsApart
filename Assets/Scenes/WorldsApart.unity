@@ -1709,19 +1709,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.x
-      value: .10817647
-      objectReference: {fileID: 0}
-    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
-      propertyPath: m_NormalizedViewPortRect.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
+      propertyPath: m_NormalizedViewPortRect.y
+      value: .21875
+      objectReference: {fileID: 0}
+    - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.width
-      value: .78364706
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: .5625
       objectReference: {fileID: 0}
     - target: {fileID: 2058716, guid: 0b432f29769904c10a49db3265ba91a3, type: 2}
       propertyPath: orthographic size
