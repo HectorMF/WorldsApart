@@ -19,6 +19,7 @@ public class WaterBasket : MonoBehaviour {
 	
 	// Logic is located in late update so it can change stuff after the update
 	void Update () {
+		if (wgLogic != null && wgLogic.ReadyToPlay == false) return;
         try
         {
             if (!wgLogic.GameOver)

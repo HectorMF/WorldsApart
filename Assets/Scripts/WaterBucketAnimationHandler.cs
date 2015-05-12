@@ -22,6 +22,7 @@ public class WaterBucketAnimationHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(WaterGameLogic.Instance.ReadyToPlay == false) return;
         transform.rotation = wb.Camera.transform.rotation;
         Vector3 scale = transform.localScale;
         if(!flipped)

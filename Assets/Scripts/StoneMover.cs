@@ -31,6 +31,8 @@ public class StoneMover : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (WaterGameLogic.Instance.ReadyToPlay == false) return;
+
 		if(!canMove) return;
 	    if(_start!=null && _end != null)
         {

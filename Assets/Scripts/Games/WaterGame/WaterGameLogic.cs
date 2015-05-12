@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
-using UnityEngine;
 
 public class WaterGameLogic {
 
     public float water;
     private float _maxWater;
+	private bool ready = false;
     public float BucketSizeValue
     {
         get
@@ -39,6 +39,8 @@ public class WaterGameLogic {
         _maxWater = ThirdWorldManager.Instance.WaterCapacity;
         water = 0;
         distance = 10f;
+		ready = false;
+
     }
     public static WaterGameLogic Instance
     {
@@ -52,6 +54,17 @@ public class WaterGameLogic {
         }
     }
 
+	public bool ReadyToPlay
+	{
+		get 
+		{
+			return ready;
+		}
+		set 
+		{
+			ready = value;
+		}
+	}
     /// <summary>
     /// Equals to Auto Fail. The playe loses all of his/her water
     /// </summary>

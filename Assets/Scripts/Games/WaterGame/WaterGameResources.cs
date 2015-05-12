@@ -8,6 +8,8 @@ public class WaterGameResources: MonoBehaviour {
     public float bucketSize;
     public float currentWater;
     public float trippingChance;
+	public Text DistanceText;
+
     public float TravelDistanceValue
     {
         get
@@ -43,15 +45,13 @@ public class WaterGameResources: MonoBehaviour {
         }
     }
 
-    public Text DistanceText;
-
 	public void Start(){
 		//Fader.FadeToClear(Fader.Gesture.Balance,0, 2, "Carry Your Water", "Don't Spill");
         travelDistance= TravelDistanceValue;
         bucketSize = BucketSizeValue;
         currentWater = CurrentWater;
         trippingChance = TrippingChance;
-        //giving the text box to the WaterGameLogic
+        //giving the text boxes to the WaterGameLogic
         WaterGameLogic.Instance.GiveMeTheTextBox(DistanceText);
 	}
 }

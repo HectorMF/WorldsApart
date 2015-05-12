@@ -23,6 +23,7 @@ public class CameraTilt : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
+		if(WaterGameLogic.Instance.ReadyToPlay == false) return;
         float acc;
         if(Input.GetKeyDown(KeyCode.D))
             DebugMode = true;
@@ -64,6 +65,7 @@ public class CameraTilt : MonoBehaviour {
 	}
     void LateUpdate()
     {
+		if(WaterGameLogic.Instance.ReadyToPlay == false) return;
         //Debug.Log("Rotation" + a);
         //Making sure the WaterGameLogic is not between another Camera Shake move
         if (WaterGameLogic.Instance.Step == 0)
