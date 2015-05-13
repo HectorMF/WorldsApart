@@ -36,6 +36,7 @@ namespace GoofyGhost.WorldsApart
 		private BoxCollider collider;
 		private bool canMilk = true;
 
+
         public void Start()
         {
             GameObject scoreObject = GameObject.Find("ScoreController");

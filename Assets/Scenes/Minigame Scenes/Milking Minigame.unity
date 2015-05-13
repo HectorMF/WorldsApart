@@ -525,7 +525,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timer: {fileID: 1319041030}
-  time: 20
+  countDownTime: 3
+  playTime: 20
 --- !u!4 &318676801
 Transform:
   m_ObjectHideFlags: 0
@@ -917,14 +918,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0714939237
+    y: .0497194827
     width: 1
-    height: .857012153
+    height: .900561035
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.40625
+  orthographic size: 1.40624988
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1116,8 +1117,8 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -170, y: 60}
-  m_SizeDelta: {x: 300, y: 80}
+  m_AnchoredPosition: {x: -195, y: 50}
+  m_SizeDelta: {x: 350, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1319041030
 MonoBehaviour:
@@ -1139,7 +1140,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
