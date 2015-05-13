@@ -33,9 +33,12 @@ namespace WorldsApart.Games.SheeringMinigame
 
         private void Sheer()
         {
-            gameObject.GetComponent<SpriteRenderer>().enabled = false;
+			if(controller.Started)
+			{
+            	gameObject.GetComponent<SpriteRenderer>().enabled = false;
 
-            controller.registerSelected(index);
+            	controller.registerSelected(index);
+			}
         }
 
         void OnMouseOver()

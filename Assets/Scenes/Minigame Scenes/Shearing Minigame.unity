@@ -171,12 +171,12 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 12031230
+  m_Text: 
 --- !u!222 &413651993
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -200,7 +200,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -180, y: 60}
-  m_SizeDelta: {x: 300, y: 80}
+  m_SizeDelta: {x: 350, y: 90}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &812133413
 GameObject:
@@ -243,7 +243,7 @@ MonoBehaviour:
   - {fileID: 11434528, guid: 890d5655746eafb49b5f67ad17cf9c40, type: 2}
   - {fileID: 11482106, guid: eb6dc7a110329d84786831fc2a52d9a6, type: 2}
   timer: {fileID: 413651992}
-  time: 30
+  playTime: 30
 --- !u!4 &812133415
 Transform:
   m_ObjectHideFlags: 0
@@ -581,14 +581,14 @@ Camera:
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
-    y: .0714939237
+    y: .0497194827
     width: 1
-    height: .857012153
+    height: .900561035
   near clip plane: .300000012
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 1.49062502
+  orthographic size: 1.4906249
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
