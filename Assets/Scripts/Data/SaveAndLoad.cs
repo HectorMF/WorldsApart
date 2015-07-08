@@ -10,7 +10,7 @@ public class SaveAndLoad : MonoBehaviour {
     }
     void Start()
     {
-        DAL.Instance.Save(cloudSave: true);
+        DAL.Instance.Save(cloudSave: false);
     }
     void Update()
     {
