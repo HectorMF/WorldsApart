@@ -6,7 +6,6 @@ using DG.Tweening;
 public class PlayerWalking : MonoBehaviour {
     public float StepSizeAKASpeed = 1f;
     public float totalDistance = 100f;
-    private WaterGameLogic wg;
 	public Text timer;
 	public float time = 3f;
 	int minutes;
@@ -18,9 +17,8 @@ public class PlayerWalking : MonoBehaviour {
 	{
 		anim = GetComponent<Animator>();
 		anim.enabled = false;
-        wg = WaterGameLogic.Instance;
-        wg.distance = totalDistance;
-		wg.ReadyToPlay = false;
+        WaterGameLogic.Instance.distance = totalDistance;
+		WaterGameLogic.Instance.ReadyToPlay = false;
 		time = 3f;
 		minutes = (int)(time / 60);
 		seconds = (int)(time % 60);
@@ -28,12 +26,12 @@ public class PlayerWalking : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (wg.ReadyToPlay == false)
+        if (WaterGameLogic.Instance.ReadyToPlay == false)
 		{
 			UpdateTimer();
 		}
 		else
-        	wg.Walk(StepSizeAKASpeed);
+        	WaterGameLogic.Instance.Walk(StepSizeAKASpeed);
 	}
 
 	void UpdateTimer()
@@ -59,7 +57,7 @@ public class PlayerWalking : MonoBehaviour {
 				timer.DOColor(Color.green, .5f).SetLoops(2, LoopType.Yoyo);
 			}
 			else {
-				wg.ReadyToPlay = true;
+				WaterGameLogic.Instance.ReadyToPlay = true;
 				anim.enabled = true;
 				timer.text = "";
 			}

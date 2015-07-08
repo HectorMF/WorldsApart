@@ -6,7 +6,7 @@ public class WaterGameLogic {
 
     public float water;
     private float _maxWater;
-	private bool ready = false;
+
     public float BucketSizeValue
     {
         get
@@ -15,7 +15,7 @@ public class WaterGameLogic {
         }
     }
     public float currentDistance = 0f;
-    public float distance = 0f;
+    public float distance = 10f;
     public float TrippingChance = 40f;
     private Quaternion targetRotation;
 
@@ -38,8 +38,7 @@ public class WaterGameLogic {
         currentDistance = 0f;
         _maxWater = ThirdWorldManager.Instance.WaterCapacity;
         water = 0;
-        distance = 10f;
-		ready = false;
+		ReadyToPlay = false;
 
     }
     public static WaterGameLogic Instance
@@ -54,17 +53,11 @@ public class WaterGameLogic {
         }
     }
 
-	public bool ReadyToPlay
-	{
-		get 
-		{
-			return ready;
-		}
-		set 
-		{
-			ready = value;
-		}
-	}
+    public bool ReadyToPlay
+    {
+        get;
+        set;
+    }
     /// <summary>
     /// Equals to Auto Fail. The playe loses all of his/her water
     /// </summary>
@@ -98,6 +91,9 @@ public class WaterGameLogic {
 				.SetTitle("You have lost all of your water.")
 				.FadeOutOnComplete(()=>
 					{
+                        GameOver = false;
+                        ReachedDestination = false;
+                        instance = null;
 						Application.LoadLevel("WorldsApart");
 					})
 				.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
@@ -132,6 +128,10 @@ public class WaterGameLogic {
 			.SetSubTitle("Women in water-stressed regions walk on average 3.5 miles everyday to get water.")
 			.FadeOutOnComplete(()=>
 		 		{
+                    GameOver = false;
+                    ReachedDestination = false;
+                    //HACK Resetting the instance!
+                    instance = null;
 					Application.LoadLevel("WorldsApart");
 				})
 			.FadeInOnComplete(()=>ThirdWorldManager.Instance.UsedAction())
@@ -166,10 +166,15 @@ public class WaterGameLogic {
         Screen.autorotateToLandscapeLeft = true;
         Screen.autorotateToLandscapeRight = true;
 
+       
         if(won)
         {
             ThirdWorldManager.Instance.IncrementWater((int)water);
         }
+        //Resetting Variables
+        ReadyToPlay = false;
+        water = 0f;
+        currentDistance = 0f;
     }
 
     public void GiveMeTheTextBox(Text textBox)
